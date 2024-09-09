@@ -327,7 +327,11 @@ Es el tipo de feature que sea, a que pantalla o que funcionalidad mas grande per
 
 ### Desc
 
-La descripción de la rama
+La descripción de la ramas
+
+<img src="./Branch Model App Web.jpg"></img>
+
+Grafico del modelo de las ramas
 
 # Technologies and Libraries
 
