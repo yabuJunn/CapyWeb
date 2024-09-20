@@ -1,0 +1,18 @@
+.ButtonAdd {
+    width: 286px;
+    height: 49px;
+    color: white;
+    background-color: #2D18BF;
+    border-radius: 12px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border: none; 
+    font-size: 16px; 
+    cursor: pointer; 
+}
+
+.ButtonAdd h2 {
+    margin: 0; 
+    font-size: 16px;
+}

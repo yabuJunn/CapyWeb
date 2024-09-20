@@ -1,0 +1,21 @@
+.card {
+    display: inline-block; 
+    padding: 0;
+    margin: auto;
+    position: relative;
+  }
+  
+  .capyCard {
+    width: 100%; 
+    height: auto;
+  }
+  
+  .moveButton {
+    position: absolute;
+    top: 20px;    
+    right: 16px; 
+    width: 17.79px; 
+    height: 13;
+    cursor: pointer;
+  }
+  

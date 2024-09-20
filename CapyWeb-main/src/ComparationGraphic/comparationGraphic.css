@@ -1,0 +1,51 @@
+.comparation {
+    background-color:#181818;
+    height: 285px; 
+    width: 574px; 
+    color: white;
+    border-radius: 16px;
+    position: relative;
+    padding: 16px;
+}
+
+.comparation p {
+    font-size: 16px;
+    margin-left: 16px;
+    margin-top: 38px; 
+}
+
+.select-container {
+    display: flex; 
+    align-items: center; 
+    margin-top: 16px; 
+    font-size: 2px;
+    
+
+}
+
+.select-container select {
+    background-color:#2D18BF;
+    color: white;
+    font-size: 12px;
+    width: 103px;
+    height: 30px;
+    border-radius: 6.47px;
+    border: none;
+    margin-right: 270px; 
+    margin-left: 15px; 
+
+    padding: 6px;
+}
+
+.select-container .I&E {
+    width: 40px;
+    height: 40px;
+}
+
+.MoveButton {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 16px;
+    height: 16px;
+}

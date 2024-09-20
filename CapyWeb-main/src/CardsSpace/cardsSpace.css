@@ -1,0 +1,34 @@
+.cardSpace {
+    width: 316px;
+    height: auto; 
+    background-color: #181818; 
+    border-radius: 16px;
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 16px; 
+    box-sizing: border-box;
+}
+
+.MoveButton {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+h2 {
+    color: white;
+    margin-top: 30px; 
+    margin-bottom: 35px; 
+}
+
+.Card {
+    margin-bottom: 35px; 
+}
+
+.AddCard {
+    margin-top: 16px; 
+}

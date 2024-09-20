@@ -1,0 +1,41 @@
+.balance {
+    background-color: #2D18BF;
+    height: 266px;
+    width: 378.61px;
+    color: white;
+    border-radius: 16px;
+    position: relative; 
+    padding: 16px;
+}
+
+.balance h3:first-of-type {
+    text-align: left;
+    margin-left: 16px;
+    margin-top: 38px; 
+}
+
+.balance h1 {
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 60px;
+}
+
+.balance h3:last-of-type {
+    text-align: left;
+    margin-left: 16px;
+}
+
+.MoveButton {
+    position: absolute;
+    top: 16px;
+    right: 40px;
+    width: 16px;
+    height: 16px;
+}
+
+.Dollar {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 40px; 
+}
