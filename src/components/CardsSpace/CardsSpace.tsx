@@ -1,6 +1,6 @@
 import './cardsSpace.css';
-import Card from "../Card/Card.jsx";
-import AddCard from "../AddCard/AddCard.jsx";
+import Card from "../Card/Card.js";
+import AddCard from "../AddCard/AddCard.js";
 
 function CardsSpace({ headerTitle }) {
   return (

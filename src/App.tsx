@@ -1,28 +1,31 @@
 import './App.css';
 
+//Import Components
+
 import { Balance } from './components/TotalBalance/Balance';
+import Income from './components/Income/Income';
+import Expenses from './components/Expenses/Expenses';
+import Capy from './components/Capy/Capy';
+import CardsSpace from './components/CardsSpace/CardsSpace';
+import Nav from './components/Nav/Nav';
+import Comparation from './components/ComparationGraphic/ComparationGraphic';
+import Savings from './components/Savings/Savings';
+import Level from './components/Level/Level';
+import Missions from './components/Missions/Missions';
 
-// import Income from "./components/Income/Income.jsx";
-// import Expenses from "./components/Expenses/Expenses.jsx";
-// import Capy from "./components/Capy/Capy.jsx";
-// import CardsSpace from "./components/CardsSpace/CardsSpace.jsx";
-// import Nav from "./components/Nav/Nav.jsx";
-// import Comparation from "./components/ComparationGraphic/ComparationGraphic.jsx";
-// import Savings from "./components/Savings/Savings.jsx";
-// import Level from "./components/Level/Level.jsx"
-// import Missions from "./components/Missions/Missions.jsx"
-// import LogIn from "./components/LogIn/LogIn.jsx"
-// import Register from "./pages/Register/Register.jsx"
+//Import Pages
 
+import LogIn from './pages/LogIn/LogIn';
+import Register from './pages/Register/Register';
 
 function App({ dashboardTitle, name }) {
   return (
     <>
-      <div id="background"></div> 
+      <div id="background"></div>
       <div>
         <h1>{dashboardTitle}</h1>
         <h2>{name}</h2>
-        {/* <LogIn />
+        <LogIn />
         <Register />
         <Balance />
         <Income />
@@ -33,7 +36,7 @@ function App({ dashboardTitle, name }) {
         <Nav />
         <Savings />
         <Level />
-        <Missions /> */}
+        <Missions />
       </div>
     </>
   );
