@@ -21,11 +21,11 @@ function LogIn() {
 
   return (
     <div className='LogIn'>
-      <h1>LogIn</h1>
+      <h1>Iniciar sesión</h1>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
-      <h3>Correo electronico</h3> 
+      <h3>Correo electrónico</h3> 
       <input 
         type='email'  
         placeholder='Correo'
@@ -44,7 +44,7 @@ function LogIn() {
       <h3>No recuerdas tu contraseña</h3> 
       <button onClick={handleLogin}>Aceptar</button> 
 
-      <h3>¿No tienes una cuenta? <button>Registrarme ahora</button></h3> 
+      <h3>¿No tienes una cuenta? <a>Registrarme ahora</a></h3> 
     </div>
   );
 }
