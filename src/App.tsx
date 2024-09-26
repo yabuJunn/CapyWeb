@@ -17,27 +17,12 @@ import Missions from './components/Missions/Missions';
 
 import LogIn from './pages/LogIn/LogIn';
 import Register from './pages/Register/Register';
+import { Dashboard } from './pages/Dashboard/Dashboard';
 
-function App({ dashboardTitle, name }) {
+function App() {
   return (
     <>
-      <div id="background"></div>
-      <div>
-        <h1>{dashboardTitle}</h1>
-        <h2>{name}</h2>
-        <LogIn />
-        <Register />
-        <Balance />
-        <Income />
-        <Expenses />
-        <Capy />
-        <CardsSpace />
-        <Comparation />
-        <Nav />
-        <Savings />
-        <Level />
-        <Missions />
-      </div>
+      <Dashboard></Dashboard> 
     </>
   );
 }
