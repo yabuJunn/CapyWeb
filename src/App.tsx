@@ -11,13 +11,13 @@ import LogIn from './pages/LogIn/LogIn';
 function App({ dashboardTitle, name }) {
   return (
     <>
-      {/* <div id="background"></div>
+      <div id="background"></div>
       <div>
         <h1>{dashboardTitle}</h1>
-        <h2>{name}</h2> */}
+        <h2>{name}</h2>
         <LogIn/>
         
-      {/* </div> */}
+      </div>
     </>
   );
 }

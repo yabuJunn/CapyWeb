@@ -44,7 +44,7 @@ function CardLogIn() {
       <a>No recuerdas tu contraseña</a> 
       <button onClick={handleLogin}>Aceptar</button> 
 
-      <h3>¿No tienes una cuenta? <a>Registrarme ahora</a></h3> 
+      <h3 id="Cuenta">¿No tienes una cuenta? <a>Registrarme ahora</a></h3> 
     </div>
   );
 }

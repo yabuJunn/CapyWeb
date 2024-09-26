@@ -9,7 +9,8 @@
   background-position: center; /* Centra la imagen en la pantalla */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   z-index: -1; /* Mantiene la imagen detrás del contenido */
-  background: linear-gradient(135deg, #0b0d1b, #0b0d1b 70%, #2a2d54);
+  background-image: url(/src/assets/svg/fondo.svg);
+  background-size: 115% 150%;
 }
 
 
