@@ -21,14 +21,14 @@ export const InteractiveGrid = () => {
             <div className="grid-stack-item" gs-h="1" gs-w="3">
                 Ingresos Totales
             </div>
-            <div className="grid-stack-item" gs-h="1" gs-w="3">
-                Gastos Totales
-            </div>
             <div className="grid-stack-item" gs-h="2" gs-w="2">
                 Capy
             </div>
             <div className="grid-stack-item" gs-h="6" gs-w="3">
                 Tarjetas
+            </div>
+            <div className="grid-stack-item" gs-h="1" gs-w="3">
+                Gastos Totales
             </div>
             <div className="grid-stack-item" gs-h="2" gs-w="5">
                 Resumen Gastos e Ingresos
