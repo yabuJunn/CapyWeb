@@ -1,22 +1,16 @@
-import './LogIn.css';
+import './LogIn.css'
+import CardLogIn from "../../components/CardLogIn/CardLogIn";
+import vectorLogIn from "../../assets/svg/vectorLogIn.svg"
+import Logo from "../../assets/svg/Logo.svg"
 
-function LogIn() {
+export const LogIn = () => {
   return (
-    <>
-
-      <div className='LogIn'>
-        <h1>LogIn</h1>
-        <h3>Correo electronico</h3>
-        <input type='email' placeholder='Correo' />
-        <h3>Contraseña</h3>
-        <input type='password' placeholder='Contraseña' />
-        <h3>No recuerdas tu contraseña</h3>
-        <button>Aceptar</button>
-        <h3>¿No tienes una cuenta? <button>Registrarme ahora</button></h3>
+    <div className='page'>
+      <img id="Logo" src={Logo} alt="" />
+      <img id="LogIn" src={vectorLogIn} alt="" />
+      <div className="Card">
+        <CardLogIn />
       </div>
-
-    </>
+    </div>
   );
 }
-
-export default LogIn;

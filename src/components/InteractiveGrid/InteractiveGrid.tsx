@@ -4,7 +4,7 @@ import { GridStack } from 'gridstack';
 import { useEffect } from 'react';
 
 //Import components
-import { Balance } from '../../components/TotalBalance/Balance'
+//import { Balance } from '../../components/TotalBalance/Balance'
 
 export const InteractiveGrid = () => {
     useEffect(() => {
