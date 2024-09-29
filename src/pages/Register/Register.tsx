@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../services/Firebase/Firebase";
-
-import './Register.css';  
+import { useNavigate } from "react-router-dom";
+import './Register.css';
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -11,10 +11,11 @@ function Register() {
   const [username, setUsername] = useState("");
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    
+
     if (!acceptTerms) {
       setError("Debes aceptar los términos y condiciones.");
       return;
@@ -25,14 +26,14 @@ function Register() {
       return;
     }
 
-    setError(""); 
-    
+    setError("");
+
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       console.log("Usuario registrado:", userCredential.user);
-    } 
-    catch (err) {
-      setError(err.message);  
+      navigate("/dashboard"); //PARA REDIRIGIR
+    } catch (err) {
+      setError("Error al registrarse: " + err.message);
     }
   };
 
