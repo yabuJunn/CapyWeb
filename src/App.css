@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw; /* 100% del ancho de la ventana */
   height: 100vh; /* 100% de la altura de la ventana */
-  background-image: url('../src/assets/DashboardScreen.svg');
+  background-image: url('../src/assets/svg/DashboardScreen.svg');
   background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
   background-position: center; /* Centra la imagen en la pantalla */
   background-repeat: no-repeat; /* Evita que la imagen se repita */

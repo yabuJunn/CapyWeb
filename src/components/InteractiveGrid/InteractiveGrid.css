@@ -1,0 +1,9 @@
+#gridContainer {
+    border: 1px white solid;
+    width: 100%;
+}
+
+.grid-stack-item {
+    background-color: white;
+    border: 1px black solid;
+}
