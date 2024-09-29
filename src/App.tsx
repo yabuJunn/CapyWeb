@@ -17,26 +17,17 @@ import Missions from './components/Missions/Missions';
 
 import LogIn from './pages/LogIn/LogIn';
 import Register from './pages/Register/Register';
+import { getUser } from './services/Firebase/FirestoreUsers';
 
-function App({ dashboardTitle, name }) {
+function App() {
+  getUser("RzXbeWvSDK4jl6zGq5yK")
+
   return (
     <>
       <div id="background"></div>
       <div>
-        <h1>{dashboardTitle}</h1>
-        <h2>{name}</h2>
-        <LogIn />
-        <Register />
-        <Balance />
-        <Income />
-        <Expenses />
-        <Capy />
-        <CardsSpace />
-        <Comparation />
-        <Nav />
-        <Savings />
-        <Level />
-        <Missions />
+        <h1>dashboardTitle</h1>
+        <h2>name</h2>
       </div>
     </>
   );
