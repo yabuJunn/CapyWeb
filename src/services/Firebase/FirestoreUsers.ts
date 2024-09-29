@@ -1,16 +1,15 @@
-import firebase from "firebase/compat/app";
 // Required for side-effects
 import "firebase/firestore";
 
-import { doc, getDoc, getFirestore } from "firebase/firestore";
+import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 import { app } from "./Firebase";
 
 
 const db = getFirestore(app);
 
-export const getUser = async (userId: string) => {
+export const getUser = async (userUID: string) => {
     console.log("Prueba getUser")
-    const docRef = doc(db, "users", userId);
+    const docRef = doc(db, "users", userUID);
     const docSnap = await getDoc(docRef);
 
     console.log(docSnap)
@@ -18,7 +17,27 @@ export const getUser = async (userId: string) => {
     if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
     } else {
-        // docSnap.data() will be undefined in this case
         console.log("No such document!");
     }
+}
+
+export const createUser = async (userUIDForm: string, nameForm: string, surNameForm: string, emailForm: string) => {
+    await setDoc(doc(db, "users", userUIDForm), {
+        name: nameForm,
+        surName: surNameForm,
+        email: emailForm,
+        userUID: userUIDForm,
+        totalBalance: 0,
+        totalExpenses: 0,
+        totalIncome: 0,
+        savings: 0,
+        playerLevel: {
+            playerLevelName: "Novice",
+            playerExp: 0,
+            expToNextLevel: 100
+        },
+        expenses: {},
+        income: {},
+        cards: {}
+    });
 }

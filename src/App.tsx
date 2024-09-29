@@ -17,10 +17,12 @@ import Missions from './components/Missions/Missions';
 
 import LogIn from './pages/LogIn/LogIn';
 import Register from './pages/Register/Register';
-import { getUser } from './services/Firebase/FirestoreUsers';
+import { createUser, getUser } from './services/Firebase/FirestoreUsers';
 
 function App() {
-  getUser("RzXbeWvSDK4jl6zGq5yK")
+  //getUser("RzXbeWvSDK4jl6zGq5yK")
+
+  //createUser("xiaelmejordios1234", "prueba", "reyes", "prueba@gmail.com")
 
   return (
     <>
