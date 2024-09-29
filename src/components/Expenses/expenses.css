@@ -1,11 +1,10 @@
 .expenses {
     background-color:#CCFC56;
-    height: 128px;
-    width: 253px;
+    height: 100%;
+    width: 100%;
     color: white;
     border-radius: 16px;
     position: relative; 
-    padding: 16px;
 }
 
 .expenses h2:first-of-type {

@@ -1,11 +1,10 @@
 .missions {
-    width: 302px; 
-    height: 240px; 
+    width: 100%; 
+    height: 100%; 
     border-radius: 16px;
     color: white;
     background-color: #181818;
     position: relative; 
-    padding: 16px; 
     box-sizing: border-box;
     display: flex; 
     flex-direction: column; 

@@ -1,14 +1,16 @@
 import './level.css';
 
-function Level() {
+//Imagenes importadas
+import MoveButton from '../../assets/svg/MoveButton.svg'
+
+export const Level = () => {
   return (
     <>
       <div className='level'> 
-        <img className="MoveButton" src="../src/assets/MoveButton.svg" alt="MoveButton" />
-        <p>Nivel de ahorrador</p>
+      <img className="MoveButton" src={MoveButton} alt="MoveButton" />
+      <p>Nivel de ahorrador</p>
       </div>
     </>
   );
 }
 
-export default Level;

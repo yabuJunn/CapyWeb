@@ -1,13 +1,17 @@
 import './cardsSpace.css';
-import Card from "../Card/Card.js";
-import AddCard from "../AddCard/AddCard.js";
+import AddCard from "../AddCard/AddCard";
+import { Card } from '../Card/Card';
 
-function CardsSpace({ headerTitle }) {
+//Imagenes importadas
+import MoveButton from '../../assets/svg/MoveButton.svg'
+
+export const CardsSpace = () =>{
   return (
     <>
       <div className='cardSpace'>
-        <img className="MoveButton" src="../src/assets/MoveButton.svg" alt="MoveButton" />
+      <img className="MoveButton" src={MoveButton} alt="MoveButton" />
         <h2>Tus tarjetas</h2> 
+        <Card /> 
         <Card /> 
         <AddCard /> 
       </div>
@@ -15,4 +19,3 @@ function CardsSpace({ headerTitle }) {
   );
 }
 
-export default CardsSpace;

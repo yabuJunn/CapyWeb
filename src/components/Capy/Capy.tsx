@@ -1,12 +1,16 @@
 import "./capy.css";
 
-function Capy() {
+//Imagenes importadas
+import MoveButton from '../../assets/svg/MoveButton.svg'
+import CapyCard from '../../assets/svg/CapyCard.svg'
+
+
+export const Capy = () =>{
   return (
     <div className='card'>
-      <img className="capyCard" src="../src/assets/CapyCard.svg" alt="Capy Card" />
-      <img className="moveButton" src="../src/assets/MoveButton.svg" alt="Move Button" />
+      <img className="CapyCard" src={CapyCard} alt="CapyCard" />
+      <img className="MoveButton" src={MoveButton} alt="MoveButton" />
     </div>
   );
 }
 
-export default Capy;

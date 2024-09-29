@@ -1,6 +1,6 @@
 import './card.css';
 
-function Card({ amount, cardLogo, subtitle, cardNumber }) {
+export const Card = () =>{
   return (
     <div className='card'>
       <div className='top-row'>
@@ -12,5 +12,3 @@ function Card({ amount, cardLogo, subtitle, cardNumber }) {
     </div>
   );
 }
-
-export default Card;

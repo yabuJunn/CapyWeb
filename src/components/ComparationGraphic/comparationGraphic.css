@@ -1,11 +1,10 @@
 .comparation {
     background-color:#181818;
-    height: 285px; 
-    width: 574px; 
+    height: 100%; 
+    width: 100%; 
     color: white;
     border-radius: 16px;
     position: relative;
-    padding: 16px;
 }
 
 .comparation p {
