@@ -61,7 +61,7 @@ function CardRegister() {
       <h3>Contraseña</h3>
       <input 
         type="password" 
-        placeholder="Password" 
+        placeholder="Contraseña" 
         value={password} 
         onChange={(e) => setPassword(e.target.value)}
       />
@@ -69,21 +69,21 @@ function CardRegister() {
       <h3>Confirma contraseña</h3>
       <input 
         type="password" 
-        placeholder="Confirm Password" 
+        placeholder="Confirmar Contraseña" 
         value={confirmPassword} 
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
 
-      <div>
+      <div id="terminos">
         <input 
           type="checkbox" 
           checked={acceptTerms} 
           onChange={() => setAcceptTerms(!acceptTerms)} 
         />
-        <label>Acepto los términos y condiciones</label>
+        <h3 id="Check">Acepto los <a href="">Términos</a> y <a href="">Condiciones</a></h3>
       </div>
 
-      <h3>No recuerdas tu contraseña</h3>
+      <h3 id="CrearCuenta">Ya tienes cuenta? <a href="">Iniciar Sesión</a></h3>
       <button onClick={handleRegister}>Aceptar</button>
     </div>
   );

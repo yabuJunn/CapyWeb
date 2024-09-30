@@ -1,5 +1,6 @@
 import './App.css';
-import LogIn from './pages/LogIn/LogIn';
+//import LogIn from './pages/LogIn/LogIn';
+import Register from './pages/Register/Register';
 
 //Import Components
 
@@ -15,7 +16,7 @@ function App({ dashboardTitle, name }) {
       <div>
         <h1>{dashboardTitle}</h1>
         <h2>{name}</h2>
-        <LogIn/>
+        <Register/>
         
       </div>
     </>
