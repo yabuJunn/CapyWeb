@@ -75,7 +75,7 @@ function CardRegister() {
       />
 
       <div id="terminos">
-        <input 
+        <input id="box" 
           type="checkbox" 
           checked={acceptTerms} 
           onChange={() => setAcceptTerms(!acceptTerms)} 
@@ -83,8 +83,8 @@ function CardRegister() {
         <h3 id="Check">Acepto los <a href="">Términos</a> y <a href="">Condiciones</a></h3>
       </div>
 
-      <h3 id="CrearCuenta">Ya tienes cuenta? <a href="">Iniciar Sesión</a></h3>
       <button onClick={handleRegister}>Aceptar</button>
+      <h3 id="CrearCuenta">Ya tienes cuenta? <a href="">Iniciar Sesión</a></h3>
     </div>
   );
 }
