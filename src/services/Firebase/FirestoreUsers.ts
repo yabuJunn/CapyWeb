@@ -15,16 +15,16 @@ export const getUser = async (userUID: string) => {
     console.log(docSnap)
 
     if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
+        //console.log("Document data:", docSnap.data());
+        return docSnap.data()
     } else {
         console.log("No such document!");
     }
 }
 
-export const createUser = async (userUIDForm: string, nameForm: string, surNameForm: string, emailForm: string) => {
+export const createUser = async (userUIDForm: string, nameForm: string, emailForm: string) => {
     await setDoc(doc(db, "users", userUIDForm), {
         name: nameForm,
-        surName: surNameForm,
         email: emailForm,
         userUID: userUIDForm,
         totalBalance: 0,
@@ -40,4 +40,8 @@ export const createUser = async (userUIDForm: string, nameForm: string, surNameF
         income: {},
         cards: {}
     });
+
+    const docRef = doc(db, "users", userUIDForm);
+    const data = await getDoc(docRef);
+    return data.data()
 }
