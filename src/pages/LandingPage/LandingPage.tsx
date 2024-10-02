@@ -12,7 +12,6 @@ export const LandingPage = () => {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur arcu libero, vel condimentum neque aliquam vitae. Duis a imperdiet eros. Pellentesque id ante ac velit porta hendrerit vel vel erat. Mauris sit amet lacus tortor.</p>
                 <LandingFirstSectionButtons></LandingFirstSectionButtons>
             </section>
-            <h1>Landing Page</h1>
 
             <div id='background'>
 

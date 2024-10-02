@@ -27,6 +27,24 @@
         justify-content: flex-start;
     }
 
+    #firstSection h1 {
+        font-size: 90px;
+        color: white;
+        text-align: center;
+        font-family: 'Space Grotesk';
+        margin-top: 70px;
+        width: 70%;
+    }
+
+    #firstSection p {
+        font-size: 18px;
+        color: #E1E1E1;
+        text-align: center;
+        font-family: 'Space Grotesk';
+        margin-top: 55px;
+        width: 70%;
+    }
+
     #background {
         position: fixed;
         /* Para que ocupe toda la pantalla y se mantenga fija al hacer scroll */
