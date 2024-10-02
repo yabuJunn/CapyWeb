@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'Plus Jakarta';
+    src: url('../../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+    #LoginRegisterButtonsContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 10%;
+    }
+
+    #createAccountButton {
+        height: 100%;
+        font-family: 'Plus Jakarta';
+        border: none;
+        color: #121212;
+        background-color: #CCFC56;
+        font-weight: 500;
+        font-size: 18px;
+        padding: 0 20px 0 20px;
+        border-radius: 12px;
+    }
+
+    #logInButton {
+        height: 100%;
+        font-family: 'Plus Jakarta';
+        border: none;
+        color: #2D18BF;
+        background-color: #F9F9F9;
+        font-weight: 500;
+        font-size: 18px;
+        padding: 0 20px 0 20px;
+        border-radius: 12px;
+        margin-left: 30px;
+    }
+}
