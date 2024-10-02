@@ -4,6 +4,7 @@ import './LandingPage.css'
 
 import { NavLanding } from '../../components/NavLanding/NavLanding'
 import { LandingFirstSectionButtons } from '../../components/LandingFirstSectionButtons/LandingFirstSectionButtons'
+import { UniqueFeatureCard } from '../../components/uniqueFeatureCard/uniqueFeatureCard'
 
 //Import images
 
@@ -16,6 +17,9 @@ import logoVisa from '../../assets/svg/logo/logoVisa.svg'
 import logoBBVA from '../../assets/svg/logo/logoBBVA.svg'
 import logoFalabella from '../../assets/svg/logo/logoFalabella.svg'
 import logoNu from '../../assets/svg/logo/logoNu.svg'
+
+import globalBlackIcon from '../../assets/svg/icons/globeBlackIcon.svg'
+import fireWhiteIcon from '../../assets/svg/icons/fireWhiteIcon.svg'
 
 export const LandingPage = () => {
     return <>
@@ -103,6 +107,56 @@ export const LandingPage = () => {
                     <div className="itemLeft item7">
                         <img src={logoVisa} alt="" />
                     </div>
+                </div>
+            </section>
+
+            <section id='fourthSection'>
+                <h2>Unique features</h2>
+                <p id='subTitle'>Supported by a network of early advocates, contributors, and champions.</p>
+                <div className='featuresRow'>
+                    <UniqueFeatureCard
+                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur arcu libero, vel condimentum neque aliquam vitae. Duis a imperdiet eros.'}
+                        image={globalBlackIcon}
+                        colorBackgrounIcon={'#A8F25D'}>
+
+                    </UniqueFeatureCard>
+
+                    <UniqueFeatureCard
+                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur arcu libero, vel condimentum neque aliquam vitae. Duis a imperdiet eros.'}
+                        image={fireWhiteIcon}
+                        colorBackgrounIcon={'#2D18BF'}>
+
+                    </UniqueFeatureCard>
+
+                    <UniqueFeatureCard
+                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur arcu libero, vel condimentum neque aliquam vitae. Duis a imperdiet eros.'}
+                        image={globalBlackIcon}
+                        colorBackgrounIcon={'#A8F25D'}>
+
+                    </UniqueFeatureCard>
+                </div>
+
+                <div className='featuresRow'>
+                    <UniqueFeatureCard
+                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur arcu libero, vel condimentum neque aliquam vitae. Duis a imperdiet eros.'}
+                        image={globalBlackIcon}
+                        colorBackgrounIcon={'#A8F25D'}>
+
+                    </UniqueFeatureCard>
+
+                    <UniqueFeatureCard
+                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur arcu libero, vel condimentum neque aliquam vitae. Duis a imperdiet eros.'}
+                        image={fireWhiteIcon}
+                        colorBackgrounIcon={'#2D18BF'}>
+
+                    </UniqueFeatureCard>
+
+                    <UniqueFeatureCard
+                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur arcu libero, vel condimentum neque aliquam vitae. Duis a imperdiet eros.'}
+                        image={globalBlackIcon}
+                        colorBackgrounIcon={'#A8F25D'}>
+
+                    </UniqueFeatureCard>
                 </div>
             </section>
 

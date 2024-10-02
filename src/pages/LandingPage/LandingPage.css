@@ -145,13 +145,40 @@
         animation-delay: calc(20s / 5 * (7 - 6.6) * -1);
     }
 
-    /* End third section */
-
     #thirdSection h2 {
         color: white;
         font-family: 'Space Grotesk';
         font-size: 40px;
     }
+
+    /* End third section */
+
+    /* Fourth Section */
+
+    #fourthSection h2 {
+        color: white;
+        font-family: 'Space Grotesk';
+        font-size: 40px;
+
+        margin-bottom: 15px;
+    }
+
+    #fourthSection #subTitle {
+        color: white;
+        font-family: 'Space Grotesk';
+        margin-bottom: 40px;
+        font-size: 22px;
+    }
+
+    .featuresRow {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Fourth Section ends */
 
     #background {
         position: fixed;
