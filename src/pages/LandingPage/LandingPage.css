@@ -32,7 +32,7 @@
         color: white;
         text-align: center;
         font-family: 'Space Grotesk';
-        margin-top: 70px;
+        margin-top: 60px;
         width: 70%;
     }
 
@@ -43,6 +43,22 @@
         font-family: 'Space Grotesk';
         margin-top: 55px;
         width: 70%;
+    }
+
+    #arrowDownWhite {
+        height: 5%;
+        margin-top: 40px;
+        border: 2px solid white;
+        border-radius: 100px;
+    }
+
+    #secondSection {
+        margin-top: 40px;
+    }
+
+    #secondSection img {
+        width: 80%;
+        
     }
 
     #background {
