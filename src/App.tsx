@@ -18,11 +18,13 @@ import Missions from './components/Missions/Missions';
 import LogIn from './pages/LogIn/LogIn';
 import Register from './pages/Register/Register';
 import { Dashboard } from './pages/Dashboard/Dashboard';
+import { LandingPage } from './pages/LandingPage/LandingPage';
 
 function App() {
   return (
     <>
-      <Dashboard></Dashboard> 
+      
+      <LandingPage></LandingPage>
     </>
   );
 }
