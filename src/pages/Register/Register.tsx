@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../services/Firebase/Firebase";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './Register.css';
 import { createUser } from "../../services/Firebase/FirestoreUsers";
+import { doCreateUserWithEmailAndPassword, doGoogleSignIn } from "../../services/Firebase/auth";
 
-function Register() {
+export const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -14,8 +13,9 @@ function Register() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
+  //Registro con email y contra
+
+  const handleRegister = async () => {
 
     if (!acceptTerms) {
       setError("Debes aceptar los términos y condiciones.");
@@ -30,14 +30,27 @@ function Register() {
     setError("");
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await doCreateUserWithEmailAndPassword(email, password);
       const userData = await createUser(userCredential.user.uid, username, email)
 
       sessionStorage.setItem('userData', JSON.stringify({ auth: userCredential, data: userData }))
+      navigate("/dashboard"); //PARA REDIRIGIR
+    }
+    catch (err) {
+      console.log(err)
+    }
+  };
 
+  //Registro con Google
+  const handleGoogleRegister = async () => {
+    try {
+      const result = await doGoogleSignIn();
+      const userData = await createUser(result.user.uid, username, email)
+
+      sessionStorage.setItem('userData', JSON.stringify({ auth: result.user, data: userData }))
       navigate("/dashboard"); //PARA REDIRIGIR
     } catch (err) {
-      setError("Error al registrarse: " + err.message);
+      console.log(err)
     }
   };
 
@@ -90,8 +103,7 @@ function Register() {
 
       <h3>No recuerdas tu contraseña</h3>
       <button onClick={handleRegister}>Aceptar</button>
+      <button onClick={handleGoogleRegister}>Registrarse con Google</button>
     </div>
   );
 }
-
-export default Register;
