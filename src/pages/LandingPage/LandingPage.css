@@ -58,7 +58,99 @@
 
     #secondSection img {
         width: 80%;
-        
+    }
+
+    /* Third Section  */
+
+    #thirdSection h2 {
+        margin-bottom: 50px;
+    }
+
+    .wrapper {
+        margin-top: 1rem;
+        width: 90%;
+        max-width: 1536px;
+        margin-inline: auto;
+        height: 100px;
+        position: relative;
+        overflow: hidden;
+        mask-image: linear-gradient(to right,
+                rgba(0, 0, 0, 0),
+                rgba(0, 0, 0, 1) 20%,
+                rgba(0, 0, 0, 1) 80%,
+                rgba(0, 0, 0, 0));
+    }
+
+    @keyframes scrollLeft {
+        to {
+            left: -100px;
+        }
+    }
+
+    @keyframes scrollRight {
+        to {
+            right: -50px;
+        }
+    }
+
+    .itemLeft,
+    .itemRight {
+        height: 100px;
+        border-radius: 6px;
+        position: absolute;
+        animation-timing-function: linear;
+        animation-duration: 30s;
+        animation-iteration-count: infinite;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .itemLeft {
+        left: max(calc(200px * 5), 100%);
+        animation-name: scrollLeft;
+    }
+
+    .itemRight {
+        right: max(calc(200px * 5), calc(100% + 200px));
+        animation-name: scrollRight;
+    }
+
+    .item1 {
+        animation-delay: calc(20s / 5 * (7 - 0) * -1);
+    }
+
+    .item2 {
+        animation-delay: calc(20s / 5 * (7 - 2) * -1);
+    }
+
+    .item3 {
+        animation-delay: calc(20s / 5 * (7 - 3) * -1);
+    }
+
+    .item4 {
+        animation-delay: calc(20s / 5 * (7 - 4) * -1);
+    }
+
+    .item5 {
+        animation-delay: calc(20s / 5 * (7 - 5) * -1);
+    }
+
+    .item6 {
+        animation-delay: calc(20s / 5 * (7 - 6) * -1);
+    }
+
+    .item7 {
+        animation-delay: calc(20s / 5 * (7 - 6.6) * -1);
+    }
+
+    /* End third section */
+
+    #thirdSection h2 {
+        color: white;
+        font-family: 'Space Grotesk';
+        font-size: 40px;
     }
 
     #background {
