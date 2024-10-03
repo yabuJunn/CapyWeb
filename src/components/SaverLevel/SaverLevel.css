@@ -1,14 +1,16 @@
-.level {
+.SaverLevelContainer {
     width: 100%; 
     height: 100%; 
     border-radius: 16px;
     color: white;
     background-color: #181818; 
-    position: relative; 
-    box-sizing: border-box;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.level p {
+.SaverLevelContainer p {
     font-size: 16px;
     margin-left: 16px; 
     line-height: 5;
