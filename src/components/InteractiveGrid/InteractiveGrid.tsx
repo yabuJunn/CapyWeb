@@ -6,13 +6,13 @@ import { useEffect } from "react";
 //Import components
 import { Balance } from "../../components/TotalBalance/Balance";
 import { Income } from "../../components/Income/Income";
-import { Capy } from "../../components/Capy/Capy";
 import { CardsSpace } from "../../components/CardsSpace/CardsSpace";
 import { Expenses } from "../Expenses/Expenses";
-import { Comparation } from "../ComparationGraphic/ComparationGraphic";
+import { ComparationGraphic } from "../ComparationGraphic/ComparationGraphic";
 import { Savings } from "../Savings/Savings";
 import { Level } from "../Level/Level";
 import { Missions } from "../Missions/Missions";
+import { Capy } from "../Capy/Capy";
 
 export const InteractiveGrid = () => {
   useEffect(() => {
@@ -32,22 +32,22 @@ export const InteractiveGrid = () => {
         <div className="grid-stack-item" gs-h="2" gs-w="2">
           <Capy></Capy>
         </div>
-        <div className="grid-stack-item" gs-h="6" gs-w="3">
+        <div className="grid-stack-item" gs-h="8" gs-w="3">
           <CardsSpace></CardsSpace>
         </div>
         <div className="grid-stack-item" gs-h="1" gs-w="3">
           <Expenses></Expenses>
         </div>
-        <div className="grid-stack-item" gs-h="2" gs-w="5">
-          <Comparation></Comparation>
+        <div className="grid-stack-item" gs-h="3" gs-w="6">
+          <ComparationGraphic></ComparationGraphic>
         </div>
-        <div className="grid-stack-item" gs-h="2" gs-w="4">
+        <div className="grid-stack-item" gs-h="3" gs-w="3">
           <Savings></Savings>
         </div>
-        <div className="grid-stack-item" gs-h="2" gs-w="5">
+        <div className="grid-stack-item" gs-h="3" gs-w="5">
           <Level></Level>
         </div>
-        <div className="grid-stack-item" gs-h="2" gs-w="4">
+        <div className="grid-stack-item" gs-h="3" gs-w="4">
           <Missions></Missions>
         </div>
       </div>

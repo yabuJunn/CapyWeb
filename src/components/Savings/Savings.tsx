@@ -1,4 +1,4 @@
-import './savings.css';
+import './Savings.css';
 
 //Imagenes importadas
 import MoveButton from '../../assets/svg/MoveButton.svg'
@@ -8,7 +8,7 @@ export const Savings = () => {
     <>
       <div className='savings'> 
       <img className="MoveButton" src={MoveButton} alt="MoveButton" />
-      <p>Savings</p>
+      <p>Ahorro</p>
       </div>
     </>
   );

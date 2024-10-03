@@ -1,4 +1,4 @@
-import './cardsSpace.css';
+import './CardsSpace.css';
 import AddCard from "../AddCard/AddCard";
 import { Card } from '../Card/Card';
 

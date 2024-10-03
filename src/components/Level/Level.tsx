@@ -1,4 +1,4 @@
-import './level.css';
+import './Level.css';
 
 //Imagenes importadas
 import MoveButton from '../../assets/svg/MoveButton.svg'

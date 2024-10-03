@@ -9,31 +9,33 @@
 
 .comparation p {
     font-size: 16px;
-    margin-left: 16px;
-    margin-top: 38px; 
+    margin-left: 16px; 
+    line-height: 5;
+    font-style: normal;
+    font-weight: 700;
 }
 
 .select-container {
     display: flex; 
-    align-items: center; 
-    margin-top: 16px; 
-    font-size: 2px;
-    
+    align-items: center;  
+    font-size: 2px; 
+    height: 4vh;
+    margin-right: 15px;
 
+    justify-content: space-between;
 }
 
 .select-container select {
     background-color:#2D18BF;
     color: white;
-    font-size: 12px;
-    width: 103px;
-    height: 30px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    width: 20%;
+    height: 120%;
     border-radius: 6.47px;
     border: none;
-    margin-right: 270px; 
     margin-left: 15px; 
-
-    padding: 6px;
 }
 
 .select-container .I&E {

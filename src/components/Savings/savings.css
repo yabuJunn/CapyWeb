@@ -5,20 +5,21 @@
     background-color:#181818;
     border-radius: 16px;
     position: relative; 
-    padding: 16px;
     box-sizing: border-box;
-    margin: auto;/*QUITAR DESPUÉS DE ACOMODAR*/
 }
 
 .savings p {
     font-size: 16px; 
-    margin-left: 24px;
+    margin-left: 16px;
+    line-height: 5;
+    font-style: normal;
+    font-weight: 700;
 }
 
 .MoveButton {
-    position: absolute;
-    top: 16px;
+    position: relative;
     right: 16px; 
     width: 16px;
     height: 16px;
+    line-height: 5;
 }

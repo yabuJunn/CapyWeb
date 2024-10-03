@@ -10,7 +10,7 @@ export const Expenses = () => {
         <div className='expenses'>
         <img className="MoveButton" src={MoveButton} alt="MoveButton" />
 
-        <h2>Expenses</h2> 
+        <h2>Gastos totales</h2> 
         <h1>50,000</h1> 
 
         </div>

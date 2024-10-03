@@ -13,12 +13,12 @@
 }
 
 #gridContainer {
-    border: 1px white solid;
     width: 100%;
     font-family: "Space Grotesk";
+    margin: 20px;
 }
 
 .grid-stack-item {
-    background-color: white;
+    /* xbackground-color: white; */
     border: 1px black solid;
 }

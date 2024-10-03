@@ -1,8 +1,8 @@
-import './card.css';
+import './Card.css';
 
 export const Card = () =>{
   return (
-    <div className='card'>
+    <div className='cardContainer'>
       <div className='top-row'>
         <h2 className='amount'>100,000</h2> 
         <h3 className='cardLogo'>Logo</h3>

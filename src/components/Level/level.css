@@ -10,7 +10,10 @@
 
 .level p {
     font-size: 16px;
-    margin-left: 24px; 
+    margin-left: 16px; 
+    line-height: 5;
+    font-style: normal;
+    font-weight: 700;
 }
 
 .MoveButton {
