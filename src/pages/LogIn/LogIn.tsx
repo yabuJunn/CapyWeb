@@ -11,6 +11,10 @@ export const LogIn = () => {
       <div className="Card">
         <CardLogIn />
       </div>
+
+      <div id='background'>
+
+      </div>
     </div>
   );
 }

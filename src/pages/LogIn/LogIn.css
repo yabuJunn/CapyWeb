@@ -1,13 +1,31 @@
-#LogIn{
+#LogIn {
     position: absolute;
     margin-top: 200px;
     margin-left: 90px;
 }
 
-#Logo{
+#Logo {
     width: 90px;
     height: 90px;
     position: fixed;
     top: 80px;
     margin-left: 90px;
+}
+
+#background {
+    /* Para que ocupe toda la pantalla y se mantenga fija al hacer scroll */
+    top: 0;
+    left: 0;
+    /* 100% del ancho de la ventana */
+    height: 100vh;
+    width: 100vh;
+    /* 100% de la altura de la ventana */
+    background-image: url('../../assets/svg/fondoLogin.svg');
+    background-size: cover;
+    /* Asegura que la imagen cubra toda la pantalla */
+    background-position: center;
+    /* Centra la imagen en la pantalla */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
+    z-index: -1;
 }
