@@ -2,7 +2,7 @@ import './Dashboard.css'
 
 //Import Components
 import Nav from '../../components/Nav/Nav'
-import { InteractiveGrid } from '../../components/InteractiveGrid/InteractiveGrid'
+import { InteractiveGrid } from '../../components/dashboardPageComponents/InteractiveGrid/InteractiveGrid'
 
 export const Dashboard = () => {
     const userData = sessionStorage.getItem('userData')

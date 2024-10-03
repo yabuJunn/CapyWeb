@@ -2,7 +2,7 @@ import './Register.css'
 
 import vectorRegister from "../../assets/svg/vectorRegister.svg";
 import Logo from "../../assets/svg/Logo.svg"
-import CardRegister from "../../components/CardRegister/CardRegister";
+import CardRegister from "../../components/registerPageComponents/CardRegister/CardRegister";
 
 export const Register = () => {
   return (

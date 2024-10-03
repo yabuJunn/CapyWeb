@@ -2,10 +2,10 @@ import './LandingPage.css'
 
 //Import components
 
-import { NavLanding } from '../../components/NavLanding/NavLanding'
-import { LandingFirstSectionButtons } from '../../components/LandingFirstSectionButtons/LandingFirstSectionButtons'
-import { UniqueFeatureCard } from '../../components/uniqueFeatureCard/uniqueFeatureCard'
-import { CustomerOpinion } from '../../components/CustomerOpinion/CustomerOpinion'
+import { NavLanding } from '../../components/landingPageComponents/NavLanding/NavLanding'
+import { LandingFirstSectionButtons } from '../../components/landingPageComponents/LandingFirstSectionButtons/LandingFirstSectionButtons'
+import { UniqueFeatureCard } from '../../components/landingPageComponents/uniqueFeatureCard/uniqueFeatureCard'
+import { CustomerOpinion } from '../../components/landingPageComponents/CustomerOpinion/CustomerOpinion'
 
 //Import images
 
