@@ -15,10 +15,10 @@
 #gridContainer {
     width: 100%;
     font-family: "Space Grotesk";
-    margin: 20px;
 }
 
 .grid-stack-item {
     /* xbackground-color: white; */
     border: 1px black solid;
+    
 }

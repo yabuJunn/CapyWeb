@@ -1,25 +1,45 @@
 .savings {
-    width: 100%; 
-    height:100%    ; 
-    color: white;
-    background-color:#181818;
-    border-radius: 16px;
-    position: relative; 
-    box-sizing: border-box;
-}
+    display: flex;
 
-.savings p {
-    font-size: 16px; 
-    margin-left: 16px;
-    line-height: 5;
-    font-style: normal;
-    font-weight: 700;
-}
-
-.MoveButton {
+    flex-direction: column;
+    align-items: center;
+    background-color: #181818;
+    padding: 20px;
+    border-radius: 20px;
+    width: 88%; 
+    height: 300px;
     position: relative;
-    right: 16px; 
-    width: 16px;
-    height: 16px;
-    line-height: 5;
+    color: white;
+  }
+  
+.savings p {
+    font-size: 100%;
+    margin: 10px 0 0;
+    font-weight: bold;
+    color: white;
+    text-align: center;
 }
+  
+.progress-wrapper {
+    margin-top: 20px;
+    width: 180px; 
+    height: 180px;
+    position: relative;
+  }
+  
+  .MoveButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+.react-circular-progressbar {
+    /* Ajusta el grosor del círculo aquí */
+    stroke-width: 10px; /* Intenta modificar este valor */
+  }
+  
+  
