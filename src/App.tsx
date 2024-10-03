@@ -8,11 +8,13 @@ import './App.css';
 
 
 import { Dashboard } from './pages/Dashboard/Dashboard';
+import { LandingPage } from './pages/LandingPage/LandingPage';
 
 function App() {
   return (
     <>
-      <Dashboard></Dashboard> 
+      
+      <LandingPage></LandingPage>
     </>
   );
 }
