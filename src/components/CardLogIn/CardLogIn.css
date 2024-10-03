@@ -147,3 +147,34 @@ a {
   font-size: 16.5px;
   font-weight: 400;
 }
+
+#signUpGoogleContainer {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#signUpGoogleContainer p {
+  margin-top: 10px;
+}
+
+#googleIconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  cursor: pointer;
+}
+
+#googleIconContainer img {
+  width: 10%;
+  margin: 0 10px 0 0;
+}
+
+#googleIconContainer p {
+  margin: 0;
+}

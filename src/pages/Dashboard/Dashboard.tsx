@@ -5,25 +5,33 @@ import Nav from '../../components/Nav/Nav'
 import { InteractiveGrid } from '../../components/InteractiveGrid/InteractiveGrid'
 
 export const Dashboard = () => {
-    return <>
-        <main className='page'>
+    const userData = sessionStorage.getItem('userData')
 
-            <div id='marginPage'>
-                <div id='TitleTextContainer'>
-                    <h1>Dashboard</h1>
-                    <p><span className='TextHint'>Hola,</span> Isabella</p>
+    if (userData) {
+        const userDataJSON = JSON.parse(userData)
+        console.log(userDataJSON)
+
+
+        return <>
+            <main className='page'>
+
+                <div id='marginPage'>
+                    <div id='TitleTextContainer'>
+                        <h1>Dashboard</h1>
+                        <p><span className='TextHint'>Hola,</span> {userDataJSON.data.name}</p>
+                    </div>
+
+                    <div id='ContentContainer'>
+                        <Nav></Nav>
+
+                        <InteractiveGrid></InteractiveGrid>
+                    </div>
                 </div>
 
-                <div id='ContentContainer'>
-                    <Nav></Nav>
+                <div id='background'>
 
-                    <InteractiveGrid></InteractiveGrid>
                 </div>
-            </div>
-
-            <div id='background'>
-
-            </div>
-        </main>
-    </>
+            </main>
+        </>
+    }
 }

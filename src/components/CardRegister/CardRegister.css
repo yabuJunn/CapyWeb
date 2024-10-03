@@ -34,6 +34,7 @@ html {
   margin-right: 150px;
   margin-left: auto;
   margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 /* Parte izquierda del texto promocional */
@@ -162,4 +163,44 @@ a {
 #box {
   margin-right: 10px;
   width: 5%;
+}
+
+#signUpGoogleContainer {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#signUpGoogleContainer img {
+  width: 10%;
+  margin-top: 10px;
+}
+
+/* #signUpGoogleContainer p {
+  font-size: 12px;
+} */
+
+#signUpGoogleContainer p {
+  margin-top: 10px;
+}
+
+#googleIconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  cursor: pointer;
+}
+
+#googleIconContainer img {
+  width: 10%;
+  margin: 0 10px 0 0;
+}
+
+#googleIconContainer p {
+  margin: 0;
 }

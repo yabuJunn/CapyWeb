@@ -10,8 +10,16 @@ import SettingsIcon from '../../assets/svg/Settings.svg'
 
 import UserIcon from '../../assets/svg/User.svg'
 import LogOut from '../../assets/svg/LogOut.svg'
+import { useNavigate } from 'react-router-dom';
 
 function Nav() {
+  const navigate = useNavigate()
+
+  const handleLogOut = () => {
+    sessionStorage.removeItem('userData')
+    navigate('/login')
+  }
+
   return (
     <>
       <div className='nav'>
@@ -29,7 +37,7 @@ function Nav() {
 
         <div className='last'>
           <img className="User" src={UserIcon} alt="User" />
-          <img className="LogOut" src={LogOut} alt="LogOut" />
+          <img className="LogOut" src={LogOut} alt="LogOut" onClick={() => { handleLogOut() }} />
         </div>
 
       </div>
