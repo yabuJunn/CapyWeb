@@ -30,8 +30,8 @@ export const Savings = () => {
             strokeWidth={15}
 
           />
-          <p>ingresos:   78%</p>
-          <p>Ahorro:  22%</p>
+          <p>Incomes:   78%</p>
+          <p>Savings:  22%</p>
 
         </div>
       </div>

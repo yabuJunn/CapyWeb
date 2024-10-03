@@ -32,4 +32,7 @@
     font-weight: 700;
     line-height: normal;
     justify-content: flex-end;
+
+    width: 100%;
+    text-align: left;
 }

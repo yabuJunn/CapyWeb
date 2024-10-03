@@ -43,5 +43,6 @@
     #navLandingSections p {
         margin-right: 10%;
         margin-top: 0;
+        cursor: pointer;
     }
 }

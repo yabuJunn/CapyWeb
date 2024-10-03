@@ -12,7 +12,7 @@ export const Level = () => {
     <>
       <div className='SaverLevelContainer'>
         <img className="MoveButton" src={MoveButton} alt="MoveButton" />
-        <p>Nivel de ahorrador</p>
+        <p>Level of saver</p>
         <SaverLevelTitleDisplay></SaverLevelTitleDisplay>
         <SaverLevelProgressBar></SaverLevelProgressBar>
       </div>

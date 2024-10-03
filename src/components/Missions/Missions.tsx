@@ -11,7 +11,7 @@ export const Missions = () => {
       <div className='missions'>
         <img className="MoveButton" src={MoveButton} alt="MoveButton" />
         <div className="info-container">
-          <h3>Misiones</h3>
+          <h3>Missions</h3>
           <div id='missionItemContainer'>
             <MissionItem text={'Cumple todas las misiones mensuales.'} gainAmount={'500'} backgroundColor={'#2D18BF'} capyPointsDark={false} isCompleted={false}></MissionItem>
             <MissionItem text={'Ahorra al menos un 35% de tus ingresos este mes.'} gainAmount={'50'} backgroundColor={'#F2622E'} capyPointsDark={false} isCompleted={true}></MissionItem>

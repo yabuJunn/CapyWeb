@@ -61,38 +61,38 @@ function CardRegister() {
 
   return (
     <div className="Register">
-      <h1>Register</h1>
+      <h1>Sign Up</h1>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
-      <h3>Usuario</h3>
+      <h3>Name</h3>
       <input
         type="text"
-        placeholder="Usuario"
+        placeholder="Enter your name"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
 
-      <h3>Correo</h3>
+      <h3>Email</h3>
       <input
         type="email"
-        placeholder="Correo"
+        placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
 
-      <h3>Contraseña</h3>
+      <h3>Password</h3>
       <input
         type="password"
-        placeholder="Contraseña"
+        placeholder="Create password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      <h3>Confirma contraseña</h3>
+      <h3>Confirm password</h3>
       <input
         type="password"
-        placeholder="Confirmar Contraseña"
+        placeholder="Confirm your password"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
@@ -103,18 +103,18 @@ function CardRegister() {
           checked={acceptTerms}
           onChange={() => setAcceptTerms(!acceptTerms)}
         />
-        <h3 id="Check">Acepto los <a href="">Términos</a> y <a href="">Condiciones</a></h3>
+        <h3 id="Check">I accept the <a href="">terms</a> and <a href="">conditions</a></h3>
       </div>
 
-      <button onClick={handleRegister}>Aceptar</button>
+      <button onClick={handleRegister}>Sign Up</button>
       <div id="signUpGoogleContainer">
-        <p>Ó</p>
+        <p>Or</p>
         <div id="googleIconContainer" onClick={handleGoogleRegister}>
           <img src={logoGoogle} alt="" />
           <p>Sign Up with Google</p>
         </div>
       </div>
-      <h3 id="CrearCuenta">Ya tienes cuenta? <a onClick={() => { navigate('/login') }}>Iniciar Sesión</a></h3>
+      <h3 id="CrearCuenta">Already have an account? <a onClick={() => { navigate('/login') }}>Sign In</a></h3>
     </div>
   );
 }

@@ -15,15 +15,14 @@ export const ComparationGraphic = () => {
       <div className='comparation'>
         <img className="MoveButton" src={MoveButton} alt="MoveButton" />
 
-        <p>Así manejas tu dinero </p>
+        <p>This is how you manage your money</p>
         <div className='select-container'>
           <select>
-            <option>Diariamente</option>
-            <option>Semanalmente</option>
+            <option>Daily</option>
+            <option>Weekly</option>
           </select>
           <img className="I&E" src={IE} alt="MoveButton" />
         </div>
-        {/* Grafica */}
         <ComparationBarGraph></ComparationBarGraph>
       </div>
     </>

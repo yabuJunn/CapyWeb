@@ -48,37 +48,37 @@ function CardLogIn() {
 
   return (
     <div className='LogIn'>
-      <h1>Iniciar sesión</h1>
+      <h1>Sign In</h1>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
-      <h3>Correo electrónico</h3>
+      <h3>Email</h3>
       <input
         type='email'
-        placeholder='Correo'
+        placeholder='Enter your email'
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
 
-      <h3>Contraseña</h3>
+      <h3>Password</h3>
       <input
         type='password'
-        placeholder='Contraseña'
+        placeholder='Enter your password'
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      <a>No recuerdas tu contraseña</a>
+      <a>I don't remember my password</a>
       <button onClick={handleLoginEmail}>Aceptar</button>
       <div id="signUpGoogleContainer">
-        <p>Ó</p>
+        <p>Or</p>
         <div id="googleIconContainer" onClick={handleGoogleLogin}>
           <img src={logoGoogle} alt="" />
           <p>Sign In with Google</p>
         </div>
       </div>
 
-      <h3 id="Cuenta">¿No tienes una cuenta? <a onClick={() => { navigate('/register') }}>Registrarme ahora</a></h3>
+      <h3 id="Cuenta">Don't have an account? <a onClick={() => { navigate('/register') }}>Register now</a></h3>
     </div>
   );
 }
