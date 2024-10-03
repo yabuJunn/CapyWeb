@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 
 import './index.css'
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createHashRouter, RouterProvider } from 'react-router-dom'
 
 //Import pages
 import { LandingPage } from './pages/LandingPage/LandingPage.tsx'
@@ -11,7 +11,7 @@ import { LogIn } from './pages/LogIn/LogIn.tsx'
 import { Register } from './pages/Register/Register.tsx'
 import { Dashboard } from './pages/Dashboard/Dashboard.tsx'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <LandingPage></LandingPage>,
