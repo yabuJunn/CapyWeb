@@ -4,7 +4,7 @@ import './LandingPage.css'
 
 import { NavLanding } from '../../components/landingPageComponents/NavLanding/NavLanding'
 import { LandingFirstSectionButtons } from '../../components/landingPageComponents/LandingFirstSectionButtons/LandingFirstSectionButtons'
-import { UniqueFeatureCard } from '../../components/landingPageComponents/uniqueFeatureCard/uniqueFeatureCard'
+import { UniqueFeatureCard } from '../../components/landingPageComponents/uniqueFeatureCard/UniqueFeatureCard'
 import { CustomerOpinion } from '../../components/landingPageComponents/CustomerOpinion/CustomerOpinion'
 
 //Import images

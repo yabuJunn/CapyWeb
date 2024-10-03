@@ -1,4 +1,4 @@
-import './nav.css';
+import './Nav.css';
 
 import LogoCapy from '../../assets/svg/Logo.svg'
 

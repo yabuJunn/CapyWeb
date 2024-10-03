@@ -1,4 +1,4 @@
-import './missions.css';
+import './Missions.css';
 
 import { MissionItem } from '../MissionItem/MissionItem';
 
