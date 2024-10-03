@@ -10,7 +10,7 @@ import CardsSpace from './components/CardsSpace/CardsSpace';
 import Nav from './components/Nav/Nav';
 import Comparation from './components/ComparationGraphic/ComparationGraphic';
 import Savings from './components/Savings/Savings';
-import Level from './components/Level/Level';
+import Level from './components/SaverLevel/SaverLevel';
 import Missions from './components/Missions/Missions';
 
 //Import Pages
