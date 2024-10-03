@@ -26,19 +26,20 @@
     }
 
     #TitleTextContainer h1 {
-        font-size: 40px;
+        font-size: 22px;
         color: #F9F9F9;
         font-family: 'Plus Jakarta';
         font-weight: bold;
     }
 
     #TitleTextContainer p {
-        font-size: 30px;
+        font-size: 22px;
         color: #F9F9F9;
         font-family: 'Plus Jakarta';
         font-weight: bold;
 
         margin: 10px 0 0 0;
+        height: 8.5vh;
     }
 
     .TextHint {
@@ -63,7 +64,6 @@
         background-repeat: no-repeat;
         /* Evita que la imagen se repita */
         z-index: -1;
-        /* Mantiene la imagen detrás del contenido */
     }
 
     #ContentContainer {

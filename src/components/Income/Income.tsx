@@ -1,12 +1,14 @@
-import './income.css';
+import './Income.css';
 
-function Income({ title, income }) {
+//Imagenes importadas
+import MoveButton from '../../assets/svg/MoveButton.svg'
+
+export const Income = () =>{
   return (
     <>
     
         <div className='income'>
-        <img className="MoveButton" src="../src/assets/MoveButton.svg" alt="MoveButton" />
-        <img className="ArrowUp" src="../src/assets/ArrowUp.svg" alt="ArrowUp" />
+        <img className="MoveButton" src={MoveButton} alt="MoveButton" />
 
           <h2>Ingresos</h2> 
           <h1>100,000</h1> 
@@ -17,4 +19,3 @@ function Income({ title, income }) {
   );
 }
 
-export default Income;

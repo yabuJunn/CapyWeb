@@ -1,32 +1,68 @@
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('../../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta';
+    src: url('../../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .balance {
-    background-color: #2D18BF;
-    height: 266px;
-    width: 378.61px;
+    background-image: url(../../assets/svg/fondoBalance.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
     color: white;
     border-radius: 16px;
-    position: relative; 
-    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    font-family: 'Space Grotesk';
 }
 
 .balance h3:first-of-type {
     text-align: left;
     margin-left: 16px;
-    margin-top: 38px; 
+    justify-content: flex-end;
+    height: 13vh;
+    font-style: normal;
+    font-weight: 700;
+
+    font-family: "Space Grotesk";
+    font-size: 28px;
+    margin-top: 16px;
 }
 
 .balance h1 {
     text-align: left;
     margin-left: 20px;
-    margin-top: 60px;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+
+    /* O el tamaño que prefieras */
+    font-family: "Space Grotesk";
+    font-size: 36px;
 }
 
 .balance h3:last-of-type {
     text-align: left;
     margin-left: 16px;
+    font-style: normal;
+    font-size: 100%;
+    font-weight: 500;
+
+    font-family: 'Plus Jakarta';
+    font-size: 14px;
 }
 
 .MoveButton {
-    position: absolute;
     top: 16px;
     right: 40px;
     width: 16px;
@@ -34,8 +70,7 @@
 }
 
 .Dollar {
-    position: absolute;
     top: 40px;
     right: 40px;
-    width: 40px; 
+    width: 40px;
 }

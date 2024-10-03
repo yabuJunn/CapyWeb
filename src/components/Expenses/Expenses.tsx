@@ -1,13 +1,16 @@
-import './expenses.css';
+import './Expenses.css';
 
-function Expenses({ title, expenses }) {
+//Imagenes importadas
+import MoveButton from '../../assets/svg/MoveButton.svg'
+
+export const Expenses = () => {
   return (
     <>
      
         <div className='expenses'>
-        <img className="MoveButton" src="../src/assets/MoveButton.svg" alt="MoveButton" />
-        <img className="ArrowDown" src="../src/assets/ArrowDown.svg" alt="ArrowDown" />
-        <h2>Expenses</h2> 
+        <img className="MoveButton" src={MoveButton} alt="MoveButton" />
+
+        <h2>Gastos totales</h2> 
         <h1>50,000</h1> 
 
         </div>
@@ -16,4 +19,3 @@ function Expenses({ title, expenses }) {
   );
 }
 
-export default Expenses;

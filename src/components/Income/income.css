@@ -1,22 +1,48 @@
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('../../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta';
+    src: url('../../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .income {
-    background-color:#F2622E;
-    height: 128px;
-    width: 253px;
+    background-image: url(../../assets/svg/ingresosfon.svg);
+    height: 100%;
+    width: 100%;
     color: white;
     border-radius: 16px;
     position: relative; 
-    padding:  16px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .income h2 {
-    font-size: 16px;
+    color: #F9F9F9;
     margin-left: 16px;
+    font-family: "Space Grotesk";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3;
+    height: 8.5vh;
 }
 
 .income h1 {
-    font-size: 32px;
+    color: #F9F9F9;
     margin-left: 16px;
-    margin-top: 16px;
+    font-family: "Space Grotesk";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
 .MoveButton {
@@ -25,11 +51,4 @@
     right: 16px;
     width: 16px;
     height: 16px;
-}
-
-.ArrowUp {
-    position: absolute;
-    top: 40px; 
-    right: 40px;
-    width: 40px; 
 }

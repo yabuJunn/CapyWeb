@@ -1,14 +1,42 @@
-import './savings.css';
+import './Savings.css';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
-function Savings() {
+import MoveButton from '../../assets/svg/MoveButton.svg';
+
+export const Savings = () => {
+  const ingresos = 78;
+  const ahorroAmount = 30203
+
   return (
     <>
-      <div className='savings'> 
-        <img className="MoveButton" src="../src/assets/MoveButton.svg" alt="MoveButton" />
-        <p>Savings</p>
+      <div className='savings'>
+        <h3>Savings</h3>
+        <img className="MoveButton" src={MoveButton} alt="MoveButton" />
+
+        <div className="progress-wrapper">
+          <CircularProgressbar
+            value={ingresos}
+            text={`$${ahorroAmount}`}
+            styles={buildStyles({
+              rotation: 0.25,
+              strokeLinecap: 'butt',
+              pathTransitionDuration: 0.5,
+              pathColor: ' #2D18BF',
+              textColor: '#fff',
+              trailColor: '#A8F25D',
+              textSize: '14px',
+            })}
+            strokeWidth={15}
+
+          />
+          <p>ingresos:   78%</p>
+          <p>Ahorro:  22%</p>
+
+        </div>
       </div>
     </>
   );
 }
 
-export default Savings;
+
