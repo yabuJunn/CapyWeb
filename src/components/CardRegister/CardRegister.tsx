@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../services/Firebase/Firebase";
 
-import './CardRegister.css';  
+import './CardRegister.css';
 
 function CardRegister() {
   const [email, setEmail] = useState("");
@@ -14,7 +14,7 @@ function CardRegister() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    
+
     if (!acceptTerms) {
       setError("Debes aceptar los términos y condiciones.");
       return;
@@ -25,66 +25,66 @@ function CardRegister() {
       return;
     }
 
-    setError(""); 
-    
+    setError("");
+
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       console.log("Usuario registrado:", userCredential.user);
-    } 
+    }
     catch (err) {
-      setError(err.message);  
+      setError(err.message);
     }
   };
 
   return (
     <div className="Register">
       <h1>Register</h1>
-      
+
       {error && <p style={{ color: "red" }}>{error}</p>}
-      
+
       <h3>Usuario</h3>
-      <input 
-        type="text" 
-        placeholder="Usuario" 
-        value={username} 
+      <input
+        type="text"
+        placeholder="Usuario"
+        value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
 
       <h3>Correo</h3>
-      <input 
-        type="email" 
-        placeholder="Correo" 
-        value={email} 
+      <input
+        type="email"
+        placeholder="Correo"
+        value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
 
       <h3>Contraseña</h3>
-      <input 
-        type="password" 
-        placeholder="Password" 
-        value={password} 
+      <input
+        type="password"
+        placeholder="Contraseña"
+        value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
 
       <h3>Confirma contraseña</h3>
-      <input 
-        type="password" 
-        placeholder="Confirm Password" 
-        value={confirmPassword} 
+      <input
+        type="password"
+        placeholder="Confirmar Contraseña"
+        value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
 
-      <div>
-        <input 
-          type="checkbox" 
-          checked={acceptTerms} 
-          onChange={() => setAcceptTerms(!acceptTerms)} 
+      <div id="terminos">
+        <input id="box"
+          type="checkbox"
+          checked={acceptTerms}
+          onChange={() => setAcceptTerms(!acceptTerms)}
         />
-        <label>Acepto los términos y condiciones</label>
+        <h3 id="Check">Acepto los <a href="">Términos</a> y <a href="">Condiciones</a></h3>
       </div>
 
-      <h3>No recuerdas tu contraseña</h3>
       <button onClick={handleRegister}>Aceptar</button>
+      <h3 id="CrearCuenta">Ya tienes cuenta? <a href="">Iniciar Sesión</a></h3>
     </div>
   );
 }
