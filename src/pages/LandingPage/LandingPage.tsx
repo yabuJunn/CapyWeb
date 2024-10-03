@@ -18,8 +18,10 @@ import logoBBVA from '../../assets/svg/logo/logoBBVA.svg'
 import logoFalabella from '../../assets/svg/logo/logoFalabella.svg'
 import logoNu from '../../assets/svg/logo/logoNu.svg'
 
-import globalBlackIcon from '../../assets/svg/icons/globeBlackIcon.svg'
-import fireWhiteIcon from '../../assets/svg/icons/fireWhiteIcon.svg'
+import backgroundFeature1 from '../../assets/png/features1.png'
+import backgroundFeature2 from '../../assets/png/features2.png'
+import backgroundFeature3 from '../../assets/png/features3.png'
+import backgroundFeature4 from '../../assets/png/features4.png'
 
 export const LandingPage = () => {
     return <>
@@ -112,49 +114,43 @@ export const LandingPage = () => {
 
             <section id='fourthSection'>
                 <h2>Unique features</h2>
-                <p id='subTitle'>Supported by a network of early advocates, contributors, and champions.</p>
+                <p id='subTitle'>Discover a range of innovative tools designed to simplify financial planning. From personalized dashboards to interactive visualizations, our app helps you manage your finances effortlessly and effectively.</p>
                 <div className='featuresRow'>
                     <UniqueFeatureCard
-                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur arcu libero, vel condimentum neque aliquam vitae. Duis a imperdiet eros.'}
-                        image={globalBlackIcon}
-                        colorBackgrounIcon={'#A8F25D'}>
+                        text={'Capy, your friendly finance assistant, helps you navigate the app with tips, guidance, and insights to improve your financial planning and decision-making.'}
+                        title={'Interactive mascot'}
+                        textColor={'#FFFFFF'}
+                        backgroundImage={backgroundFeature1}
+                    >
 
                     </UniqueFeatureCard>
 
                     <UniqueFeatureCard
-                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur arcu libero, vel condimentum neque aliquam vitae. Duis a imperdiet eros.'}
-                        image={fireWhiteIcon}
-                        colorBackgrounIcon={'#2D18BF'}>
-
-                    </UniqueFeatureCard>
-
-                    <UniqueFeatureCard
-                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur arcu libero, vel condimentum neque aliquam vitae. Duis a imperdiet eros.'}
-                        image={globalBlackIcon}
-                        colorBackgrounIcon={'#A8F25D'}>
+                        text={'Dynamic charts and graphs throughout the app provide clear, real-time insights, making it easier to understand and manage your finances effectively.'}
+                        title={'Interactive data visualization'}
+                        textColor={'#FFFFFF'}
+                        backgroundImage={backgroundFeature2}
+                    >
 
                     </UniqueFeatureCard>
                 </div>
 
                 <div className='featuresRow'>
                     <UniqueFeatureCard
-                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur arcu libero, vel condimentum neque aliquam vitae. Duis a imperdiet eros.'}
-                        image={globalBlackIcon}
-                        colorBackgrounIcon={'#A8F25D'}>
+                        text={'An interactive dashboard grid lets you customize your financial data display, tailoring the experience to suit your personal preferences and needs.'}
+                        title={'Experience personalization'}
+                        textColor={'#21147A'}
+                        backgroundImage={backgroundFeature3}
+                    >
 
                     </UniqueFeatureCard>
 
                     <UniqueFeatureCard
-                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur arcu libero, vel condimentum neque aliquam vitae. Duis a imperdiet eros.'}
-                        image={fireWhiteIcon}
-                        colorBackgrounIcon={'#2D18BF'}>
-
-                    </UniqueFeatureCard>
-
-                    <UniqueFeatureCard
-                        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur arcu libero, vel condimentum neque aliquam vitae. Duis a imperdiet eros.'}
-                        image={globalBlackIcon}
-                        colorBackgrounIcon={'#A8F25D'}>
+                        text={'Easily track and plan your income and expenses, helping you stay on top of your finances and reach your financial goals.'}
+                        title={'Income and expense planner'}
+                        textColor={'#21147A'}
+                        backgroundImage={backgroundFeature4}
+                    >
 
                     </UniqueFeatureCard>
                 </div>

@@ -1,21 +1,19 @@
 import './uniqueFeatureCard.css'
 
 interface UniqueFeatureCardProps {
+    title: string,
     text: string,
-    image: string,
-    colorBackgrounIcon: string
+    textColor: string,
+    backgroundImage: string
 }
 
-export const UniqueFeatureCard = ({ text, image, colorBackgrounIcon }: UniqueFeatureCardProps) => {
-    
-    return <>
-        <div className="uniqueFeatureCardContainer">
-            <div className="featureImage">
-                <img src={image} alt="" style={{ backgroundColor: colorBackgrounIcon }} />
-            </div>
-            <p>{text}</p>
-            <a href="">Learn More</a>
+export const UniqueFeatureCard = ({ title, text, textColor, backgroundImage }: UniqueFeatureCardProps) => {
 
+    return <>
+        <div className="uniqueFeatureCardContainer" style={{ backgroundImage: `url(${backgroundImage})` }}>
+            <h3 style={{ color: textColor }}>{title}</h3>
+
+            <p style={{ color: textColor }}>{text}</p>
         </div>
     </>
 }
