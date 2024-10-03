@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('../../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta';
+    src: url('../../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+    #navLandingContainer {
+        background-color: #2B2B2B;
+        width: 50%;
+        height: 10%;
+        margin-top: 60px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 100px;
+    }
+
+    #navLandingContainer img {
+        height: 70%;
+        margin-left: 4%;
+    }
+
+    #navLandingSections {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Plus Jakarta';
+        color: white;
+        margin-right: 6%;
+        height: 100%;
+    }
+
+    #navLandingSections p {
+        margin-right: 10%;
+        margin-top: 0;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('../../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta';
+    src: url('../../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#gridContainer {
+    width: 100%;
+    font-family: "Space Grotesk";
+}
+
+.grid-stack-item {
+    /* xbackground-color: white; */
+    margin: 5px;
+}
