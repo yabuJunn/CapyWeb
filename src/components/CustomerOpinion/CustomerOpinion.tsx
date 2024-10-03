@@ -1,8 +1,5 @@
 import './CustomerOpinion.css'
 
-import quotesGreen from '../../assets/svg/icons/quotesGreen.svg'
-import quotesGreenOpacity from '../../assets/svg/icons/quotesGreenOpacity.svg'
-import gabrielCooper from '../../assets/png/gabrielCooper.png'
 import star from '../../assets/svg/icons/whiteStar.svg'
 
 interface CustomerOpinionProps {
@@ -13,7 +10,7 @@ interface CustomerOpinionProps {
     date: string
 }
 
-export const CustomerOpinion = ({ quotesOpacity, quotesSolid, userOpinion, userImage, date}: CustomerOpinionProps) => {
+export const CustomerOpinion = ({ quotesOpacity, quotesSolid, userOpinion, userImage, date }: CustomerOpinionProps) => {
     return <>
         <div className='CustomerOpinionContainer'>
             <img src={quotesSolid} alt="" className='quotes' />
