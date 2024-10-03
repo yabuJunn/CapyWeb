@@ -1,4 +1,4 @@
-import './navLanding.css'
+import './NavLanding.css'
 
 import logoComplete from '../../../assets/svg/logoComplete.svg'
 
