@@ -1,0 +1,97 @@
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('../../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta';
+    src: url('../../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.CustomerOpinionContainer {
+    width: 30%;
+    height: 100%;
+
+    background-color: #181818;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 26px;
+    border-radius: 16px;
+}
+
+.quotes {
+    width: 56px;
+}
+
+.quotesOpacity {
+    width: 30px;
+    position: relative;
+    right: -330px;
+}
+
+.CustomerOpinionContainer h3 {
+    color: var(--Primary-Base-White, #FFF);
+    font-family: 'Plus Jakarta';
+    font-size: 26.701px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 80%;
+    margin-left: 25px;
+    margin-top: 25px;
+}
+
+.userData {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.userData p {
+    color: #CECECE;
+    text-align: right;
+    font-family: 'Plus Jakarta';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.userProfile {
+    display: flex;
+}
+
+.Image {
+    margin-left: 10px;
+}
+
+.Image p {
+    color: #FFFFFF;
+    font-family: "Space Grotesk";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    position: relative;
+    top: 5px;
+}
+
+.Starts {
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    position: relative;
+    top: -5px;
+}
+
+.Starts img {
+    width: 20px;
+}

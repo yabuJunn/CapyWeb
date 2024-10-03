@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import './LandingPage.css'
 
 //Import components
@@ -6,6 +5,7 @@ import './LandingPage.css'
 import { NavLanding } from '../../components/NavLanding/NavLanding'
 import { LandingFirstSectionButtons } from '../../components/LandingFirstSectionButtons/LandingFirstSectionButtons'
 import { UniqueFeatureCard } from '../../components/uniqueFeatureCard/uniqueFeatureCard'
+import { CustomerOpinion } from '../../components/CustomerOpinion/CustomerOpinion'
 
 //Import images
 
@@ -24,11 +24,19 @@ import backgroundFeature2 from '../../assets/png/features2.png'
 import backgroundFeature3 from '../../assets/png/features3.png'
 import backgroundFeature4 from '../../assets/png/features4.png'
 
+import quotesGreen from '../../assets/svg/icons/quotesGreen.svg'
+import quotesGreenOpacity from '../../assets/svg/icons/quotesGreenOpacity.svg'
+import quotesBlue from '../../assets/svg/icons/quotesBlue.svg'
+import quotesBlueOpacity from '../../assets/svg/icons/quotesBlueOpacity.svg'
+import quotesOrange from '../../assets/svg/icons/quotesOrange.svg'
+import quotesOrangeOpacity from '../../assets/svg/icons/quotesOrangeOpacity.svg'
+
+import gabrielCooper from '../../assets/png/gabrielCooper.png'
+import edawrdSans from '../../assets/png/edwardSans.png'
+import nathalyMoon from '../../assets/png/nathalyMoon.png'
+
+
 export const LandingPage = () => {
-    const navigate = useNavigate()
-    const handleClick = () => {
-        navigate('/login')
-    }
 
     return <>
         <main className='page'>
@@ -158,6 +166,17 @@ export const LandingPage = () => {
                     >
 
                     </UniqueFeatureCard>
+                </div>
+            </section>
+
+            <section id='fifthSection'>
+                <h2>What Our Customers Say</h2>
+                <p id='subTitle'>See how Capy has empowered users to take control of their finances. From personalized planning to interactive tools, hear from people who are mastering their money with ease!</p>
+
+                <div id='customersOpinionCardsContainer'>
+                    <CustomerOpinion quotesSolid={quotesGreen} quotesOpacity={quotesGreenOpacity} userOpinion={'I definitely love how Capy helped me achieve my financial goals.'} userImage={gabrielCooper} date={'1 Month ago'}></CustomerOpinion>
+                    <CustomerOpinion quotesSolid={quotesBlue} quotesOpacity={quotesBlueOpacity} userOpinion={'The interactive tools make finances easy to understand!'} userImage={edawrdSans} date={'1 Week ago'}></CustomerOpinion>
+                    <CustomerOpinion quotesSolid={quotesOrange} quotesOpacity={quotesOrangeOpacity} userOpinion={'Capy made managing my money so much easier and fun!'} userImage={nathalyMoon} date={'2 Weeks ago'}></CustomerOpinion>
                 </div>
             </section>
 
