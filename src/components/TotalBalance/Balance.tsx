@@ -17,7 +17,7 @@ export const Balance = () => {
 
         <h3>Balance Total </h3>
         <h1>300,000</h1>
-        <h3>Este mes has agregado -message-</h3>
+        <h3>Este mes has agregado $21000</h3>
 
       </div>
 

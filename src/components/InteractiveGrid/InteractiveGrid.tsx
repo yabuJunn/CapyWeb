@@ -16,7 +16,6 @@ import { Capy } from "../Capy/Capy";
 
 export const InteractiveGrid = () => {
   useEffect(() => {
-    console.log("Montado");
     GridStack.init();
   });
 
