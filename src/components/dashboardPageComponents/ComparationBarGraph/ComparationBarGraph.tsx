@@ -1,4 +1,3 @@
-import './ComparationBarGraph.css'
 
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 
