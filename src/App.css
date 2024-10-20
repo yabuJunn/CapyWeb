@@ -1,21 +1,19 @@
 #background {
-  position: fixed; /* Para que ocupe toda la pantalla y se mantenga fija al hacer scroll */
+  position: fixed; 
   top: 0;
   left: 0;
-  width: 100vw; /* 100% del ancho de la ventana */
-  height: 100vh; /* 100% de la altura de la ventana */
-  background-image: url('../src/assets/svg/DashboardScreen.svg');
-  background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
-  background-position: center; /* Centra la imagen en la pantalla */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  z-index: -1; /* Mantiene la imagen detrás del contenido */
-  background-image: url(/src/assets/svg/fondo.svg);
+  width: 100vw; 
+  height: 100vh; 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  z-index: -1; 
+  background-image: url('/src/assets/svg/fondo.svg');
   background-size: 115% 150%;
 }
 
 
 div {
   position: relative;
-  z-index: 1; /* Asegura que el contenido esté por encima del fondo */
+  z-index: 1; 
 }
-

@@ -10,7 +10,7 @@ import { CardsSpace } from "../CardsSpace/CardsSpace";
 import { Expenses } from "../Expenses/Expenses";
 import { ComparationGraphic } from "../ComparationGraphic/ComparationGraphic";
 import { Savings } from "../Savings/Savings";
-import { Level } from "../SaverLevel/SaverLevel";
+import { Level } from "../../RewardsPageComponents/SaverLevel/SaverLevel";
 import { Missions } from "../Missions/Missions";
 import { Capy } from "../Capy/Capy";
 
