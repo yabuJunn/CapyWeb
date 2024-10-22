@@ -8,21 +8,21 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../../../../ui/card"
+} from "../../../ui/card"
 import {
   ChartConfig,
   ChartContainer,
   ChartStyle,
   ChartTooltip,
   ChartTooltipContent,
-} from "../../../../ui/chart"
+} from "../../../ui/chart"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../../../../ui/select"
+} from "../../../ui/select"
 
 export const description = "An interactive pie chart"
 
