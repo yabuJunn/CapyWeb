@@ -1,0 +1,178 @@
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('../../assets/TempFonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta';
+    src: url('../../assets/TempFonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.planner {
+    max-width: 678px; 
+    height: 426px;
+    margin: 20px auto; 
+    padding: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: #181818;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center
+}
+.PlannerIcon {
+    margin-top: 20px; /* Ajusta este valor para bajar la imagen */
+    margin-bottom: 20px; /* Espaciado inferior de la imagen */
+}
+
+.planner .add{
+    width: 195px; 
+    height: 43px; 
+    background-color: #CCFC56; 
+    margin-left: auto; 
+    margin-top: 55px;
+}
+
+.planner h1 {
+    color: #ffffff; 
+    text-align: center; 
+    margin-bottom: 20px; 
+    font-size: 20px;
+}
+
+.planner h3 {
+    color: #ffffff; 
+    margin: 5px 0; 
+    text-align: center; /* Alinear h3 a la izquierda */
+    font-size: 24px;
+
+}
+
+.add {
+    background-color: #2D18BF; 
+    color: white; 
+    height: 43px; /* Altura de 43px para los botones */
+    width: 426px; 
+    padding: 0 20px;
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    font-size: 16px;
+    margin-right: 10px; 
+}
+
+.add-button, 
+.close-button {
+    height: 45px; /* Establecer altura de 45px */
+    width: 200px; /* Ajustar el ancho según sea necesario */
+    background-color: #2D18BF; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor al pasar por encima */
+    transition: background-color 0.3s; /* Efecto de transición */
+    display: flex; /* Para centrar el texto */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 10px; /* Espaciado entre botones */
+}
+
+.planner input[type='number'], 
+.planner select {
+    width: 426px; 
+    height: 48px; 
+    padding: 10px; 
+    margin: 10px 0; 
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); 
+    color: #fff; 
+}
+
+.planner input::placeholder, 
+.planner select option {
+    color: #aaa; 
+}
+
+.popup {
+    width: 685px; 
+    height: 450px; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    background-image: url('../../../../../src/assets/svg/fondoPopUp.svg'); 
+    background-size: cover; /* Ajustar la imagen al tamaño del popup */
+    background-position: center; /* Centrar la imagen */
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    border-radius: 16px; 
+    z-index: 1000; 
+    color: white; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.popup .title {
+    font-size: 28px;
+    font-family: 'Space Grotesk';
+    color: rgb(255, 255, 255); 
+    text-align: center; 
+    margin-top: 20px; 
+}
+
+.popup h3 {
+    color: white; 
+    font-size: 16px;
+    text-align: left; 
+    width: 426px; 
+    margin: 5px 0; 
+}
+
+.popup select, 
+.popup input[type='number'] { 
+    width: 426px; 
+    height: 40px; 
+    margin: 10px 0; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); 
+    color: #fff; 
+    font-size: 12px;
+}
+
+.popup select option {
+    color: #2d2d2d; 
+    background-color: #f9f9f9; 
+}
+
+.popup .button-container {
+    display: flex; 
+    justify-content: center; 
+    gap: 10px; 
+}
+.popup .button-container {
+    display: flex; 
+    justify-content: space-between; 
+    width: 426px; 
+    margin-top: 10px; 
+    }
+
+    .blurred {
+        filter: blur(4px); /* Ajusta el nivel de desenfoque según sea necesario */
+        transition: filter 0.3s ease; /* Suavizar la transición del efecto */
+    }
+    

@@ -1,47 +1,54 @@
 import React, { useState } from 'react';
-import PlannerIcon from "../../../../../src/assets/svg/PlannerIcon.svg"
+import PlannerIcon from "../../../../../src/assets/svg/PlannerIcon.svg";
+
+import './ExpensePlanner.css'; 
 
 export const ExpensePlanner = () => {
+  const [showPopup, setShowPopup] = useState(false);
 
- const [showPopup, setShowPopup ] = useState(false) 
+  const togglePopUp = () => {
+    setShowPopup(!showPopup);
+  };
 
-
-const togglePopUp = () =>{
-  setShowPopup(!showPopup)
-
-}
   return (
     <div className='planner'>
-        <h1>Monthly expense planner</h1>
-        <img className="PlannerIcon" src={PlannerIcon} alt="PlannerIcon" />
-        <h3>You don't have budgeted expenses</h3>
-        <button onClick={togglePopUp}>Add a new expense</button>
 
-        {(showPopup && (
-          <div>
-            <h2>New Expense</h2>
-            <h3>Tarjetas</h3>
-            <select name="tarjetas" required>
-            <option value="" disabled selected>Tarjetas</option> 
-            <option value="nu">Nu</option> 
-            <option value="visa">Visa</option> 
-            <option value="falabella">Falabella</option> 
-            <option value="nequi">Nequi</option> 
-            </select>
+      <h1>Monthly expense planner</h1>
+      <img className="PlannerIcon" src={PlannerIcon} alt="PlannerIcon" />
+      <h3>You don't have budgeted expenses</h3>
+      <button className ="add" onClick={togglePopUp}>Add a new expense</button>
 
-            <h3>Presupuesto</h3>
-            <input type='number' />
+      {showPopup && (
+  <div className='popup'>
+    <p className='title'>New Expense</p>
+    <h3>Cards</h3>
+    <select name="cards" required>
+      <option value="" disabled selected>My cards</option>
+      <option value="nu">Nu</option>
+      <option value="visa">Visa</option>
+      <option value="falabella">Falabella</option>
+      <option value="nequi">Nequi</option>
+    </select>
 
-            <h3>Categporías</h3>
-            <select name="categories" required>
-            <option value="" disabled selected>Categoría</option> 
-            <option value={"hogar"}>Hogar</option>
-            <option value={"mercado"}>Mercado</option>
-            <option value={"ropa"}>Ropa</option>
-            </select>
+    <h3>Budget</h3>
+    <input className='budget' type='number' placeholder="Enter amount" />
 
-          </div>
-        ))}
+    <h3>Categorías</h3>
+    <select name="categories" required>
+      <option value="" disabled selected>Category</option>
+      <option value={"home"}>Home</option>
+      <option value={"market"}>Market</option>
+      <option value={"clothes"}>Clothes</option>
+    </select>
+
+    <div className="button-container"> 
+      <button className="close-button" onClick={togglePopUp}>Cancel</button> 
+      <button className="add-button">Add new expense</button> 
+
+    </div>
+  </div>
+)}
+
     </div>
   );
-}
+};
