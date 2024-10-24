@@ -29,6 +29,10 @@ const chartData = [
   { month: "April", desktop: 73 },
   { month: "May", desktop: 209 },
   { month: "June", desktop: 214 },
+  { month: "July", desktop: 210 },
+  { month: "August", desktop: 200 },
+  { month: "September", desktop: 180 },
+  { month: "October", desktop: 190 },
 ];
 
 const chartConfig = {
@@ -40,7 +44,7 @@ const chartConfig = {
 
 export function AreaChartComponent() {
   return (
-    <Card>
+    <Card className="w-[50%]">
       <CardHeader>
         <CardTitle>Area Chart</CardTitle>
         <CardDescription>

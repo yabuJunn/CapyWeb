@@ -24,7 +24,7 @@ export const History = () => {
         <option value="mercado">Mercado</option>
         <option value="ropa">Ropa</option>
       </select>
-
+      
       <ul>
         {gastosFiltrados.map((gasto, index) => (
           <li key={index} style={{ marginBottom: '20px', listStyleType: 'none' }}>
