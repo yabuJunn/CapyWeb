@@ -1,24 +1,23 @@
-// History.tsx
 import { useState } from 'react';
-import { gastos, Gasto, Categoria } from './data'; // Importamos la data y los tipos
+import { gastos, Categoria } from './data'; 
 
 export const History = () => {
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<Categoria | "">(""); // Estado para la categoría seleccionada
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<Categoria | "">(""); // Estado para categoría seleccionada
 
   // Función select
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCategoriaSeleccionada(e.target.value as Categoria);
   };
 
-  // Filtrar los datos 
+  // Filtro
   const gastosFiltrados = categoriaSeleccionada
     ? gastos.filter((gasto) => gasto.categoria === categoriaSeleccionada)
-    : gastos; // Si no hay categoría seleccionada, mostramos todos los gastos.
+    : gastos;
 
   return (
-    <div className='history'>
-      <h1>History</h1>
-
+    <div className="history">
+      <h1>Historial de Gastos</h1>
+      
       <select name="categories" onChange={handleChange} value={categoriaSeleccionada} required>
         <option value="" disabled>Categoría</option> 
         <option value="hogar">Hogar</option>
@@ -28,8 +27,13 @@ export const History = () => {
 
       <ul>
         {gastosFiltrados.map((gasto, index) => (
-          <li key={index}>
-            <strong>{gasto.categoria.toUpperCase()}</strong> - {gasto.lugar}: {gasto.fecha} - ${gasto.monto.toLocaleString()}
+          <li key={index} style={{ marginBottom: '20px', listStyleType: 'none' }}>
+            <h2>{gasto.lugar}</h2>
+            <p>Categoría: {gasto.categoria}</p>
+            <p>Fecha: {gasto.fecha}</p>
+            <p>Monto: ${gasto.monto}</p>
+            
+            {gasto.img && <img src={gasto.img} alt={`Imagen de ${gasto.lugar}`} width={100} />}
           </li>
         ))}
       </ul>
