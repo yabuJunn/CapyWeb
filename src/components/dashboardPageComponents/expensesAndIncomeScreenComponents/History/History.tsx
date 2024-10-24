@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { gastos, Categoria } from './data'; 
+import "./History.css"
 
 export const History = () => {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<Categoria | "">(""); // Estado para categoría seleccionada
@@ -15,8 +16,8 @@ export const History = () => {
     : gastos;
 
   return (
-    <div className="history">
-      <h1>Historial de Gastos</h1>
+    <div className="generalHistory">
+      <h1>Historial</h1>
       
       <select name="categories" onChange={handleChange} value={categoriaSeleccionada} required>
         <option value="" disabled>Categoría</option> 
@@ -25,7 +26,8 @@ export const History = () => {
         <option value="ropa">Ropa</option>
       </select>
       
-      <ul>
+
+      <div>
         {gastosFiltrados.map((gasto, index) => (
           <li key={index} style={{ marginBottom: '20px', listStyleType: 'none' }}>
             <h2>{gasto.lugar}</h2>
@@ -36,7 +38,7 @@ export const History = () => {
             {gasto.img && <img src={gasto.img} alt={`Imagen de ${gasto.lugar}`} width={100} />}
           </li>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
