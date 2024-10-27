@@ -8,30 +8,33 @@ import Summary from '../../components/RewardsPageComponents/Summary/Summary';
 
 export const Rewards: React.FC = () => {
   return (
-    <div className="reward-container">
-      <h1>Recompensas</h1>
+    <main className="reward-container">
+      <h1>Reward</h1>
       <div className='MissionLevel'>
 
         <Nav></Nav>
-        <div className='mission'>
+        <div className='iqual'>
           <Missions></Missions>
         </div>
         
-        <div className='Level'>
+        <div className='iqual'>
           <SaverLevel></SaverLevel>
         </div>
 
-        <div className='Summary'>
+        <div className='iqual'>
           <Summary></Summary>
         </div>
+        
       </div>
        
       <div className='canjeo'>
         <RewardGrid></RewardGrid>
       </div>
 
+      <div id='background'>
 
-    </div>
+      </div>
+    </main>
 
   );
 }

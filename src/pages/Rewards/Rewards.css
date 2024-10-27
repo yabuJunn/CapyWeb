@@ -12,13 +12,11 @@
     font-style: normal;
 }
 
-.rewards-container {
-    padding: 40px;
-    background-color: #111;
+.reward-container {
     min-height: 100vh;
     color: white;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     
 }
 
@@ -31,4 +29,37 @@ h1 {
     display: flex;
     flex-direction: row;
     margin-bottom: 5%;
+    margin-top: 60px;
+    
+}
+
+#background {
+    position: fixed;
+    /* Para que ocupe toda la pantalla y se mantenga fija al hacer scroll */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* 100% del ancho de la ventana */
+    height: 100vh;
+    /* 100% de la altura de la ventana */
+    background-image: url('../../assets/svg/DashboardScreen.svg');
+    background-size: cover;
+    /* Asegura que la imagen cubra toda la pantalla */
+    background-position: center;
+    /* Centra la imagen en la pantalla */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
+    z-index: -1;
+}
+
+.iqual {
+    height: 70%;
+    flex: 1;                   /* Permite que cada div ocupe el mismo espacio */
+    background-color: #181818; /* Color de fondo para los niveles */
+    padding: 20px;             /* Espaciado interno */
+    border-radius: 8px;        /* Esquinas redondeadas */
+    color: white;              /* Color del texto */
+    text-align: center;        /* Centrar texto */
+    margin: 0 10px;           /* Margen lateral entre los divs (opcional) */
+
 }

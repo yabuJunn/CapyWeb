@@ -6,7 +6,7 @@ export const SaverLevelTitleDisplay = () => {
     return <>
         <div id='SaverLevelTitleDisplayContainer'>
             <h3>Novice</h3>
-            <img src={noviceSaverLevel} alt="" />
+            <img src={noviceSaverLevel} alt="Nivel Novice del ahorrador" loading="eager" />
         </div>
     </>
 }

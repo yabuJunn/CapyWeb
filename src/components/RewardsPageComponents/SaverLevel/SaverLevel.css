@@ -1,6 +1,6 @@
 .SaverLevelContainer {
-    width: 160%; 
-    height: 100%; 
+    width: 260%; 
+    height: 60%; 
     border-radius: 16px;
     color: white;
     background-color: #181818; 
@@ -12,8 +12,8 @@
 
 .SaverLevelContainer p {
     font-size: 16px;
-    margin-left: 16px; 
-    line-height: 5;
+    margin-left: 12px; 
+    line-height: 3;
     font-style: normal;
     font-weight: 700;
 }
