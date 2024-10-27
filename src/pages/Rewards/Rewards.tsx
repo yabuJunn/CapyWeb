@@ -4,6 +4,7 @@ import RewardGrid from '../../components/RewardsPageComponents/RewardGrid/Reward
 import { Missions } from '../../components/RewardsPageComponents/Missions/Missions';
 import { SaverLevel } from '../../components/RewardsPageComponents/SaverLevel/SaverLevel';
 import Nav from '../../components/Nav/Nav'
+import Summary from '../../components/RewardsPageComponents/Summary/Summary';
 
 export const Rewards: React.FC = () => {
   return (
@@ -18,6 +19,10 @@ export const Rewards: React.FC = () => {
         
         <div className='Level'>
           <SaverLevel></SaverLevel>
+        </div>
+
+        <div className='Summary'>
+          <Summary></Summary>
         </div>
       </div>
        

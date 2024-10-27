@@ -1,0 +1,28 @@
+
+.resumen-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .icono {
+    font-size: 2em;
+    margin-right: 10px;
+  }
+  
+  .titulo {
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .contenido {
+    font-size: 1.5em;
+    margin: 0;
+  }
+  
+  .resumen-card:last-child {
+    margin-bottom: 0;
+  }
+  
