@@ -12,6 +12,7 @@ interface RewardCardProps {
 const RewardCard: React.FC<RewardCardProps> = ({ service, price, points, backgroundColor, imageSrc }) => {
     return (
         <div className="reward-card" style={{ backgroundColor }}>
+            
             <img 
                 src={imageSrc} 
                 alt={service} 

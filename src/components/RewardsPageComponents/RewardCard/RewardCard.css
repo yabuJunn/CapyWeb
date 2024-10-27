@@ -13,9 +13,9 @@
 }
 
 .reward-card {
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 20px;
-    width: 22%;
+    width: 25%;
     height: 200px;
     position: relative;
     color: white;
@@ -27,9 +27,23 @@
     left: 0;
     width: 193.078px;
     height: 48.118px;
+    font-family: "Space Grotesk";
+    line-height: 70px;
 }
 
 .reward-card-content {
     position: relative;
     z-index: 1;
+    font-family: "Space Grotesk";
+}
+
+.reward-card p {
+    color: #F9F9F9;
+    font-family: "Space Grotesk";
+    font-size: 3vh;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: flex;
+    flex-wrap: wrap;
 }

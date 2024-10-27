@@ -11,13 +11,13 @@ const Summary: React.FC = () => {
         icon="../../src/assets/svg/Trofeo.svg"
         title="Nivel de ahorrador"
         content="Novato"
-        backgroundColor="#f45b3e"
+        backgroundColor="#F2622E"
       />
       <SummaryCard
         icon="../../src/assets/svg/Bandera.svg"
         title="Metas completadas"
         content="6"
-        backgroundColor="#a3eb30"
+        backgroundColor="#A8F25D"
       />
       <SummaryCard
         icon="../../src/assets/svg/Logo.svg"

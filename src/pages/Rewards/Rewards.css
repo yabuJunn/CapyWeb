@@ -23,13 +23,14 @@
 h1 {
     color: white;
     font-family: 'Plus Jakarta';
+    line-height: 120px;
+    text-align: left;
 }
 
 .MissionLevel {
     display: flex;
     flex-direction: row;
-    margin-bottom: 5%;
-    margin-top: 60px;
+    margin-left: 3%;
     
 }
 
@@ -53,13 +54,12 @@ h1 {
 }
 
 .iqual {
-    height: 70%;
+    height: 100%;
     flex: 1;                   /* Permite que cada div ocupe el mismo espacio */
     background-color: #181818; /* Color de fondo para los niveles */
     padding: 20px;             /* Espaciado interno */
-    border-radius: 8px;        /* Esquinas redondeadas */
-    color: white;              /* Color del texto */
-    text-align: center;        /* Centrar texto */
-    margin: 0 10px;           /* Margen lateral entre los divs (opcional) */
+    border-radius: 16px;        /* Esquinas redondeadas */
+    color: white;              /* Color del texto */     
+    margin: 0 1%;           /* Margen lateral entre los divs (opcional) */
 
 }

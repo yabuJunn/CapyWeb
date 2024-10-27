@@ -8,3 +8,8 @@
 #SaverLevelTitleDisplayContainer h3 {
     margin: 0;
 }
+
+#SaverLevelTitleDisplayContainer img{
+    height: 150px;
+    width: 100%;
+}

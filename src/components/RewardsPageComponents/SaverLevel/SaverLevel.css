@@ -1,6 +1,5 @@
 .SaverLevelContainer {
-    width: 260%; 
-    height: 60%; 
+    height: 340px; 
     border-radius: 16px;
     color: white;
     background-color: #181818; 
@@ -16,4 +15,6 @@
     line-height: 3;
     font-style: normal;
     font-weight: 700;
+    display: flex;
+    text-align: left;
 }
