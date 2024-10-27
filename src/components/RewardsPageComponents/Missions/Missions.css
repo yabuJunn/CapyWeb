@@ -13,7 +13,7 @@
 }
 
 .missions {
-    width: 100%;
+    width: 90%;
     height: 100%;
     border-radius: 16px;
     color: white;
@@ -24,19 +24,11 @@
     flex-direction: column;
 }
 
-.MoveButton {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 16px;
-    height: 16px;
-}
-
 .info-container {
     margin-left: 16px;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 98%;
 }
 
 .info-container h3 {
@@ -48,7 +40,17 @@
     font-weight: 700;
     line-height: normal;
 
-    margin: 16px 0 35px 0;
+    margin: 16px 0 20px 0;
+}
+
+.info-container p {
+    font-family: 'Plus Jakarta';
+    color: #FFF;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 #missionItemContainer {

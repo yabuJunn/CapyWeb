@@ -9,7 +9,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { LandingPage } from './pages/LandingPage/LandingPage.tsx'
 import { LogIn } from './pages/LogIn/LogIn.tsx'
 import { Register } from './pages/Register/Register.tsx'
-import { Dashboard } from './pages/Dashboard/Dashboard.tsx'
+import { Rewards } from './pages/Rewards/Rewards.tsx'
 
 const router = createBrowserRouter([
   {
@@ -25,8 +25,8 @@ const router = createBrowserRouter([
     element: <Register></Register>,
   },
   {
-    path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    path: "/reward",
+    element: <Rewards></Rewards>
   },
   
 ]);

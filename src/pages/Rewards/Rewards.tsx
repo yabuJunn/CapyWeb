@@ -2,17 +2,25 @@ import React from 'react';
 import './Rewards.css';
 import RewardGrid from '../../components/RewardsPageComponents/RewardGrid/RewardGrid';
 import { Missions } from '../../components/RewardsPageComponents/Missions/Missions';
-import { SaverLevelProgressBar } from '../../components/RewardsPageComponents/SaverLevelProgressBar/SaverLevelProgressBar';
+import { SaverLevel } from '../../components/RewardsPageComponents/SaverLevel/SaverLevel';
+import Nav from '../../components/Nav/Nav'
 
 export const Rewards: React.FC = () => {
   return (
     <div className="reward-container">
       <h1>Recompensas</h1>
-      <Missions></Missions>
+      <div className='MissionLevel'>
 
-       <div className='Level'>
-        <SaverLevelProgressBar></SaverLevelProgressBar>
-       </div>
+        <Nav></Nav>
+        <div className='mission'>
+          <Missions></Missions>
+        </div>
+        
+        <div className='Level'>
+          <SaverLevel></SaverLevel>
+        </div>
+      </div>
+       
       <div className='canjeo'>
         <RewardGrid></RewardGrid>
       </div>

@@ -1,5 +1,5 @@
 .SaverLevelContainer {
-    width: 100%; 
+    width: 160%; 
     height: 100%; 
     border-radius: 16px;
     color: white;
@@ -16,12 +16,4 @@
     line-height: 5;
     font-style: normal;
     font-weight: 700;
-}
-
-.MoveButton {
-    position: absolute;
-    top: 16px;
-    right: 16px; 
-    width: 16px;
-    height: 16px;
 }
