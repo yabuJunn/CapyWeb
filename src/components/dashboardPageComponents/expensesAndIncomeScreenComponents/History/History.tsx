@@ -18,7 +18,7 @@ export const History = () => {
   return (
     <div className="generalHistory">
       <div className='topHistory'>
-      <h3>Historial</h3>
+      <h1>Historial</h1>
       
       <select name="categories" onChange={handleChange} value={categoriaSeleccionada} required>
         <option value="" disabled>Categoría</option> 

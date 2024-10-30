@@ -22,7 +22,7 @@
     background-color: #181818  
   }
   
-  .generalHistory h3 {
+  .generalHistory h1 {
     text-align: center;
     color: white;
     font-size: 20px;
@@ -69,10 +69,13 @@
   li h2 {
     font-size: 18px;
     margin-bottom: 8px;
+    color: white;
   }
   
   li p {
     margin: 5px 0;
     font-size: 14px;
+    color: white;
+
   }
   
