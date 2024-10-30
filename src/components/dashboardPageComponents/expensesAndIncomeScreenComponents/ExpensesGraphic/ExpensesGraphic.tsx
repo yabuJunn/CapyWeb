@@ -2,6 +2,7 @@
 
 import { TrendingUp } from "lucide-react";
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import "./ExpenseGraphic.css"
 
   
 
@@ -39,7 +40,7 @@ export function AreaChartComponent() {
   return (
     
      
-        <ChartContainer config={chartConfig}>
+        <ChartContainer config={chartConfig} className="expense-container">
           <AreaChart
             accessibilityLayer
             data={chartData}
