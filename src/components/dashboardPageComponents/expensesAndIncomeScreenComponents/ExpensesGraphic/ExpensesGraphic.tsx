@@ -102,7 +102,7 @@ export function AreaChartComponent() {
 export const ExpensesGraphic = () => {
   return (
     <div className="grafic-card">
-      <h1>Graphic</h1>
+      <h3>Graphic</h3>
       <AreaChartComponent />
     </div>
   );

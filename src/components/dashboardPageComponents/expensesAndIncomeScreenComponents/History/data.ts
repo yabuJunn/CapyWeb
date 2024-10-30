@@ -19,7 +19,7 @@ export const gastos: Gasto[] = [
     lugar: "Carulla",
     fecha: "15-09", 
     monto: 120000, 
-    img:"../../../../../src/assets/svg/shopping-cart.svg"
+    img: "../../../../../src/assets/svg/cart.svg"
   },
   { categoria: "ropa", 
     lugar: "Shein", 
@@ -37,7 +37,7 @@ export const gastos: Gasto[] = [
     lugar: "Stradivarius", 
     fecha: "20-07", 
     monto: 80000,
-    img: "../../../../../src/assets/svg/shopping-cart.svg"
+    img: "../../../../../src/assets/svg/.svg"
   },
   { categoria: "hogar", 
     lugar: "Homecenter",
@@ -49,6 +49,6 @@ export const gastos: Gasto[] = [
     lugar: "Cristalería La 13", 
     fecha: "10-09",
     monto: 200000,
-    img: "../../../../../src/assets/svg/home.svg"
+    img: "../../../../../src/assets/svg/cart.svg"
   },
 ];

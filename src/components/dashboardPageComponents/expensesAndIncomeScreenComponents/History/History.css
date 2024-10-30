@@ -1,23 +1,56 @@
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../../assets/TempFonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta';
+  src: url('../../assets/TempFonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .generalHistory {
-    max-width: 600px;  /* Establece un ancho máximo para el contenedor */
-    height: 400px;  /* Altura fija para que se pueda activar el scroll vertical */
-    margin: 0 auto;  /* Centra el div en la página */
+    max-width: 600px;  
+    height: 400px;  
+    margin: 0 auto;  
     padding: 20px;
-    border: 1px solid #ddd;  /* Añade un borde alrededor del contenedor */
-    overflow-y: auto;  /* Activa el scroll vertical si el contenido es demasiado grande */
-    background-color: #f9f9f9;  /* Color de fondo para dar estilo */
+    border: 1px solid #ddd;  
+    overflow-y: auto;  
+    background-color: #181818  
   }
   
-  h1 {
+  .generalHistory h3 {
     text-align: center;
+    color: white;
+    font-size: 20px;
+    font-family: 'Space Grotesk';
+  }
+
+  .topHistory {
+    display: flex;
+    flex-direction: row;
+    gap: 290px;
+    justify-content: center;
+    margin-top: 30px;
   }
   
   select {
     display: block;
-    width: 100%;
+    width: 139px;
+    height: 43px;
+    border-radius: 4px;
     padding: 8px;
     margin-bottom: 20px;
     font-size: 16px;
+    color: white;
+    background-color: #F2622E;
+  }
+  .generalHistory select option {
+    color: black;
+    background-color: white;
   }
   
   li {
