@@ -23,8 +23,12 @@ export const ExpensesAndIncome = () => {
           </div>
         
         </div>
-        <div className="right-div">Hola</div>
-        <div className="left-div">Hola</div>
+        <div className="right-div">
+          <History />
+        </div>
+        <div className="left-div">
+          <ExpensePlanner />
+        </div>
       </div>
     </div>
   );
