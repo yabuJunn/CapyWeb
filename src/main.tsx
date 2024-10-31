@@ -10,6 +10,7 @@ import { LandingPage } from './pages/LandingPage/LandingPage.tsx'
 import { LogIn } from './pages/LogIn/LogIn.tsx'
 import { Register } from './pages/Register/Register.tsx'
 import { Dashboard } from './pages/Dashboard/Dashboard.tsx'
+import { SavingsPage } from './pages/savingsPage/savingsPage.tsx'
 
 const router = createHashRouter([
   {
@@ -27,6 +28,10 @@ const router = createHashRouter([
   {
     path: "/dashboard",
     element: <Dashboard></Dashboard>,
+  },
+  {
+    path: "/savings",
+    element: <SavingsPage></SavingsPage>,
   },
 ]);
 
