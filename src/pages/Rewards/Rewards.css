@@ -20,9 +20,10 @@
     
 }
 
-h1 {
+#principal {
     color: white;
     font-family: 'Plus Jakarta';
+    margin-top: 15%;
     line-height: 120px;
     text-align: left;
 }
@@ -36,30 +37,28 @@ h1 {
 
 #background {
     position: fixed;
-    /* Para que ocupe toda la pantalla y se mantenga fija al hacer scroll */
     top: 0;
     left: 0;
     width: 100vw;
-    /* 100% del ancho de la ventana */
     height: 100vh;
-    /* 100% de la altura de la ventana */
     background-image: url('../../assets/svg/DashboardScreen.svg');
     background-size: cover;
-    /* Asegura que la imagen cubra toda la pantalla */
     background-position: center;
-    /* Centra la imagen en la pantalla */
     background-repeat: no-repeat;
-    /* Evita que la imagen se repita */
     z-index: -1;
 }
 
 .iqual {
     height: 100%;
-    flex: 1;                   /* Permite que cada div ocupe el mismo espacio */
-    background-color: #181818; /* Color de fondo para los niveles */
-    padding: 20px;             /* Espaciado interno */
-    border-radius: 16px;        /* Esquinas redondeadas */
-    color: white;              /* Color del texto */     
-    margin: 0 1%;           /* Margen lateral entre los divs (opcional) */
+    flex: 1;                   
+    background-color: #181818;
+    padding: 20px;             
+    border-radius: 16px;       
+    color: white;                  
+    margin: 0 1%;           
 
+}
+
+#nav-container{
+    margin-top: 4%;
 }

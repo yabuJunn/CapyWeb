@@ -19,6 +19,9 @@
     font-style: normal;
     font-weight: 700;
     margin-left: 10%;
+    line-height: 100px;
+    text-align: left;
+    position: relative;
 }
 #rewardCard{
     display: flex;

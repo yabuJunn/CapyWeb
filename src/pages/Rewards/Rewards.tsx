@@ -9,7 +9,7 @@ import Summary from '../../components/RewardsPageComponents/Summary/Summary';
 export const Rewards: React.FC = () => {
   return (
     <main className="reward-container">
-      <h1>Reward</h1>
+      <h1 id='principal'>Reward</h1>
       <div className='MissionLevel'>
 
         <div id='nav-container'>
