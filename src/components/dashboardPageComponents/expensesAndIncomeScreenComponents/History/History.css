@@ -13,69 +13,81 @@
 }
 
 .generalHistory {
-    max-width: 600px;  
-    height: 400px;  
-    margin: 0 auto;  
-    padding: 20px;
-    border: 1px solid #ddd;  
-    overflow-y: auto;  
-    background-color: #181818  
-  }
-  
-  .generalHistory h1 {
-    text-align: center;
-    color: white;
-    font-size: 20px;
-    font-family: 'Space Grotesk';
-  }
+  max-width: 600px;  
+  height: 400px;  
+  margin: 0 auto;  
+  padding: 20px;
+  border: 1px solid #ddd;  
+  overflow-y: auto;  
+  background-color: #181818;
+  border-radius: 8px; 
+}
 
-  .topHistory {
-    display: flex;
-    flex-direction: row;
-    gap: 290px;
-    justify-content: center;
-    margin-top: 30px;
-  }
-  
-  select {
-    display: block;
-    width: 139px;
-    height: 43px;
-    border-radius: 4px;
-    padding: 8px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    color: white;
-    background-color: #F2622E;
-  }
-  .generalHistory select option {
-    color: black;
-    background-color: white;
-  }
-  
-  li {
-    padding: 10px;
-    background-color: #181818;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  img {
-    display: block;
-    margin-top: 10px;
-    border-radius: 8px;
-  }
-  
-  li h2 {
-    font-size: 18px;
-    margin-bottom: 8px;
-    color: white;
-  }
-  
-  li p {
-    margin: 5px 0;
-    font-size: 14px;
-    color: white;
+.generalHistory h1 {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-family: 'Space Grotesk';
+}
 
-  }
-  
+.topHistory {
+  display: flex;
+  flex-direction: row;
+  gap: 290px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+select {
+  display: block;
+  width: 139px;
+  height: 43px;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #F2622E;
+}
+
+.generalHistory select option {
+  color: black;
+  background-color: white;
+}
+
+li {
+  padding: 10px;
+  background-color: #181818;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gasto-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.gasto-details {
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  display: block;
+  border-radius: 8px;
+  width: 70px;
+  height: 70px;
+}
+
+li h2 {
+  font-size: 18px;
+  margin-bottom: 1px; 
+  color: white;
+}
+
+li p {
+  margin: 1px 0; 
+  font-size: 14px;
+  color: white;
+}
