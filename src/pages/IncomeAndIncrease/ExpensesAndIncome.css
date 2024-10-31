@@ -7,7 +7,7 @@
   
 .main-div { 
     grid-area: 1 / 1 / 2 / 3;
-    background-color: blue; 
+    background-color: rgb(115, 115, 231); 
     display: flex;
     align-items: center;
 }
@@ -31,4 +31,10 @@
     width: 40%;
     background-color: rgb(108, 113, 211);
 }
-  
+.page{
+    background-image: url('../../assets/svg/fondoLogin.svg');
+}
+
+h1{
+    color: white;
+}

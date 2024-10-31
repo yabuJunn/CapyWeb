@@ -3,13 +3,17 @@ import { ExpensesGraphic } from "../../components/dashboardPageComponents/expens
 import { PieChartGraphic } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/PieChart/PieChartGraphic";
 import { History } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/History/History";
 import "./ExpensesAndIncome.css"
+import Nav from "../../components/Nav/Nav";
 
 export const ExpensesAndIncome = () => {
   return (
     <div className="page">
       
+      <h1>Expenses & Income</h1>
       
-      
+      <div className="nav-div">
+          <Nav />
+        </div>
 
       <div className="container">
         <div className="main-div">
@@ -29,6 +33,7 @@ export const ExpensesAndIncome = () => {
         <div className="left-div">
           <ExpensePlanner />
         </div>
+       
       </div>
     </div>
   );

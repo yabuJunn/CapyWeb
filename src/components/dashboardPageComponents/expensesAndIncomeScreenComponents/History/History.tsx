@@ -16,6 +16,7 @@ export const History = () => {
     : gastos;
 
   return (
+
     <div className="generalHistory">
       <div className='topHistory'>
         <h1>Historial</h1>
@@ -28,6 +29,7 @@ export const History = () => {
       </div>
       
       <div>
+
         {gastosFiltrados.map((gasto, index) => (
           <li key={index} style={{ marginBottom: '20px', listStyleType: 'none' }}>
             <div className="gasto-content">
