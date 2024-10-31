@@ -1,34 +1,93 @@
-.generalHistory{
-    background-color:black ;
-    width: 516px;
-    height: 426px;
-    margin-bottom: 20px; 
-    color: #ffffff;
-    margin: 20px auto; 
-    padding: 20px;
-    border-radius: 8px; 
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../../assets/TempFonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.generalHistory h1{
-    color: #ffffff; 
-    font-size: 20px;
-    text-align: center; 
+@font-face {
+  font-family: 'Plus Jakarta';
+  src: url('../../assets/TempFonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.generalHistory input[type='number'], 
-.generalHistory select {
-    width: 426px; 
-    height: 48px; 
-    padding: 10px; 
-    margin: 10px 0; 
-    border: 1px solid #ccc; 
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.1); 
-    backdrop-filter: blur(10px); 
-    color: #fff; 
+.generalHistory {
+  max-width: 600px;  
+  height: 400px;  
+  margin: 0 auto;  
+  padding: 20px;
+  border: 1px solid #ddd;  
+  overflow-y: auto;  
+  background-color: #181818;
+  border-radius: 8px; 
 }
 
-.generalHistory input::placeholder, 
+.generalHistory h1 {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-family: 'Space Grotesk';
+}
+
+.topHistory {
+  display: flex;
+  flex-direction: row;
+  gap: 290px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+select {
+  display: block;
+  width: 139px;
+  height: 43px;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #F2622E;
+}
+
 .generalHistory select option {
-    color: #aaa; 
+  color: black;
+  background-color: white;
+}
+
+li {
+  padding: 10px;
+  background-color: #181818;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gasto-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.gasto-details {
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  display: block;
+  border-radius: 8px;
+  width: 70px;
+  height: 70px;
+}
+
+li h2 {
+  font-size: 18px;
+  margin-bottom: 1px; 
+  color: white;
+}
+
+li p {
+  margin: 1px 0; 
+  font-size: 14px;
+  color: white;
 }
