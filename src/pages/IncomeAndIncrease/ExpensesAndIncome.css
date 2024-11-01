@@ -3,13 +3,16 @@
     grid-template-rows: repeat(2, 1fr);
     gap: 9px 9px;
     grid-auto-flow: row;
+    margin-left: 150px;
+    margin-top: -400px;
+
 }
   
 .main-div { 
     grid-area: 1 / 1 / 2 / 3;
     background-color: rgb(115, 115, 231); 
     display: flex;
-    align-items: center;
+    align-items: left;
 }
   
 .right-div { 
@@ -32,9 +35,10 @@
     background-color: rgb(108, 113, 211);
 }
 .page{
-    background-image: url('../../assets/svg/fondoLogin.svg');
+    background-image: url('../../assets/svg/DashboardScreen.svg');
+    background-size: cover;
 }
-
-h1{
+.page h1{
     color: white;
+
 }
