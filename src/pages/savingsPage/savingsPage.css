@@ -1,8 +1,28 @@
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
 #SavingsCardsContainer {
     width: 90vw;
     height: 85vh;
     display: flex;
     gap: 2%;
+}
+
+#SavingsCardsContainer h3 {
+    color: white;
+
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    margin: 3% 0 0 3%;
 }
 
 #leftCardsContainer {
@@ -28,6 +48,50 @@
     border: 2px rgb(41, 171, 50) solid;
     background-color: #181818;
     border-radius: 15px;
+}
+
+#generalSavingsContent {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 10px 0 0 10px;
+}
+
+#generalSavingsCircularProgressbarWrapper {
+    height: 100%;
+    width: 51%;
+}
+
+.generalSavingsCircularProgressbar {
+    width: 75%;
+}
+
+#generalSavingsCircularProgressHints {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hint {
+    display: flex;
+    gap: 10px;
+}
+
+.hint .color {
+    height: 15Px;
+    width: 15px;
+    border-radius: 88.571px
+}
+
+.hint p {
+    color: var(--Primary-Base-White, #FFF);
+    font-family: Inter;
+    font-size: 12.4px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17.714px;
+    /* 142.857% */
+    letter-spacing: -0.248px;
 }
 
 #categorySavings {
