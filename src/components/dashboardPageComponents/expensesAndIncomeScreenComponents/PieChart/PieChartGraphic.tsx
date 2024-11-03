@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Label, Pie, PieChart, Sector } from "recharts"
 import { PieSectorDataItem } from "recharts/types/polar/Pie"
-
+import "./PieChartGraphic.css"
 import {
   Card,
   CardContent,
@@ -57,8 +57,11 @@ export const PieChartGraphic =() => {
   const months = React.useMemo(() => desktopData.map((item) => item.month), [])
 
   return (
-    <Card data-chart={id} className="flex flex-col">
-      <ChartStyle id={id} config={chartConfig} />
+    <Card data-chart={id} className="flex flex-col"  style={{ backgroundColor: '#181818',  color: 'white'}} 
+>
+      
+      <ChartStyle id={id} config={chartConfig }
+       />
       <CardHeader className="flex-row items-start space-y-0 pb-0">
         <div className="grid gap-1">
           
@@ -66,6 +69,7 @@ export const PieChartGraphic =() => {
         <Select value={activeMonth} onValueChange={setActiveMonth}>
           <SelectTrigger
             className="ml-auto h-7 w-[130px] rounded-lg pl-2.5"
+            
             aria-label="Select a value"
           >
             <SelectValue placeholder="Select month" />
@@ -87,7 +91,7 @@ export const PieChartGraphic =() => {
                   <div className="flex items-center gap-2 text-xs">
                     <span
                       className="flex h-3 w-3 shrink-0 rounded-sm"
-                      style={{ backgroundColor: `var(--color-${key})` }}
+                      style={{  color: 'white',backgroundColor: `var(--color-${key}) ` }}
                     />
                     {config?.label}
                   </div>
@@ -97,12 +101,13 @@ export const PieChartGraphic =() => {
           </SelectContent>
         </Select>
       </CardHeader>
-      <CardContent className="flex flex-1 justify-center pb-0">
-        <ChartContainer
-          id={id}
-          config={chartConfig}
-          className="mx-auto aspect-square w-full max-w-[300px]"
-        >
+      <CardContent className="flex flex-1 justify-center pb-0"   >
+      <ChartContainer
+  id={id}
+  config={chartConfig}
+  className="mx-auto aspect-square w-full max-w-[300px]"
+  style={{ backgroundColor: '#181818', color: 'white' }} 
+>
           <PieChart>
             <ChartTooltip
               cursor={false}
@@ -133,6 +138,7 @@ export const PieChartGraphic =() => {
                       <text
                         x={viewBox.cx}
                         y={viewBox.cy}
+                        style={{ fill: 'white' }} // Color blanco
                         textAnchor="middle"
                         dominantBaseline="middle"
                       >

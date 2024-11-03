@@ -14,7 +14,7 @@
 
 .planner {
     max-width: 678px; 
-    height: 426px;
+    height: 400px;
     margin: 20px auto; 
     padding: 20px;
     border-radius: 8px; 
@@ -25,6 +25,7 @@
     align-items: center; 
     justify-content: flex-start; 
     overflow-y: auto; 
+    margin-top: 20px;
 }
 
 .expense-list {
