@@ -74,18 +74,18 @@ p {
     gap: 10px;
 }
 
-.hint {
+#generalSavingsCircularProgressHints .hint {
     display: flex;
     gap: 10px;
 }
 
-.hint .color {
+#generalSavingsCircularProgressHints .hint .color {
     height: 15Px;
     width: 15px;
     border-radius: 88.571px
 }
 
-.hint p {
+#generalSavingsCircularProgressHints .hint p {
     color: var(--Primary-Base-White, #FFF);
     font-family: Inter;
     font-size: 12.4px;
@@ -124,7 +124,27 @@ p {
     gap: 10px;
 }
 
-#categorySavingsCircularProgressHints .hint {}
+#categorySavingsCircularProgressHints .hint {
+    display: flex;
+    gap: 10px;
+}
+
+#categorySavingsCircularProgressHints .hint .color {
+    height: 15Px;
+    width: 15px;
+    border-radius: 88.571px
+}
+
+#categorySavingsCircularProgressHints .hint p {
+    color: var(--Primary-Base-White, #FFF);
+    font-family: Inter;
+    font-size: 12.4px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17.714px;
+    /* 142.857% */
+    letter-spacing: -0.248px;
+}
 
 /* Savings Goal Component */
 
@@ -134,6 +154,138 @@ p {
     border: 2px rgb(95, 41, 171) solid;
     background-color: #181818;
     border-radius: 15px;
+}
+
+#savingsGoalsHeader {
+    display: flex;
+    justify-content: space-between;
+    width: 97.5%;
+    height: 10%;
+    margin: 0 10px 0 0;
+}
+
+#savingsGoalsHeader button {
+    width: 25%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #181818;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+#savingsGoalsListContainer {
+    display: flex;
+    flex-direction: column;
+
+    margin: 5% 0 0 0;
+}
+
+.savingGoalItem {
+    display: flex;
+    flex-direction: column;
+    height: 10%;
+    margin: 0 0 3% 0;
+}
+
+.savingGoalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80%;
+    margin: 0 3% 0 3%
+}
+
+.savingGoalHeader button {
+    width: 10%;
+    height: 5%;
+    background-color: #F9F9F9;
+    padding: 10px;
+    margin: 0;
+
+    color: #181818;
+    font-family: "Plus Jakarta Sans";
+    font-size: 11.907px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.savingGoalTitle {
+    display: flex;
+    height: 100%;
+}
+
+.savingGoalTitle img {
+    border-radius: 10px;
+    padding: 2px;
+    margin-right: 14px;
+    aspect-ratio: 1/1;
+}
+
+.savingGoalTitleText {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.savingGoalTitleText h4 {
+    color: #F9F9F9;
+
+    /* Titulo mobile */
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.savingGoalTitleText p {
+    color: #F9F9F9;
+
+    /* inputs-Body */
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.savingGoalGraphContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.savingGoalGraphLabels {
+    color: var(--Primary-Base-White, #FFF);
+    text-shadow: 0px 1.188px 1.188px rgba(0, 0, 0, 0.25);
+
+    /* body mobile */
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    display: flex;
+    justify-content: space-between;
+
+    width: 90%;
+
+    margin: 1% 0 1% 0;
+}
+
+.bg-primary {
+    background: linear-gradient(270deg, #581ED4, #2D18BF);
+    border-radius: 40px;
 }
 
 /* Saving History Component */
