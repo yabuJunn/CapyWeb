@@ -1,46 +1,44 @@
 import { useState } from 'react';
-import { gastos, Categoria } from './data'; 
+import { expenses, Category } from './data'; 
 import "./History.css";
 
 export const History = () => {
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<Categoria | "">(""); // Estado para categoría seleccionada
+  const [selectedCategory, setSelectedCategory] = useState<Category | "">(""); // State for selected category
 
-  // Función select
+  // Select handler
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setCategoriaSeleccionada(e.target.value as Categoria);
+    setSelectedCategory(e.target.value as Category);
   };
 
-  // Filtro
-  const gastosFiltrados = categoriaSeleccionada
-    ? gastos.filter((gasto) => gasto.categoria === categoriaSeleccionada)
-    : gastos;
+  // Filter
+  const filteredExpenses = selectedCategory
+    ? expenses.filter((expense) => expense.category === selectedCategory)
+    : expenses;
 
   return (
-
     <div className="generalHistory">
       <div className='topHistory'>
-        <h1>Historial</h1>
-        <select name="categories" onChange={handleChange} value={categoriaSeleccionada} required>
-          <option value="" disabled>Categoría</option> 
-          <option value="hogar">Hogar</option>
-          <option value="mercado">Mercado</option>
-          <option value="ropa">Ropa</option>
+        <h1>History</h1>
+        <select name="categories" onChange={handleChange} value={selectedCategory} required>
+          <option value="" disabled>Category</option> 
+          <option value="home">Home</option>
+          <option value="market">Market</option>
+          <option value="clothes">Clothes</option>
         </select>
       </div>
       
       <div>
-
-        {gastosFiltrados.map((gasto, index) => (
+        {filteredExpenses.map((expense, index) => (
           <li key={index} style={{ marginBottom: '20px', listStyleType: 'none' }}>
-            <div className="gasto-content">
-              {gasto.img && (
-                <img src={gasto.img} alt={`Imagen de ${gasto.lugar}`} width={50} height={50} />
+            <div className="expense-content">
+              {expense.img && (
+                <img src={expense.img} alt={`Image of ${expense.place}`} width={50} height={50} />
               )}
-              <div className="gasto-details">
-                <h2>{gasto.lugar}</h2>
-                <p>Categoría: {gasto.categoria}</p>
-                <p>Fecha: {gasto.fecha}</p>
-                <p>Monto: ${gasto.monto}</p>
+              <div className="expense-details">
+                <h2>{expense.place}</h2>
+                <p>Category: {expense.category}</p>
+                <p>Date: {expense.date}</p>
+                <p>Amount: ${expense.amount}</p>
               </div>
             </div>
           </li>

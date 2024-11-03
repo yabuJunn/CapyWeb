@@ -10,7 +10,7 @@ import { LandingPage } from './pages/LandingPage/LandingPage.tsx'
 import { LogIn } from './pages/LogIn/LogIn.tsx'
 import { Register } from './pages/Register/Register.tsx'
 import { Dashboard } from './pages/Dashboard/Dashboard.tsx'
-import { ExpensesAndIncome } from './pages/IncomeAndIncrease/ExpensesAndIncome.tsx'
+import {  ExpensesAndIncomePage } from './pages/IncomeAndIncrease/ExpensesAndIncome.tsx'
 
 const router = createHashRouter([
   {
@@ -31,7 +31,7 @@ const router = createHashRouter([
   },
   {
     path: "/expenses-and-increase",  
-    element: <ExpensesAndIncome></ExpensesAndIncome>, 
+    element: <ExpensesAndIncomePage></ExpensesAndIncomePage>, 
   },
 ]);
 

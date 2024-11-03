@@ -5,9 +5,9 @@ import { History } from "../../components/dashboardPageComponents/expensesAndInc
 import "./ExpensesAndIncome.css"
 import Nav from "../../components/Nav/Nav";
 
-export const ExpensesAndIncome = () => {
+export const ExpensesAndIncomePage = () => {
   return (
-    <div className="page">
+    <main className="page">
       
       <h1>Expenses & Income</h1>
       
@@ -33,8 +33,8 @@ export const ExpensesAndIncome = () => {
         <div className="left-div">
           <ExpensePlanner />
         </div>
-       
       </div>
-    </div>
+      <div id='background'></div>
+    </main>
   );
 };

@@ -20,7 +20,7 @@
   overflow-y: auto;  
   background-color: #181818;
   border-radius: 8px; 
-  margin-top: 20px;
+  margin-top: 0;
 }
 
 .generalHistory h1 {
@@ -62,13 +62,13 @@ li {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.gasto-content {
+.expense-content {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.gasto-details {
+.expense-details {
   display: flex;
   flex-direction: column;
 }
