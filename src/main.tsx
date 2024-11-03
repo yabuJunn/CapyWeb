@@ -1,16 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux'; // Importa Provider
+import { store } from './store/store.tsx'; // Importa el store de Redux
 
-import './index.css'
+import './index.css';
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-//Import pages
-import { LandingPage } from './pages/LandingPage/LandingPage.tsx'
-import { LogIn } from './pages/LogIn/LogIn.tsx'
-import { Register } from './pages/Register/Register.tsx'
-import { Rewards } from './pages/Rewards/Rewards.tsx'
+// Importa las páginas
+import { LandingPage } from './pages/LandingPage/LandingPage.tsx';
+import { LogIn } from './pages/LogIn/LogIn.tsx';
+import { Register } from './pages/Register/Register.tsx';
+import { Rewards } from './pages/Rewards/Rewards.tsx';
 
+// Configuración del router
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,11 +31,13 @@ const router = createBrowserRouter([
     path: "/reward",
     element: <Rewards></Rewards>
   },
-  
 ]);
 
+// Renderiza la aplicación envuelta en el Provider de Redux
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
-)
+    <Provider store={store}> {/* Envolvemos con Provider */}
+      <RouterProvider router={router} />
+    </Provider>
+  </StrictMode>
+);

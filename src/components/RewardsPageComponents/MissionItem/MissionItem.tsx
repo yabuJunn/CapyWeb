@@ -1,78 +1,47 @@
-import './MissionItem.css'
-
-import logoWhite from '../../../assets/svg/logo/logoCapyMoneyWhite.svg'
-import logoBlack from '../../../assets/svg/logo/logoCapyMoneyBlack.svg'
+import './MissionItem.css';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { completeMission } from '../../../features/MissionsSlice';
+import logoWhite from '../../../assets/svg/logo/logoCapyMoneyWhite.svg';
+import logoBlack from '../../../assets/svg/logo/logoCapyMoneyBlack.svg';
 
 interface MissionItemProps {
-    text: string,
-    gainAmount: string,
-    backgroundColor: string,
-    capyPointsDark: boolean,
-    isCompleted: boolean
+    text: string;
+    gainAmount: string;
+    backgroundColor: string;
+    capyPointsDark: boolean;
+    isCompleted: boolean;
 }
 
 export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark, isCompleted }: MissionItemProps) => {
-    if (isCompleted) {
-        if (!capyPointsDark) {
-            return <>
-                <div className='MissionItemContainer'>
-                    <p className='MissionDesc'>{text}</p>
+    const dispatch = useDispatch();
 
-                    <div className='MissionCapyPoints ligth' style={{ backgroundColor: backgroundColor }}>
-                        <img src={logoWhite} alt="" />
-                        <div className='CapyPointsAmount' >
-                            <p className='Capypoints'>Completed</p>
-                            <p className='Gain'>+{gainAmount}</p>
-                        </div>
-                    </div>
-                </div>
-            </>
+    const handleCompleteMission = () => {
+        if (!isCompleted) {
+            dispatch(completeMission(Number(gainAmount)));
         }
+    };
 
-        return <>
-            <div className='MissionItemContainer'>
-                <p className='MissionDesc'>{text}</p>
+    const renderCapyPoints = () => {
+        const logo = capyPointsDark ? logoBlack : logoWhite;
+        const statusText = isCompleted ? 'Completed' : 'Capypoints';
+        const className = isCompleted ? 'CapyPointsAmount' : `CapyPointsAmount ${capyPointsDark ? 'dark' : ''}`;
 
-                <div className='MissionCapyPoints' style={{ backgroundColor: backgroundColor }}>
-                    <img src={logoBlack} alt="" />
-                    <div className='CapyPointsAmount dark' >
-                        <p className='Capypoints'>Completed</p>
-                        <p className='Gain'>+{gainAmount}</p>
-                    </div>
+        return (
+            <div className={`MissionCapyPoints ${!capyPointsDark ? 'light' : ''}`} style={{ backgroundColor }}>
+                <img src={logo} alt="" />
+                <div className={className}>
+                    <p className='Capypoints'>{statusText}</p>
+                    <p className='Gain'>+{gainAmount}</p>
                 </div>
             </div>
-        </>
-    } else {
+        );
+    };
 
-        if (!capyPointsDark) {
-            return <>
-                <div className='MissionItemContainer'>
-                    <p className='MissionDesc'>{text}</p>
-
-                    <div className='MissionCapyPoints ligth' style={{ backgroundColor: backgroundColor }}>
-                        <img src={logoWhite} alt="" />
-                        <div className='CapyPointsAmount' >
-                            <p className='Capypoints'>Capypoints</p>
-                            <p className='Gain'>+{gainAmount}</p>
-                        </div>
-                    </div>
-                </div>
-            </>
-        }
-
-        return <>
-            <div className='MissionItemContainer'>
-                <p className='MissionDesc'>{text}</p>
-
-                <div className='MissionCapyPoints' style={{ backgroundColor: backgroundColor }}>
-                    <img src={logoBlack} alt="" />
-                    <div className='CapyPointsAmount dark' >
-                        <p className='Capypoints'>Capypoints</p>
-                        <p className='Gain'>+{gainAmount}</p>
-                    </div>
-                </div>
-            </div>
-        </>
-
-    }
-}
+    return (
+        <div className='MissionItemContainer' onClick={handleCompleteMission}>
+            <p className='MissionDesc'>{text}</p>
+            {renderCapyPoints()}
+        </div>
+    );
+};

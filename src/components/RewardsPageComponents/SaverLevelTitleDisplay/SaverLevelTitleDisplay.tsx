@@ -1,12 +1,15 @@
-import './SaverLevelTitleDisplay.css'
+import './SaverLevelTitleDisplay.css';
+import noviceSaverLevel from '../../../assets/png/noviceSaverLevel.png';
 
-import noviceSaverLevel from '../../../assets/png/noviceSaverLevel.png'
-
-export const SaverLevelTitleDisplay = () => {
-    return <>
-        <div id='SaverLevelTitleDisplayContainer'>
-            <h3>Novice</h3>
-            <img src={noviceSaverLevel} alt="Nivel Novice del ahorrador" loading="eager" />
-        </div>
-    </>
+interface SaverLevelTitleDisplayProps {
+  levelTitle: string;
 }
+
+export const SaverLevelTitleDisplay = ({ levelTitle }: SaverLevelTitleDisplayProps) => {
+  return (
+    <div id='SaverLevelTitleDisplayContainer'>
+      <h3>{levelTitle}</h3>
+      <img src={noviceSaverLevel} alt={`Nivel ${levelTitle} del ahorrador`} loading="eager" />
+    </div>
+  );
+};
