@@ -18,12 +18,24 @@ export const SavingsPage = () => {
                 <div id='ContentContainer'>
                     <Nav></Nav>
 
-                    <div id='cardsContainer'>
-                        <div id='leftCards'>
+                    <div id='SavingsCardsContainer'>
+                        <div id='leftCardsContainer'>
+                            <div id='summarySavingsContainer'>
+                                <div id='generalSavings'>
 
+                                </div>
+
+                                <div id='categorySavings'>
+
+                                </div>
+                            </div>
+
+                            <div id='savingsGoalsContainer'>
+
+                            </div>
                         </div>
-                            
-                        <div id='rigthCards'>
+
+                        <div id='savingsHistoryContainer'>
 
                         </div>
                     </div>

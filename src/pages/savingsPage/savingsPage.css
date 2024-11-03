@@ -1,0 +1,55 @@
+#SavingsCardsContainer {
+    width: 90vw;
+    height: 85vh;
+    display: flex;
+    gap: 2%;
+}
+
+#leftCardsContainer {
+    width: 65%;
+    height: 100%;
+    border: 2px black solid;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+}
+
+#summarySavingsContainer {
+    width: 100%;
+    height: 40%;
+    border: 2px rgb(171, 41, 41) solid;
+    display: flex;
+    gap: 2%;
+}
+
+#generalSavings {
+    width: 50%;
+    height: 100%;
+    border: 2px rgb(41, 171, 50) solid;
+    background-color: #181818;
+    border-radius: 15px;
+}
+
+#categorySavings {
+    width: 50%;
+    height: 100%;
+    border: 2px rgb(160, 171, 41) solid;
+    background-color: #181818;
+    border-radius: 15px;
+}
+
+#savingsGoalsContainer {
+    width: 100%;
+    height: 60%;
+    border: 2px rgb(95, 41, 171) solid;
+    background-color: #181818;
+    border-radius: 15px;
+}
+
+#savingsHistoryContainer {
+    width: 35%;
+    height: 100%;
+    border: 2px rgb(144, 64, 64) solid;
+    background-color: #181818;
+    border-radius: 15px;
+}
