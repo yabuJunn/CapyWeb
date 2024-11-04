@@ -18,15 +18,16 @@ import dashboardIconBlack from '../../assets/svg/icons/navIcons/DashboardNavIcon
 import expensesAndIncomeIconBlack from '../../assets/svg/icons/navIcons/ExpensesAndIncomeNavIconBlack.svg'
 import savingsIconBlack from '../../assets/svg/icons/navIcons/SavingsNavIconBlack.svg'
 import rewardsIconBlack from '../../assets/svg/icons/navIcons/RewardsNavIconBlack.svg'
+import { routes } from '../../types/routesEnum';
 // import configurationIconBlack from '../../assets/svg/icons/navIcons/ConfigurationNavIconb.svg'
 // import profileIconBlack from '../../assets/svg/icons/navIcons/ProfileNavIconWhite.svg'
 
-enum routes {
-  dashboard = '/dashboard',
-  expensesAndIncome = '/expenses-and-increase',
-  savings = '/savings',
-  rewards = '/reward',
-}
+// enum routes {
+//   dashboard = '/dashboard',
+//   expensesAndIncome = '/expenses-and-increase',
+//   savings = '/savings',
+//   rewards = '/reward',
+// }
 
 export const GlobalAppNav = () => {
   const navigate = useNavigate()
