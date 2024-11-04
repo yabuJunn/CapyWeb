@@ -2,7 +2,8 @@ h1,
 h2,
 h3,
 h4,
-p {
+p,
+button {
     margin: 0;
 }
 
@@ -154,22 +155,32 @@ p {
     border: 2px rgb(95, 41, 171) solid;
     background-color: #181818;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
 }
 
 #savingsGoalsHeader {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    width: 97.5%;
-    height: 10%;
-    margin: 0 10px 0 0;
+    align-items: center;
+    width: 90%;
+    margin: 2%;
+}
+
+#savingsGoalsHeader h3 {
+    margin: 0;
 }
 
 #savingsGoalsHeader button {
     width: 25%;
-    height: 50px;
+    height: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2.5%;
 
     color: #181818;
     text-align: center;
@@ -183,15 +194,22 @@ p {
 #savingsGoalsListContainer {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 1% 0 0 0;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
 
-    margin: 5% 0 0 0;
+#savingsGoalsListContainer::-webkit-scrollbar {
+    display: none;
 }
 
 .savingGoalItem {
     display: flex;
     flex-direction: column;
-    height: 10%;
-    margin: 0 0 3% 0;
+    width: 100%;
+    margin: 0 0 4% 0;
 }
 
 .savingGoalHeader {
@@ -204,10 +222,13 @@ p {
 
 .savingGoalHeader button {
     width: 10%;
-    height: 5%;
+    height: 7%;
     background-color: #F9F9F9;
-    padding: 10px;
+    padding: 14px;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     color: #181818;
     font-family: "Plus Jakarta Sans";
@@ -219,7 +240,11 @@ p {
 
 .savingGoalTitle {
     display: flex;
-    height: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 1% 0;
+    width: 100%;
 }
 
 .savingGoalTitle img {
@@ -233,6 +258,7 @@ p {
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 100%;
 }
 
 .savingGoalTitleText h4 {
@@ -296,4 +322,75 @@ p {
     border: 2px rgb(144, 64, 64) solid;
     background-color: #181818;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#savingsHistoryContainer h3 {
+    width: 93%;
+}
+
+#savingsHistoryItemsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 3% 0 0 0;
+}
+
+.savingsHistoryItem {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.savingsHistoryItemTitle {
+    display: flex;
+}
+
+.savingsHistoryItemTitle img {
+    border-radius: 8px;
+}
+
+.savingsHistoryItemTitleText {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 10px;
+}
+
+.savingsHistoryItemTitleText h4 {
+    color: #F9F9F9;
+
+    /* Titulo mobile */
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.savingsHistoryItemTitleText P {
+    color: #F9F9F9;
+
+    /* Mobile Inputs- body */
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.savingsHistoryItem .savingsHistoryItemAmount {
+    color: #F9F9F9;
+    text-align: right;
+
+    /* inputs-Body */
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
