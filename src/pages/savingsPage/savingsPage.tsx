@@ -112,7 +112,7 @@ export const SavingsPage = () => {
                     <h1>Savings</h1>
                 </div>
 
-                <div id='ContentContainer'>
+                <div id='ContentContainerSavings'>
                     <Nav></Nav>
 
                     <div id='SavingsCardsContainer'>
@@ -134,7 +134,7 @@ export const SavingsPage = () => {
                 </div>
             </div>
 
-            <div id='background'>
+            <div id='backgroundSavings'>
 
             </div>
         </main>
