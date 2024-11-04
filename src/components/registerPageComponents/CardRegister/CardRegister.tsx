@@ -1,28 +1,23 @@
-import { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import React, { useState, useCallback, memo } from "react";
+import { createUserWithEmailAndPassword, UserCredential } from "firebase/auth";
 import { auth } from "../../../services/Firebase/Firebase";
-
 import './CardRegister.css';
-
-import logoGoogle from '../../../assets/svg/logo/logoGoogle.svg'
-
-
+import logoGoogle from '../../../assets/desktop/svg/logo/logoGoogle.svg';
 import { createUser } from "../../../services/Firebase/FirestoreUsers";
 import { useNavigate } from "react-router-dom";
 import { doGoogleSignIn } from "../../../services/Firebase/auth";
 
-function CardRegister() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [username, setUsername] = useState("");
-  const [acceptTerms, setAcceptTerms] = useState(false);
-  const [error, setError] = useState("");
+const CardRegister: React.FC = memo(() => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
+  const [acceptTerms, setAcceptTerms] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
   const navigate = useNavigate();
 
-  const handleRegister = async () => {
-
+  const handleRegister = useCallback(async () => {
     if (!acceptTerms) {
       setError("Debes aceptar los términos y condiciones.");
       return;
@@ -36,34 +31,31 @@ function CardRegister() {
     setError("");
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const userData = await createUser(userCredential.user.uid, username, email)
-
-      sessionStorage.setItem('userData', JSON.stringify({ auth: userCredential, data: userData }))
-      navigate("/dashboard"); //PARA REDIRIGIR
+      const userCredential: UserCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userData = await createUser(userCredential.user.uid, username, email);
+      sessionStorage.setItem('userData', JSON.stringify({ auth: userCredential, data: userData }));
+      navigate("/dashboard");
+    } catch (err) {
+      console.error(err);
+      setError("Ocurrió un error al registrar el usuario.");
     }
-    catch (err) {
-      console.log(err);
-    }
-  };
+  }, [email, password, confirmPassword, acceptTerms, username, navigate]);
 
-  //Registro con Google
-  const handleGoogleRegister = async () => {
+  const handleGoogleRegister = useCallback(async () => {
     try {
       const result = await doGoogleSignIn();
-      const userData = await createUser(result.user.uid, username, email)
-
-      sessionStorage.setItem('userData', JSON.stringify({ auth: result.user, data: userData }))
-      navigate("/dashboard"); //PARA REDIRIGIR
+      const userData = await createUser(result.user.uid, username, email);
+      sessionStorage.setItem('userData', JSON.stringify({ auth: result.user, data: userData }));
+      navigate("/dashboard");
     } catch (err) {
-      console.log(err)
+      console.error(err);
+      setError("Ocurrió un error al iniciar sesión con Google.");
     }
-  };
+  }, [username, email, navigate]);
 
   return (
     <div className="Register">
       <h1>Sign Up</h1>
-
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       <h3>Name</h3>
@@ -99,25 +91,31 @@ function CardRegister() {
       />
 
       <div id="terminos">
-        <input id="box"
+        <input
+          id="box"
           type="checkbox"
           checked={acceptTerms}
           onChange={() => setAcceptTerms(!acceptTerms)}
         />
-        <h3 id="Check">I accept the <a href="">terms</a> and <a href="">conditions</a></h3>
+        <h3 id="Check">
+          I accept the <a href="/terms" aria-label="Terms and Conditions">terms</a> and <a href="/conditions" aria-label="Conditions">conditions</a>
+        </h3>
       </div>
 
       <button onClick={handleRegister}>Sign Up</button>
       <div id="signUpGoogleContainer">
         <p>Or</p>
         <div id="googleIconContainer" onClick={handleGoogleRegister}>
-          <img src={logoGoogle} alt="" />
+          <img src={logoGoogle} alt="Logo de Google" loading="lazy" width={24} height={24} />
           <p>Sign Up with Google</p>
         </div>
       </div>
-      <h3 id="CrearCuenta">Already have an account? <a onClick={() => { navigate('/login') }}>Sign In</a></h3>
+      <h3 id="CrearCuenta">
+        Already have an account?{" "}
+        <a onClick={() => { navigate('/login') }}>Sign In</a>
+      </h3>
     </div>
   );
-}
+});
 
 export default CardRegister;

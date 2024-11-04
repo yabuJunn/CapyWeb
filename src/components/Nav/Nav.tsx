@@ -1,15 +1,15 @@
 import './nav.css';
 
-import LogoCapy from '../../assets/svg/Logo.svg'
+import LogoCapy from '../../assets/desktop/svg/Logo.svg'
 
-import IncomeEpensesIcon from '../../assets/svg/IncomeExpenses.svg'
-import DashboardIcon from '../../assets/svg/Dashboard.svg'
-import SavingsIcon from '../../assets/svg/Savings.svg'
-import RewardsIcon from '../../assets/svg/Rewards.svg'
-import SettingsIcon from '../../assets/svg/Settings.svg'
+import IncomeEpensesIcon from '../../assets/desktop/svg/IncomeExpenses.svg'
+import DashboardIcon from '../../assets/desktop/svg/Dashboard.svg'
+import SavingsIcon from '../../assets/desktop/svg/Savings.svg'
+import RewardsIcon from '../../assets/desktop/svg/Rewards.svg'
+import SettingsIcon from '../../assets/desktop/svg/Settings.svg'
 
-import UserIcon from '../../assets/svg/User.svg'
-import LogOut from '../../assets/svg/LogOut.svg'
+import UserIcon from '../../assets/desktop/svg/User.svg'
+import LogOut from '../../assets/desktop/svg/LogOut.svg'
 import { useNavigate } from 'react-router-dom';
 
 function Nav() {

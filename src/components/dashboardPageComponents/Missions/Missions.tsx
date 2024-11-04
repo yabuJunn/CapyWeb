@@ -3,7 +3,7 @@ import './missions.css';
 import { MissionItem } from '../MissionItem/MissionItem';
 
 //Imagenes importadas
-import MoveButton from '../../../assets/svg/MoveButton.svg'
+import MoveButton from '../../../assets/desktop/svg/MoveButton.svg'
 
 export const Missions = () => {
   return (

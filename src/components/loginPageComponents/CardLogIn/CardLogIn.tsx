@@ -5,7 +5,7 @@ import { doGoogleSignIn, doSignInWithEmailAndPassword } from "../../../services/
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../../../services/Firebase/FirestoreUsers";
 
-import logoGoogle from '../../../assets/svg/logo/logoGoogle.svg'
+import logoGoogle from '../../../assets/desktop/svg/logo/logoGoogle.svg'
 
 function CardLogIn() {
   const [email, setEmail] = useState("");

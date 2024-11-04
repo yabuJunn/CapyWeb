@@ -12,6 +12,7 @@ import { LandingPage } from './pages/LandingPage/LandingPage.tsx';
 import { LogIn } from './pages/LogIn/LogIn.tsx';
 import { Register } from './pages/Register/Register.tsx';
 import { Rewards } from './pages/Rewards/Rewards.tsx';
+import { Dashboard } from './pages/Dashboard/Dashboard.tsx';
 
 // Configuración del router
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register></Register>,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard></Dashboard>
   },
   {
     path: "/reward",

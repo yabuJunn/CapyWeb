@@ -1,19 +1,22 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../store/store'; // Asegúrate de que la ruta a tu store sea correcta
+import { RootState } from '../../../store/store';
 import { Progress } from '../../ui/progress';
 import './SaverLevelProgressBar.css';
 
-export const SaverLevelProgressBar = () => {
-    const progress = useSelector((state: RootState) => state.missions.progress);
+interface SaverLevelProgressBarProps {
+  progressValue: number;
+}
 
-    return (
-        <>
-            <div id='SaverProgressLabels'>
-                <p>{progress}%</p>
-                <p>100%</p>
-            </div>
-            <Progress value={progress} className="w-[90%] h-[10%]" style={{ border: '3px white solid' }} />
-        </>
-    );
+export const SaverLevelProgressBar: React.FC<SaverLevelProgressBarProps> = ({ progressValue }) => {
+  const progress = useSelector((state: RootState) => state.missions.progress);
+
+  return (
+    <>
+      <div id='SaverProgressLabels'>
+        <p>{progress}%</p>
+        <p>100%</p>
+      </div>
+      <Progress value={progressValue} className="w-[90%] h-[10%]" style={{ border: '3px white solid' }} />
+    </>
+  );
 };

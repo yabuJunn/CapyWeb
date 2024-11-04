@@ -10,9 +10,9 @@ import { CardsSpace } from "../CardsSpace/CardsSpace";
 import { Expenses } from "../Expenses/Expenses";
 import { ComparationGraphic } from "../ComparationGraphic/ComparationGraphic";
 import { Savings } from "../Savings/Savings";
-import { Level } from "../../RewardsPageComponents/SaverLevel/SaverLevel";
 import { Missions } from "../Missions/Missions";
 import { Capy } from "../Capy/Capy";
+import { SaverLevel } from "../SaverLevel/SaverLevel";
 
 export const InteractiveGrid = () => {
   useEffect(() => {
@@ -44,7 +44,7 @@ export const InteractiveGrid = () => {
           <Savings></Savings>
         </div>
         <div className="grid-stack-item" gs-h="3" gs-w="5">
-          <Level></Level>
+          <SaverLevel></SaverLevel>
         </div>
         <div className="grid-stack-item" gs-h="3" gs-w="4">
           <Missions></Missions>

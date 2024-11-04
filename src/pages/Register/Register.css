@@ -2,11 +2,12 @@
     position: absolute;
     margin-top: 200px;
     margin-left: 90px;
+   
 }
 
 #Logo{
-    width: 90px;
-    height: 90px;
+    width: 51px;
+    height: 51px;
     position: absolute;
     top: 80px;
     margin-left: 90px;
@@ -17,7 +18,7 @@
     left: 0;
     height: 100vh;
     width: 100vh;
-    background-image: url('../../assets/svg/fondoLogin.svg');
+    background-image: url('../../assets/desktop/web/fondoLogin.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

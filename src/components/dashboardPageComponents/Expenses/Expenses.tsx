@@ -1,7 +1,7 @@
 import './Expenses.css';
 
 //Imagenes importadas
-import MoveButton from '../../../assets/svg/MoveButton.svg'
+import MoveButton from '../../../assets/desktop/svg/MoveButton.svg'
 
 export const Expenses = () => {
   return (

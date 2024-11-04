@@ -3,11 +3,11 @@ import AddCard from "../AddCard/AddCard";
 import { DebitCard } from '../DebitCard/DebitCard';
 
 //Imagenes importadas
-import MoveButton from '../../../assets/svg/MoveButton.svg'
-import logoNu from '../../../assets/svg/logo/logoNuWhite.svg'
-import logoVisa from '../../../assets/svg/logo/logoVisaWhite.svg'
-import logoFalabella from '../../../assets/svg/logo/logoFalabellaWhite.svg'
-import logoNequi from '../../../assets/svg/logo/logoNequiPurple.svg'
+import MoveButton from '../../../assets/desktop/svg/MoveButton.svg'
+import logoNu from '../../../assets/desktop/svg/logo/logoNuWhite.svg'
+import logoVisa from '../../../assets/desktop/svg/logo/logoVisaWhite.svg'
+import logoFalabella from '../../../assets/desktop/svg/logo/logoFalabellaWhite.svg'
+import logoNequi from '../../../assets/desktop/svg/logo/logoNequiPurple.svg'
 
 export const CardsSpace = () => {
   return (

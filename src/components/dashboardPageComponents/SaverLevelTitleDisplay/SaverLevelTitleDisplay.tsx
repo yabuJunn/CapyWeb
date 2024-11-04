@@ -1,6 +1,6 @@
 import './SaverLevelTitleDisplay.css'
 
-import noviceSaverLevel from '../../../assets/png/noviceSaverLevel.png'
+import noviceSaverLevel from '../../../assets/desktop/png/noviceSaverLevel.png'
 
 export const SaverLevelTitleDisplay = () => {
     return <>
