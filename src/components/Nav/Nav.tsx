@@ -31,16 +31,19 @@ enum routes {
 export const GlobalAppNav = () => {
   const navigate = useNavigate()
   const location = useLocation()
-  console.log(location.pathname)
 
   const handleLogOut = () => {
     sessionStorage.removeItem('userData')
     navigate('/login')
   }
-
+  
   const handleNavigation = {
-    navigateToDashboard: () => { navigate('/dashboard') }
+    navigateToDashboard: () => { navigate('/dashboard') },
+    navigateToExpensesAndIncomes: () => { navigate('/expenses-and-increase') },
+    navigateToSavings: () => { navigate('/savings') },
+    navigateToRewards: () => { navigate('/reward') }
   }
+
 
   switch (location.pathname) {
     case routes.dashboard:
@@ -54,9 +57,9 @@ export const GlobalAppNav = () => {
           <div className='nav'>
             <div className='principal'>
               <img className="Dashboard focus" src={dashboardIconBlack} alt="Dashboard" />
-              <img className="IncomeExpenses" src={expensesAndIncomeIconWhite} alt="IncomeExpenses" />
-              <img className="Savings" src={dashboardIconWhite} alt="Savings" />
-              <img className="Rewards" src={rewardsIconWhite} alt="Rewards" />
+              <img className="IncomeExpenses" src={expensesAndIncomeIconWhite} alt="IncomeExpenses" onClick={handleNavigation.navigateToExpensesAndIncomes}/>
+              <img className="Savings" src={dashboardIconWhite} alt="Savings" onClick={handleNavigation.navigateToSavings}/>
+              <img className="Rewards" src={rewardsIconWhite} alt="Rewards" onClick={handleNavigation.navigateToRewards}/>
               <img className="Settings" src={configurationIconWhite} alt="Settings" />
             </div>
 
@@ -79,10 +82,10 @@ export const GlobalAppNav = () => {
 
           <div className='nav'>
             <div className='principal'>
-              <img className="Dashboard" src={dashboardIconWhite} alt="Dashboard" />
+              <img className="Dashboard" src={dashboardIconWhite} alt="Dashboard" onClick={handleNavigation.navigateToDashboard}/>
               <img className="IncomeExpenses focus" src={expensesAndIncomeIconBlack} alt="IncomeExpenses" />
-              <img className="Savings" src={dashboardIconWhite} alt="Savings" />
-              <img className="Rewards" src={rewardsIconWhite} alt="Rewards" />
+              <img className="Savings" src={dashboardIconWhite} alt="Savings" onClick={handleNavigation.navigateToSavings}/>
+              <img className="Rewards" src={rewardsIconWhite} alt="Rewards" onClick={handleNavigation.navigateToRewards}/>
               <img className="Settings" src={configurationIconWhite} alt="Settings" />
             </div>
 
@@ -105,10 +108,10 @@ export const GlobalAppNav = () => {
 
           <div className='nav'>
             <div className='principal'>
-              <img className="Dashboard" src={dashboardIconWhite} alt="Dashboard" />
-              <img className="IncomeExpenses" src={expensesAndIncomeIconWhite} alt="IncomeExpenses" />
+              <img className="Dashboard" src={dashboardIconWhite} alt="Dashboard" onClick={handleNavigation.navigateToDashboard}/>
+              <img className="IncomeExpenses" src={expensesAndIncomeIconWhite} alt="IncomeExpenses" onClick={handleNavigation.navigateToExpensesAndIncomes}/>
               <img className="Savings focus" src={dashboardIconBlack} alt="Savings" />
-              <img className="Rewards" src={rewardsIconWhite} alt="Rewards" />
+              <img className="Rewards" src={rewardsIconWhite} alt="Rewards" onClick={handleNavigation.navigateToRewards}/>
               <img className="Settings" src={configurationIconWhite} alt="Settings" />
             </div>
 
@@ -131,9 +134,9 @@ export const GlobalAppNav = () => {
 
           <div className='nav'>
             <div className='principal'>
-              <img className="Dashboard" src={dashboardIconWhite} alt="Dashboard" />
-              <img className="IncomeExpenses" src={expensesAndIncomeIconWhite} alt="IncomeExpenses" />
-              <img className="Savings" src={dashboardIconWhite} alt="Savings" />
+              <img className="Dashboard" src={dashboardIconWhite} alt="Dashboard" onClick={handleNavigation.navigateToDashboard}/>
+              <img className="IncomeExpenses" src={expensesAndIncomeIconWhite} alt="IncomeExpenses" onClick={handleNavigation.navigateToExpensesAndIncomes}/>
+              <img className="Savings" src={dashboardIconWhite} alt="Savings" onClick={handleNavigation.navigateToSavings}/>
               <img className="Rewards focus" src={rewardsIconBlack} alt="Rewards" />
               <img className="Settings" src={configurationIconWhite} alt="Settings" />
             </div>

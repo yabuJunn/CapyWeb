@@ -1,5 +1,4 @@
 .navContainer {
-  /* background-color: #181818; */
   border-radius: 50px;
   display: flex;
   flex-direction: column;
@@ -9,7 +8,15 @@
 }
 
 .navContainer img {
-  padding: 4px;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, border-radius 0.2s ease;
+}
+
+.navContainer img:hover {
+  background-color: #c4c4c438;
+  border-radius: 20px;
 }
 
 .nav {
@@ -65,7 +72,9 @@
   aspect-ratio: 1/1;
 }
 
-.focus {
+.navContainer img.focus,
+.navContainer img.focus:hover {
   background-color: #CCFC56;
   border-radius: 20px;
+  cursor: auto;
 }
