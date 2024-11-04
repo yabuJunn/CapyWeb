@@ -20,32 +20,11 @@ import savingsIconBlack from '../../assets/svg/icons/navIcons/SavingsNavIconBlac
 import rewardsIconBlack from '../../assets/svg/icons/navIcons/RewardsNavIconBlack.svg'
 import { routes } from '../../types/routesEnum';
 import { NavigationHook } from '../../hooks/navigationHook';
-// import configurationIconBlack from '../../assets/svg/icons/navIcons/ConfigurationNavIconb.svg'
-// import profileIconBlack from '../../assets/svg/icons/navIcons/ProfileNavIconWhite.svg'
-
-// enum routes {
-//   dashboard = '/dashboard',
-//   expensesAndIncome = '/expenses-and-increase',
-//   savings = '/savings',
-//   rewards = '/reward',
-// }
 
 export const GlobalAppNav = () => {
-  // const navigate = useNavigate()
+
   const { handleNavigation, handleLogOut } = NavigationHook()
   const location = useLocation()
-
-  // const handleLogOut = () => {
-  //   sessionStorage.removeItem('userData')
-  //   navigate('/login')
-  // }
-
-  // const handleNavigation = {
-  //   navigateToDashboard: () => { navigate('/dashboard') },
-  //   navigateToExpensesAndIncomes: () => { navigate('/expenses-and-increase') },
-  //   navigateToSavings: () => { navigate('/savings') },
-  //   navigateToRewards: () => { navigate('/reward') }
-  // }
 
 
   switch (location.pathname) {

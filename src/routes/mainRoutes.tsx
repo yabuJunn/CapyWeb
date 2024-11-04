@@ -3,7 +3,7 @@ import { routes } from "../types/routesEnum";
 
 //Import pages
 
-import { LogIn } from "lucide-react";
+import { LogIn } from "../pages/LogIn/LogIn";
 import { LandingPage } from "../pages/LandingPage/LandingPage";
 import { Register } from "../pages/Register/Register";
 import { Dashboard } from "../pages/Dashboard/Dashboard";

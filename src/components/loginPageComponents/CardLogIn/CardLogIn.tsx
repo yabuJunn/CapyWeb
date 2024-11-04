@@ -2,8 +2,8 @@ import './CardLogIn.css';
 
 import { useState } from "react";
 import { doGoogleSignIn, doSignInWithEmailAndPassword } from "../../../services/Firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { getUser } from "../../../services/Firebase/FirestoreUsers";
+import { NavigationHook } from '../../../hooks/navigationHook';
 
 import logoGoogle from '../../../assets/svg/logo/logoGoogle.svg'
 
@@ -12,7 +12,7 @@ function CardLogIn() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const navigate = useNavigate();
+  const { handleNavigation } = NavigationHook()
 
   const handleLoginEmail = async () => {
     setError("");
@@ -26,7 +26,7 @@ function CardLogIn() {
 
       sessionStorage.setItem('userData', JSON.stringify({ auth: userCredential, data: userData }))
 
-      navigate("/dashboard"); //PARA REDIRIGIR
+      handleNavigation.navigateToDashboard()
 
     } catch (err) {
       console.log(err);
@@ -40,7 +40,7 @@ function CardLogIn() {
       console.log("Usuario logueado con Google:", result.user);
       const userData = await getUser(result.user.uid)
       sessionStorage.setItem('userData', JSON.stringify({ auth: result.user, data: userData }))
-      navigate("/dashboard"); //PARA REDIRIGIR
+      handleNavigation.navigateToDashboard()
     } catch (err) {
       console.log(err)
     }
@@ -78,7 +78,7 @@ function CardLogIn() {
         </div>
       </div>
 
-      <h3 id="Cuenta">Don't have an account? <a onClick={() => { navigate('/register') }}>Register now</a></h3>
+      <h3 id="Cuenta">Don't have an account? <a onClick={handleNavigation.navigateToRegister}>Register now</a></h3>
     </div>
   );
 }
