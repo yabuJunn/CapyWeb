@@ -10,13 +10,22 @@ import {
 } from "../../../components/ui/chart"
 
 import * as React from "react"
+import { CategorySavingsProgressHint } from '../CategorySavingsProgressHint/CategorySavingsProgressHint'
 
-const chartData = [
-    { browser: "Party", savings: 40, fill: "#2D18BF" },
-    { browser: "Trip", savings: 28, fill: "#A8F25D" },
-    { browser: "Motorbike", savings: 27, fill: "#F2622E" },
-    { browser: "Others", savings: 5, fill: "#C4C4C4" },
-]
+// const chartData: Array<savingItemType> = [
+//     { savingName: "Party", savingValue: 40, fill: "#2D18BF", percentage: "40%" },
+//     { savingName: "Trip", savingValue: 28, fill: "#A8F25D", percentage: "28%" },
+//     { savingName: "Motorbike", savingValue: 27, fill: "#F2622E", percentage: "27%" },
+//     { savingName: "Others", savingValue: 5, fill: "#C4C4C4", percentage: "5%" },
+// ]
+
+interface savingItemType {
+    savingName: string,
+    savingValue: number,
+    fill: string,
+    percentage: string
+}
+
 const chartConfig = {
     savings: {
         label: "Savings",
@@ -43,10 +52,14 @@ const chartConfig = {
     },
 } satisfies ChartConfig
 
-export const CategorySavings = () => {
+interface CategorySavingsProps {
+    chartData: Array<savingItemType>,
+}
+
+export const CategorySavings = ({ chartData }: CategorySavingsProps) => {
 
     const totalSavings = React.useMemo(() => {
-        return chartData.reduce((acc, curr) => acc + curr.savings, 0)
+        return chartData.reduce((acc, curr) => acc + curr.savingValue, 0)
     }, [])
 
     return <>
@@ -69,8 +82,8 @@ export const CategorySavings = () => {
                                 />
                                 <Pie
                                     data={chartData}
-                                    dataKey="savings"
-                                    nameKey="browser"
+                                    dataKey="savingValue"
+                                    nameKey="savingName"
                                     innerRadius="55%"
                                     strokeWidth={6}
                                 >
@@ -112,29 +125,9 @@ export const CategorySavings = () => {
                 </div>
 
                 <div id='categorySavingsCircularProgressHints'>
-                    <div id='hin1' className='hint'>
-                        <div className='color' style={{ backgroundColor: '#2D18BF' }}></div>
-                        <p>Party</p>
-                        <p>40%</p>
-                    </div>
-
-                    <div id='hin2' className='hint'>
-                        <div className='color' style={{ backgroundColor: '#A8F25D' }}></div>
-                        <p>Trip</p>
-                        <p>28%</p>
-                    </div>
-
-                    <div id='hin3' className='hint'>
-                        <div className='color' style={{ backgroundColor: '#F2622E' }}></div>
-                        <p>Motorbike</p>
-                        <p>27%</p>
-                    </div>
-
-                    <div id='hin4' className='hint'>
-                        <div className='color' style={{ backgroundColor: '#C4C4C4' }}></div>
-                        <p>Others</p>
-                        <p>5%</p>
-                    </div>
+                    {chartData.map((saving) => {
+                        return <CategorySavingsProgressHint hintBubbleColor={saving.fill} hintName={saving.savingName} hintPercentage={saving.percentage}></CategorySavingsProgressHint>
+                    })}
                 </div>
             </div>
         </div>

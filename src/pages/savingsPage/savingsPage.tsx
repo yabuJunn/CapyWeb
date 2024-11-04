@@ -25,7 +25,12 @@ export const SavingsPage = () => {
                             <div id='summarySavingsContainer'>
                                 <GeneralSavings valueIncome={70} valueSavings={30} incomePercentage={'70%'} savingsPercentage={'30%'}></GeneralSavings>
 
-                                <CategorySavings></CategorySavings>
+                                <CategorySavings chartData={[
+                                    { savingName: "Party", savingValue: 40, fill: "#2D18BF", percentage: "40%" },
+                                    { savingName: "Trip", savingValue: 28, fill: "#A8F25D", percentage: "28%" },
+                                    { savingName: "Motorbike", savingValue: 27, fill: "#F2622E", percentage: "27%" },
+                                    { savingName: "Others", savingValue: 5, fill: "#C4C4C4", percentage: "5%" },
+                                ]}></CategorySavings>
 
                             </div>
 
