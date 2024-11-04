@@ -1,7 +1,7 @@
 import './savingsPage.css'
 
 //Import Components
-import Nav from '../../components/Nav/Nav'
+import { GlobalAppNav } from '../../components/Nav/Nav'
 import { GeneralSavings } from '../../components/savingsPageComponents/GeneralSavings/GeneralSavings'
 import { CategorySavings, savingItemType } from '../../components/savingsPageComponents/CategorySavings/CategorySavings'
 import { SavingsGoals } from '../../components/savingsPageComponents/SavingsGoals/SavingsGoals'
@@ -113,7 +113,7 @@ export const SavingsPage = () => {
                 </div>
 
                 <div id='ContentContainer'>
-                    <Nav></Nav>
+                    <GlobalAppNav></GlobalAppNav>
 
                     <div id='SavingsCardsContainer'>
                         <div id='leftCardsContainer'>

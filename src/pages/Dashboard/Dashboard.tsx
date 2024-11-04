@@ -1,7 +1,7 @@
 import './Dashboard.css'
 
 //Import Components
-import Nav from '../../components/Nav/Nav'
+import { GlobalAppNav } from '../../components/Nav/Nav'
 import { InteractiveGrid } from '../../components/dashboardPageComponents/InteractiveGrid/InteractiveGrid'
 
 export const Dashboard = () => {
@@ -22,7 +22,7 @@ export const Dashboard = () => {
                     </div>
 
                     <div id='ContentContainer'>
-                        <Nav></Nav>
+                        <GlobalAppNav></GlobalAppNav>
 
                         <InteractiveGrid></InteractiveGrid>
                     </div>

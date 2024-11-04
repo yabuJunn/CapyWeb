@@ -1,48 +1,71 @@
 import './Nav.css';
 
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import LogoCapy from '../../assets/svg/Logo.svg'
 
-import IncomeEpensesIcon from '../../assets/svg/IncomeExpenses.svg'
-import DashboardIcon from '../../assets/svg/Dashboard.svg'
-import SavingsIcon from '../../assets/svg/Savings.svg'
-import RewardsIcon from '../../assets/svg/Rewards.svg'
-import SettingsIcon from '../../assets/svg/Settings.svg'
+//Nav icons white
+import dashboardIconWhite from '../../assets/svg/icons/navIcons/DashboardNavIconWhite.svg'
+import expensesAndIncomeIconWhite from '../../assets/svg/icons/navIcons/ExpensesAndIncomeNavIconWhite.svg'
+import savingsIconWhite from '../../assets/svg/icons/navIcons/SavingsNavIconWhite.svg'
+import rewardsIconWhite from '../../assets/svg/icons/navIcons/RewardsNavIconWhite.svg'
+import configurationIconWhite from '../../assets/svg/icons/navIcons/ConfigurationNavIconWhite.svg'
+import profileIconWhite from '../../assets/svg/icons/navIcons/ProfileNavIconWhite.svg'
+import logOutIconWhite from '../../assets/svg/icons/navIcons/LogOutNavIconWhite.svg'
 
-import UserIcon from '../../assets/svg/User.svg'
-import LogOut from '../../assets/svg/LogOut.svg'
-import { useNavigate } from 'react-router-dom';
+//Nav icons green
+import dashboardIconBlack from '../../assets/svg/icons/navIcons/DashboardNavIconBlack.svg'
+import expensesAndIncomeIconBlack from '../../assets/svg/icons/navIcons/ExpensesAndIncomeNavIconBlack.svg'
+import savingsIconBlack from '../../assets/svg/icons/navIcons/SavingsNavIconBlack.svg'
+import rewardsIconBlack from '../../assets/svg/icons/navIcons/RewardsNavIconBlack.svg'
+// import configurationIconBlack from '../../assets/svg/icons/navIcons/ConfigurationNavIconb.svg'
+// import profileIconBlack from '../../assets/svg/icons/navIcons/ProfileNavIconWhite.svg'
 
-function Nav() {
+enum routes {
+  dashboard = '/dashboard',
+  expensesAndIncome = '/expenses-and-increase',
+  savings = '/savings',
+  rewards = '/reward',
+}
+
+export const GlobalAppNav = () => {
   const navigate = useNavigate()
+  const location = useLocation()
+  console.log(location.pathname)
 
   const handleLogOut = () => {
     sessionStorage.removeItem('userData')
     navigate('/login')
   }
 
-  return (
-    <>
-      <div className='nav'>
-        <div className='capy'>
-          <img className="Logo" src={LogoCapy} alt="Logo" />
-        </div>
+  switch (location.pathname) {
+    case routes.savings:
+      return <>
+        <nav className='navContainer'>
 
-        <div className='principal'>
-          <img className="IncomeExpenses" src={IncomeEpensesIcon} alt="IncomeExpenses" />
-          <img className="Dashboard" src={DashboardIcon} alt="Dashboard" />
-          <img className="Savings" src={SavingsIcon} alt="Savings" />
-          <img className="Rewards" src={RewardsIcon} alt="Rewards" />
-          <img className="Settings" src={SettingsIcon} alt="Settings" />
-        </div>
+          <div className='capy'>
+            <img className="Logo" src={LogoCapy} alt="Logo" />
+          </div>
 
-        <div className='last'>
-          <img className="User" src={UserIcon} alt="User" />
-          <img className="LogOut" src={LogOut} alt="LogOut" onClick={() => { handleLogOut() }} />
-        </div>
+          <div className='nav'>
+            <div className='principal'>
+              <img className="Dashboard" src={dashboardIconWhite} alt="Dashboard" />
+              <img className="IncomeExpenses" src={expensesAndIncomeIconWhite} alt="IncomeExpenses" />
+              <img className="Savings focus" src={dashboardIconBlack} alt="Savings" />
+              <img className="Rewards" src={rewardsIconWhite} alt="Rewards" />
+              <img className="Settings" src={configurationIconWhite} alt="Settings" />
+            </div>
 
-      </div>
-    </>
-  );
+            <div className='last'>
+              <img className="User" src={profileIconWhite} alt="User" />
+              <img className="LogOut" src={logOutIconWhite} alt="LogOut" onClick={() => { handleLogOut() }} />
+            </div>
+          </div>
+
+        </nav>
+      </>
+
+    default:
+      break;
+  }
 }
-
-export default Nav;

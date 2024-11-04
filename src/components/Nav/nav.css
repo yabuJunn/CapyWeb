@@ -1,46 +1,56 @@
+.navContainer {
+  /* background-color: #181818; */
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 5%;
+}
+
+.navContainer img {
+  padding: 4px;
+}
+
 .nav {
   background-color: #181818;
-  height: 491px;
-  width: 71.3px;
   border-radius: 50px;
+  width: 100%;
 }
 
 .capy {
-  width: 71px;         
-  height: 71px;        
-  background-color:#181818; 
-  border-radius: 50%;   
-  display: flex;         
-  align-items: center;  
-  justify-content: center; 
-  color: white; 
-  margin-bottom: 20px;
-  padding-top: 26px;
-
+  width: 100%;
+  background-color: #181818;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  aspect-ratio: 1/1;
+  margin-bottom: 30%;
 }
 
 .principal {
   background-color: #181818;
   margin-bottom: 48px;
-  border-top-left-radius: 50px;  
+  margin-top: 2vh;
+  border-top-left-radius: 50px;
   border-top-right-radius: 50px;
   display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  gap: 15px; 
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
 .last {
   background-color: #181818;
-  margin-bottom: 90px;
-  border-bottom-left-radius: 50px; 
+  border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  gap: 15px; 
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
   padding-bottom: 26px;
-
 }
 
 .Logo,
@@ -51,6 +61,11 @@
 .Settings,
 .User,
 .LogOut {
-  width: 40px;
-  height: 40px;
+  width: 65%;
+  aspect-ratio: 1/1;
+}
+
+.focus {
+  background-color: #CCFC56;
+  border-radius: 20px;
 }
