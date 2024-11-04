@@ -23,7 +23,7 @@ export const SavingsPage = () => {
                     <div id='SavingsCardsContainer'>
                         <div id='leftCardsContainer'>
                             <div id='summarySavingsContainer'>
-                                <GeneralSavings></GeneralSavings>
+                                <GeneralSavings valueIncome={70} valueSavings={30} incomePercentage={'70%'} savingsPercentage={'30%'}></GeneralSavings>
 
                                 <CategorySavings></CategorySavings>
 

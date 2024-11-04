@@ -2,15 +2,21 @@ import './GeneralSavings.css'
 
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar'
 
+interface GeneralSavingsProps {
+    valueIncome: number,
+    valueSavings: number,
+    incomePercentage: string,
+    savingsPercentage: string
+}
 
-export const GeneralSavings = () => {
+export const GeneralSavings = ({ valueIncome, valueSavings, incomePercentage, savingsPercentage }: GeneralSavingsProps) => {
     return <>
         <div id='generalSavings'>
             <h3>General Savings</h3>
             <div id='generalSavingsContent'>
                 <div id='generalSavingsCircularProgressbarWrapper'>
                     <CircularProgressbar
-                        value={90}
+                        value={valueIncome}
                         text={"Savings"}
                         styles={buildStyles({
                             rotation: 0.25,
@@ -30,13 +36,13 @@ export const GeneralSavings = () => {
                     <div id='hin1' className='hint'>
                         <div className='color' style={{ backgroundColor: '#2D18BF' }}></div>
                         <p>Income</p>
-                        <p>78%</p>
+                        <p>{incomePercentage}</p>
                     </div>
 
                     <div id='hin2' className='hint'>
                         <div className='color' style={{ backgroundColor: '#A8F25D' }}></div>
                         <p>Savings</p>
-                        <p>22%</p>
+                        <p>{savingsPercentage}</p>
                     </div>
                 </div>
             </div>
