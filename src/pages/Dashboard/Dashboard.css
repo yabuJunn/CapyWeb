@@ -47,7 +47,7 @@
         font-family: 'Space Grotesk';
     }
 
-    #background {
+    #background1 {
         position: fixed;
         /* Para que ocupe toda la pantalla y se mantenga fija al hacer scroll */
         top: 0;
@@ -56,7 +56,7 @@
         /* 100% del ancho de la ventana */
         height: 100vh;
         /* 100% de la altura de la ventana */
-        background-image: url('../../assets/svg/DashboardScreen.svg');
+        background-image: url('../../assets/desktop/svg/DashboardScreen.svg');
         background-size: cover;
         /* Asegura que la imagen cubra toda la pantalla */
         background-position: center;

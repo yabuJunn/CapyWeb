@@ -12,7 +12,7 @@ export const LogIn = () => {
         <CardLogIn />
       </div>
 
-      <div id='background'>
+      <div id='backgroundLogIn'>
 
       </div>
     </div>

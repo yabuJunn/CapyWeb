@@ -180,7 +180,7 @@ export const LandingPage = () => {
                 </div>
             </section>
 
-            <div id='background'>
+            <div id='background2'>
 
             </div>
         </main>

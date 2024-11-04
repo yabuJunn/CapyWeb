@@ -19,12 +19,12 @@ const CardRegister: React.FC = memo(() => {
 
   const handleRegister = useCallback(async () => {
     if (!acceptTerms) {
-      setError("Debes aceptar los términos y condiciones.");
+      setError("You must accept the terms and conditions.");
       return;
     }
 
     if (password !== confirmPassword) {
-      setError("Las contraseñas no coinciden.");
+      setError("Passwords do not match.");
       return;
     }
 
@@ -37,7 +37,7 @@ const CardRegister: React.FC = memo(() => {
       navigate("/dashboard");
     } catch (err) {
       console.error(err);
-      setError("Ocurrió un error al registrar el usuario.");
+      setError("An error occurred while registering the user.");
     }
   }, [email, password, confirmPassword, acceptTerms, username, navigate]);
 
@@ -92,7 +92,7 @@ const CardRegister: React.FC = memo(() => {
 
       <div id="terminos">
         <input
-          id="box"
+          id="box1"
           type="checkbox"
           checked={acceptTerms}
           onChange={() => setAcceptTerms(!acceptTerms)}
