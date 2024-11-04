@@ -1,7 +1,7 @@
 "use client";
 
 import { TrendingUp } from "lucide-react";
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import { Area, AreaChart, CartesianGrid, XAxis, LineChart, Line } from "recharts";
 import "./ExpenseGraphic.css"
 
   
@@ -32,7 +32,7 @@ const chartData = [
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "hsl(var(--chart-1))",
+    color: "hsl(0, 0%, 100%)",
   },
 } satisfies ChartConfig;
 
@@ -41,7 +41,7 @@ export function AreaChartComponent() {
     
      
         <ChartContainer config={chartConfig} className="expense-container">
-          <AreaChart
+          <LineChart
             accessibilityLayer
             data={chartData}
             margin={{
@@ -49,26 +49,28 @@ export function AreaChartComponent() {
               right: 12,
             }}
           >
-            <CartesianGrid vertical={false} />
+            <CartesianGrid vertical={false}  />
             <XAxis
               dataKey="month"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
+              
               tickFormatter={(value) => value.slice(0, 3)}
             />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent indicator="line" />}
             />
-            <Area
+            <Line
               dataKey="desktop"
               type="natural"
               fill="var(--color-desktop)"
               fillOpacity={0.4}
               stroke="var(--color-desktop)"
+              strokeWidth={2.5}
             />
-          </AreaChart>
+          </LineChart>
         </ChartContainer>
       
     
@@ -77,8 +79,7 @@ export function AreaChartComponent() {
 
 export const ExpensesGraphic = () => {
   return (
-    <div className="grafic-card">
-      <h3>Graphic</h3>
+    <div className="grafic-card">      
       <AreaChartComponent />
     </div>
   );
