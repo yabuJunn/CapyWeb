@@ -1,7 +1,7 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
-import { Area, AreaChart, CartesianGrid, XAxis, LineChart, Line } from "recharts";
+/*import { TrendingUp } from "lucide-react";*/
+import {   CartesianGrid, XAxis, LineChart, Line } from "recharts";
 import "./ExpenseGraphic.css"
 
   

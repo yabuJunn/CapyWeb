@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import PlannerIcon from "../../../../../src/assets/svg/PlannerIcon.svg";
 import NuCardIcon from "../../../../../src/assets/svg/nu.svg";
 import VisaCardIcon from "../../../../../src/assets/svg/visa.svg";

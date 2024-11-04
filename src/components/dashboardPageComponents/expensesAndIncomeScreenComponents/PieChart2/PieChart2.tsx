@@ -1,15 +1,8 @@
 import * as React from "react";
-import { TrendingUp } from "lucide-react";
+/*import { TrendingUp } from "lucide-react";*/
 import { Label, Pie, PieChart } from "recharts";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "../../../ui/card";
+
 import {
   ChartConfig,
   ChartContainer,
@@ -111,7 +104,7 @@ export function PieChart2() {
         </PieChart>
       </ChartContainer>
       <div className="pie-card-right">
-        <select name="" id=""></select>
+        <select className="select-piechart" name="" id="">Seleccionar</select>
       </div>
     </div>
   );
