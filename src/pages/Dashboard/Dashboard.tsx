@@ -13,22 +13,23 @@ export const Dashboard = () => {
 
 
         return <>
-            <main className='page'>
+            <main className='page' id='dashboardPage'>
 
                 <div id='marginPage'>
-                    <div id='TitleTextContainer'>
-                        <h1>Dashboard</h1>
-                        <p><span className='TextHint'>Hola,</span> {userDataJSON.data.name}</p>
-                    </div>
+                    <GlobalAppNav></GlobalAppNav>
 
-                    <div id='ContentContainer'>
-                        <GlobalAppNav></GlobalAppNav>
+                    <div id='ContentContainerDashboard'>
+                        <div id='TitleTextContainer'>
+                            <h1>Dashboard</h1>
+                            <p><span className='TextHint'>Hola,</span> {userDataJSON.data.name}</p>
+                        </div>
+
 
                         <InteractiveGrid></InteractiveGrid>
                     </div>
                 </div>
 
-                <div id='background'>
+                <div id='backgroundDashboard'>
 
                 </div>
             </main>

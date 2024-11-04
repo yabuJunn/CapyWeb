@@ -18,11 +18,25 @@
         height: 100vh;
     }
 
-    #marginPage {
-        /* width: 100%;
-        height: 100%; */
+    #dashboardPage {
+        overflow: auto;
+    }
 
+    #marginPage {
         margin: 30px 60px 0 60px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    #TitleTextContainer {
+        display: flex;
+    }
+
+    #ContentContainerDashboard {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 0 0 3%;
     }
 
     #TitleTextContainer h1 {
@@ -30,6 +44,7 @@
         color: #F9F9F9;
         font-family: 'Plus Jakarta';
         font-weight: bold;
+        text-align: left !important;
     }
 
     #TitleTextContainer p {
@@ -39,7 +54,6 @@
         font-weight: bold;
 
         margin: 10px 0 0 0;
-        height: 8.5vh;
     }
 
     .TextHint {
@@ -47,27 +61,16 @@
         font-family: 'Space Grotesk';
     }
 
-    #background {
+    #backgroundDashboard {
         position: fixed;
-        /* Para que ocupe toda la pantalla y se mantenga fija al hacer scroll */
         top: 0;
         left: 0;
         width: 100vw;
-        /* 100% del ancho de la ventana */
         height: 100vh;
-        /* 100% de la altura de la ventana */
         background-image: url('../../assets/svg/DashboardScreen.svg');
         background-size: cover;
-        /* Asegura que la imagen cubra toda la pantalla */
         background-position: center;
-        /* Centra la imagen en la pantalla */
         background-repeat: no-repeat;
-        /* Evita que la imagen se repita */
         z-index: -1;
-    }
-
-    #ContentContainer {
-        display: flex;
-        flex-direction: row;
     }
 }
