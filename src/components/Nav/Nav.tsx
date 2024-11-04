@@ -38,9 +38,65 @@ export const GlobalAppNav = () => {
     navigate('/login')
   }
 
+  const handleNavigation = {
+    navigateToDashboard: () => { navigate('/dashboard') }
+  }
+
   switch (location.pathname) {
+    case routes.dashboard:
+      return < >
+        <nav className='navContainer'>
+
+          <div className='capy'>
+            <img className="Logo" src={LogoCapy} alt="Logo" />
+          </div>
+
+          <div className='nav'>
+            <div className='principal'>
+              <img className="Dashboard focus" src={dashboardIconBlack} alt="Dashboard" />
+              <img className="IncomeExpenses" src={expensesAndIncomeIconWhite} alt="IncomeExpenses" />
+              <img className="Savings" src={dashboardIconWhite} alt="Savings" />
+              <img className="Rewards" src={rewardsIconWhite} alt="Rewards" />
+              <img className="Settings" src={configurationIconWhite} alt="Settings" />
+            </div>
+
+            <div className='last'>
+              <img className="User" src={profileIconWhite} alt="User" />
+              <img className="LogOut" src={logOutIconWhite} alt="LogOut" onClick={() => { handleLogOut() }} />
+            </div>
+          </div>
+
+        </nav>
+      </>
+
+    case routes.expensesAndIncome:
+      return < >
+        <nav className='navContainer'>
+
+          <div className='capy'>
+            <img className="Logo" src={LogoCapy} alt="Logo" />
+          </div>
+
+          <div className='nav'>
+            <div className='principal'>
+              <img className="Dashboard" src={dashboardIconWhite} alt="Dashboard" />
+              <img className="IncomeExpenses focus" src={expensesAndIncomeIconBlack} alt="IncomeExpenses" />
+              <img className="Savings" src={dashboardIconWhite} alt="Savings" />
+              <img className="Rewards" src={rewardsIconWhite} alt="Rewards" />
+              <img className="Settings" src={configurationIconWhite} alt="Settings" />
+            </div>
+
+            <div className='last'>
+              <img className="User" src={profileIconWhite} alt="User" />
+              <img className="LogOut" src={logOutIconWhite} alt="LogOut" onClick={() => { handleLogOut() }} />
+            </div>
+          </div>
+
+        </nav>
+      </>
+
     case routes.savings:
-      return <>
+      return < >
         <nav className='navContainer'>
 
           <div className='capy'>
@@ -53,6 +109,32 @@ export const GlobalAppNav = () => {
               <img className="IncomeExpenses" src={expensesAndIncomeIconWhite} alt="IncomeExpenses" />
               <img className="Savings focus" src={dashboardIconBlack} alt="Savings" />
               <img className="Rewards" src={rewardsIconWhite} alt="Rewards" />
+              <img className="Settings" src={configurationIconWhite} alt="Settings" />
+            </div>
+
+            <div className='last'>
+              <img className="User" src={profileIconWhite} alt="User" />
+              <img className="LogOut" src={logOutIconWhite} alt="LogOut" onClick={() => { handleLogOut() }} />
+            </div>
+          </div>
+
+        </nav>
+      </>
+
+    case routes.rewards:
+      return < >
+        <nav className='navContainer'>
+
+          <div className='capy'>
+            <img className="Logo" src={LogoCapy} alt="Logo" />
+          </div>
+
+          <div className='nav'>
+            <div className='principal'>
+              <img className="Dashboard" src={dashboardIconWhite} alt="Dashboard" />
+              <img className="IncomeExpenses" src={expensesAndIncomeIconWhite} alt="IncomeExpenses" />
+              <img className="Savings" src={dashboardIconWhite} alt="Savings" />
+              <img className="Rewards focus" src={rewardsIconBlack} alt="Rewards" />
               <img className="Settings" src={configurationIconWhite} alt="Settings" />
             </div>
 
