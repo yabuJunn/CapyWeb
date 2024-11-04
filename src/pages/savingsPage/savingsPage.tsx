@@ -122,7 +122,7 @@ export const SavingsPage = () => {
                                                 config={chartConfig}
                                                 className="mx-auto aspect-square w-full h-full"
                                                 style={{
-                                                    height: '28vh',
+                                                    height: '26vh',
                                                 }}
                                             >
                                                 <ResponsiveContainer width="100%" height="100%">
