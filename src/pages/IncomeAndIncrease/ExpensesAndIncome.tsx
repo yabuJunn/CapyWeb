@@ -3,39 +3,36 @@ import { ExpensesGraphic } from "../../components/dashboardPageComponents/expens
 import { PieChartGraphic } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/PieChart/PieChartGraphic";
 import { History } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/History/History";
 import { PieChart2 } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/PieChart2/PieChart2";
-import "./ExpensesAndIncome.css"
+import "./ExpensesAndIncome.css";
 import Nav from "../../components/Nav/Nav";
 
 export const ExpensesAndIncomePage = () => {
   return (
     <main className="page">
-      
       <h1>Expenses & Income</h1>
-      
-      <div className="nav-div">
+
+      {/* <div className="nav-div">
           <Nav />
-        </div>
+        </div>*/}
 
       <div className="container">
         <div className="main-div">
           <div className="expense-graphic">
-          <ExpensesGraphic />
+            <ExpensesGraphic />
           </div>
 
           <div className="piechart-graphic">
-          <PieChart2 />
-            
+            <PieChart2 />
           </div>
-        
         </div>
-        <div className="right-div">
+       {/*  <div className="right-div">
           <History />
         </div>
         <div className="left-div">
           <ExpensePlanner />
-        </div>
+        </div> */}
       </div>
-      <div id='background'></div>
+      <div id="background"></div>
     </main>
   );
 };
