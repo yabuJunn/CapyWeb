@@ -12,14 +12,7 @@ import {
 import * as React from "react"
 import { CategorySavingsProgressHint } from '../CategorySavingsProgressHint/CategorySavingsProgressHint'
 
-// const chartData: Array<savingItemType> = [
-//     { savingName: "Party", savingValue: 40, fill: "#2D18BF", percentage: "40%" },
-//     { savingName: "Trip", savingValue: 28, fill: "#A8F25D", percentage: "28%" },
-//     { savingName: "Motorbike", savingValue: 27, fill: "#F2622E", percentage: "27%" },
-//     { savingName: "Others", savingValue: 5, fill: "#C4C4C4", percentage: "5%" },
-// ]
-
-interface savingItemType {
+export interface savingItemType {
     savingName: string,
     savingValue: number,
     fill: string,

@@ -10,6 +10,9 @@ interface GeneralSavingsProps {
 }
 
 export const GeneralSavings = ({ valueIncome, valueSavings, incomePercentage, savingsPercentage }: GeneralSavingsProps) => {
+
+    console.log(valueSavings);
+
     return <>
         <div id='generalSavings'>
             <h3>General Savings</h3>

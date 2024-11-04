@@ -3,11 +3,66 @@ import './savingsPage.css'
 //Import Components
 import Nav from '../../components/Nav/Nav'
 import { GeneralSavings } from '../../components/savingsPageComponents/GeneralSavings/GeneralSavings'
-import { CategorySavings } from '../../components/savingsPageComponents/CategorySavings/CategorySavings'
+import { CategorySavings, savingItemType } from '../../components/savingsPageComponents/CategorySavings/CategorySavings'
 import { SavingsGoals } from '../../components/savingsPageComponents/SavingsGoals/SavingsGoals'
 import { SavingsHistory } from '../../components/savingsPageComponents/SavingsHistory/SavingsHistory'
+import { SavingGoalItemProps } from '../../components/savingsPageComponents/SavingGoalItem/SavingGoalItem'
+
+//Import images
+import fireIconWhite from '../../assets/svg/fireIconWhite.svg'
+import planetIconBlack from '../../assets/svg/planetIconBlack.svg'
+import KeyIconWhite from '../../assets/svg/KeyIconWhite.svg'
+
+//Savings Data
+
+const savingsData: Array<savingType> = [
+    { savingName: "Party", savingValue: 40, savingColor: "#2D18BF", savingPercentage: "40%", savingImage: fireIconWhite, monthlySaving: 50000, savingActualFee: 100000, savingTotalFee: 600000 },
+    { savingName: "Trip", savingValue: 28, savingColor: "#A8F25D", savingPercentage: "28%", savingImage: planetIconBlack, monthlySaving: 20000, savingActualFee: 40000, savingTotalFee: 480000 },
+    { savingName: "Motorbike", savingValue: 27, savingColor: "#F2622E", savingPercentage: "27%", savingImage: KeyIconWhite, monthlySaving: 100000, savingActualFee: 400000, savingTotalFee: 1000000 },
+    {
+        savingName: "Others", savingValue: 5, savingColor: "#C4C4C4", savingPercentage: "5%",
+        savingImage: '',
+        monthlySaving: 0,
+        savingActualFee: 0,
+        savingTotalFee: 0
+    }
+]
+
+interface savingType {
+    savingName: string,
+    savingValue: number,
+    savingColor: string,
+    savingPercentage: string,
+    savingImage: string,
+    monthlySaving: number,
+    savingActualFee: number,
+    savingTotalFee: number
+}
 
 export const SavingsPage = () => {
+    const chartData: Array<savingItemType> = []
+    const savingsGoalsData: Array<SavingGoalItemProps> = []
+
+    savingsData.forEach((saving) => {
+        chartData.push({
+            savingName: saving.savingName,
+            savingValue: saving.savingValue,
+            fill: saving.savingColor,
+            percentage: saving.savingPercentage
+        })
+
+        if (saving.savingName !== 'Others') {
+            savingsGoalsData.push({
+                goalImage: saving.savingImage,
+                goalImageColor: saving.savingColor,
+                goalTitle: saving.savingName,
+                goalMonthlySaving: saving.monthlySaving,
+                goalActualFee: saving.savingActualFee,
+                goalTotalFee: saving.savingTotalFee
+            })
+        }
+    })
+
 
     return <>
         <main className='page'>
@@ -25,16 +80,11 @@ export const SavingsPage = () => {
                             <div id='summarySavingsContainer'>
                                 <GeneralSavings valueIncome={70} valueSavings={30} incomePercentage={'70%'} savingsPercentage={'30%'}></GeneralSavings>
 
-                                <CategorySavings chartData={[
-                                    { savingName: "Party", savingValue: 40, fill: "#2D18BF", percentage: "40%" },
-                                    { savingName: "Trip", savingValue: 28, fill: "#A8F25D", percentage: "28%" },
-                                    { savingName: "Motorbike", savingValue: 27, fill: "#F2622E", percentage: "27%" },
-                                    { savingName: "Others", savingValue: 5, fill: "#C4C4C4", percentage: "5%" },
-                                ]}></CategorySavings>
+                                <CategorySavings chartData={chartData}></CategorySavings>
 
                             </div>
 
-                            <SavingsGoals></SavingsGoals>
+                            <SavingsGoals savingsGoalsItemsArray={savingsGoalsData}></SavingsGoals>
 
                         </div>
 
