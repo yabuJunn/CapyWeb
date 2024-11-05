@@ -2,7 +2,6 @@ import * as React from "react";
 /*import { TrendingUp } from "lucide-react";*/
 import { Label, Pie, PieChart } from "recharts";
 
-
 import {
   ChartConfig,
   ChartContainer,
@@ -15,36 +14,43 @@ import "./PieChart2.css";
 export const description = "A donut chart with text";
 
 const chartData = [
-  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-  { browser: "firefox", visitors: 287, fill: "var(--color-firefox)" },
-  { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
-  { browser: "other", visitors: 190, fill: "var(--color-other)" },
+  { browser: "Hogar", visitors: 275, fill: "#2d18bf" },
+  { browser: "Mercado", visitors: 200, fill: "#a8f25d" },
+  { browser: "Ropa", visitors: 287, fill: "#f2622e" },
+  { browser: "Otro", visitors: 173, fill: "#c4c4c4" },
 ];
+
+const totalVisitors = chartData.reduce(
+  (total, data) => total + data.visitors,
+  0
+);
+
+const chartDataWithPercentage = chartData.map((data) => ({
+  ...data,
+  percentage: Math.round((data.visitors / totalVisitors) * 100),
+}));
+
+console.log(chartDataWithPercentage);
 
 const chartConfig = {
   visitors: {
-    label: "Visitors",
+    label: "Gastos",
   },
-  chrome: {
-    label: "Chrome",
+  home: {
+    label: "Hogar",
     color: "hsl(var(--chart-1))",
   },
-  safari: {
-    label: "Safari",
+  market: {
+    label: "Mercado",
     color: "hsl(var(--chart-2))",
   },
-  firefox: {
-    label: "Firefox",
+  clothes: {
+    label: "Ropa",
     color: "hsl(var(--chart-3))",
   },
-  edge: {
-    label: "Edge",
-    color: "hsl(var(--chart-4))",
-  },
   other: {
-    label: "Other",
-    color: "hsl(var(--chart-5))",
+    label: "Otro",
+    color: "#c4c4c4",
   },
 } satisfies ChartConfig;
 
@@ -80,20 +86,21 @@ export function PieChart2() {
                       y={viewBox.cy}
                       textAnchor="middle"
                       dominantBaseline="middle"
+                      className="text-white"
                     >
                       <tspan
                         x={viewBox.cx}
                         y={viewBox.cy}
-                        className="fill-foreground text-3xl font-bold"
+                        className="text-3xl font-bold fill-white"
                       >
                         {totalVisitors.toLocaleString()}
                       </tspan>
                       <tspan
                         x={viewBox.cx}
                         y={(viewBox.cy || 0) + 24}
-                        className="fill-muted-foreground"
+                        className="fill-white"
                       >
-                        Visitors
+                        Gastos
                       </tspan>
                     </text>
                   );
@@ -104,7 +111,32 @@ export function PieChart2() {
         </PieChart>
       </ChartContainer>
       <div className="pie-card-right">
-        <select className="select-piechart" name="" id="">Seleccionar</select>
+        <select className="select-piechart" name="" id="">
+          Seleccionar
+        </select>
+        <ul className="container-info-pie-chart">
+          {chartDataWithPercentage.map((data, index) => (
+            <li key={index} className="info-pie-chart-color">
+              <div>
+                <div
+                  className={`ball-name-chart ${
+                    data.browser === "Hogar"
+                      ? "ball-name-chart-color1"
+                      : data.browser === "Mercado"
+                      ? "ball-name-chart-color2"
+                      : data.browser === "Ropa"
+                      ? "ball-name-chart-color3"
+                      : data.browser === "Otro"
+                      ? "ball-name-chart-color4"
+                      : "all-name-chart-color4"
+                  }`}
+                ></div>
+                {data.browser}
+              </div>
+              {data.percentage}%
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
