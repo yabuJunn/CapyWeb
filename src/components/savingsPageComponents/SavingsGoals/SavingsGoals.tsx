@@ -1,18 +1,24 @@
 import './SavingsGoals.css'
 
 import { SavingGoalItem, SavingGoalItemProps } from '../SavingGoalItem/SavingGoalItem'
+import { useDispatch } from 'react-redux'
+import { changeAddSavingModal } from '../../../store/store'
 
 interface SavingsGoalsProps {
     savingsGoalsItemsArray: Array<SavingGoalItemProps>
 }
 
 export const SavingsGoals = ({ savingsGoalsItemsArray }: SavingsGoalsProps) => {
-    
+    const dispatch = useDispatch()
+
+
     return <>
         <div id='savingsGoalsContainer'>
             <div id='savingsGoalsHeader'>
                 <h3>Savings Goals</h3>
-                <button>Create savings goal</button>
+                <button onClick={() => {
+                    dispatch(changeAddSavingModal(true))
+                }}>Create savings goal</button>
             </div>
 
             <div id='savingsGoalsListContainer'>

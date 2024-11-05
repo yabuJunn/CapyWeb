@@ -17,7 +17,7 @@ export const { changeAddSavingModal } = pruebaSlice.actions
 
 export const store = configureStore({
     reducer: {
-        prueba: pruebaSlice.reducer,
+        global: pruebaSlice.reducer,
         savings: savingsSlice.reducer
     }
 })
