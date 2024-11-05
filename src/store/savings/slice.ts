@@ -8,7 +8,6 @@ export const savingsSlice = createSlice({
     },
     reducers: {
         addSaving: (state, action) => {
-            console.log("AddSaving")
             state.savingsData = [
                 {
                     savingName: action.payload.name,

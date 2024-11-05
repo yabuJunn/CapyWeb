@@ -1,4 +1,4 @@
-import { savingSliceType, savingType } from "./types"
+import { savingSliceType } from "./types"
 
 import fireIconWhite from '../../assets/svg/fireIconWhite.svg'
 import planetIconBlack from '../../assets/svg/planetIconBlack.svg'
@@ -44,9 +44,9 @@ export const DEFAULT_STATE_SAVINGS: savingSliceType = {
             ]
         },
         {
-            savingName: "Others", 
-            savingValue: 5, 
-            savingColor: "#C4C4C4", 
+            savingName: "Others",
+            savingValue: 5,
+            savingColor: "#C4C4C4",
             savingPercentage: "5%",
             savingImage: '',
             monthlySaving: 0,

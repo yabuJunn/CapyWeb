@@ -4,9 +4,23 @@ import { useDispatch } from 'react-redux'
 import { changeAddSavingModal } from '../../../store/store'
 
 import xIconWhite from '../../../assets/svg/icons/xIconWhite.svg'
+import { addSaving } from '../../../store/savings/slice'
+import { useRef } from 'react'
 
 export const AddSavingGoalModal = () => {
     const dispatch = useDispatch()
+
+    const savingNameInputRef = useRef(null)
+    const savingColorInputRef = useRef(null)
+    //const savingImageInputRef = useRef(null)
+    const savingMonthlyInputRef = useRef(null)
+    const savingTotalFeeInputRef = useRef(null)
+
+    // Función para obtener el valor seleccionado del radio button
+    const getSelectedImage = () => {
+        const selectedRadio = document.querySelector('input[name="AddSavingGoalRadioInputImage"]:checked') as HTMLInputElement;
+        return selectedRadio ? selectedRadio.id : null;
+    };
 
     return (
         <>
@@ -29,14 +43,14 @@ export const AddSavingGoalModal = () => {
                         <h3>New savings</h3>
                         <div className="inputTextContainer">
                             <label htmlFor=""></label>
-                            <input type="text" placeholder="Enter saving name" />
+                            <input type="text" placeholder="Enter saving name" ref={savingNameInputRef} />
                         </div>
 
-                        <select name="" id="">
+                        <select name="" id="" ref={savingColorInputRef}>
                             <option value="">Choose saving color</option>
-                            <option value="">Blue</option>
-                            <option value="">Green</option>
-                            <option value="">Orange</option>
+                            <option value="blue">Blue</option>
+                            <option value="green">Green</option>
+                            <option value="orange">Orange</option>
                         </select>
 
                         <label htmlFor="AddSavingGoalRadioInputContainer" id="selectSavingPicture">
@@ -68,15 +82,31 @@ export const AddSavingGoalModal = () => {
 
                         <div className="inputTextContainer">
                             <label htmlFor=""></label>
-                            <input type="number" placeholder="Enter the monthly savings amount" />
+                            <input type="number" placeholder="Enter the monthly savings amount" ref={savingMonthlyInputRef} />
                         </div>
 
                         <div className="inputTextContainer">
                             <label htmlFor=""></label>
-                            <input type="number" placeholder="Enter the total amount of the monthly" />
+                            <input type="number" placeholder="Enter the total amount of the monthly" ref={savingTotalFeeInputRef} />
                         </div>
 
-                        <button id="AddSavingGoalRadioInputButton">Create new saving</button>
+                        <button id="AddSavingGoalRadioInputButton" onClick={(e) => {
+                            e.preventDefault();
+
+                            const selectedImage = getSelectedImage();
+
+                            if (savingNameInputRef.current && selectedImage) {
+                                dispatch(addSaving({
+                                    name: savingNameInputRef.current.value,
+                                    color: savingColorInputRef.current ? savingColorInputRef.current.value : "#F9F9F9",
+                                    image: selectedImage,
+                                    monthlySaving: savingMonthlyInputRef.current ? Number(savingMonthlyInputRef.current.value) : 10,
+                                    savingTotalFee: savingTotalFeeInputRef.current ? Number(savingTotalFeeInputRef.current.value) : 100,
+                                }));
+
+                                dispatch(changeAddSavingModal(false))
+                            }
+                        }}>Create new saving</button>
                     </form>
                 </div>
             </div>
