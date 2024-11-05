@@ -1,35 +1,30 @@
-import { useEffect, memo, useState } from 'react';
+import React, { useEffect, memo, useState, useCallback } from 'react';
 import './Register.css';
 import vectorRegisterDesktop from "../../assets/desktop/svg/vectorRegister.svg";
 import vectorRegisterMobile from "../../assets/mobile/svg/vectorRegisterMob.svg";
 import Logo from "../../assets/desktop/web/Logo.webp";
 import CardRegister from "../../components/registerPageComponents/CardRegister/CardRegister";
 
-export const Register = memo(() => {
+export const Register: React.FC = memo(() => {
   const [vectorSrc, setVectorSrc] = useState<string>(
     window.innerWidth < 500 ? vectorRegisterMobile : vectorRegisterDesktop
   );
 
+  const handleResize = useCallback(() => {
+    setVectorSrc(window.innerWidth < 500 ? vectorRegisterMobile : vectorRegisterDesktop);
+  }, []);
+
   useEffect(() => {
-    const handleResize = () => {
-      setVectorSrc(window.innerWidth < 500 ? vectorRegisterMobile : vectorRegisterDesktop);
-    };
+    handleResize();
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [handleResize]);
 
   return (
     <main className='page'>
-      <img id="Logo" src={Logo} alt="Logo" />
-      <img
-        id="Register"
-        src={vectorSrc}
-        srcSet={`${vectorRegisterMobile} 500w, ${vectorRegisterDesktop} 1200w`}
-        sizes="(max-width: 500px) 100vw, 50vw"
-        alt="Imagen de registro"
-        loading="lazy"
-      />
+      <img id="Logo" src={Logo} alt="Logo de la aplicación" />
+      <img id="Register" src={vectorSrc} alt="Imagen de registro" loading="lazy" />
       <div className="Card">
         <CardRegister />
       </div>

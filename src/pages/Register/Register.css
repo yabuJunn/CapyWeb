@@ -1,18 +1,18 @@
-#Register {
+#Register{
     position: absolute;
     margin-top: 200px;
     margin-left: 90px;
-  }
-  
-  #Logo {
+    width: 40%;
+}
+#Logo{
     width: 51px;
     height: 51px;
     position: absolute;
     top: 80px;
     margin-left: 90px;
-  }
-  
-  #backgroundRegister {
+}
+
+#backgroundRegister {
     position: fixed;
     top: 0;
     left: 0;
@@ -23,25 +23,24 @@
     background-position: center;
     background-repeat: no-repeat;
     z-index: -1;
-  }
-  
-  /* Estilos responsivos para el Contenedor Principal */
-  @media only screen and (max-width: 500px) {
+}
+
+@media only screen and (max-width: 500px) {
     #Register {
-      position: relative;
-      margin: 50% auto 0;
-      max-width: 90%;
-      padding: 10px;
+        position: relative;
+        margin: 50% auto 0;
+        max-width: 90%;
+        padding: 10px;
+        width: auto;
     }
     
     #Logo {
-      display: none;
+        display: none; 
     }
     
     #backgroundRegister {
-      background-image: url('../../assets/mobile/svg/SignUp.svg');
-      background-size: cover;
-      background-position: top;
+        background-image: url('../../assets/mobile/svg/SignUp.svg');
+        background-size: cover;
+        background-position: top;
     }
-  }
-  
+}
