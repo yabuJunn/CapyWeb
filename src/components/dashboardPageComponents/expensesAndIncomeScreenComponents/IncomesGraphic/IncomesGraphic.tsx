@@ -2,7 +2,7 @@
 
 /*import { TrendingUp } from "lucide-react";*/
 import {   CartesianGrid, XAxis, LineChart, Line } from "recharts";
-import "./ExpenseGraphic.css"
+import "./IncomesGraphic.css"
 
   
 
@@ -55,7 +55,7 @@ export function AreaChartComponent() {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tick={{ fill: 'white' }}
+              
               tickFormatter={(value) => value.slice(0, 3)}
             />
             <ChartTooltip
@@ -77,7 +77,7 @@ export function AreaChartComponent() {
   );
 }
 
-export const ExpensesGraphic = () => {
+export const IncomesGraphic = () => {
   return (
     <div className="grafic-card">      
       <AreaChartComponent />

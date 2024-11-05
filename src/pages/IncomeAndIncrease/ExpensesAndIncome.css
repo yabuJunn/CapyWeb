@@ -36,19 +36,26 @@
 }
 
 .main-div {
-  display: flex;
-  gap: 20px;
-  justify-content: space-between;
   background-color: #181818;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
 }
 
+.expense-graphic-top {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
 .expense-graphic {
   width: 60%;
-  background-color: #2d18bf;
   border-radius: 10px;
+  background-color: #f2622e;
+}
+
+.expense-graphic-color1 {
+  background-color: #2d18bf;
 }
 
 .piechart-graphic {
@@ -100,4 +107,15 @@
 }
 .PlannerIcon {
   margin-top: 80px;
+}
+
+.select-expenses-graphic {
+  display: block;
+  width: 139px;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: black;
+  background-color: white;
 }
