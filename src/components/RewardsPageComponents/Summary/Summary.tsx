@@ -7,8 +7,8 @@ const Summary: React.FC = () => {
   const { saverLevel, completedMissions, capyPoints } = useSelector((state: RootState) => state.missions);
 
   return (
-    <div className="resumen">
-      <h2>Summary</h2>
+    <div className="Summary">
+      <h2 id="summary">Summary</h2>
       <SummaryCard icon="../../src/assets/desktop/svg/Trofeo.svg" title="Saver level" content={saverLevel} backgroundColor="#F2622E" />
       <SummaryCard icon="../../src/assets/desktop/svg/Bandera.svg" title="Goals completed" content={completedMissions} backgroundColor="#A8F25D" />
       <SummaryCard icon="../../src/assets/desktop/svg/Logo.svg" title="Capypoints" content={capyPoints} backgroundColor="#3c4cff" />

@@ -16,7 +16,7 @@
     border-radius: 16px;
     padding: 20px;
     width: 25%;
-    height: 200px;
+    height: 240px;
     position: relative;
     color: white;
     overflow: hidden;
@@ -35,15 +35,43 @@
     position: relative;
     z-index: 1;
     font-family: "Space Grotesk";
+    margin-top: 25%;
 }
 
 .reward-card p {
     color: #F9F9F9;
+    font-family: "Plus Jakarta";
+    font-size: 23.283px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+#white{
+    width: 30%;
+}
+
+.reward-card-content .text-with-image img {
+    margin-right: 3%; 
+}
+
+.reward-card h3 {
+    color: #F9F9F9;
     font-family: "Space Grotesk";
-    font-size: 3vh;
+    font-size: 29.519px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    display: flex;
-    flex-wrap: wrap;
 }
+
+.reward-card-content .price-and-points {
+    display: flex;
+    align-items: center; 
+}
+
+.reward-card-content .text-with-image {
+    display: flex;
+    align-items: center;
+    margin-left: 40%; 
+}
+

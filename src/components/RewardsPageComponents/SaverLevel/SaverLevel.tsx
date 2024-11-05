@@ -10,7 +10,7 @@ export const SaverLevel = () => {
 
   return (
     <div className='SaverLevelContainer'>
-      <p>Saver level</p>
+      <h2>Saver level</h2>
       <SaverLevelTitleDisplay levelTitle={saverLevel} />
       <SaverLevelProgressBar progressValue={progress} />
     </div>
