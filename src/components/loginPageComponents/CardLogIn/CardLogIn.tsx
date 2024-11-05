@@ -69,7 +69,7 @@ function CardLogIn() {
       />
 
       <a>I don't remember my password</a>
-      <button onClick={handleLoginEmail}>Aceptar</button>
+      <button id='ButtonLogin' onClick={handleLoginEmail}>Accept</button>
       <div id="signUpGoogleContainer">
         <p>Or</p>
         <div id="googleIconContainer" onClick={handleGoogleLogin}>

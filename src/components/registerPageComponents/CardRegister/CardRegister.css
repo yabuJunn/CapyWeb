@@ -244,14 +244,14 @@ a {
     line-height: normal;
   }
 
-  .Register-left .highlight {
+  .LogIn-left .highlight {
     background-color: #d2ff00;
     color: #1f1f1f;
     padding: 2px 8px;
     border-radius: 5px;
   }
 
-  .Register-container {
+  .LogIn-container {
     width: 100%;
     background-color: #2a2d54;
     border-radius: 20px;
@@ -259,7 +259,7 @@ a {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   }
 
-  .Register-container h1 {
+  .LogIn-container h1 {
     font-size: 1.5rem;
     margin-bottom: 10%;
     text-align: center;
