@@ -2,6 +2,8 @@ import * as React from "react";
 /*import { TrendingUp } from "lucide-react";*/
 import { Label, Pie, PieChart } from "recharts";
 
+import { useState } from "react";
+
 import {
   ChartConfig,
   ChartContainer,
@@ -11,8 +13,6 @@ import {
 
 import "./PieChart2.css";
 
-export const description = "A donut chart with text";
-
 const chartData = [
   { browser: "Hogar", visitors: 275, fill: "#2d18bf" },
   { browser: "Mercado", visitors: 200, fill: "#a8f25d" },
@@ -20,17 +20,35 @@ const chartData = [
   { browser: "Otro", visitors: 173, fill: "#c4c4c4" },
 ];
 
-const totalVisitors = chartData.reduce(
+const chartData2 = [
+  { browser: "Hogar", visitors: 456, fill: "#2d18bf" },
+  { browser: "Mercado", visitors: 444, fill: "#a8f25d" },
+  { browser: "Ropa", visitors: 868, fill: "#f2622e" },
+  { browser: "Otro", visitors: 25, fill: "#c4c4c4" },
+];
+
+const totalVisitors1 = chartData.reduce(
+  (total, data) => total + data.visitors,
+  0
+);
+
+const totalVisitors2 = chartData2.reduce(
   (total, data) => total + data.visitors,
   0
 );
 
 const chartDataWithPercentage = chartData.map((data) => ({
   ...data,
-  percentage: Math.round((data.visitors / totalVisitors) * 100),
+  percentage: Math.round((data.visitors / totalVisitors1) * 100),
+}));
+
+const chartDataWithPercentage2 = chartData2.map((data) => ({
+  ...data,
+  percentage: Math.round((data.visitors / totalVisitors2) * 100),
 }));
 
 console.log(chartDataWithPercentage);
+console.log(chartDataWithPercentage2);
 
 const chartConfig = {
   visitors: {
@@ -55,9 +73,20 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function PieChart2() {
+  const [selectedOption, setSelectedOption] = useState("Gastos");
+
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedOption(event.target.value);
+  };
+
+  const chartDataOptions =
+    selectedOption === "Gastos"
+      ? chartDataWithPercentage
+      : chartDataWithPercentage2;
+
   const totalVisitors = React.useMemo(() => {
-    return chartData.reduce((acc, curr) => acc + curr.visitors, 0);
-  }, []);
+    return chartDataOptions.reduce((acc, curr) => acc + curr.visitors, 0);
+  }, [chartDataOptions]);
 
   return (
     <div className="pie-card-container">
@@ -71,7 +100,7 @@ export function PieChart2() {
             content={<ChartTooltipContent hideLabel />}
           />
           <Pie
-            data={chartData}
+            data={chartDataOptions}
             dataKey="visitors"
             nameKey="browser"
             innerRadius={60}
@@ -100,7 +129,9 @@ export function PieChart2() {
                         y={(viewBox.cy || 0) + 24}
                         className="fill-white"
                       >
-                        Gastos
+                        {`${
+                          selectedOption === "Gastos" ? "Gastos" : "Ingresos"
+                        }`}
                       </tspan>
                     </text>
                   );
@@ -111,11 +142,17 @@ export function PieChart2() {
         </PieChart>
       </ChartContainer>
       <div className="pie-card-right">
-        <select className="select-piechart" name="" id="">
-          Seleccionar
+        <select
+          className="select-expenses-pie"
+          name=""
+          id=""
+          onChange={handleSelectChange}
+        >
+          <option value="Gastos">Gastos</option>
+          <option value="Igresos">Ingresos</option>
         </select>
         <ul className="container-info-pie-chart">
-          {chartDataWithPercentage.map((data, index) => (
+          {chartDataOptions.map((data, index) => (
             <li key={index} className="info-pie-chart-color">
               <div>
                 <div

@@ -2,10 +2,14 @@
   display: flex;
 }
 
-.select-piechart {
-  background-color: #2d18bf;
+.select-expenses-pie {
   width: 100%;
-  margin-bottom: 2rem;
+  background-color: #2d18bf;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: white;
 }
 
 .pie-card-right {
