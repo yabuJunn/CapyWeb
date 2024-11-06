@@ -317,3 +317,40 @@
     width: 60%;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .featuresRow {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  #firstSection h1 {
+    font-size: 35px;
+    width: 60%;
+    line-height: 50px;
+  }
+
+  #firstSection p {
+    font-size: 12px;
+    margin-top: 40px;
+  }
+
+  #arrowDownWhite {
+    width: 30px;
+    margin-top: 40px;
+  }
+
+  #thirdSection h2 {
+    font-size: 25px;
+  }
+
+  #fourthSection h2 {
+    font-size: 25px;
+  }
+
+  #fourthSection #subTitle {
+    font-size: 12px;
+  }
+}
