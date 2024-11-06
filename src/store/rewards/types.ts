@@ -44,12 +44,14 @@ export interface missionType {
     missionDescription: string,
     missionColor: string,
     missionCapypoints: number,
-    completed: boolean
+    completed: boolean,
+    missionId: number
 }
 
 export interface exchangeType {
     name: string,
     redemptionCapypointsAmount: number,
     redemptionCost: number,
-    isRedeemed: boolean
+    isRedeemed: boolean,
+    exchangeId: number
 }
