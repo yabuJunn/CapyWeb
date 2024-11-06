@@ -4,6 +4,8 @@ import { IncomesGraphic } from "../../components/dashboardPageComponents/expense
 import { ExpensePlanner } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/ExpensePlanner/ExpensePlanner";
 import { History } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/History/History";
 import { PieChart2 } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/PieChart2/PieChart2";
+import { IncomePieChart } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/IncomePieChart/IncomePieChart";
+import { IncomeHistory } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/IncomeHistory/IncomeHistory";
 import "./ExpensesAndIncome.css";
 import { useState } from "react";
 
@@ -48,7 +50,7 @@ export const ExpensesAndIncomePage = () => {
               )}
             </div>
             <div className="piechart-graphic">
-              <PieChart2 />
+              {selectedOption === "Gastos" ? <PieChart2 /> : <IncomePieChart />}
             </div>
           </div>
         </div>
@@ -58,7 +60,7 @@ export const ExpensesAndIncomePage = () => {
             <ExpensePlanner />
           </div>
           <div className="right-div">
-            <History />
+            {selectedOption === "Gastos" ? <History /> : <IncomeHistory />}
           </div>
         </div>
       </div>

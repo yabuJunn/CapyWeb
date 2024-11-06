@@ -11,20 +11,20 @@ import {
   ChartTooltipContent,
 } from "../../../ui/chart";
 
-import "./PieChart2.css";
+import "./IncomePieChart.css";
 
 const chartData = [
-  { browser: "Hogar", visitors: 275, fill: "#2d18bf" },
-  { browser: "Mercado", visitors: 200, fill: "#a8f25d" },
-  { browser: "Ropa", visitors: 287, fill: "#f2622e" },
-  { browser: "Otro", visitors: 173, fill: "#c4c4c4" },
+  { browser: "NU", visitors: 533000, fill: "#2d18bf" },
+  { browser: "MasterCard", visitors: 102000, fill: "#a8f25d" },
+  { browser: "Visa", visitors: 26500, fill: "#f2622e" },
+  { browser: "Otro", visitors: 12500, fill: "#c4c4c4" },
 ];
 
 const chartData2 = [
-  { browser: "Hogar", visitors: 456, fill: "#2d18bf" },
-  { browser: "Mercado", visitors: 444, fill: "#a8f25d" },
-  { browser: "Ropa", visitors: 868, fill: "#f2622e" },
-  { browser: "Otro", visitors: 25, fill: "#c4c4c4" },
+  { browser: "NU", visitors: 45446, fill: "#2d18bf" },
+  { browser: "MasterCard", visitors: 100570, fill: "#a8f25d" },
+  { browser: "Visa", visitors: 127544, fill: "#f2622e" },
+  { browser: "Otro", visitors: 2577, fill: "#c4c4c4" },
 ];
 
 const totalVisitors1 = chartData.reduce(
@@ -72,7 +72,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export function PieChart2() {
+export function IncomePieChart() {
   const [selectedOption, setSelectedOption] = useState("Julio");
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -129,7 +129,7 @@ export function PieChart2() {
                         y={(viewBox.cy || 0) + 24}
                         className="fill-white"
                       >
-                        Gastos
+                        ingresos
                       </tspan>
                     </text>
                   );
@@ -147,7 +147,7 @@ export function PieChart2() {
           onChange={handleSelectChange}
         >
           <option value="Julio">Julio</option>
-          <option value="Igresos">Agosto</option>
+          <option value="Agosto">Agosto</option>
         </select>
         <ul className="container-info-pie-chart">
           {chartDataOptions.map((data, index) => (
@@ -155,11 +155,11 @@ export function PieChart2() {
               <div>
                 <div
                   className={`ball-name-chart ${
-                    data.browser === "Hogar"
+                    data.browser === "NU"
                       ? "ball-name-chart-color1"
-                      : data.browser === "Mercado"
+                      : data.browser === "Visa"
                       ? "ball-name-chart-color2"
-                      : data.browser === "Ropa"
+                      : data.browser === "MasterCard"
                       ? "ball-name-chart-color3"
                       : data.browser === "Otro"
                       ? "ball-name-chart-color4"
