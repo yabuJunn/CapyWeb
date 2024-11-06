@@ -1,4 +1,4 @@
-import './UniqueFeatureCard.css'
+import './uniqueFeatureCard.css'
 
 interface UniqueFeatureCardProps {
     title: string,
