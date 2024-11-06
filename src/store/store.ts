@@ -1,5 +1,6 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 import { savingsSlice } from './savings/slice'
+import { rewardsSlice } from './rewards/slice'
 
 const pruebaSlice = createSlice({
     name: "global",
@@ -18,6 +19,7 @@ export const { changeAddSavingModal } = pruebaSlice.actions
 export const store = configureStore({
     reducer: {
         global: pruebaSlice.reducer,
-        savings: savingsSlice.reducer
+        savings: savingsSlice.reducer,
+        rewards: rewardsSlice.reducer
     }
 })

@@ -16,6 +16,11 @@ export const SavingsPage = () => {
 
     const addSavingModalBoolean: savingSliceType = useSelector((state) => state.global.addSavingModal)
     const savingsData: savingSliceType = useSelector((state) => state.savings)
+    //Pruebas redux
+
+    const rewardsData: savingSliceType = useSelector((state) => state.rewards)
+    console.log(rewardsData)
+    //Pruebas redux
 
     const chartData: Array<savingItemType> = []
     const savingsGoalsData: Array<SavingGoalItemProps> = []
