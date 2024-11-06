@@ -19,7 +19,7 @@
     height: 240px;
     position: relative;
     color: white;
-    overflow: hidden;
+    overflow: hidden;  
 }
 
 .reward-card-image {
@@ -75,3 +75,21 @@
     margin-left: 40%; 
 }
 
+@media only screen and (max-width: 500px) {
+    .reward-card {
+        width: 90%; 
+        margin: 2% 0; 
+        height: 160px;
+    }
+
+    .reward-card-content {
+        margin-top: 5%; 
+    }
+
+    .reward-card h3{
+        font-size: 140%;
+    }
+    .reward-card p {
+        font-size: 100%; 
+    }
+}

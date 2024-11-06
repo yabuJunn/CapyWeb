@@ -70,3 +70,39 @@
 .CapyPointsAmount .Gain {
     font-size: 16px;
 }
+
+@media only screen and (max-width: 500px) {
+    .MissionItemContainer {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .MissionDesc {
+        font-size: 12px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .MissionCapyPoints {
+        margin-left: 0;
+        width: 40%;
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+
+    .MissionCapyPoints img {
+        height: 20px;
+        margin: 0 5px;
+    }
+
+    .CapyPointsAmount .Capypoints {
+        font-size: 8px;
+    }
+
+    .CapyPointsAmount .Gain {
+        font-size: 14px;
+    }
+}

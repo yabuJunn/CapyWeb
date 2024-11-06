@@ -68,14 +68,22 @@ h1#principal {
 
 @media only screen and (max-width: 500px) {
     h1#principal {
-        font-size: 20px;
-        line-height: 50px;
+        font-size: 160%;
+        line-height: 36px;
         margin-left: 4%;
-        margin-top: 4%;
+        margin-top: 250%;
+    }
+
+    .MissionLevel {
+        flex-direction: column;
+        height: auto;
+        margin-left: 0;
     }
 
     .iqual {
+        width: 90%;
         padding: 15px;
+        margin: 10px 5%;
     }
 
     #backgroundReward {
@@ -83,4 +91,9 @@ h1#principal {
         background-size: cover;
         background-position: top;
     }
+
+    #nav-container {
+        display: none;
+    }
 }
+
