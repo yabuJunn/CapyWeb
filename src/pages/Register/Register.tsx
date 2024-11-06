@@ -13,7 +13,7 @@ export const Register = () => {
         <CardRegister />
       </div>
 
-      <div id='background'>
+      <div id='background-register'>
 
       </div>
     </div>

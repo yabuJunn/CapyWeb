@@ -47,7 +47,7 @@
         font-family: 'Space Grotesk';
     }
 
-    #background {
+    #background-dashboard {
         position: fixed;
         /* Para que ocupe toda la pantalla y se mantenga fija al hacer scroll */
         top: 0;

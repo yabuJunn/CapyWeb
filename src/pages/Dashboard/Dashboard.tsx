@@ -28,7 +28,7 @@ export const Dashboard = () => {
                     </div>
                 </div>
 
-                <div id='background'>
+                <div id='background-dashboard'>
 
                 </div>
             </main>
