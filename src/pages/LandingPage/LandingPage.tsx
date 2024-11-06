@@ -4,7 +4,10 @@ import './LandingPage.css'
 
 import { NavLanding } from '../../components/landingPageComponents/NavLanding/NavLanding'
 import { LandingFirstSectionButtons } from '../../components/landingPageComponents/LandingFirstSectionButtons/LandingFirstSectionButtons'
-import { UniqueFeatureCard } from '../../components/landingPageComponents/UniqueFeatureCard/UniqueFeatureCard'
+
+
+
+import { UniqueFeatureCard } from '../../components/landingPageComponents/UniqueFeatureCard/uniqueFeatureCard'
 import { CustomerOpinion } from '../../components/landingPageComponents/CustomerOpinion/CustomerOpinion'
 
 //Import images
