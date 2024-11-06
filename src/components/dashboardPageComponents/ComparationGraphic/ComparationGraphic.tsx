@@ -1,4 +1,4 @@
-import './ComparationGraphic.css';
+import './comparationGraphic.css';
 
 //Imagenes importadas
 import MoveButton from '../../../assets/svg/MoveButton.svg'
