@@ -9,10 +9,11 @@ export interface rewardsSliceType {
         image: saverLevelsImages
     }>,
     missions: Array<missionType>
-    exchangeData: Array<exchangeType>
+    exchangeData: Array<exchangeType>,
+    userExpGained: number
 }
 
-enum saverLevelsNames {
+export enum saverLevelsNames {
     level1 = "Saver Novice",
     level2 = "Budget Beginner",
     level3 = "Thrifty Trainee",
@@ -25,7 +26,7 @@ enum saverLevelsNames {
     level10 = "Master of Savings"
 }
 
-enum saverLevelsImages {
+export enum saverLevelsImages {
     level1Image = "0",
     level2Image = "1",
     level3Image = "2",
@@ -38,7 +39,7 @@ enum saverLevelsImages {
     level10Image = "9"
 }
 
-interface missionType {
+export interface missionType {
     missionName: string,
     missionDescription: string,
     missionColor: string,
@@ -46,7 +47,7 @@ interface missionType {
     completed: boolean
 }
 
-interface exchangeType {
+export interface exchangeType {
     name: string,
     redemptionCapypointsAmount: number,
     redemptionCost: number,

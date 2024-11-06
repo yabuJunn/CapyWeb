@@ -6,5 +6,11 @@ export const rewardsSlice = createSlice({
     initialState: {
         ...DEFAULT_STATE_REWARDS
     },
-    reducers: {}
+    reducers: {
+        changeUserExpGained: (state, action) => {
+            state.userExpGained += state.userExpGained + action.payload;
+        }
+    }
 })
+
+export const { changeUserExpGained } = rewardsSlice.actions

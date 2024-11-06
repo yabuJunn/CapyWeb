@@ -8,9 +8,12 @@ import { SavingsGoals } from '../../components/savingsPageComponents/SavingsGoal
 import { SavingsHistory } from '../../components/savingsPageComponents/SavingsHistory/SavingsHistory'
 import { SavingGoalItemProps } from '../../components/savingsPageComponents/SavingGoalItem/SavingGoalItem'
 
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { savingSliceType } from '../../store/savings/types'
 import { AddSavingGoalModal } from '../../components/savingsPageComponents/AddSavingGoalModal/AddSavingGoalModal'
+import { changeUserExpGained } from '../../store/rewards/slice'
+import { rewardsSliceType } from '../../store/rewards/types'
+
 
 export const SavingsPage = () => {
 
@@ -18,8 +21,10 @@ export const SavingsPage = () => {
     const savingsData: savingSliceType = useSelector((state) => state.savings)
     //Pruebas redux
 
-    const rewardsData: savingSliceType = useSelector((state) => state.rewards)
-    console.log(rewardsData)
+    //const dispatch = useDispatch()
+
+    //const rewardsData: rewardsSliceType = useSelector((state) => state.rewards)
+
     //Pruebas redux
 
     const chartData: Array<savingItemType> = []
@@ -45,9 +50,8 @@ export const SavingsPage = () => {
         }
     })
 
-    console.log(addSavingModalBoolean)
-
     if (addSavingModalBoolean) {
+
         return <>
             <main className='page'>
 
@@ -56,16 +60,9 @@ export const SavingsPage = () => {
                 <div id='marginPage'>
                     <div id='TitleTextContainer'>
                         <h1
-                        // onClick={() => {
-                        //     dispatch(addSaving({
-                        //         name: "prueba",
-                        //         color: "#F9F9F9",
-                        //         image: fireIconWhite,
-                        //         monthlySaving: 10,
-                        //         savingTotalFee: 100,
-
-                        //     }))
-                        // }}
+                            onClick={() => {
+                                console.log("Prueba")
+                            }}
                         >Savings</h1>
                     </div>
 
@@ -104,16 +101,9 @@ export const SavingsPage = () => {
                 <div id='marginPage'>
                     <div id='TitleTextContainer'>
                         <h1
-                        // onClick={() => {
-                        //     dispatch(addSaving({
-                        //         name: "prueba",
-                        //         color: "#F9F9F9",
-                        //         image: fireIconWhite,
-                        //         monthlySaving: 10,
-                        //         savingTotalFee: 100,
-
-                        //     }))
-                        // }}
+                            onClick={() => {
+                                console.log("Prueba")
+                            }}
                         >Savings</h1>
                     </div>
 
