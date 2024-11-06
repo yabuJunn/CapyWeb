@@ -250,7 +250,7 @@
 
 #customersOpinionCardsContainer {
   width: 90%;
-
+  gap: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -316,6 +316,26 @@
     font-size: 16px;
     width: 60%;
   }
+
+  #fifthSection {
+  margin-top: 80px;
+}
+
+  #fifthSection h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    width: 60%;
+    text-align: center;
+  }
+
+  #fifthSection #subTitle {
+    font-size: 16px;
+  }
+
+  #customersOpinionCardsContainer {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -351,6 +371,14 @@
   }
 
   #fourthSection #subTitle {
+    font-size: 12px;
+  }
+
+  #fifthSection h2 {
+    font-size: 25px;
+  }
+
+  #fifthSection #subTitle {
     font-size: 12px;
   }
 }

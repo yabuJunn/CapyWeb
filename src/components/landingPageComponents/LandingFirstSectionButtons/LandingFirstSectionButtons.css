@@ -64,4 +64,15 @@
     gap: 20px;
     align-items: center;
   }
+
+  #logInButton {
+    height: 40px;
+    font-size: 15px;
+    padding: 0 15px 0 15px;
+  }
+  #createAccountButton {
+    height: 40px;
+    font-size: 15px;
+    padding: 0 15px 0 15px;
+  }
 }
