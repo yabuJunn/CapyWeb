@@ -1,4 +1,5 @@
-import './Savings.css';
+import './savings.css';
+
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
