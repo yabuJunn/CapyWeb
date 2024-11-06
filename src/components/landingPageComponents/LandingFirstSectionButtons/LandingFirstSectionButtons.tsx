@@ -1,6 +1,6 @@
+import './LandingFirstSectionButtons.css'
 
 import { useNavigate } from 'react-router-dom'
-import './LandingFirstSectionButtons.css'
 
 export const LandingFirstSectionButtons = () => {
     const navigate = useNavigate()

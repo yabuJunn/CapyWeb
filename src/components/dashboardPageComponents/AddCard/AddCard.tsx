@@ -1,4 +1,4 @@
-import './AddCard.css';
+import './addCard.css';
 
 function AddCard() {
   return (
