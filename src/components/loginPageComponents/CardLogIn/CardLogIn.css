@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'Space Grotesk';
-  src: url('/src/assets/Fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  src: url('/src/assets/TempFonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Plus Jakarta';
-  src: url('/src/assets/Fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+  src: url('/src/assets/TempFonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

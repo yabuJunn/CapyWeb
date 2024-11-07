@@ -9,6 +9,7 @@ import { Register } from "../pages/Register/Register";
 import { Dashboard } from "../pages/Dashboard/Dashboard";
 import { SavingsPage } from "../pages/savingsPage/savingsPage";
 import { Rewards } from "../pages/Rewards/Rewards";
+import { ExpensesAndIncomePage } from "../pages/IncomeAndIncrease/ExpensesAndIncome";
 
 export const mainRoutes = [
     {
@@ -34,5 +35,10 @@ export const mainRoutes = [
     {
         path: routes.rewards,
         element: <Rewards></Rewards>,
+    },
+    {
+        path: routes.expensesAndIncome,
+        element: <ExpensesAndIncomePage></ExpensesAndIncomePage>,
     }
 ]
+

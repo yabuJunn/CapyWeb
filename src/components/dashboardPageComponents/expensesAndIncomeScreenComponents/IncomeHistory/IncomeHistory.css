@@ -1,0 +1,99 @@
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../../assets/TempFonts/SpaceGrotesk-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Plus Jakarta";
+  src: url("../../assets/TempFonts/PlusJakartaSans-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.generalHistory {
+  max-width: 600px;
+  max-height: 450px;
+  margin: 0 auto;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #181818;
+  border-radius: 8px;
+  margin-top: 0;
+}
+
+.generalHistory h1 {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-family: "Space Grotesk";
+}
+
+.topHistory {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.select-history-expenses {
+  display: block;
+  width: 139px;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #f2622e;
+}
+
+.generalHistory select option {
+  color: black;
+  background-color: white;
+}
+
+.cards-expenses-info {
+  padding: 10px;
+  background-color: #181818;
+  border-bottom: 1px solid white;
+}
+
+.expense-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.card-container-expense-details {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.expense-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-card-expenses {
+  display: block;
+  border-radius: 8px;
+  width: 70px;
+  height: 70px;
+}
+
+.cards-expenses-info h2 {
+  font-size: 18px;
+  margin-bottom: 1px;
+  color: white;
+}
+
+.cards-expenses-info p {
+  margin: 1px 0;
+  font-size: 14px;
+  color: white;
+}

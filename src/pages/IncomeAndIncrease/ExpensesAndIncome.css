@@ -1,0 +1,121 @@
+.page {
+  background-image: url("../../assets/svg/DashboardScreen.svg");
+  background-size: cover;
+  height: 100vh;
+  color: white;
+  padding-top: 20px;
+}
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(/src/assets/desktop/svg/DashboardScreen.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+.page h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.nav-div {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.main-div {
+  background-color: #181818;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.expense-graphic-top {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.expense-graphic {
+  width: 60%;
+  border-radius: 10px;
+  background-color: #f2622e;
+}
+
+.expense-graphic-color1 {
+  background-color: #2d18bf;
+}
+
+.piechart-graphic {
+  width: 40%;
+  border-radius: 10px;
+  background-image: url("../../assets/svg/FondoAhorro.svg");
+  background-size: cover;
+  background-position: center;
+}
+
+.right-div,
+.left-div {
+  background-color: #181818;
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+}
+
+.chart-expense-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.left-div {
+  width: 60%;
+}
+
+.right-div {
+  width: 40%;
+}
+
+.no-expenses p {
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
+.no-expenses button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.no-expenses button:hover {
+  background-color: #45a049;
+}
+.PlannerIcon {
+  margin-top: 80px;
+}
+
+.select-expenses-graphic {
+  display: block;
+  width: 139px;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: black;
+  background-color: white;
+}
