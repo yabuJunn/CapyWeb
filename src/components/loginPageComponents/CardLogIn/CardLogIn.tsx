@@ -2,17 +2,21 @@ import './CardLogIn.css';
 
 import { useState } from "react";
 import { doGoogleSignIn, doSignInWithEmailAndPassword } from "../../../services/Firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { getUser } from "../../../services/Firebase/FirestoreUsers";
+import { NavigationHook } from '../../../hooks/navigationHook';
 
-import logoGoogle from '../../../assets/svg/logo/logoGoogle.svg'
+import logoGoogle from '../../../assets/desktop/svg/logo/logoGoogle.svg'
+import { useDispatch } from 'react-redux';
+import { changeUserEmail, changeUserName, changeUserUID } from '../../../store/userData/slice';
 
 function CardLogIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+
+  const { handleNavigation } = NavigationHook()
 
   const handleLoginEmail = async () => {
     setError("");
@@ -24,9 +28,22 @@ function CardLogIn() {
       const userData = await getUser(userCredential.user.uid)
       console.log(userData)
 
-      sessionStorage.setItem('userData', JSON.stringify({ auth: userCredential, data: userData }))
+      sessionStorage.setItem('userUID', userCredential.user.uid)
 
-      navigate("/dashboard"); //PARA REDIRIGIR
+      if (userData) {
+        dispatch(changeUserName(userData.name))
+        dispatch(changeUserEmail(userData.email))
+        dispatch(changeUserUID(userData.userUID))
+
+        handleNavigation.navigateToDashboard()
+
+      } else {
+        alert("userData is undefined")
+      }
+
+
+
+
 
     } catch (err) {
       console.log(err);
@@ -40,7 +57,7 @@ function CardLogIn() {
       console.log("Usuario logueado con Google:", result.user);
       const userData = await getUser(result.user.uid)
       sessionStorage.setItem('userData', JSON.stringify({ auth: result.user, data: userData }))
-      navigate("/dashboard"); //PARA REDIRIGIR
+      handleNavigation.navigateToDashboard()
     } catch (err) {
       console.log(err)
     }
@@ -69,7 +86,7 @@ function CardLogIn() {
       />
 
       <a>I don't remember my password</a>
-      <button onClick={handleLoginEmail}>Aceptar</button>
+      <button id='ButtonLogin' onClick={handleLoginEmail}>Accept</button>
       <div id="signUpGoogleContainer">
         <p>Or</p>
         <div id="googleIconContainer" onClick={handleGoogleLogin}>
@@ -78,7 +95,7 @@ function CardLogIn() {
         </div>
       </div>
 
-      <h3 id="Cuenta">Don't have an account? <a onClick={() => { navigate('/register') }}>Register now</a></h3>
+      <h3 id="Cuenta">Don't have an account? <a onClick={handleNavigation.navigateToRegister}>Register now</a></h3>
     </div>
   );
 }

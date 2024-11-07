@@ -1,46 +1,68 @@
-.nav {
-  background-color: #181818;
-  height: 491px;
-  width: 71.3px;
+.navContainer {
   border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+
+  width: 4.5vw;
+  margin: 0 0 0 0;
+
+  position: fixed;
+  top: 6vw;
+  left: 1.5vw;
 }
 
-.capy {
-  width: 71px;         
-  height: 71px;        
-  background-color:#181818; 
-  border-radius: 50%;   
-  display: flex;         
-  align-items: center;  
-  justify-content: center; 
-  color: white; 
-  margin-bottom: 20px;
-  padding-top: 26px;
+.navContainer img {
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, border-radius 0.2s ease;
+}
 
+.navContainer img:hover {
+  background-color: #c4c4c438;
+  border-radius: 20px;
+}
+
+.nav {
+  background-color: #181818;
+  border-radius: 50px;
+  width: 100%;
+}
+.capy {
+  width: 100%;
+  background-color: #181818;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  aspect-ratio: 1/1;
+  margin-bottom: 30%;
 }
 
 .principal {
   background-color: #181818;
   margin-bottom: 48px;
-  border-top-left-radius: 50px;  
+  margin-top: 2vh;
+  border-top-left-radius: 50px;
   border-top-right-radius: 50px;
   display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  gap: 15px; 
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
 .last {
   background-color: #181818;
-  margin-bottom: 90px;
-  border-bottom-left-radius: 50px; 
+  border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  gap: 15px; 
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
   padding-bottom: 26px;
-
 }
 
 .Logo,
@@ -51,6 +73,13 @@
 .Settings,
 .User,
 .LogOut {
-  width: 40px;
-  height: 40px;
+  width: 65%;
+  aspect-ratio: 1/1;
+}
+
+.navContainer img.focus,
+.navContainer img.focus:hover {
+  background-color: #CCFC56;
+  border-radius: 20px;
+  cursor: auto;
 }

@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('../../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta';
+    src: url('../../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.reward-grid {
+    margin: 0 4% 0 4%;
+}
+
+
+.reward-grid h1 {
+    color: #F9F9F9;
+    font-family: "Plus Jakarta";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100px;
+    text-align: left;
+    position: relative;
+}
+
+#rewardCard {
+    display: flex;
+    justify-content: start;
+    gap: 5%;
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 500px) {
+    .reward-grid h1 {
+        font-size: 24px;
+        line-height: 40px;
+        margin-left: 5%;
+    }
+
+    #rewardCard {
+        gap: 2%;
+        margin-left: 0;
+        padding: 10px;
+        display: flex;
+    }
+}

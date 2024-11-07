@@ -1,19 +1,19 @@
 @font-face {
     font-family: 'Space Grotesk';
-    src: url('../../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+    src: url('../../assets/TempFonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Plus Jakarta';
-    src: url('../../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+    src: url('../../assets/TempFonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 .balance {
-    background-image: url(../../../assets/svg/fondoBalance.svg);
+    background-image: url(../../../assets/desktop/svg/fondoBalance.svg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -1,8 +1,8 @@
 import './comparationGraphic.css';
 
 //Imagenes importadas
-import MoveButton from '../../../assets/svg/MoveButton.svg'
-import IE from '../../../assets/svg/I&E.svg'
+import MoveButton from '../../../assets/desktop/svg/MoveButton.svg'
+import IE from '../../../assets/desktop/svg/I&E.svg'
 
 //Import components
 

@@ -1,37 +1,22 @@
+import './index.css'
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
-import './index.css'
 
 import { createHashRouter, RouterProvider } from 'react-router-dom'
-
-//Import pages
-import { LandingPage } from './pages/LandingPage/LandingPage.tsx'
-import { LogIn } from './pages/LogIn/LogIn.tsx'
-import { Register } from './pages/Register/Register.tsx'
-import { Dashboard } from './pages/Dashboard/Dashboard.tsx'
+import { mainRoutes } from './routes/mainRoutes';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 const router = createHashRouter([
-  {
-    path: "/",
-    element: <LandingPage></LandingPage>,
-  },
-  {
-    path: "/login",
-    element: <LogIn></LogIn>,
-  },
-  {
-    path: "/register",
-    element: <Register></Register>,
-  },
-  {
-    path: "/dashboard",
-    element: <Dashboard></Dashboard>,
-  },
+  ...mainRoutes
 ]);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>,
 )
