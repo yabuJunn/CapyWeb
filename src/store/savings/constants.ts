@@ -10,7 +10,7 @@ export const DEFAULT_STATE_SAVINGS: savingSliceType = {
     savingsData: [
         {
             savingName: "Party",
-            savingValue: 40,
+            savingValue: 100000,
             savingColor: "#2D18BF",
             savingPercentage: "40%",
             savingImage: fireIconWhite,
@@ -29,7 +29,7 @@ export const DEFAULT_STATE_SAVINGS: savingSliceType = {
             ]
         },
         {
-            savingName: "Trip", savingValue: 28, savingColor: "#A8F25D", savingPercentage: "28%", savingImage: planetIconBlack, monthlySaving: 20000, savingActualFee: 40000, savingTotalFee: 480000,
+            savingName: "Trip", savingValue: 40000, savingColor: "#A8F25D", savingPercentage: "28%", savingImage: planetIconBlack, monthlySaving: 20000, savingActualFee: 40000, savingTotalFee: 480000,
             savingHistory: [
                 {
                     date: 'Lunes 02 de Septiembre',
@@ -42,7 +42,7 @@ export const DEFAULT_STATE_SAVINGS: savingSliceType = {
             ]
         },
         {
-            savingName: "Motorbike", savingValue: 27, savingColor: "#F2622E", savingPercentage: "27%", savingImage: KeyIconWhite, monthlySaving: 100000, savingActualFee: 400000, savingTotalFee: 1000000,
+            savingName: "Motorbike", savingValue: 10000, savingColor: "#F2622E", savingPercentage: "27%", savingImage: KeyIconWhite, monthlySaving: 100000, savingActualFee: 400000, savingTotalFee: 1000000,
             savingHistory: [
                 {
                     date: 'Miercoles 04 de Agosto',
@@ -52,7 +52,7 @@ export const DEFAULT_STATE_SAVINGS: savingSliceType = {
         },
         {
             savingName: "Others",
-            savingValue: 5,
+            savingValue: 0,
             savingColor: "#C4C4C4",
             savingPercentage: "5%",
             savingImage: '',

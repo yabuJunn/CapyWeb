@@ -16,7 +16,7 @@ export interface savingItemType {
     savingName: string,
     savingValue: number,
     fill: string,
-    percentage: string
+    percentage: number
 }
 
 const chartConfig = {

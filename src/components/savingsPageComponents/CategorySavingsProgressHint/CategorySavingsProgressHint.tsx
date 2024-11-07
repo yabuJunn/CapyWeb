@@ -3,7 +3,7 @@ import './CategorySavingsProgressHint.css'
 interface CategorySavingsProgressHintProps {
     hintBubbleColor: string,
     hintName: string,
-    hintPercentage: string
+    hintPercentage: number
 }
 
 export const CategorySavingsProgressHint = ({ hintBubbleColor, hintName, hintPercentage }: CategorySavingsProgressHintProps) => {

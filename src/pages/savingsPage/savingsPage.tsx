@@ -49,9 +49,9 @@ export const SavingsPage = () => {
     savingsData.savingsData.forEach((saving) => {
         chartData.push({
             savingName: saving.savingName,
-            savingValue: saving.savingValue,
+            savingValue: (100 * saving.savingValue) / savingDataTotalValue,
             fill: saving.savingColor,
-            percentage: saving.savingPercentage
+            percentage: (100 * saving.savingValue) / savingDataTotalValue
         })
 
         if (saving.savingName !== 'Others') {
