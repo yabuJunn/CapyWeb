@@ -16,7 +16,12 @@ import {
 
 export const description = "A simple area chart";
 
-const chartData = [
+export interface incomeGraphicType {
+  incomeMonth: string,
+  incomeAmount: number
+}
+
+/*const chartData = [
   { month: "January", desktop: 186 },
   { month: "February", desktop: 305 },
   { month: "March", desktop: 237 },
@@ -27,7 +32,7 @@ const chartData = [
   { month: "August", desktop: 200 },
   { month: "September", desktop: 180 },
   { month: "October", desktop: 190 },
-];
+];*/
 
 const chartConfig = {
   desktop: {
@@ -36,7 +41,11 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export function AreaChartComponent() {
+interface incomeGraphicProps {
+  chartData: Array<incomeGraphicType>
+}
+
+export function AreaChartComponent({chartData}: incomeGraphicProps) {
   return (
     
      
@@ -51,7 +60,7 @@ export function AreaChartComponent() {
           >
             <CartesianGrid vertical={false}  />
             <XAxis
-              dataKey="month"
+              dataKey="incomeMonth"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
@@ -63,7 +72,7 @@ export function AreaChartComponent() {
               content={<ChartTooltipContent indicator="line" />}
             />
             <Line
-              dataKey="desktop"
+              dataKey="incomeAmount"
               type="natural"
               fill="var(--color-desktop)"
               fillOpacity={0.4}
@@ -80,7 +89,7 @@ export function AreaChartComponent() {
 export const IncomesGraphic = () => {
   return (
     <div className="grafic-card">      
-      <AreaChartComponent />
+      <AreaChartComponent chartData={[]} />
     </div>
   );
 };
