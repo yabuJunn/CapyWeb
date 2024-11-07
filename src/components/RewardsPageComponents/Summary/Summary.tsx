@@ -3,6 +3,10 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import SummaryCard from "../SummaryCard/SummaryCard";
 
+import trofeoImage from '../../../assets/desktop/svg/Trofeo.svg'
+import banderaImage from '../../../assets/desktop/svg/Bandera.svg'
+import logoImage from '../../../assets/desktop/svg/Logo.svg'
+
 const Summary: React.FC = () => {
   const { goalsCompleted, accumulatedCapypoints } = useSelector((state: RootState) => state.rewards.summary);
 
@@ -23,9 +27,9 @@ const Summary: React.FC = () => {
   return (
     <div className="Summary">
       <h2 id="summary">Summary</h2>
-      <SummaryCard icon="../../src/assets/desktop/svg/Trofeo.svg" title="Saver level" content={currentLevel.name} backgroundColor="#F2622E" />
-      <SummaryCard icon="../../src/assets/desktop/svg/Bandera.svg" title="Goals completed" content={goalsCompleted} backgroundColor="#A8F25D" />
-      <SummaryCard icon="../../src/assets/desktop/svg/Logo.svg" title="Capypoints" content={accumulatedCapypoints} backgroundColor="#3c4cff" />
+      <SummaryCard icon={trofeoImage} title="Saver level" content={currentLevel.name} backgroundColor="#F2622E" />
+      <SummaryCard icon={banderaImage} title="Goals completed" content={goalsCompleted} backgroundColor="#A8F25D" />
+      <SummaryCard icon={logoImage} title="Capypoints" content={accumulatedCapypoints} backgroundColor="#3c4cff" />
     </div>
   );
 };

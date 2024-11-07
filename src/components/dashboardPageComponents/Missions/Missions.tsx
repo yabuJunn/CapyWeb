@@ -8,7 +8,7 @@ import MoveButton from '../../../assets/desktop/svg/MoveButton.svg'
 export const Missions = () => {
   return (
     <>
-      <div className='missions'>
+      <div className='missionsDashboard'>
         <img className="MoveButton" src={MoveButton} alt="MoveButton" />
         <div className="info-container">
           <h3>Missions</h3>
