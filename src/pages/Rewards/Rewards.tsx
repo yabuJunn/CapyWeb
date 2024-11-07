@@ -12,9 +12,9 @@ export const Rewards: React.FC = () => {
       <h1 id='principal'>Reward</h1>
       <div className='MissionLevel'>
 
-        <div id='nav-container'>
-          <GlobalAppNav></GlobalAppNav>
-        </div>
+        {/* <div id='nav-container'> */}
+        <GlobalAppNav></GlobalAppNav>
+        {/* </div> */}
         <div className='iqual'>
           <Missions></Missions>
         </div>

@@ -18,17 +18,16 @@
     font-size: 40px;
     font-style: normal;
     font-weight: 700;
-    margin-left: 10%;
+    margin-left: 4.5%;
     line-height: 100px;
     text-align: left;
     position: relative;
 }
 #rewardCard{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 5%;
     flex-wrap: wrap;
-    margin-left: 2%;
 }
 
 @media only screen and (max-width: 500px) {
