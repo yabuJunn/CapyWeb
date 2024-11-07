@@ -9,7 +9,14 @@ export const SAVINGS_SLICE_NAME = "savings"
 export const DEFAULT_STATE_SAVINGS: savingSliceType = {
     savingsData: [
         {
-            savingName: "Party", savingValue: 40, savingColor: "#2D18BF", savingPercentage: "40%", savingImage: fireIconWhite, monthlySaving: 50000, savingActualFee: 100000, savingTotalFee: 600000,
+            savingName: "Party", 
+            savingValue: 40, 
+            savingColor: "#2D18BF", 
+            savingPercentage: "40%", 
+            savingImage: fireIconWhite, 
+            monthlySaving: 50000, 
+            savingActualFee: 100000, 
+            savingTotalFee: 600000,
             savingHistory: [
                 {
                     date: 'Miercoles 04 de Septiembre',

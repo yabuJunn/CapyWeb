@@ -1,16 +1,13 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../store"; // Asegúrate de importar el tipo del estado raíz
 import { REWARDS_SLICE_NAME, DEFAULT_STATE_REWARDS } from "./constants";
+import { exchangeType, missionType, rewardsSliceType, saverLevelsNames } from "./types";
 
 export const completeMissionThunk = createAsyncThunk(
     `${REWARDS_SLICE_NAME}/completeMission`,
-    (missionId, { dispatch, getState }) => {
-
-        //LoGICA ACTUALIZAR FIREBASE
-        //Revisar los extra reducers
-
-
-        const state = getState();
-        const mission = state.rewards.missions.find(mission => mission.missionId === missionId);
+    (missionId: number, { dispatch, getState }) => {
+        const state = getState() as RootState
+        const mission = state.rewards.missions.find((mission: missionType) => mission.missionId === missionId);
         if (mission && !mission.completed) {
             dispatch(changeUserExpGained(mission.missionCapypoints));
             dispatch(completeMission(missionId));
@@ -20,9 +17,9 @@ export const completeMissionThunk = createAsyncThunk(
 
 export const redeemedExchangeThunk = createAsyncThunk(
     `${REWARDS_SLICE_NAME}/redeemedExchange`,
-    (exchangeId, { dispatch, getState }) => {
-        const state = getState();
-        const exchange = state.rewards.exchangeData.find(exchange => exchange.exchangeId === exchangeId);
+    (exchangeId: number, { dispatch, getState }) => {
+        const state = getState() as RootState; // Tipar 'state' como 'RootState'
+        const exchange = state.rewards.exchangeData.find((exchange: exchangeType) => exchange.exchangeId === exchangeId);
         if (exchange && !exchange.isRedeemed) {
             dispatch(changeUserExpGained(-exchange.redemptionCost));
             dispatch(redeemedExchange(exchangeId));
@@ -34,28 +31,28 @@ export const rewardsSlice = createSlice({
     name: REWARDS_SLICE_NAME,
     initialState: {
         ...DEFAULT_STATE_REWARDS
-    },
+    } as rewardsSliceType, // Tipar el estado inicial como RewardsState
     reducers: {
-        changeUserExpGained: (state, action) => {
+        changeUserExpGained: (state, action: PayloadAction<number>) => {
             state.userExpGained += action.payload;
         },
-        changeUserSaverLevel: (state, action) => {
+        changeUserSaverLevel: (state, action: PayloadAction<saverLevelsNames>) => {
             state.summary.saverLevel = action.payload;
         },
-        changeUserGoalsCompleted: (state, action) => {
+        changeUserGoalsCompleted: (state, action: PayloadAction<number>) => {
             state.summary.goalsCompleted += action.payload;
         },
-        changeUserAccumulatedCapypoints: (state, action) => {
+        changeUserAccumulatedCapypoints: (state, action: PayloadAction<number>) => {
             state.summary.accumulatedCapypoints += action.payload;
         },
-        completeMission: (state, action) => {
-            const mission = state.missions.find(mission => mission.missionId === action.payload);
+        completeMission: (state, action: PayloadAction<number>) => {
+            const mission = state.missions.find((mission) => mission.missionId === action.payload);
             if (mission) {
                 mission.completed = true;
             }
         },
-        redeemedExchange: (state, action) => {
-            const exchange = state.exchangeData.find(exchange => exchange.exchangeId === action.payload);
+        redeemedExchange: (state, action: PayloadAction<number>) => {
+            const exchange = state.exchangeData.find((exchange) => exchange.exchangeId === action.payload);
             if (exchange) {
                 exchange.isRedeemed = true;
             }

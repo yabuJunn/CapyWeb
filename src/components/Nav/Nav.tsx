@@ -7,7 +7,7 @@ import LogoCapy from '../../assets/svg/Logo.svg'
 //Nav icons white
 import dashboardIconWhite from '../../assets/svg/icons/navIcons/DashboardNavIconWhite.svg'
 import expensesAndIncomeIconWhite from '../../assets/svg/icons/navIcons/ExpensesAndIncomeNavIconWhite.svg'
-import savingsIconWhite from '../../assets/svg/icons/navIcons/SavingsNavIconWhite.svg'
+//import savingsIconWhite from '../../assets/svg/icons/navIcons/SavingsNavIconWhite.svg'
 import rewardsIconWhite from '../../assets/svg/icons/navIcons/RewardsNavIconWhite.svg'
 import configurationIconWhite from '../../assets/svg/icons/navIcons/ConfigurationNavIconWhite.svg'
 import profileIconWhite from '../../assets/svg/icons/navIcons/ProfileNavIconWhite.svg'
@@ -16,7 +16,7 @@ import logOutIconWhite from '../../assets/svg/icons/navIcons/LogOutNavIconWhite.
 //Nav icons green
 import dashboardIconBlack from '../../assets/svg/icons/navIcons/DashboardNavIconBlack.svg'
 import expensesAndIncomeIconBlack from '../../assets/svg/icons/navIcons/ExpensesAndIncomeNavIconBlack.svg'
-import savingsIconBlack from '../../assets/svg/icons/navIcons/SavingsNavIconBlack.svg'
+//import savingsIconBlack from '../../assets/svg/icons/navIcons/SavingsNavIconBlack.svg'
 import rewardsIconBlack from '../../assets/svg/icons/navIcons/RewardsNavIconBlack.svg'
 import { routes } from '../../types/routesEnum';
 import { NavigationHook } from '../../hooks/navigationHook';

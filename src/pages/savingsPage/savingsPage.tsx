@@ -8,17 +8,19 @@ import { SavingsGoals } from '../../components/savingsPageComponents/SavingsGoal
 import { SavingsHistory } from '../../components/savingsPageComponents/SavingsHistory/SavingsHistory'
 import { SavingGoalItemProps } from '../../components/savingsPageComponents/SavingGoalItem/SavingGoalItem'
 
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { savingSliceType } from '../../store/savings/types'
 import { AddSavingGoalModal } from '../../components/savingsPageComponents/AddSavingGoalModal/AddSavingGoalModal'
-import { changeUserExpGained } from '../../store/rewards/slice'
-import { rewardsSliceType } from '../../store/rewards/types'
-
+import { RootState } from '../../store/store'
+// import { changeUserExpGained } from '../../store/rewards/slice'
+// import { rewardsSliceType } from '../../store/rewards/types'
+// import { addIncome } from '../../store/incomes/slice'
 
 export const SavingsPage = () => {
 
-    const addSavingModalBoolean: savingSliceType = useSelector((state) => state.global.addSavingModal)
-    const savingsData: savingSliceType = useSelector((state) => state.savings)
+    const addSavingModalBoolean: boolean = useSelector((state: RootState) => state.global.addSavingModal);
+    const savingsData: savingSliceType = useSelector((state: RootState) => state.savings)
+    
     //Pruebas redux
 
     //const dispatch = useDispatch()
@@ -51,7 +53,7 @@ export const SavingsPage = () => {
     })
 
     if (addSavingModalBoolean) {
-
+        
         return <>
             <main className='page'>
 
@@ -61,7 +63,7 @@ export const SavingsPage = () => {
                     <div id='TitleTextContainer'>
                         <h1
                             onClick={() => {
-                                console.log("Prueba")
+                                //dispatch()
                             }}
                         >Savings</h1>
                     </div>

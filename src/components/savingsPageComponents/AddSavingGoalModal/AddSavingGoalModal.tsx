@@ -10,11 +10,13 @@ import { useRef } from 'react'
 export const AddSavingGoalModal = () => {
     const dispatch = useDispatch()
 
-    const savingNameInputRef = useRef(null)
-    const savingColorInputRef = useRef(null)
+    const savingNameInputRef = useRef<HTMLInputElement>(null)
+    const savingColorInputRef = useRef<HTMLSelectElement>(null)
+
     //const savingImageInputRef = useRef(null)
-    const savingMonthlyInputRef = useRef(null)
-    const savingTotalFeeInputRef = useRef(null)
+
+    const savingMonthlyInputRef = useRef<HTMLInputElement>(null)
+    const savingTotalFeeInputRef = useRef<HTMLInputElement>(null)
 
     // Función para obtener el valor seleccionado del radio button
     const getSelectedImage = () => {
