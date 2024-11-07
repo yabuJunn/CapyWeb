@@ -1,0 +1,12 @@
+#SaverProgressLabels {
+    display: flex;
+    justify-content: space-between;
+
+    width: 60%;
+    height: 20%;
+}
+
+.bg-primary {
+    background: linear-gradient(270deg, #581ED4, #2D18BF);
+    border-radius: 40px;
+}

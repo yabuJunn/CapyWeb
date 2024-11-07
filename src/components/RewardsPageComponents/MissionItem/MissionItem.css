@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('../../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta';
+    src: url('../../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.MissionItemContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    height: 7.5%;
+    margin-bottom: 40px;
+}
+
+.MissionDesc {
+    font-size: 14px;
+    line-height: 150%;
+    width: 60%;
+}
+
+.MissionCapyPoints {
+    background-color: #2D18BF;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    border-radius: 6px;
+}
+
+.MissionCapyPoints img {
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.CapyPointsAmount {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 10px;
+}
+
+.MissionItemContainer .ligth {
+    color: #F9F9F9;
+}
+
+.MissionItemContainer .dark {
+    color: #181818;
+}
+
+.CapyPointsAmount .Capypoints {
+    font-size: 10px;
+}
+
+.CapyPointsAmount .Gain {
+    font-size: 16px;
+}
