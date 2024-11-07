@@ -52,3 +52,11 @@
 #savingsGoalsListContainer::-webkit-scrollbar {
     display: none;
 }
+
+@media only screen and (max-width: 500px) {
+    
+  #savingsGoalsListContainer{
+    width: 100%;
+  }
+    
+  }

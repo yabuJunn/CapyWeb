@@ -26,5 +26,27 @@
 }
 
 
+@media only screen and (max-width: 500px) {
+    
+    .generalSavingsCircularProgressbar {
+        width: 60%;
+    }
+    #categorySavingsContent {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    
+    #categorySavingsCircularProgressbarWrapper {
+        width: 60%;
+        display: flex;
+        align-items: center;
+    }
+    
+  
 
+
+
+
+}
     
