@@ -9,6 +9,14 @@ button {
 
 .page {
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ContentContainerSavings {
+    display: flex;
+    width: 100%;
 }
 
 #TitleTextContainer {
@@ -63,4 +71,17 @@ button {
     height: 40%;
     display: flex;
     gap: 2%;
+}
+
+#backgroundSavings {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../assets/svg/DashboardScreen.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
 }

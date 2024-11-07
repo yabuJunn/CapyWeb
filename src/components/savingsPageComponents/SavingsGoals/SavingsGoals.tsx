@@ -7,7 +7,7 @@ interface SavingsGoalsProps {
 }
 
 export const SavingsGoals = ({ savingsGoalsItemsArray }: SavingsGoalsProps) => {
-
+    
     return <>
         <div id='savingsGoalsContainer'>
             <div id='savingsGoalsHeader'>

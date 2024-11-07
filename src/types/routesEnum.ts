@@ -3,7 +3,7 @@ export enum routes {
     login = '/login',
     register = '/register',
     dashboard = '/dashboard',
-    expensesAndIncome = '/expenses-and-increase',
+    expensesAndIncome = '/expensesAndIncrease',
     savings = '/savings',
     rewards = '/reward',
     settings = '/settings',
