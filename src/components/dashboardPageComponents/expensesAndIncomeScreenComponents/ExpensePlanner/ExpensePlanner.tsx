@@ -115,7 +115,7 @@ export const ExpensePlanner = () => {
 
           <div className="button-container">
             <button className="close-button" onClick={togglePopUp}>Cancel</button>
-            <button className="add-button" onClick={handleAddExpense}>Add new expense</button>
+            <button className="add-button" onClick={handleAddExpense}>Add  expense</button>
           </div>
         </div>
       )}

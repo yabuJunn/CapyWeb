@@ -181,3 +181,43 @@
     color: white; 
     font-size: 16px;
 }
+@media only screen and (max-width: 500px) {
+    .popup {
+       width: 350px;
+        height:350px;
+        border-radius: 10px;
+    }
+    .popup .title {
+        font-size: 18px;  
+        font-weight: bold;
+        color: white;  
+        margin-bottom: 7px;
+        text-align: center;
+    }
+
+    .planner input[type='number'], .planner select {
+    width: 265.78px;
+    height: 30px;
+    padding: 5px;
+    font-size: 14px;
+    box-sizing: border-box; 
+    }
+    .button-container .close-button,
+    .button-container .add-button,
+    .add {
+       width: 130px;
+       height: 40px;
+       font-size: 14px;
+       cursor: pointer;
+       margin-top: 5px;
+       position: relative;
+       top: -15px; 
+    }
+  .popup h3 {
+    font-size: 14px;  
+    font-weight: normal; 
+    color: white;  
+    margin-top: 0px;
+  }
+
+ }
