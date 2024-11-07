@@ -1,11 +1,5 @@
 /*import { TrendingUp } from "lucide-react";*/
-import {
-  CartesianGrid,
-  XAxis,
-  LineChart,
-  Line,
-  
-} from "recharts";
+import { CartesianGrid, XAxis, LineChart, Line } from "recharts";
 import "./ExpenseGraphic.css";
 
 import {
@@ -17,9 +11,15 @@ import {
 
 export const description = "A simple area chart";
 
+export interface CategoryPercentage {
+  category: string;
+  percentage: number;
+}
+
 export interface ExpenseData {
   month: string;
   totalAmount: number;
+  categoryPercentages: CategoryPercentage[];
 }
 
 export interface AreaChartComponentProps {

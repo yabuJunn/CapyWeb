@@ -11,7 +11,10 @@ import {
   expensesData,
   incomesData,
 } from "./dataIncomeAndExpense";
-import { ExpenseData } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/ExpensesGraphic/ExpensesGraphic";
+import {
+  ExpenseData,
+  CategoryPercentage,
+} from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/ExpensesGraphic/ExpensesGraphic";
 import "./ExpensesAndIncome.css";
 import { useState, useEffect } from "react";
 
@@ -46,11 +49,13 @@ export function calculateExpensesData(expenses: Array<realExpenseType>) {
 
   const result = Object.keys(monthlyExpenseData).map((month) => {
     const monthData = monthlyExpenseData[month];
-    const categoryPercentages = Object.keys(monthData.categoryAmounts).map((category) => {
-      const categoryAmount = monthData.categoryAmounts[category];
-      const percentage = (categoryAmount / monthData.totalAmount) * 100;
-      return { category, percentage: parseFloat(percentage.toFixed(2)) };
-    });
+    const categoryPercentages = Object.keys(monthData.categoryAmounts).map(
+      (category) => {
+        const categoryAmount = monthData.categoryAmounts[category];
+        const percentage = (categoryAmount / monthData.totalAmount) * 100;
+        return { category, percentage: parseFloat(percentage.toFixed(2)) };
+      }
+    );
 
     return {
       month,
@@ -89,11 +94,13 @@ export function calculateIncomesData(incomes: Array<realIncomeType>) {
 
   const result = Object.keys(monthlyIncomeData).map((month) => {
     const monthData = monthlyIncomeData[month];
-    const entryPercentages = Object.keys(monthData.entryAmounts).map((entry) => {
-      const entryAmount = monthData.entryAmounts[entry];
-      const percentage = (entryAmount / monthData.totalAmount) * 100;
-      return { entry, percentage: parseFloat(percentage.toFixed(2)) };
-    });
+    const entryPercentages = Object.keys(monthData.entryAmounts).map(
+      (entry) => {
+        const entryAmount = monthData.entryAmounts[entry];
+        const percentage = (entryAmount / monthData.totalAmount) * 100;
+        return { entry, percentage: parseFloat(percentage.toFixed(2)) };
+      }
+    );
 
     return {
       month,
@@ -129,6 +136,12 @@ export const ExpensesAndIncomePage = () => {
   const mappedExpenseResults = expenseResults.map((result) => ({
     month: result.month,
     totalAmount: result.totalAmount,
+    categoryPercentages: result.categoryPercentages.map(
+      (category: CategoryPercentage) => ({
+        category: category.category,
+        percentage: category.percentage,
+      })
+    ),
   }));
 
   console.log(mappedExpenseResults);
@@ -137,8 +150,6 @@ export const ExpensesAndIncomePage = () => {
     month: result.month,
     totalAmount: result.totalAmount,
   }));
-
-  console.log(mappedIncomeResults);
 
 
   return (
@@ -178,7 +189,7 @@ export const ExpensesAndIncomePage = () => {
               {selectedOption === "Gastos" ? (
                 <PieChart2 data={mappedExpenseResults} />
               ) : (
-                <IncomePieChart data={mappedIncomeResults} />
+                <IncomePieChart />
               )}
             </div>
           </div>
