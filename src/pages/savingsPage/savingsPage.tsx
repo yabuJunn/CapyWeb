@@ -20,6 +20,20 @@ export const SavingsPage = () => {
 
     const addSavingModalBoolean: boolean = useSelector((state: RootState) => state.global.addSavingModal);
     const savingsData: savingSliceType = useSelector((state: RootState) => state.savings)
+    const userDataData = useSelector((state: RootState) => state.userData)
+
+    let savingDataTotalValue = 0
+    savingsData.savingsData.forEach((saving) => {
+        saving.savingHistory.forEach((savingHistory) => {
+            savingDataTotalValue = savingDataTotalValue + savingHistory.deposit
+        })
+    })
+
+    console.log(savingDataTotalValue);
+
+    const valueSavingsPercentage = (100 * savingDataTotalValue / userDataData.totalIncome)
+
+    console.log(valueSavingsPercentage)
 
     //Pruebas redux
 
@@ -74,7 +88,7 @@ export const SavingsPage = () => {
                         <div id='SavingsCardsContainer'>
                             <div id='leftCardsContainer'>
                                 <div id='summarySavingsContainer'>
-                                    <GeneralSavings valueIncome={70} valueSavings={30} incomePercentage={'70%'} savingsPercentage={'30%'}></GeneralSavings>
+                                    <GeneralSavings valueIncome={100 - valueSavingsPercentage} valueSavings={valueSavingsPercentage} incomePercentage={100 - valueSavingsPercentage} savingsPercentage={valueSavingsPercentage}></GeneralSavings>
 
                                     <CategorySavings chartData={chartData}></CategorySavings>
 
@@ -116,7 +130,7 @@ export const SavingsPage = () => {
                         <div id='SavingsCardsContainer'>
                             <div id='leftCardsContainer'>
                                 <div id='summarySavingsContainer'>
-                                    <GeneralSavings valueIncome={70} valueSavings={30} incomePercentage={'70%'} savingsPercentage={'30%'}></GeneralSavings>
+                                    <GeneralSavings valueIncome={100 - valueSavingsPercentage} valueSavings={valueSavingsPercentage} incomePercentage={100 - valueSavingsPercentage} savingsPercentage={valueSavingsPercentage}></GeneralSavings>
 
                                     <CategorySavings chartData={chartData}></CategorySavings>
 

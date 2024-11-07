@@ -32,7 +32,16 @@ export const userDataSlice = createSlice({
             state.cards = state.cards.filter(
                 card => card.cardNumber !== action.payload
             );
-        }
+        },
+        changeUserTotalBalance: (state, action: PayloadAction<number>) => {
+            state.totalBalance = action.payload
+        },
+        changeUserTotalIncome: (state, action: PayloadAction<number>) => {
+            state.totalIncome = action.payload
+        },
+        changeUserTotalExpenses: (state, action: PayloadAction<number>) => {
+            state.totalExpenses = action.payload
+        },
     }
 })
 

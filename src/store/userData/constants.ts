@@ -6,5 +6,8 @@ export const DEFAULT_STATE_USER_DATA: userDataType = {
     userEmail: "",
     userName: "",
     userUID: "",
-    cards: []
+    cards: [],
+    totalBalance: 0,
+    totalIncome: 300000,
+    totalExpenses: 0
 }
