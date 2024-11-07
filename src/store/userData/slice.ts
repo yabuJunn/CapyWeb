@@ -1,7 +1,30 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { DEFAULT_STATE_USER_DATA, USER_DATA_SLICE_NAME } from "./constants";
-import { cardType } from "./types";
+import { cardType, userDataType } from "./types";
+import { doc, setDoc, getFirestore } from "firebase/firestore";
+import { app } from "../../services/Firebase/Firebase";
+import { RootState } from "../store";
 
+const db = getFirestore(app);
+
+// Acción para guardar datos en Firebase
+export const saveUserDataToFirebase = createAsyncThunk(
+    'userData/saveUserDataToFirebase',
+    async (userData: userDataType, { getState }) => {
+        const state = getState() as RootState;
+        const userUID = state.userData.userUID;
+
+        if (!userUID) return;
+
+        try {
+            const userRef = doc(db, "users", userUID);
+            await setDoc(userRef, userData, { merge: true });
+            console.log("Datos del usuario guardados en Firebase.");
+        } catch (error) {
+            console.error("Error al guardar los datos en Firebase:", error);
+        }
+    }
+);
 
 export const userDataSlice = createSlice({
     name: USER_DATA_SLICE_NAME,
@@ -43,6 +66,11 @@ export const userDataSlice = createSlice({
             state.totalExpenses = action.payload
         },
     }
-})
+    // extraReducers: (builder) => {
+    //     builder.addCase(saveUserDataToFirebase.fulfilled, (state, action) => {
+    //         // Puedes manejar algún cambio en el estado si es necesario
+    //     });
+    // }
+});
 
-export const { changeUserEmail, changeUserName, changeUserUID, addUserCard, deleteUserCard } = userDataSlice.actions
+export const { changeUserEmail, changeUserName, changeUserUID, addUserCard, deleteUserCard } = userDataSlice.actions;

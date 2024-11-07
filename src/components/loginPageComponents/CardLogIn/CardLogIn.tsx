@@ -6,11 +6,15 @@ import { getUser } from "../../../services/Firebase/FirestoreUsers";
 import { NavigationHook } from '../../../hooks/navigationHook';
 
 import logoGoogle from '../../../assets/desktop/svg/logo/logoGoogle.svg'
+import { useDispatch } from 'react-redux';
+import { changeUserEmail, changeUserName, changeUserUID } from '../../../store/userData/slice';
 
 function CardLogIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const dispatch = useDispatch()
 
   const { handleNavigation } = NavigationHook()
 
@@ -24,9 +28,22 @@ function CardLogIn() {
       const userData = await getUser(userCredential.user.uid)
       console.log(userData)
 
-      sessionStorage.setItem('userData', JSON.stringify({ auth: userCredential, data: userData }))
+      sessionStorage.setItem('userUID', userCredential.user.uid)
 
-      handleNavigation.navigateToDashboard()
+      if (userData) {
+        dispatch(changeUserName(userData.name))
+        dispatch(changeUserEmail(userData.email))
+        dispatch(changeUserUID(userData.userUID))
+
+        handleNavigation.navigateToDashboard()
+
+      } else {
+        alert("userData is undefined")
+      }
+
+
+
+
 
     } catch (err) {
       console.log(err);
