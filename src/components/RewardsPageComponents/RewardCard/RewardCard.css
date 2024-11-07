@@ -15,11 +15,12 @@
 .reward-card {
     border-radius: 16px;
     padding: 20px;
-    width: 25%;
+    width: 30%;
     height: 240px;
     position: relative;
     color: white;
-    overflow: hidden;  
+    overflow: hidden;
+    margin-bottom: 4%;
 }
 
 .reward-card-image {

@@ -1,4 +1,4 @@
-import { rewardsSliceType, saverLevelsImages, saverLevelsNames } from "./types"
+import { exchangeNameEnum, rewardsSliceType, saverLevelsImages, saverLevelsNames } from "./types"
 
 export const REWARDS_SLICE_NAME = "rewards"
 
@@ -125,6 +125,43 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             missionExp: 280
         }
     ],
-    exchangeData: [],
+    exchangeData: [
+        {
+            name: exchangeNameEnum.amazon,
+            redemptionCapypointsAmount: 1000,
+            redemptionCost: 10000,
+            isRedeemed: false,
+            exchangeId: 0,
+            imageSrc: '../../src/assets/desktop/png/Amazon.png',
+            backgroundColor: '#4A00E0'
+        },
+        {
+            name: exchangeNameEnum.netflix,
+            redemptionCapypointsAmount: 1500,
+            redemptionCost: 25000,
+            isRedeemed: false,
+            exchangeId: 1,
+            imageSrc: '../../src/assets/desktop/png/Netflix.png',
+            backgroundColor: '#F2622E'
+        },
+        {
+            name: exchangeNameEnum.farmatodo,
+            redemptionCapypointsAmount: 2000,
+            redemptionCost: 20000,
+            isRedeemed: false,
+            exchangeId: 2,
+            imageSrc: '../../src/assets/desktop/png/Farmatodo.png',
+            backgroundColor: '#A8F25D'
+        },
+        {
+            name: exchangeNameEnum.farmatodo,
+            redemptionCapypointsAmount: 1300,
+            redemptionCost: 13000,
+            isRedeemed: false,
+            exchangeId: 3,
+            imageSrc: '../../src/assets/desktop/png/Farmatodo.png',
+            backgroundColor: '#A8F25D'
+        }
+    ],
     userExpGained: 0
 }

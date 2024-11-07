@@ -47,9 +47,17 @@ export interface missionType {
 }
 
 export interface exchangeType {
-    name: string,
+    name: exchangeNameEnum,
     redemptionCapypointsAmount: number,
     redemptionCost: number,
     isRedeemed: boolean,
-    exchangeId: number
+    exchangeId: number,
+    imageSrc: string,
+    backgroundColor: string
+}
+
+export enum exchangeNameEnum {
+    amazon = "Amazon",
+    netflix = "Netflix",
+    farmatodo = "Farmatodo"
 }

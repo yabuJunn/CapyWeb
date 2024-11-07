@@ -12,20 +12,25 @@
     font-style: normal;
 }
 
+.reward-grid {
+    margin: 0 4% 0 4%;
+}
+
+
 .reward-grid h1 {
     color: #F9F9F9;
     font-family: "Plus Jakarta";
     font-size: 40px;
     font-style: normal;
     font-weight: 700;
-    margin-left: 4.5%;
     line-height: 100px;
     text-align: left;
     position: relative;
 }
-#rewardCard{
+
+#rewardCard {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: start;
     gap: 5%;
     flex-wrap: wrap;
 }
