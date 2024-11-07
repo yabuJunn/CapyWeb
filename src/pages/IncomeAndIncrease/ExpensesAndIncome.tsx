@@ -32,8 +32,8 @@ export const ExpensesAndIncomePage = () => {
             id=""
             onChange={handleSelectChange}
           >
-            <option value="Gastos">Gastos</option>
-            <option value="Ingresos">Ingresos</option>
+            <option value="Gastos">Expenses</option>
+            <option value="Ingresos">Income</option>
           </select>
           <div className="expense-graphic-top">
             <div

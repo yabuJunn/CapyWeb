@@ -17,14 +17,14 @@ const chartData = [
   { browser: "NU", visitors: 533000, fill: "#2d18bf" },
   { browser: "MasterCard", visitors: 102000, fill: "#a8f25d" },
   { browser: "Visa", visitors: 26500, fill: "#f2622e" },
-  { browser: "Otro", visitors: 12500, fill: "#c4c4c4" },
+  { browser: "Other", visitors: 12500, fill: "#c4c4c4" },
 ];
 
 const chartData2 = [
   { browser: "NU", visitors: 45446, fill: "#2d18bf" },
   { browser: "MasterCard", visitors: 100570, fill: "#a8f25d" },
   { browser: "Visa", visitors: 127544, fill: "#f2622e" },
-  { browser: "Otro", visitors: 2577, fill: "#c4c4c4" },
+  { browser: "Other", visitors: 2577, fill: "#c4c4c4" },
 ];
 
 const totalVisitors1 = chartData.reduce(
@@ -52,35 +52,35 @@ console.log(chartDataWithPercentage2);
 
 const chartConfig = {
   visitors: {
-    label: "Julio",
+    label: "July",
   },
   home: {
-    label: "Hogar",
+    label: "Home",
     color: "hsl(var(--chart-1))",
   },
   market: {
-    label: "Mercado",
+    label: "Market",
     color: "hsl(var(--chart-2))",
   },
   clothes: {
-    label: "Ropa",
+    label: "Clothes",
     color: "hsl(var(--chart-3))",
   },
   other: {
-    label: "Otro",
+    label: "Other",
     color: "#c4c4c4",
   },
 } satisfies ChartConfig;
 
 export function IncomePieChart() {
-  const [selectedOption, setSelectedOption] = useState("Julio");
+  const [selectedOption, setSelectedOption] = useState("July");
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(event.target.value);
   };
 
   const chartDataOptions =
-    selectedOption === "Julio"
+    selectedOption === "July"
       ? chartDataWithPercentage
       : chartDataWithPercentage2;
 
@@ -129,7 +129,7 @@ export function IncomePieChart() {
                         y={(viewBox.cy || 0) + 24}
                         className="fill-white"
                       >
-                        ingresos
+                        Income
                       </tspan>
                     </text>
                   );
@@ -146,8 +146,8 @@ export function IncomePieChart() {
           id=""
           onChange={handleSelectChange}
         >
-          <option value="Julio">Julio</option>
-          <option value="Agosto">Agosto</option>
+          <option value="July">July</option>
+          <option value="Agosto">August</option>
         </select>
         <ul className="container-info-pie-chart">
           {chartDataOptions.map((data, index) => (
@@ -161,7 +161,7 @@ export function IncomePieChart() {
                       ? "ball-name-chart-color2"
                       : data.browser === "MasterCard"
                       ? "ball-name-chart-color3"
-                      : data.browser === "Otro"
+                      : data.browser === "Other"
                       ? "ball-name-chart-color4"
                       : "all-name-chart-color4"
                   }`}

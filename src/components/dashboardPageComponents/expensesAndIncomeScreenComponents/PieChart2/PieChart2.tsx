@@ -14,17 +14,17 @@ import {
 import "./PieChart2.css";
 
 const chartData = [
-  { browser: "Hogar", visitors: 275, fill: "#2d18bf" },
-  { browser: "Mercado", visitors: 200, fill: "#a8f25d" },
-  { browser: "Ropa", visitors: 287, fill: "#f2622e" },
-  { browser: "Otro", visitors: 173, fill: "#c4c4c4" },
+  { browser: "Home", visitors: 275, fill: "#2d18bf" },
+  { browser: "Market", visitors: 200, fill: "#a8f25d" },
+  { browser: "Clothes", visitors: 287, fill: "#f2622e" },
+  { browser: "Other", visitors: 173, fill: "#c4c4c4" },
 ];
 
 const chartData2 = [
-  { browser: "Hogar", visitors: 456, fill: "#2d18bf" },
-  { browser: "Mercado", visitors: 444, fill: "#a8f25d" },
-  { browser: "Ropa", visitors: 868, fill: "#f2622e" },
-  { browser: "Otro", visitors: 25, fill: "#c4c4c4" },
+  { browser: "Home", visitors: 456, fill: "#2d18bf" },
+  { browser: "Market", visitors: 444, fill: "#a8f25d" },
+  { browser: "Clothes", visitors: 868, fill: "#f2622e" },
+  { browser: "Other", visitors: 25, fill: "#c4c4c4" },
 ];
 
 const totalVisitors1 = chartData.reduce(
@@ -52,35 +52,35 @@ console.log(chartDataWithPercentage2);
 
 const chartConfig = {
   visitors: {
-    label: "Julio",
+    label: "July",
   },
   home: {
-    label: "Hogar",
+    label: "Home",
     color: "hsl(var(--chart-1))",
   },
   market: {
-    label: "Mercado",
+    label: "Market",
     color: "hsl(var(--chart-2))",
   },
   clothes: {
-    label: "Ropa",
+    label: "Clothes",
     color: "hsl(var(--chart-3))",
   },
   other: {
-    label: "Otro",
+    label: "Other",
     color: "#c4c4c4",
   },
 } satisfies ChartConfig;
 
 export function PieChart2() {
-  const [selectedOption, setSelectedOption] = useState("Julio");
+  const [selectedOption, setSelectedOption] = useState("July");
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(event.target.value);
   };
 
   const chartDataOptions =
-    selectedOption === "Julio"
+    selectedOption === "July"
       ? chartDataWithPercentage
       : chartDataWithPercentage2;
 
@@ -129,7 +129,7 @@ export function PieChart2() {
                         y={(viewBox.cy || 0) + 24}
                         className="fill-white"
                       >
-                        Gastos
+                        Expenses
                       </tspan>
                     </text>
                   );
@@ -146,8 +146,8 @@ export function PieChart2() {
           id=""
           onChange={handleSelectChange}
         >
-          <option value="Julio">Julio</option>
-          <option value="Igresos">Agosto</option>
+          <option value="July">July</option>
+          <option value="Igresos">August</option>
         </select>
         <ul className="container-info-pie-chart">
           {chartDataOptions.map((data, index) => (
@@ -155,13 +155,13 @@ export function PieChart2() {
               <div>
                 <div
                   className={`ball-name-chart ${
-                    data.browser === "Hogar"
+                    data.browser === "Home"
                       ? "ball-name-chart-color1"
-                      : data.browser === "Mercado"
+                      : data.browser === "Market"
                       ? "ball-name-chart-color2"
-                      : data.browser === "Ropa"
+                      : data.browser === "Clothes"
                       ? "ball-name-chart-color3"
-                      : data.browser === "Otro"
+                      : data.browser === "Other"
                       ? "ball-name-chart-color4"
                       : "all-name-chart-color4"
                   }`}
