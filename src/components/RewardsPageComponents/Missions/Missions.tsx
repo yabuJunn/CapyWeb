@@ -1,22 +1,37 @@
 import './missions.css';
-
 import { MissionItem } from '../MissionItem/MissionItem';
+import { missionType } from '../../../store/rewards/types';
+import { RootState } from '../../../store/store';
+import { useSelector } from 'react-redux';
 
 export const Missions = () => {
-  return (
-    <>
-      <div className='missions'>
-        <div className="info-container">
-          <h2>Missions</h2>
-          <div id='missionItemContainer'>
-            <MissionItem text={'Complete all monthly missions.'} gainAmount={'500'} backgroundColor={'#2D18BF'} capyPointsDark={false} isCompleted={false}></MissionItem>
-            <MissionItem text={'Save at least 35% of your income this month.'} gainAmount={'50'} backgroundColor={'#F2622E'} capyPointsDark={false} isCompleted={false}></MissionItem>
-            <MissionItem text={'Meet at least 60% of established goals.'} gainAmount={'70'} backgroundColor={'#A8F25D'} capyPointsDark={true} isCompleted={false}></MissionItem>
-            <MissionItem text={'You completed 40% of all missions'} gainAmount={'90'} backgroundColor={'#2D18BF'} capyPointsDark={false} isCompleted={false}></MissionItem>
-          </div>
+  const missionsData: missionType[] = useSelector((state: RootState) => state.rewards.missions);
 
+  // Filtra las misiones incompletas, ordénalas y toma solo los primeros tres elementos
+  const filteredAndSortedMissions = missionsData
+    .filter(mission => !mission.completed)
+    .sort((a, b) => a.missionId - b.missionId)
+    .slice(0, 3); // Tomar los primeros tres elementos
+
+  return (
+    <div className='missions'>
+      <div className="info-container">
+        <h2>Missions</h2>
+        <div id='missionItemContainer'>
+          {filteredAndSortedMissions.map((mission) => (
+            <MissionItem
+              key={mission.missionId}
+              text={mission.missionDescription}
+              gainAmount={String(mission.missionCapypoints)}
+              backgroundColor={mission.missionColor}
+              capyPointsDark={false}
+              isCompleted={mission.completed}
+              expToGrant={mission.missionExp}
+              missionId={mission.missionId} 
+              missionTitle={mission.missionName} />
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
-}
+};

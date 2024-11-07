@@ -16,7 +16,8 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             missionColor: "",
             missionCapypoints: 500,
             completed: false,
-            missionId: 0
+            missionId: 0,
+            missionExp: 200
         },
         {
             missionName: "Save some money",
@@ -24,7 +25,8 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             missionColor: "",
             missionCapypoints: 1000,
             completed: false,
-            missionId: 1
+            missionId: 1,
+            missionExp: 200
         },
         {
             missionName: "Save some money from your work",
@@ -32,7 +34,8 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             missionColor: "",
             missionCapypoints: 750,
             completed: false,
-            missionId: 2
+            missionId: 2,
+            missionExp: 200
         },
         {
             missionName: "Achieve your goals",
@@ -40,7 +43,8 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             missionColor: "",
             missionCapypoints: 3000,
             completed: false,
-            missionId: 3
+            missionId: 3,
+            missionExp: 200
         },
         {
             missionName: "No impulse purchases",
@@ -48,7 +52,8 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             missionColor: "",
             missionCapypoints: 1000,
             completed: false,
-            missionId: 4
+            missionId: 4,
+            missionExp: 200
         },
         {
             missionName: "Reduce costs",
@@ -56,7 +61,8 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             missionColor: "",
             missionCapypoints: 0,
             completed: false,
-            missionId: 5
+            missionId: 5,
+            missionExp: 200
         },
         {
             missionName: "A week...",
@@ -64,7 +70,8 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             missionColor: "Spend at least one day a week without spending money on unnecessary things.",
             missionCapypoints: 0,
             completed: false,
-            missionId: 6
+            missionId: 6,
+            missionExp: 200
         }
     ],
     exchangeData: [],

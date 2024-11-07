@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import logoWhite from '../../../assets/desktop/svg/logo/logoCapyMoneyWhite.svg';
 import logoBlack from '../../../assets/desktop/svg/logo/logoCapyMoneyBlack.svg';
-import { changeUserAccumulatedCapypoints, changeUserExpGained, changeUserGoalsCompleted } from '../../../store/rewards/slice';
+import { changeUserAccumulatedCapypoints, changeUserExpGained, changeUserGoalsCompleted, completeMission } from '../../../store/rewards/slice';
 
 interface MissionItemProps {
     text: string;
@@ -12,17 +12,20 @@ interface MissionItemProps {
     backgroundColor: string;
     capyPointsDark: boolean;
     isCompleted: boolean;
-    //AgregarExp
+    expToGrant: number,
+    missionId: number,
+    missionTitle: string
 }
 
-export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark, isCompleted }: MissionItemProps) => {
+export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark, isCompleted, expToGrant, missionId, missionTitle }: MissionItemProps) => {
     const dispatch = useDispatch();
 
     const handleCompleteMission = () => {
         if (!isCompleted) {
-            dispatch(changeUserExpGained(parseInt(gainAmount) * Math.random()))
             dispatch(changeUserGoalsCompleted(1))
             dispatch(changeUserAccumulatedCapypoints(parseInt(gainAmount)))
+            dispatch(completeMission(missionId))
+            dispatch(changeUserExpGained(expToGrant))
         }
     };
 
@@ -44,7 +47,10 @@ export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark,
 
     return (
         <div className='MissionItemContainer' onClick={handleCompleteMission}>
-            <p className='MissionDesc'>{text}</p>
+            <div className='missionTextContainer'>
+                <h3>{missionTitle}</h3>
+                <p className='MissionDesc'>{text}</p>
+            </div>
             {renderCapyPoints()}
         </div>
     );

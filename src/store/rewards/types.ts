@@ -45,7 +45,8 @@ export interface missionType {
     missionColor: string,
     missionCapypoints: number,
     completed: boolean,
-    missionId: number
+    missionId: number,
+    missionExp: number
 }
 
 export interface exchangeType {
