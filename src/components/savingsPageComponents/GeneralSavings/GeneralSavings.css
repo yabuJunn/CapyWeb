@@ -49,3 +49,15 @@
     line-height: 17.714px;
     letter-spacing: -0.248px;
 }
+
+@media only screen and (max-width: 500px) {
+    
+    .generalSavingsCircularProgressbar {
+        width: 60%;
+    }
+  
+
+
+
+
+}

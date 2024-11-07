@@ -90,3 +90,40 @@ button {
     background-repeat: no-repeat;
     z-index: -1;
 }
+@media only screen and (max-width: 500px) {
+    
+    .page {
+        height: 100vh;
+        align-items: flex-start;
+        margin-top: 100px;
+    }
+    
+    #summarySavingsContainer {
+        display: flex;
+        flex-direction: column;
+        width: 57vh;
+        gap: 5%;
+
+    
+    }
+
+    #SavingsCardsContainer{
+        display: flex;
+        flex-direction: column;
+    }
+    #TitleTextContainer h1 {
+        font-size: 24px;
+        font-weight: 700;
+        text-align: start;
+    }
+    #leftCardsContainer {
+        width: 65%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16%;
+    }
+
+
+
+}

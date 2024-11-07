@@ -1,5 +1,5 @@
 #AddSavingGoalModalFondo {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -53,6 +53,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    
 }
 
 #AddSavingGoalModalContainerForm {
@@ -62,10 +63,12 @@
     justify-content: center;
     width: 70%;
     height: 100%;
+    
 }
 
 #AddSavingGoalModalContainerForm h3 {
     margin-bottom: 3%;
+
 }
 
 .inputTextContainer {
@@ -103,6 +106,7 @@
     font-family: "Space Grotesk";
     font-size: 16px;
     font-style: normal;
+
 }
 
 #AddSavingGoalModalContainerForm select option {
@@ -110,6 +114,7 @@
     /* Fondo de cada opción */
     color: rgba(212, 212, 212, 0.986);
     /* Color de texto */
+    
 }
 
 
@@ -149,6 +154,7 @@
     border-radius: 8px;
     padding: 4px;
     transition: background-color 0.3s ease, border-radius 0.2s ease;
+    height: 50px;
 }
 
 .AddSavingGoalRadioInputItem input:checked+label img {
@@ -175,3 +181,4 @@
     line-height: normal;
     border-radius: 0.5vw;
 }
+

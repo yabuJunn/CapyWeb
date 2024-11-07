@@ -185,3 +185,14 @@
     width: 100%;
     margin: 3% 0 0 0;
 }
+
+@media only screen and (max-width: 500px) {
+
+#savingsHistoryContainer{
+    width: 95%;
+
+}
+#savingsHistoryItemsContainer{
+    overflow-y: scroll;
+}
+}

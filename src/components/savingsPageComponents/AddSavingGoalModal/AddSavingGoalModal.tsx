@@ -1,5 +1,8 @@
 import './AddSavingGoalModal.css'
 import fireIconWhite from '../../../assets/desktop/svg/fireIconWhite.svg'
+import globeIconWhite from '../../../assets/desktop/svg/globeIconWhite.svg'
+import keyIconWhite from '../../../assets/desktop/svg/KeyIconWhite.svg'
+
 import { useDispatch } from 'react-redux'
 import { changeAddSavingModal } from '../../../store/store'
 
@@ -67,17 +70,17 @@ export const AddSavingGoalModal = () => {
                                 </label>
                             </div>
 
-                            <div className="AddSavingGoalRadioInputItem">
-                                <input type="radio" name="AddSavingGoalRadioInputImage" id="AddSavingGoalRadioInputPlanet" />
+                            <div className='AddSavingGoalRadioInputItem' id='selectSavingPicture'>
+                                <input type="radio" name="AddSavingGoalRadioInputImage" id="AddSavingGoalRadioInputPlanet" ></input>
                                 <label htmlFor="AddSavingGoalRadioInputPlanet">
-                                    <img src={fireIconWhite} alt="" />
+                                    <img src={globeIconWhite} alt="" />
                                 </label>
                             </div>
 
-                            <div className="AddSavingGoalRadioInputItem">
-                                <input type="radio" name="AddSavingGoalRadioInputImage" id="AddSavingGoalRadioInputKey" />
+                            <div className='AddSavingGoalRadioInputItem' id='selectSavingPicture'>
+                                <input type="radio" name="AddSavingGoalRadioInputImage" id="AddSavingGoalRadioInputKey" ></input>
                                 <label htmlFor="AddSavingGoalRadioInputKey">
-                                    <img src={fireIconWhite} alt="" />
+                                    <img src={keyIconWhite} alt="" />
                                 </label>
                             </div>
                         </div>
