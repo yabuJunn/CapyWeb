@@ -46,12 +46,10 @@ export function calculateExpensesData(expenses: Array<realExpenseType>) {
 
   const result = Object.keys(monthlyExpenseData).map((month) => {
     const monthData = monthlyExpenseData[month];
-    const categoryPercentages: { [category: string]: number } = {};
-
-    Object.keys(monthData.categoryAmounts).forEach((category) => {
+    const categoryPercentages = Object.keys(monthData.categoryAmounts).map((category) => {
       const categoryAmount = monthData.categoryAmounts[category];
       const percentage = (categoryAmount / monthData.totalAmount) * 100;
-      categoryPercentages[category] = parseFloat(percentage.toFixed(2));
+      return { category, percentage: parseFloat(percentage.toFixed(2)) };
     });
 
     return {
@@ -91,12 +89,10 @@ export function calculateIncomesData(incomes: Array<realIncomeType>) {
 
   const result = Object.keys(monthlyIncomeData).map((month) => {
     const monthData = monthlyIncomeData[month];
-    const entryPercentages: { [entry: string]: number } = {};
-
-    Object.keys(monthData.entryAmounts).forEach((entry) => {
+    const entryPercentages = Object.keys(monthData.entryAmounts).map((entry) => {
       const entryAmount = monthData.entryAmounts[entry];
       const percentage = (entryAmount / monthData.totalAmount) * 100;
-      entryPercentages[entry] = parseFloat(percentage.toFixed(2));
+      return { entry, percentage: parseFloat(percentage.toFixed(2)) };
     });
 
     return {
@@ -105,18 +101,25 @@ export function calculateIncomesData(incomes: Array<realIncomeType>) {
       entryPercentages,
     };
   });
+
   return result;
 }
 
 export const ExpensesAndIncomePage = () => {
   const [selectedOption, setSelectedOption] = useState("Gastos");
   const [expenseResults, setExpenseResults] = useState<ExpenseData[]>([]);
+  const [incomeResults, setIncomeResults] = useState<ExpenseData[]>([]);
 
   useEffect(() => {
     const expenseResults = calculateExpensesData(expensesData.realExpenses);
     console.log("Gastos por mes:", expenseResults);
     setExpenseResults(expenseResults);
     console.log(expenseResults);
+
+    const incomeResults = calculateIncomesData(incomesData.realIncomes);
+    setIncomeResults(incomeResults);
+    console.log(incomeResults);
+
   }, []);
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -129,6 +132,14 @@ export const ExpensesAndIncomePage = () => {
   }));
 
   console.log(mappedExpenseResults);
+
+  const mappedIncomeResults = incomeResults.map((result) => ({
+    month: result.month,
+    totalAmount: result.totalAmount,
+  }));
+
+  console.log(mappedIncomeResults);
+
 
   return (
     <main className="page">
@@ -160,14 +171,14 @@ export const ExpensesAndIncomePage = () => {
               {selectedOption === "Gastos" ? (
                 <ExpensesGraphic data={mappedExpenseResults} />
               ) : (
-                <IncomesGraphic /*chartData={chartData}*/ />
+                <IncomesGraphic data={mappedIncomeResults} />
               )}
             </div>
             <div className="piechart-graphic">
               {selectedOption === "Gastos" ? (
-                <PieChart2 /*chartData={chartData}*/ />
+                <PieChart2 data={mappedExpenseResults} />
               ) : (
-                <IncomePieChart /*chartData={chartData}*/ />
+                <IncomePieChart data={mappedIncomeResults} />
               )}
             </div>
           </div>

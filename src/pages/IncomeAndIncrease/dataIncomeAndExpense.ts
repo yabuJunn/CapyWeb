@@ -33,6 +33,12 @@ export interface plannedExpenseType {
 export const expensesData: expensesSliceType = {
   realExpenses: [
     {
+      expenseCategory: expenseNameCategories.salidas,
+      expenseSite: "Cine local",
+      expenseDate: Timestamp.fromDate(new Date("2024-09-20")),
+      expenseAmount: 50,
+    },
+    {
       expenseCategory: expenseNameCategories.hogar,
       expenseSite: "Alquiler",
       expenseDate: Timestamp.fromDate(new Date("2024-10-05")),
@@ -45,23 +51,19 @@ export const expensesData: expensesSliceType = {
       expenseAmount: 300,
     },
     {
-      expenseCategory: expenseNameCategories.ropa,
-      expenseSite: "Tienda de ropa Zara",
-      expenseDate: Timestamp.fromDate(new Date("2024-12-15")),
-      expenseAmount: 150,
-    },
-    {
       expenseCategory: expenseNameCategories.salidas,
       expenseSite: "Cine local",
       expenseDate: Timestamp.fromDate(new Date("2024-10-20")),
       expenseAmount: 50,
     },
     {
-      expenseCategory: expenseNameCategories.salidas,
-      expenseSite: "Cine local",
-      expenseDate: Timestamp.fromDate(new Date("2024-09-20")),
-      expenseAmount: 50,
+      expenseCategory: expenseNameCategories.ropa,
+      expenseSite: "Tienda de ropa Zara",
+      expenseDate: Timestamp.fromDate(new Date("2024-12-15")),
+      expenseAmount: 150,
     },
+    
+    
   ],
   plannedExpenses: [
     {
@@ -141,19 +143,21 @@ export const incomesData: incomesSliceType = {
       incomeAmount: 1500,
     },
     {
-      incomeCategory: incomeNameCategories.work,
-      incomeEntrie: incomeNameEntries.efectivo,
-      incomeDate: Timestamp.fromDate(new Date("2024-10-20")),
-      incomeAmount: 2000,
-    },
-  ],
-  plannedIncomes: [
-    {
       incomeCategory: incomeNameCategories.freelance,
       incomeEntrie: incomeNameEntries.visa,
       incomeDate: Timestamp.fromDate(new Date("2024-11-05")),
       incomeAmount: 1800,
     },
+    {
+      incomeCategory: incomeNameCategories.work,
+      incomeEntrie: incomeNameEntries.efectivo,
+      incomeDate: Timestamp.fromDate(new Date("2024-12-20")),
+      incomeAmount: 2000,
+    },
+    
+  ],
+  plannedIncomes: [
+    
     {
       incomeCategory: incomeNameCategories.work,
       incomeEntrie: incomeNameEntries.debito,

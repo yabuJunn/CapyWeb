@@ -16,9 +16,13 @@ import {
 
 export const description = "A simple area chart";
 
-export interface incomeGraphicType {
-  incomeMonth: string,
-  incomeAmount: number
+export interface IncomeData {
+  month: string;
+  totalAmount: number;
+}
+
+export interface AreaChartComponentProps {
+  data: IncomeData[];
 }
 
 /*const chartData = [
@@ -41,55 +45,42 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-interface incomeGraphicProps {
-  chartData: Array<incomeGraphicType>
-}
 
-export function AreaChartComponent({chartData}: incomeGraphicProps) {
-  return (
-    
-     
-        <ChartContainer config={chartConfig} className="expense-container">
-          <LineChart
-            accessibilityLayer
-            data={chartData}
-            margin={{
-              left: 12,
-              right: 12,
-            }}
-          >
-            <CartesianGrid vertical={false}  />
-            <XAxis
-              dataKey="incomeMonth"
-              tickLine={false}
-              axisLine={false}
-              tickMargin={8}
-              
-              tickFormatter={(value) => value.slice(0, 3)}
-            />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent indicator="line" />}
-            />
-            <Line
-              dataKey="incomeAmount"
-              type="natural"
-              fill="var(--color-desktop)"
-              fillOpacity={0.4}
-              stroke="var(--color-desktop)"
-              strokeWidth={2.5}
-            />
-          </LineChart>
-        </ChartContainer>
-      
-    
-  );
-}
 
-export const IncomesGraphic = () => {
+export const IncomesGraphic: React.FC<AreaChartComponentProps> = ({
+  data,
+}) => {
   return (
-    <div className="grafic-card">      
-      <AreaChartComponent chartData={[]} />
-    </div>
+    <ChartContainer config={chartConfig}>
+      <LineChart
+        accessibilityLayer
+        data={data}
+        margin={{
+          left: 12,
+          right: 12,
+        }}
+      >
+        <CartesianGrid vertical={false} />
+        <XAxis
+          dataKey="month"
+          tickLine={false}
+          axisLine={false}
+          tickMargin={8}
+          tick={{ fill: "white" }}
+          tickFormatter={(value) => value.slice(0, 3)}
+        />
+        <ChartTooltip
+          cursor={false}
+          content={<ChartTooltipContent hideLabel />}
+        />
+        <Line
+          dataKey="totalAmount"
+          type="natural"
+          stroke="var(--color-desktop)"
+          strokeWidth={2}
+          dot={false}
+        />
+      </LineChart>
+    </ChartContainer>
   );
 };

@@ -4,8 +4,7 @@ import {
   XAxis,
   LineChart,
   Line,
-  Tooltip,
-  YAxis,
+  
 } from "recharts";
 import "./ExpenseGraphic.css";
 

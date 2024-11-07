@@ -18,42 +18,42 @@ export interface incomePieType {
   piePercentage: string;
 }
 
-/*const chartData = [
+const chartData = [
   { browser: "NU", visitors: 533000, fill: "#2d18bf" },
   { browser: "MasterCard", visitors: 102000, fill: "#a8f25d" },
   { browser: "Visa", visitors: 26500, fill: "#f2622e" },
   { browser: "Other", visitors: 12500, fill: "#c4c4c4" },
-];*/
+];
 
-/*const chartData2 = [
+const chartData2 = [
   { browser: "NU", visitors: 45446, fill: "#2d18bf" },
   { browser: "MasterCard", visitors: 100570, fill: "#a8f25d" },
   { browser: "Visa", visitors: 127544, fill: "#f2622e" },
   { browser: "Other", visitors: 2577, fill: "#c4c4c4" },
-];*/
+];
 
-/*const totalVisitors1 = chartData.reduce(
+const totalVisitors1 = chartData.reduce(
   (total, data) => total + data.visitors,
   0
-);*/
+);
 
-/*const totalVisitors2 = chartData2.reduce(
+const totalVisitors2 = chartData2.reduce(
   (total, data) => total + data.visitors,
   0
-);*/
+);
 
-/*const chartDataWithPercentage = chartData.map((data) => ({
+const chartDataWithPercentage = chartData.map((data) => ({
   ...data,
   percentage: Math.round((data.visitors / totalVisitors1) * 100),
-}));*/
+}));
 
-/*const chartDataWithPercentage2 = chartData2.map((data) => ({
+const chartDataWithPercentage2 = chartData2.map((data) => ({
   ...data,
   percentage: Math.round((data.visitors / totalVisitors2) * 100),
-}));*/
+}));
 
-/*console.log(chartDataWithPercentage);
-console.log(chartDataWithPercentage2);*/
+console.log(chartDataWithPercentage);
+console.log(chartDataWithPercentage2);
 
 const chartConfig = {
   visitors: {
@@ -84,15 +84,15 @@ export function IncomePieChart() {
     setSelectedOption(event.target.value);
   };
 
-  /*
+  
   const chartDataOptions =
     selectedOption === "July"
       ? chartDataWithPercentage
-      : chartDataWithPercentage2;*/
+      : chartDataWithPercentage2;
 
-  /*const totalVisitors = React.useMemo(() => {
+  const totalVisitors = React.useMemo(() => {
     return chartDataOptions.reduce((acc, curr) => acc + curr.visitors, 0);
-  }, [chartDataOptions]);*/
+  }, [chartDataOptions]);
 
   return (
     <div className="pie-card-container">
