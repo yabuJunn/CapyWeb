@@ -24,3 +24,32 @@
     flex-direction: column;
     gap: 10px;
 }
+
+
+    @media only screen and (max-width: 500px) {
+        #categorySavings {
+            width: 380px;
+            height: 280px; 
+            padding: 10px;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            background-color: #181818; 
+            border-radius: 15px; 
+            margin: auto;
+        }
+    
+     
+    #categorySavings h3 {
+        font-size: 16px;
+        margin-top: 140px; 
+        text-align: center; 
+    }
+    
+        #categorySavingsContent {
+            width: 80%;
+        }
+    }
+
+    

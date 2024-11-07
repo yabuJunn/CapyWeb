@@ -62,7 +62,6 @@ export const SavingsPage = () => {
                 </div>
 
                 <div id='ContentContainerSavings'>
-                    <GlobalAppNav></GlobalAppNav>
 
                     <div id='SavingsCardsContainer'>
                         <div id='leftCardsContainer'>

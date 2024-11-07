@@ -2,6 +2,11 @@ import './AddSavingGoalModal.css'
 
 //Import Images
 import fireIconWhite from '../../../assets/svg/fireIconWhite.svg'
+import globeIconWhite from '../../../assets/svg/globeIconWhite.svg'
+import keyIconWhite from '../../../assets/svg/KeyIconWhite.svg'
+
+
+
 
 export const AddSavingGoalModal = () => {
     return <>
@@ -33,17 +38,17 @@ export const AddSavingGoalModal = () => {
                             </label>
                         </div>
 
-                        <div className='AddSavingGoalRadioInputItem'>
+                        <div className='AddSavingGoalRadioInputItem'  id='selectSavingPicture'>
                             <input type="radio" name="AddSavingGoalRadioInputImage" id="AddSavingGoalRadioInputPlanet" ></input>
                             <label htmlFor="AddSavingGoalRadioInputPlanet">
-                                <img src={fireIconWhite} alt="" />
+                                <img src={globeIconWhite} alt="" />
                             </label>
                         </div>
 
-                        <div className='AddSavingGoalRadioInputItem'>
+                        <div className='AddSavingGoalRadioInputItem'  id='selectSavingPicture'>
                             <input type="radio" name="AddSavingGoalRadioInputImage" id="AddSavingGoalRadioInputKey" ></input>
                             <label htmlFor="AddSavingGoalRadioInputKey">
-                                <img src={fireIconWhite} alt="" />
+                                <img src={keyIconWhite} alt="" />
                             </label>
                         </div>
                     </div>
