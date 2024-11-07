@@ -39,4 +39,4 @@ export const incomesSlice = createSlice({
     }
 })
 
-export const { addPlannedIncome, addRealIncome } = incomesSlice.actions
+export const { addPlannedIncome, addRealIncome, deletePlannedIncome } = incomesSlice.actions

@@ -2,10 +2,10 @@ export interface userDataType {
     userEmail: string,
     userName: string,
     userUID: string
-    cards: Array<cardsType>
+    cards: Array<cardType>
 }
 
-interface cardsType {
+export interface cardType {
     cardName: cardNamesEnum,
     cardNumber: number,
     cardMoney: number

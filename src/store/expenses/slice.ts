@@ -38,3 +38,5 @@ export const expensesSlice = createSlice({
         }
     }
 })
+
+export const { addPlannedExpense, addRealExpense, deletePlannedExpense } = expensesSlice.actions
