@@ -50,31 +50,4 @@
     letter-spacing: -0.248px;
 }
 
-    @media only screen and (max-width: 500px) {
-        #generalSavings {
-            width: 380px;
-            height: 280px; 
-            padding: 10px;
-            align-self: center;
-        }
-    
-        #generalSavings h3 {
-            font-size: 16px;
-        }
-    
-        #generalSavingsCircularProgressbarWrapper {
-            width: 60%;
-        }
-    
-        .generalSavingsCircularProgressbar {
-            width: 65%;
-        }
-    
-        #generalSavingsCircularProgressHints {
-            gap: 8px;
-        }
-    
-        #generalSavingsCircularProgressHints .hint p {
-            font-size: 10px;
-        }
-    }
+  
