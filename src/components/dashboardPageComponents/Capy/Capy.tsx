@@ -1,8 +1,8 @@
 import "./Capy.css";
 
 //Imagenes importadas
-import MoveButton from '../../../assets/svg/MoveButton.svg'
-import capyCard from '../../../assets/svg/CapyCard.svg'
+import MoveButton from '../../../assets/desktop/svg/MoveButton.svg'
+import capyCard from '../../../assets/desktop/svg/CapyCard.svg'
 
 
 export const Capy = () => {

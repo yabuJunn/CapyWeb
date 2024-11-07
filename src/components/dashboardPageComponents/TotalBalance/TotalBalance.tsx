@@ -1,7 +1,7 @@
 import './TotalBalance.css';
 
 //Import images
-import MoveButton from '../../../assets/svg/MoveButton.svg'
+import MoveButton from '../../../assets/desktop/svg/MoveButton.svg'
 
 export const TotalBalance = () => {
 

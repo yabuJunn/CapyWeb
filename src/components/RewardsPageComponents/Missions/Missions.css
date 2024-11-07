@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('../../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta';
+    src: url('../../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.missions {
+    height: 50%;
+    border-radius: 16px;
+    color: white;
+    background-color: #181818;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-container {
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+}
+
+.info-container h2 {
+    color: #FFF;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    margin: 16px 0 20px 0;
+}
+
+.info-container p {
+    font-family: 'Plus Jakarta';
+    color: #FFF;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+#missionItemContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 8% 0 0 0;
+}
+
+@media only screen and (max-width: 500px) {
+    .missions {
+        height: auto; 
+        border-radius: 12px;
+    }
+
+    .info-container {
+        margin-left: 8px;
+        width: 100%;
+    }
+
+    .info-container h2 {
+        font-size: 110%; 
+        margin: 12px 0 16px 0;
+    }
+
+    .info-container p {
+        font-size: 12px; 
+        margin-bottom: 5%; 
+    }
+
+    #missionItemContainer {
+        flex-direction: column;
+        justify-content: flex-start; 
+    }
+}

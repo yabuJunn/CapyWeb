@@ -4,12 +4,12 @@ import { auth } from "../../../services/Firebase/Firebase";
 
 import './CardRegister.css';
 
-import logoGoogle from '../../../assets/svg/logo/logoGoogle.svg'
+import logoGoogle from '../../../assets/desktop/svg/logo/logoGoogle.svg'
 
 
 import { createUser } from "../../../services/Firebase/FirestoreUsers";
-import { useNavigate } from "react-router-dom";
 import { doGoogleSignIn } from "../../../services/Firebase/auth";
+import { NavigationHook } from "../../../hooks/navigationHook";
 
 function CardRegister() {
   const [email, setEmail] = useState("");
@@ -19,7 +19,7 @@ function CardRegister() {
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [error, setError] = useState("");
 
-  const navigate = useNavigate();
+  const { handleNavigation } = NavigationHook()
 
   const handleRegister = async () => {
 
@@ -40,7 +40,7 @@ function CardRegister() {
       const userData = await createUser(userCredential.user.uid, username, email)
 
       sessionStorage.setItem('userData', JSON.stringify({ auth: userCredential, data: userData }))
-      navigate("/dashboard"); //PARA REDIRIGIR
+      handleNavigation.navigateToDashboard()
     }
     catch (err) {
       console.log(err);
@@ -54,7 +54,7 @@ function CardRegister() {
       const userData = await createUser(result.user.uid, username, email)
 
       sessionStorage.setItem('userData', JSON.stringify({ auth: result.user, data: userData }))
-      navigate("/dashboard"); //PARA REDIRIGIR
+      handleNavigation.navigateToDashboard()
     } catch (err) {
       console.log(err)
     }
@@ -115,7 +115,7 @@ function CardRegister() {
           <p>Sign Up with Google</p>
         </div>
       </div>
-      <h3 id="CrearCuenta">Already have an account? <a onClick={() => { navigate('/login') }}>Sign In</a></h3>
+      <h3 id="CrearCuenta">Already have an account? <a onClick={() => { handleNavigation.navigateToLogin() }}>Sign In</a></h3>
     </div>
   );
 }

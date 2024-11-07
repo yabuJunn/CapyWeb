@@ -1,7 +1,7 @@
 import './MissionItem.css'
 
-import logoWhite from '../../../assets/svg/logo/logoCapyMoneyWhite.svg'
-import logoBlack from '../../../assets/svg/logo/logoCapyMoneyBlack.svg'
+import logoWhite from '../../../assets/desktop/svg/logo/logoCapyMoneyWhite.svg'
+import logoBlack from '../../../assets/desktop/svg/logo/logoCapyMoneyBlack.svg'
 
 interface MissionItemProps {
     text: string,

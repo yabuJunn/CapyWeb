@@ -17,11 +17,3 @@
     font-style: normal;
     font-weight: 700;
 }
-
-.MoveButton {
-    position: absolute;
-    top: 16px;
-    right: 16px; 
-    width: 16px;
-    height: 16px;
-}

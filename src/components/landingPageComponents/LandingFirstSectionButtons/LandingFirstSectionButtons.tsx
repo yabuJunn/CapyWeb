@@ -1,22 +1,13 @@
 import './LandingFirstSectionButtons.css'
-
-import { useNavigate } from 'react-router-dom'
+import { NavigationHook } from '../../../hooks/navigationHook'
 
 export const LandingFirstSectionButtons = () => {
-    const navigate = useNavigate()
-
-    const handleNavigateRegister = () => {
-        navigate('/register')
-    }
-
-    const handleNavigateLogin = () => {
-        navigate('/login')
-    }
+    const { handleNavigation } = NavigationHook()
 
     return <>
         <div id="LoginRegisterButtonsContainer">
-            <button id="createAccountButton" onClick={handleNavigateRegister}>Create Account</button>
-            <button id="logInButton" onClick={handleNavigateLogin}>Log in</button>
+            <button id="createAccountButton" onClick={handleNavigation.navigateToRegister}>Create Account</button>
+            <button id="logInButton" onClick={handleNavigation.navigateToLogin}>Log in</button>
         </div>
     </>
 }

@@ -12,14 +12,35 @@
     margin-left: 90px;
 }
 
-#background {
+#backgroundLogIn {
+    position: fixed;
     top: 0;
     left: 0;
+    width: 100vw;
     height: 100vh;
-    width: 100vh;
-    background-image: url('../../assets/svg/fondoLogin.svg');
+    background-image: url('../../assets/desktop/svg/fondoLogin.svg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     z-index: -1;
+}
+
+@media only screen and (max-width: 500px) {
+    #LogIn {
+        position: relative;
+        margin: 30% auto 5%;
+        max-width: 90%;
+        padding: 10px;
+        width: auto;
+    }
+    
+    #Logo {
+        display: none; 
+    }
+    
+    #backgroundLogIn {
+        background-image: url('../../assets/mobile/svg/SignUp.svg');
+        background-size: cover;
+        background-position: top;
+    }
 }
