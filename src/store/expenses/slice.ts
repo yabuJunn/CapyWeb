@@ -1,7 +1,10 @@
-import { expensesSliceType } from "./types"
+import { createSlice } from "@reduxjs/toolkit";
+import { DEFAULT_STATE_EXPENSES, EXPENSES_SLICE_NAME } from "./constants";
 
-export const EXPENSES_SLICE_NAME = "expenses"
-
-export const DEFAULT_STATE_EXPENSES: expensesSliceType = {
-    expenses: []
-}
+export const expensesSlice = createSlice({
+    name: EXPENSES_SLICE_NAME,
+    initialState: {
+        ...DEFAULT_STATE_EXPENSES
+    },
+    reducers: {}
+})
