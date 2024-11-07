@@ -6,7 +6,8 @@ export interface rewardsSliceType {
     },
     saverLevels: Array<{
         name: saverLevelsNames,
-        image: saverLevelsImages
+        image: saverLevelsImages,
+        expNecesary: number
     }>,
     missions: Array<missionType>
     exchangeData: Array<exchangeType>,
@@ -27,16 +28,12 @@ export enum saverLevelsNames {
 }
 
 export enum saverLevelsImages {
-    level1Image = "0",
-    level2Image = "1",
-    level3Image = "2",
-    level4Image = "3",
-    level5Image = "4",
-    level6Image = "5",
-    level7Image = "6",
-    level8Image = "7",
-    level9Image = "8",
-    level10Image = "9"
+    bronzeImage = "bronze",
+    silverImage = "silver",
+    goldImage = "gold",
+    diamondImage = "diamond",
+    lunarImage = "lunar",
+    maxImage = "max"
 }
 
 export interface missionType {

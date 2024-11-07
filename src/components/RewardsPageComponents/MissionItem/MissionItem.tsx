@@ -30,9 +30,9 @@ export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark,
     };
 
     const renderCapyPoints = () => {
-        const logo = capyPointsDark ? logoBlack : logoWhite;
+        const logo = capyPointsDark || backgroundColor === '#CCFC56' ? logoBlack : logoWhite;
         const statusText = isCompleted ? 'Completed' : 'Capypoints';
-        const className = isCompleted ? 'CapyPointsAmount' : `CapyPointsAmount ${capyPointsDark ? 'dark' : ''}`;
+        const className = isCompleted ? 'CapyPointsAmount' : `CapyPointsAmount ${capyPointsDark || backgroundColor === '#CCFC56' ? 'dark' : ''}`;
 
         return (
             <div className={`MissionCapyPoints ${!capyPointsDark ? 'light' : ''}`} style={{ backgroundColor }}>

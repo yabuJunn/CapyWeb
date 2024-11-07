@@ -1,4 +1,4 @@
-import { rewardsSliceType, saverLevelsNames } from "./types"
+import { rewardsSliceType, saverLevelsImages, saverLevelsNames } from "./types"
 
 export const REWARDS_SLICE_NAME = "rewards"
 
@@ -8,70 +8,121 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
         goalsCompleted: 0,
         accumulatedCapypoints: 0
     },
-    saverLevels: [],
+    saverLevels: [
+        {
+            name: saverLevelsNames.level1,
+            image: saverLevelsImages.bronzeImage,
+            expNecesary: 400
+        },
+        {
+            name: saverLevelsNames.level2,
+            image: saverLevelsImages.bronzeImage,
+            expNecesary: 800
+        },
+        {
+            name: saverLevelsNames.level3,
+            image: saverLevelsImages.silverImage,
+            expNecesary: 1400
+        },
+        {
+            name: saverLevelsNames.level4,
+            image: saverLevelsImages.silverImage,
+            expNecesary: 2200
+        },
+        {
+            name: saverLevelsNames.level5,
+            image: saverLevelsImages.silverImage,
+            expNecesary: 3200
+        },
+        {
+            name: saverLevelsNames.level6,
+            image: saverLevelsImages.goldImage,
+            expNecesary: 4400
+        },
+        {
+            name: saverLevelsNames.level7,
+            image: saverLevelsImages.goldImage,
+            expNecesary: 5800
+        },
+        {
+            name: saverLevelsNames.level8,
+            image: saverLevelsImages.diamondImage,
+            expNecesary: 7400
+        },
+        {
+            name: saverLevelsNames.level9,
+            image: saverLevelsImages.goldImage,
+            expNecesary: 9200
+        },
+        {
+            name: saverLevelsNames.level10,
+            image: saverLevelsImages.maxImage,
+            expNecesary: 11200
+        }
+    ],
     missions: [
         {
             missionName: "Reduce costs",
             missionDescription: "Limit spending on entertainment and non-essential purchases to 15% of the monthly budget.",
-            missionColor: "",
+            missionColor: "#2D18BF",
             missionCapypoints: 500,
             completed: false,
             missionId: 0,
-            missionExp: 200
+            missionExp: 300
         },
         {
             missionName: "Save some money",
             missionDescription: "Save a specific amount at the end of each week (e.g. save $5 each week).",
-            missionColor: "",
+            missionColor: "#CCFC56",
             missionCapypoints: 1000,
             completed: false,
             missionId: 1,
-            missionExp: 200
+            missionExp: 360
         },
         {
             missionName: "Save some money from your work",
             missionDescription: "Save at least 20% of your monthly income in a savings account.",
-            missionColor: "",
+            missionColor: "#F2622E",
             missionCapypoints: 750,
             completed: false,
             missionId: 2,
-            missionExp: 200
+            missionExp: 430
         },
         {
             missionName: "Achieve your goals",
             missionDescription: "Achieve at least 80% of the personal financial goals defined for the month.",
-            missionColor: "",
+            missionColor: "#2D18BF",
             missionCapypoints: 3000,
             completed: false,
             missionId: 3,
-            missionExp: 200
+            missionExp: 500
         },
         {
             missionName: "No impulse purchases",
             missionDescription: "Do not make impulse purchases for two weeks in a row.",
-            missionColor: "",
+            missionColor: "#CCFC56",
             missionCapypoints: 1000,
             completed: false,
             missionId: 4,
-            missionExp: 200
+            missionExp: 350
         },
         {
             missionName: "Reduce costs",
             missionDescription: "Reducir los gastos en alimentación en un 10% mediante una planificación eficiente.",
-            missionColor: "",
-            missionCapypoints: 0,
+            missionColor: "#F2622E",
+            missionCapypoints: 1000,
             completed: false,
             missionId: 5,
-            missionExp: 200
+            missionExp: 320
         },
         {
             missionName: "A week...",
             missionDescription: "Spend at least one day a week without spending money on unnecessary things.",
-            missionColor: "Spend at least one day a week without spending money on unnecessary things.",
-            missionCapypoints: 0,
+            missionColor: "#2D18BF",
+            missionCapypoints: 500,
             completed: false,
             missionId: 6,
-            missionExp: 200
+            missionExp: 280
         }
     ],
     exchangeData: [],
