@@ -19,9 +19,7 @@ const RewardCard: React.FC<RewardCardProps> = ({ service, price, points, backgro
 
     return <>
         <div className="reward-card" style={{ backgroundColor }} onClick={() => {
-            if (userCapypoints - points < points) {
-                console.log("Menor")
-            } else {
+            if (userCapypoints - points > points) {
                 dispatch(redeemedExchange(id))
                 dispatch(changeUserAccumulatedCapypoints(-points));
                 //Agregar la accion que suma el dinero al balance general
