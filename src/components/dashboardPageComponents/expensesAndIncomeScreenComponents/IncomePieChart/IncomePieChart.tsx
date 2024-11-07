@@ -2,8 +2,6 @@ import * as React from "react";
 import { Label, Pie, PieChart } from "recharts";
 import { useState } from "react";
 
-
-
 import {
   ChartConfig,
   ChartContainer,
@@ -13,11 +11,11 @@ import {
 
 import "./IncomePieChart.css";
 
-export interface incomePieType{
-  incomePieName: string,
-  incomePieValue: number,
-  pieFill: string,
-  piePercentage: string
+export interface incomePieType {
+  incomePieName: string;
+  incomePieValue: number;
+  pieFill: string;
+  piePercentage: string;
 }
 
 /*const chartData = [
@@ -86,9 +84,10 @@ export function IncomePieChart() {
     setSelectedOption(event.target.value);
   };
 
+  /*
   const chartDataOptions =
     selectedOption === "July"
-      ? /*chartDataWithPercentage
+      ? chartDataWithPercentage
       : chartDataWithPercentage2;*/
 
   /*const totalVisitors = React.useMemo(() => {

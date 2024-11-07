@@ -14,45 +14,45 @@ import {
 import "./PieChart2.css";
 
 export interface expensePieType {
-  expensePieName: string,
-  expensePieValue: number,
-  pieExpenseFill: string,
+  expensePieName: string;
+  expensePieValue: number;
+  pieExpenseFill: string;
   pieExpensePercentaje: string;
 }
 
-/*const chartData = [
+const chartData = [
   { browser: "Home", visitors: 275, fill: "#2d18bf" },
   { browser: "Market", visitors: 200, fill: "#a8f25d" },
   { browser: "Clothes", visitors: 287, fill: "#f2622e" },
   { browser: "Other", visitors: 173, fill: "#c4c4c4" },
-];*/
+];
 
-/*const chartData2 = [
+const chartData2 = [
   { browser: "Home", visitors: 456, fill: "#2d18bf" },
   { browser: "Market", visitors: 444, fill: "#a8f25d" },
   { browser: "Clothes", visitors: 868, fill: "#f2622e" },
   { browser: "Other", visitors: 25, fill: "#c4c4c4" },
-];*/
+];
 
-/*const totalVisitors1 = chartData.reduce(
+const totalVisitors1 = chartData.reduce(
   (total, data) => total + data.visitors,
   0
-);*/
+);
 
-/*const totalVisitors2 = chartData2.reduce(
+const totalVisitors2 = chartData2.reduce(
   (total, data) => total + data.visitors,
   0
-);*/
+);
 
-/*const chartDataWithPercentage = chartData.map((data) => ({
+const chartDataWithPercentage = chartData.map((data) => ({
   ...data,
   percentage: Math.round((data.visitors / totalVisitors1) * 100),
-}));*/
+}));
 
-/*const chartDataWithPercentage2 = chartData2.map((data) => ({
+const chartDataWithPercentage2 = chartData2.map((data) => ({
   ...data,
   percentage: Math.round((data.visitors / totalVisitors2) * 100),
-}));*/
+}));
 
 /*console.log(chartDataWithPercentage);
 console.log(chartDataWithPercentage2);*/
@@ -88,12 +88,12 @@ export function PieChart2() {
 
   const chartDataOptions =
     selectedOption === "July"
-      ? /*chartDataWithPercentage
-      : chartDataWithPercentage2;*/
+      ? chartDataWithPercentage
+      : chartDataWithPercentage2;
 
-  /*const totalVisitors = React.useMemo(() => {
+  const totalVisitors = React.useMemo(() => {
     return chartDataOptions.reduce((acc, curr) => acc + curr.visitors, 0);
-  }, [chartDataOptions]);*/
+  }, [chartDataOptions]);
 
   return (
     <div className="pie-card-container">
