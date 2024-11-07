@@ -8,6 +8,7 @@ import { LandingPage } from "../pages/LandingPage/LandingPage";
 import { Register } from "../pages/Register/Register";
 import { Dashboard } from "../pages/Dashboard/Dashboard";
 import { SavingsPage } from "../pages/savingsPage/savingsPage";
+import { Rewards } from "../pages/Rewards/Rewards";
 
 export const mainRoutes = [
     {
@@ -30,4 +31,8 @@ export const mainRoutes = [
         path: routes.savings,
         element: <SavingsPage></SavingsPage>,
     },
+    {
+        path: routes.rewards,
+        element: <Rewards></Rewards>,
+    }
 ]
