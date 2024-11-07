@@ -1,10 +1,11 @@
 import { Timestamp } from "firebase/firestore"
 
 export interface expensesSliceType {
-    expenses: Array<expenseType>
+    realExpenses: Array<realExpenseType>,
+    plannedExpenses: Array<plannedExpenseType>,
 }
 
-enum expenseNameCategories {
+export enum expenseNameCategories {
     hogar = "Hogar",
     mercado = "Mercado",
     ropa = "Ropa",
@@ -15,10 +16,16 @@ enum expenseNameCategories {
     otro = "Otro"
 }
 
-interface expenseType {
+export interface realExpenseType {
     expenseCategory: expenseNameCategories,
     expenseSite: string,
     expenseDate: Timestamp,
     expenseAmount: number
 }
 
+export interface plannedExpenseType {
+    expenseCategory: expenseNameCategories,
+    expenseSite: string,
+    expenseDate: Timestamp,
+    expenseAmount: number
+}
