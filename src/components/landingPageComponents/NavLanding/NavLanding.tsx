@@ -1,6 +1,6 @@
 import './NavLanding.css'
 
-import logoComplete from '../../../assets/svg/logoComplete.svg'
+import logoComplete from '../../../assets/desktop/svg/logoComplete.svg'
 
 export const NavLanding = () => {
     const handleScroll = (elementId: string) => {

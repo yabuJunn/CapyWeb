@@ -10,3 +10,15 @@
     background: linear-gradient(270deg, #581ED4, #2D18BF);
     border-radius: 40px;
 }
+
+@media only screen and (max-width: 500px) {
+    #SaverProgressLabels {
+        width: 90%; 
+        height: auto; 
+        gap: 10px; 
+    }
+
+    .bg-primary {
+        border-radius: 20px; 
+    }
+}

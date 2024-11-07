@@ -1,21 +1,21 @@
 import { savingSliceType } from './types'
 
-import fireIconWhite from '../../assets/svg/fireIconWhite.svg'
-import planetIconBlack from '../../assets/svg/planetIconBlack.svg'
-import KeyIconWhite from '../../assets/svg/KeyIconWhite.svg'
+import fireIconWhite from '../../assets/desktop/svg/fireIconWhite.svg'
+import planetIconBlack from '../../assets/desktop/svg/planetIconBlack.svg'
+import KeyIconWhite from '../../assets/desktop/svg/KeyIconWhite.svg'
 
 export const SAVINGS_SLICE_NAME = "savings"
 
 export const DEFAULT_STATE_SAVINGS: savingSliceType = {
     savingsData: [
         {
-            savingName: "Party", 
-            savingValue: 40, 
-            savingColor: "#2D18BF", 
-            savingPercentage: "40%", 
-            savingImage: fireIconWhite, 
-            monthlySaving: 50000, 
-            savingActualFee: 100000, 
+            savingName: "Party",
+            savingValue: 40,
+            savingColor: "#2D18BF",
+            savingPercentage: "40%",
+            savingImage: fireIconWhite,
+            monthlySaving: 50000,
+            savingActualFee: 100000,
             savingTotalFee: 600000,
             savingHistory: [
                 {

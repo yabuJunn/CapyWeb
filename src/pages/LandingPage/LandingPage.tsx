@@ -9,31 +9,31 @@ import { CustomerOpinion } from '../../components/landingPageComponents/Customer
 
 //Import images
 
-import arrowDownWhite from '../../assets/svg/arrowDownWhite.svg'
-import landingSecondSectionMockups from '../../assets/png/mockupsCapyPc.jpg'
+import arrowDownWhite from '../../assets/desktop/svg/arrowDownWhite.svg'
+import landingSecondSectionMockups from '../../assets/desktop/png/mockupsCapyPc.jpg'
 
-import logoBancolombia from '../../assets/svg/logo/logoBancolombia.svg'
-import logoNequi from '../../assets/svg/logo/logoNequi.svg'
-import logoVisa from '../../assets/svg/logo/logoVisa.svg'
-import logoBBVA from '../../assets/svg/logo/logoBBVA.svg'
-import logoFalabella from '../../assets/svg/logo/logoFalabella.svg'
-import logoNu from '../../assets/svg/logo/logoNu.svg'
+import logoBancolombia from '../../assets/desktop/svg/logo/logoBancolombia.svg'
+import logoNequi from '../../assets/desktop/svg/logo/logoNequi.svg'
+import logoVisa from '../../assets/desktop/svg/logo/logoVisa.svg'
+import logoBBVA from '../../assets/desktop/svg/logo/logoBBVA.svg'
+import logoFalabella from '../../assets/desktop/svg/logo/logoFalabella.svg'
+import logoNu from '../../assets/desktop/svg/logo/logoNu.svg'
 
-import backgroundFeature1 from '../../assets/png/features1.png'
-import backgroundFeature2 from '../../assets/png/features2.png'
-import backgroundFeature3 from '../../assets/png/features3.png'
-import backgroundFeature4 from '../../assets/png/features4.png'
+import backgroundFeature1 from '../../assets/desktop/png/features1.png'
+import backgroundFeature2 from '../../assets/desktop/png/features2.png'
+import backgroundFeature3 from '../../assets/desktop/png/features3.png'
+import backgroundFeature4 from '../../assets/desktop/png/features4.png'
 
-import quotesGreen from '../../assets/svg/icons/quotesGreen.svg'
-import quotesGreenOpacity from '../../assets/svg/icons/quotesGreenOpacity.svg'
-import quotesBlue from '../../assets/svg/icons/quotesBlue.svg'
-import quotesBlueOpacity from '../../assets/svg/icons/quotesBlueOpacity.svg'
-import quotesOrange from '../../assets/svg/icons/quotesOrange.svg'
-import quotesOrangeOpacity from '../../assets/svg/icons/quotesOrangeOpacity.svg'
+import quotesGreen from '../../assets/desktop/svg/icons/quotesGreen.svg'
+import quotesGreenOpacity from '../../assets/desktop/svg/icons/quotesGreenOpacity.svg'
+import quotesBlue from '../../assets/desktop/svg/icons/quotesBlue.svg'
+import quotesBlueOpacity from '../../assets/desktop/svg/icons/quotesBlueOpacity.svg'
+import quotesOrange from '../../assets/desktop/svg/icons/quotesOrange.svg'
+import quotesOrangeOpacity from '../../assets/desktop/svg/icons/quotesOrangeOpacity.svg'
 
-import gabrielCooper from '../../assets/png/gabrielCooper.png'
-import edawrdSans from '../../assets/png/edwardSans.png'
-import nathalyMoon from '../../assets/png/nathalyMoon.png'
+import gabrielCooper from '../../assets/desktop/png/gabrielCooper.png'
+import edawrdSans from '../../assets/desktop/png/edwardSans.png'
+import nathalyMoon from '../../assets/desktop/png/nathalyMoon.png'
 
 
 export const LandingPage = () => {
@@ -180,7 +180,7 @@ export const LandingPage = () => {
                 </div>
             </section>
 
-            <div id='background'>
+            <div id='background2'>
 
             </div>
         </main>

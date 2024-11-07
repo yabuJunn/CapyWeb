@@ -2,7 +2,7 @@ import './Savings.css';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-import MoveButton from '../../../assets/svg/MoveButton.svg';
+import MoveButton from '../../../assets/desktop/svg/MoveButton.svg';
 
 export const Savings = () => {
   const ingresos = 78;

@@ -13,3 +13,19 @@
     height: 150px;
     width: 100%;
 }
+
+@media only screen and (max-width: 500px) {
+    #SaverLevelTitleDisplayContainer {
+        padding: 3%;
+    }
+
+    #SaverLevelTitleDisplayContainer h3 {
+        font-size: 60%;
+        text-align: center;
+    }
+
+    #SaverLevelTitleDisplayContainer img {
+        height: 100px; 
+        width: 95%; 
+    }
+}

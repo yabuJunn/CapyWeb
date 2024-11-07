@@ -20,8 +20,13 @@ const RewardCard: React.FC<RewardCardProps> = ({ service, price, points, backgro
             />
             <div className="reward-card-content">
                 <h2>{service}</h2>
-                <p>{price}</p>
-                <p>{points} puntos</p>
+                <div className="price-and-points">
+                    <h3>{price}</h3>
+                    <p className="text-with-image">
+                        <img id="white" src="../../src/assets/desktop/svg/logo/logoCapyMoneyWhite.svg" alt="" />
+                        {points}
+                    </p>
+                </div>
             </div>
         </div>
     );

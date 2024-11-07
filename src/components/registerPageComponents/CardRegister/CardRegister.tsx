@@ -4,7 +4,7 @@ import { auth } from "../../../services/Firebase/Firebase";
 
 import './CardRegister.css';
 
-import logoGoogle from '../../../assets/svg/logo/logoGoogle.svg'
+import logoGoogle from '../../../assets/desktop/svg/logo/logoGoogle.svg'
 
 
 import { createUser } from "../../../services/Firebase/FirestoreUsers";

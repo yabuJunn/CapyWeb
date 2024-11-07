@@ -2,22 +2,22 @@ import './Nav.css';
 
 import { useLocation } from 'react-router-dom';
 
-import LogoCapy from '../../assets/svg/Logo.svg'
+import LogoCapy from '../../assets/desktop/svg/Logo.svg'
 
 //Nav icons white
-import dashboardIconWhite from '../../assets/svg/icons/navIcons/DashboardNavIconWhite.svg'
-import expensesAndIncomeIconWhite from '../../assets/svg/icons/navIcons/ExpensesAndIncomeNavIconWhite.svg'
-import savingsIconWhite from '../../assets/svg/icons/navIcons/SavingsNavIconWhite.svg'
-import rewardsIconWhite from '../../assets/svg/icons/navIcons/RewardsNavIconWhite.svg'
-import configurationIconWhite from '../../assets/svg/icons/navIcons/ConfigurationNavIconWhite.svg'
-import profileIconWhite from '../../assets/svg/icons/navIcons/ProfileNavIconWhite.svg'
-import logOutIconWhite from '../../assets/svg/icons/navIcons/LogOutNavIconWhite.svg'
+import dashboardIconWhite from '../../assets/desktop/svg/icons/navIcons/DashboardNavIconWhite.svg'
+import expensesAndIncomeIconWhite from '../../assets/desktop/svg/icons/navIcons/ExpensesAndIncomeNavIconWhite.svg'
+import savingsIconWhite from '../../assets/desktop/svg/icons/navIcons/SavingsNavIconWhite.svg'
+import rewardsIconWhite from '../../assets/desktop/svg/icons/navIcons/RewardsNavIconWhite.svg'
+import configurationIconWhite from '../../assets/desktop/svg/icons/navIcons/ConfigurationNavIconWhite.svg'
+import profileIconWhite from '../../assets/desktop/svg/icons/navIcons/ProfileNavIconWhite.svg'
+import logOutIconWhite from '../../assets/desktop/svg/icons/navIcons/LogOutNavIconWhite.svg'
 
 //Nav icons green
-import dashboardIconBlack from '../../assets/svg/icons/navIcons/DashboardNavIconBlack.svg'
-import expensesAndIncomeIconBlack from '../../assets/svg/icons/navIcons/ExpensesAndIncomeNavIconBlack.svg'
-import savingsIconBlack from '../../assets/svg/icons/navIcons/SavingsNavIconBlack.svg'
-import rewardsIconBlack from '../../assets/svg/icons/navIcons/RewardsNavIconBlack.svg'
+import dashboardIconBlack from '../../assets/desktop/svg/icons/navIcons/DashboardNavIconBlack.svg'
+import expensesAndIncomeIconBlack from '../../assets/desktop/svg/icons/navIcons/ExpensesAndIncomeNavIconBlack.svg'
+import savingsIconBlack from '../../assets/desktop/svg/icons/navIcons/SavingsNavIconBlack.svg'
+import rewardsIconBlack from '../../assets/desktop/svg/icons/navIcons/RewardsNavIconBlack.svg'
 import { routes } from '../../types/routesEnum';
 import { NavigationHook } from '../../hooks/navigationHook';
 

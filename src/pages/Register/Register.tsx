@@ -1,22 +1,34 @@
-import './Register.css'
-
-import vectorRegister from "../../assets/svg/vectorRegister.svg";
-import Logo from "../../assets/svg/Logo.svg"
+import React, { useEffect, memo, useState, useCallback } from 'react';
+import './Register.css';
+import vectorRegisterDesktop from "../../assets/desktop/svg/vectorRegister.svg";
+import vectorRegisterMobile from "../../assets/mobile/svg/vectorRegisterMob.svg";
+import Logo from "../../assets/desktop/web/Logo.webp";
 import CardRegister from "../../components/registerPageComponents/CardRegister/CardRegister";
 
-export const Register = () => {
+export const Register: React.FC = memo(() => {
+  const [vectorSrc, setVectorSrc] = useState<string>(
+    window.innerWidth < 500 ? vectorRegisterMobile : vectorRegisterDesktop
+  );
+
+  const handleResize = useCallback(() => {
+    setVectorSrc(window.innerWidth < 500 ? vectorRegisterMobile : vectorRegisterDesktop);
+  }, []);
+
+  useEffect(() => {
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [handleResize]);
+
   return (
-    <div className='page'>
-      <img id="Logo" src={Logo} alt="" />
-      <img id="Register" src={vectorRegister} alt="" />
+    <main className='page'>
+      <img id="Logo" src={Logo} alt="Logo de la aplicación" />
+      <img id="Register" src={vectorSrc} alt="Imagen de registro" loading="lazy" />
       <div className="Card">
         <CardRegister />
       </div>
-
-      <div id='background'>
-
-      </div>
-    </div>
-
+      <div id='backgroundRegister'></div>
+    </main>
   );
-}
+});

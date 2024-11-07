@@ -30,10 +30,9 @@
     width: 98%;
 }
 
-.info-container h3 {
-    font-family: 'Space Grotesk';
+.info-container h2 {
     color: #FFF;
-
+    font-family: "Space Grotesk";
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
@@ -57,4 +56,31 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+@media only screen and (max-width: 500px) {
+    .missions {
+        height: auto; 
+        border-radius: 12px;
+    }
+
+    .info-container {
+        margin-left: 8px;
+        width: 100%;
+    }
+
+    .info-container h2 {
+        font-size: 110%; 
+        margin: 12px 0 16px 0;
+    }
+
+    .info-container p {
+        font-size: 12px; 
+        margin-bottom: 5%; 
+    }
+
+    #missionItemContainer {
+        flex-direction: column;
+        justify-content: flex-start; 
+    }
 }

@@ -45,3 +45,25 @@
     margin-bottom: 0;
   }
   
+@media only screen and (max-width: 500px) {
+    .resumen-card {
+        align-items: flex-start; 
+        padding: 15px; 
+    }
+
+    .icono {
+        font-size: 1.8em;
+        margin-bottom: 8px; 
+        margin-right: 2%; 
+    }
+
+    .contenido {
+        margin-left: 2%;
+        font-size: 90%;
+    }
+
+    .titulo {
+      font-size: 120%;
+    }
+    
+  }

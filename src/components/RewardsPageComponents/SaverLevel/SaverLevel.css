@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('../../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta';
+    src: url('../../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 .SaverLevelContainer {
     height: 340px; 
     border-radius: 16px;
@@ -9,12 +24,26 @@
     align-items: center;
 }
 
-.SaverLevelContainer p {
-    font-size: 16px;
-    margin-left: 12px; 
-    line-height: 3;
+.SaverLevelContainer h2 {
+    color: #FFF;
+    font-family: "Space Grotesk";
+    font-size: 20px;
     font-style: normal;
     font-weight: 700;
-    display: flex;
-    text-align: left;
+    line-height: normal;
+    margin: 16px 0 20px 0;
+}
+
+@media only screen and (max-width: 500px) {
+    .SaverLevelContainer {
+        height: auto; 
+        padding: 1%; 
+        border-radius: 12px; 
+    }
+
+    .SaverLevelContainer h2 {
+        font-size: 18px; 
+        text-align: center;
+        margin: 0; 
+    }
 }

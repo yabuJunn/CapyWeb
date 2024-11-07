@@ -1,6 +1,6 @@
 import './CustomerOpinion.css'
 
-import star from '../../../assets/svg/icons/whiteStar.svg'
+import star from '../../../assets/desktop/svg/icons/whiteStar.svg'
 
 interface CustomerOpinionProps {
     quotesSolid: string,

@@ -8,7 +8,7 @@
   background-position: center; 
   background-repeat: no-repeat; 
   z-index: -1; 
-  background-image: url('/src/assets/svg/fondo.svg');
+  background-image: url('/src/assets/desktop/svg/fondo.svg');
   background-size: 115% 150%;
 }
 

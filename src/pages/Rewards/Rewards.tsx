@@ -33,12 +33,11 @@ export const Rewards: React.FC = () => {
         <RewardGrid></RewardGrid>
       </div>
 
-      <div id='background'>
+      <div id='backgroundReward'>
 
       </div>
     </main>
 
   );
 }
-
 

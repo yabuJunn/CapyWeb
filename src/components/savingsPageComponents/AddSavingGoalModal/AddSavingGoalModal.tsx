@@ -1,9 +1,9 @@
 import './AddSavingGoalModal.css'
-import fireIconWhite from '../../../assets/svg/fireIconWhite.svg'
+import fireIconWhite from '../../../assets/desktop/svg/fireIconWhite.svg'
 import { useDispatch } from 'react-redux'
 import { changeAddSavingModal } from '../../../store/store'
 
-import xIconWhite from '../../../assets/svg/icons/xIconWhite.svg'
+import xIconWhite from '../../../assets/desktop/svg/icons/xIconWhite.svg'
 import { addSaving } from '../../../store/savings/slice'
 import { useRef } from 'react'
 

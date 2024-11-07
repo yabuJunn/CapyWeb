@@ -193,27 +193,19 @@
 
     /* Fourth Section ends */
 
-    #background {
+    #background2 {
         position: fixed;
-        /* Para que ocupe toda la pantalla y se mantenga fija al hacer scroll */
         top: 0;
         left: 0;
         width: 100vw;
-        /* 100% del ancho de la ventana */
         height: 100vh;
-        /* 100% de la altura de la ventana */
-        background-image: url('../../assets/svg/landingBackground.svg');
+        background-image: url('../../assets/desktop/svg/landingBackground.svg');
         background-size: cover;
-        /* Asegura que la imagen cubra toda la pantalla */
         background-position: center;
-        /* Centra la imagen en la pantalla */
         background-repeat: no-repeat;
-        /* Evita que la imagen se repita */
         z-index: -1;
-        /* Mantiene la imagen detrás del contenido */
     }
 
-    /* Fifth Section */
 
     #fifthSection {
         margin-top: 200px;
@@ -248,15 +240,13 @@
         align-items: center;
     }
 
-    /* End of Fifth section */
-
     #background {
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-image: url('../../assets/svg/DashboardScreen.svg');
+        background-image: url('../../assets/desktop/svg/DashboardScreen.svg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
