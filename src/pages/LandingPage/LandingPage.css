@@ -1,255 +1,382 @@
 @font-face {
-    font-family: 'Space Grotesk';
-    src: url('../../assets/TempFonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Space Grotesk";
+  src: url("../../assets/TempFonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Plus Jakarta';
-    src: url('../../assets/TempFonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Plus Jakarta";
+  src: url("../../assets/TempFonts/PlusJakartaSans-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1600px) {
-    .page {
-        width: 100vw;
-        height: 100vh;
+.page {
+  width: 100vw;
+  height: 100vh;
+}
+
+.section-landing {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 50px;
+}
+
+#landingPage section-landing-mockup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 90px;
+}
+
+#firstSection h1 {
+  font-size: 90px;
+  color: white;
+  text-align: center;
+  font-family: "Space Grotesk";
+  margin-top: 60px;
+  width: 70%;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 107px;
+}
+
+#firstSection p {
+  font-size: 18px;
+  color: #e1e1e1;
+  text-align: center;
+  font-family: "Space Grotesk";
+  margin-top: 55px;
+  width: 65%;
+
+  font-style: normal;
+  font-weight: 400;
+}
+
+#arrowDownWhite {
+  height: 5%;
+  margin-top: 40px;
+  border: 2px solid white;
+  border-radius: 100px;
+}
+
+#secondSection {
+  margin-top: 40px;
+}
+
+#secondSection img {
+  width: 80%;
+}
+
+/* Third Section  */
+
+#thirdSection h2 {
+  margin-bottom: 50px;
+}
+
+.wrapper {
+  margin-top: 1rem;
+  width: 90%;
+  max-width: 1536px;
+  margin-inline: auto;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0));
+}
+
+@keyframes scrollLeft {
+  to {
+    left: -100px;
+  }
+}
+
+@keyframes scrollRight {
+  to {
+    right: -50px;
+  }
+}
+
+.itemLeft,
+.itemRight {
+  height: 100px;
+  border-radius: 6px;
+  position: absolute;
+  animation-timing-function: linear;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemLeft {
+  left: max(calc(200px * 5), 100%);
+  animation-name: scrollLeft;
+}
+
+.itemRight {
+  right: max(calc(200px * 5), calc(100% + 200px));
+  animation-name: scrollRight;
+}
+
+.item1 {
+  animation-delay: calc(20s / 5 * (7 - 0) * -1);
+}
+
+.item2 {
+  animation-delay: calc(20s / 5 * (7 - 2) * -1);
+}
+
+.item3 {
+  animation-delay: calc(20s / 5 * (7 - 3) * -1);
+}
+
+.item4 {
+  animation-delay: calc(20s / 5 * (7 - 4) * -1);
+}
+
+.item5 {
+  animation-delay: calc(20s / 5 * (7 - 5) * -1);
+}
+
+.item6 {
+  animation-delay: calc(20s / 5 * (7 - 6) * -1);
+}
+
+.item7 {
+  animation-delay: calc(20s / 5 * (7 - 6.6) * -1);
+}
+
+#thirdSection h2 {
+  color: white;
+  font-family: "Space Grotesk";
+  font-size: 40px;
+  font-weight: 700;
+}
+
+/* End third section */
+
+/* Fourth Section */
+
+#fourthSection h2 {
+  color: white;
+  font-family: "Space Grotesk";
+  font-size: 40px;
+  font-weight: 700;
+
+  margin-bottom: 30px;
+}
+
+#fourthSection #subTitle {
+  color: white;
+  font-family: "Space Grotesk";
+  margin-bottom: 60px;
+  font-size: 20px;
+  width: 84%;
+  text-align: center;
+  font-weight: 200;
+}
+
+.featuresRow {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Fourth Section ends */
+
+#background2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../../assets/desktop/svg/landingBackground.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+/* Fifth Section */
+
+#fifthSection {
+  margin-top: 200px;
+}
+
+#fifthSection h2 {
+  color: white;
+  font-family: "Space Grotesk";
+  font-size: 40px;
+  font-weight: 700;
+
+  margin-bottom: 30px;
+}
+
+#fifthSection #subTitle {
+  color: white;
+  font-family: "Space Grotesk";
+  margin-bottom: 60px;
+  font-size: 20px;
+  width: 84%;
+  text-align: center;
+  font-weight: 200;
+}
+
+#customersOpinionCardsContainer {
+  width: 90%;
+  gap: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* End of Fifth section */
+#customersOpinionCardsContainer {
+  width: 90%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../../assets/desktop/svg/DashboardScreen.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+
+@media only screen and (max-width: 1200px) {
+  #firstSection h1 {
+    font-size: 70px;
+    margin-top: 60px;
+    width: 70%;
+    line-height: 90px;
+  }
+
+  #firstSection p {
+    font-size: 18px;
+    margin-top: 40px;
+  }
+
+  #arrowDownWhite {
+    width: 50px;
+    margin-top: 60px;
+  }
+
+  @keyframes scrollLeft {
+    to {
+      left: -500px;
     }
+  }
 
-    #landingPage section {
-        width: 100%;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
+  @keyframes scrollRight {
+    to {
+      right: -500px;
     }
+  }
 
-    #firstSection h1 {
-        font-size: 90px;
-        color: white;
-        text-align: center;
-        font-family: 'Space Grotesk';
-        margin-top: 60px;
-        width: 70%;
+  #thirdSection h2 {
+    font-size: 30px;
+  }
 
+  #fourthSection h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
 
-        font-style: normal;
-        font-weight: 600;
-        line-height: 107px;
-    }
+  #fourthSection #subTitle {
+    margin-bottom: 60px;
+    font-size: 16px;
+    width: 60%;
+  }
 
-    #firstSection p {
-        font-size: 18px;
-        color: #E1E1E1;
-        text-align: center;
-        font-family: 'Space Grotesk';
-        margin-top: 55px;
-        width: 65%;
+  #fifthSection {
+    margin-top: 80px;
+  }
 
-        font-style: normal;
-        font-weight: 400;
-    }
+  #fifthSection h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    width: 60%;
+    text-align: center;
+  }
 
-    #arrowDownWhite {
-        height: 5%;
-        margin-top: 40px;
-        border: 2px solid white;
-        border-radius: 100px;
-    }
+  #fifthSection #subTitle {
+    font-size: 16px;
+  }
 
-    #secondSection {
-        margin-top: 40px;
-    }
+  #customersOpinionCardsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
-    #secondSection img {
-        width: 80%;
-    }
+@media only screen and (max-width: 768px) {
+  .featuresRow {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
-    /* Third Section  */
+@media only screen and (max-width: 640px) {
+  #firstSection h1 {
+    font-size: 35px;
+    width: 60%;
+    line-height: 50px;
+  }
 
-    #thirdSection h2 {
-        margin-bottom: 50px;
-    }
+  #firstSection p {
+    font-size: 12px;
+    margin-top: 40px;
+  }
 
-    .wrapper {
-        margin-top: 1rem;
-        width: 90%;
-        max-width: 1536px;
-        margin-inline: auto;
-        height: 100px;
-        position: relative;
-        overflow: hidden;
-        mask-image: linear-gradient(to right,
-                rgba(0, 0, 0, 0),
-                rgba(0, 0, 0, 1) 20%,
-                rgba(0, 0, 0, 1) 80%,
-                rgba(0, 0, 0, 0));
-    }
+  #arrowDownWhite {
+    width: 30px;
+    margin-top: 40px;
+  }
 
-    @keyframes scrollLeft {
-        to {
-            left: -100px;
-        }
-    }
+  #thirdSection h2 {
+    font-size: 25px;
+  }
 
-    @keyframes scrollRight {
-        to {
-            right: -50px;
-        }
-    }
+  #fourthSection h2 {
+    font-size: 25px;
+  }
 
-    .itemLeft,
-    .itemRight {
-        height: 100px;
-        border-radius: 6px;
-        position: absolute;
-        animation-timing-function: linear;
-        animation-duration: 30s;
-        animation-iteration-count: infinite;
+  #fourthSection #subTitle {
+    font-size: 12px;
+  }
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  #fifthSection h2 {
+    font-size: 25px;
+  }
 
-    .itemLeft {
-        left: max(calc(200px * 5), 100%);
-        animation-name: scrollLeft;
-    }
-
-    .itemRight {
-        right: max(calc(200px * 5), calc(100% + 200px));
-        animation-name: scrollRight;
-    }
-
-    .item1 {
-        animation-delay: calc(20s / 5 * (7 - 0) * -1);
-    }
-
-    .item2 {
-        animation-delay: calc(20s / 5 * (7 - 2) * -1);
-    }
-
-    .item3 {
-        animation-delay: calc(20s / 5 * (7 - 3) * -1);
-    }
-
-    .item4 {
-        animation-delay: calc(20s / 5 * (7 - 4) * -1);
-    }
-
-    .item5 {
-        animation-delay: calc(20s / 5 * (7 - 5) * -1);
-    }
-
-    .item6 {
-        animation-delay: calc(20s / 5 * (7 - 6) * -1);
-    }
-
-    .item7 {
-        animation-delay: calc(20s / 5 * (7 - 6.6) * -1);
-    }
-
-    #thirdSection h2 {
-        color: white;
-        font-family: 'Space Grotesk';
-        font-size: 40px;
-        font-weight: 700;
-    }
-
-    /* End third section */
-
-    /* Fourth Section */
-
-    #fourthSection h2 {
-        color: white;
-        font-family: 'Space Grotesk';
-        font-size: 40px;
-        font-weight: 700;
-
-        margin-bottom: 30px;
-    }
-
-    #fourthSection #subTitle {
-        color: white;
-        font-family: 'Space Grotesk';
-        margin-bottom: 60px;
-        font-size: 20px;
-        width: 84%;
-        text-align: center;
-        font-weight: 200;
-    }
-
-    .featuresRow {
-        width: 90%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    /* Fourth Section ends */
-
-    #background2 {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-image: url('../../assets/desktop/svg/landingBackground.svg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        z-index: -1;
-    }
-
-
-    #fifthSection {
-        margin-top: 200px;
-
-    }
-
-    #fifthSection h2 {
-        color: white;
-        font-family: 'Space Grotesk';
-        font-size: 40px;
-        font-weight: 700;
-
-        margin-bottom: 30px;
-    }
-
-    #fifthSection #subTitle {
-        color: white;
-        font-family: 'Space Grotesk';
-        margin-bottom: 60px;
-        font-size: 20px;
-        width: 84%;
-        text-align: center;
-        font-weight: 200;
-    }
-
-    #customersOpinionCardsContainer {
-        width: 90%;
-
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    #background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-image: url('../../assets/desktop/svg/DashboardScreen.svg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        z-index: -1;
-    }
+  #fifthSection #subTitle {
+    font-size: 12px;
+  }
 }
