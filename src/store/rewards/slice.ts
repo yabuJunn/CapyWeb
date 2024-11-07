@@ -4,6 +4,11 @@ import { REWARDS_SLICE_NAME, DEFAULT_STATE_REWARDS } from "./constants";
 export const completeMissionThunk = createAsyncThunk(
     `${REWARDS_SLICE_NAME}/completeMission`,
     (missionId, { dispatch, getState }) => {
+
+        //LoGICA ACTUALIZAR FIREBASE
+        //Revisar los extra reducers
+
+
         const state = getState();
         const mission = state.rewards.missions.find(mission => mission.missionId === missionId);
         if (mission && !mission.completed) {
