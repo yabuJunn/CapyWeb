@@ -3,8 +3,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  width: 4.5vw;
   margin: 8% 0 0 0;
-  width: 5%;
 }
 
 .navContainer img {

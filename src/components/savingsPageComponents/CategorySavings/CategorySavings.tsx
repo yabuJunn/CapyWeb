@@ -53,7 +53,7 @@ export const CategorySavings = ({ chartData }: CategorySavingsProps) => {
 
     const totalSavings = React.useMemo(() => {
         return chartData.reduce((acc, curr) => acc + curr.savingValue, 0)
-    }, [])
+    }, [chartData])
 
     return <>
         <div id='categorySavings'>

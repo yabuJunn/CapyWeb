@@ -1,9 +1,10 @@
 import './MissionItem.css';
-import React from 'react';
+
 import { useDispatch } from 'react-redux';
-import { completeMission } from '../../../features/MissionsSlice';
+
 import logoWhite from '../../../assets/svg/logo/logoCapyMoneyWhite.svg';
 import logoBlack from '../../../assets/svg/logo/logoCapyMoneyBlack.svg';
+import { changeUserAccumulatedCapypoints, changeUserExpGained, changeUserGoalsCompleted } from '../../../store/rewards/slice';
 
 interface MissionItemProps {
     text: string;
@@ -11,6 +12,7 @@ interface MissionItemProps {
     backgroundColor: string;
     capyPointsDark: boolean;
     isCompleted: boolean;
+    //AgregarExp
 }
 
 export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark, isCompleted }: MissionItemProps) => {
@@ -18,7 +20,9 @@ export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark,
 
     const handleCompleteMission = () => {
         if (!isCompleted) {
-            dispatch(completeMission(Number(gainAmount)));
+            dispatch(changeUserExpGained(parseInt(gainAmount) * Math.random()))
+            dispatch(changeUserGoalsCompleted(1))
+            dispatch(changeUserAccumulatedCapypoints(parseInt(gainAmount)))
         }
     };
 

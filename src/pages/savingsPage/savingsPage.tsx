@@ -11,10 +11,23 @@ import { SavingGoalItemProps } from '../../components/savingsPageComponents/Savi
 import { useSelector } from 'react-redux'
 import { savingSliceType } from '../../store/savings/types'
 import { AddSavingGoalModal } from '../../components/savingsPageComponents/AddSavingGoalModal/AddSavingGoalModal'
+import { RootState } from '../../store/store'
+// import { changeUserExpGained } from '../../store/rewards/slice'
+// import { rewardsSliceType } from '../../store/rewards/types'
+// import { addIncome } from '../../store/incomes/slice'
 
 export const SavingsPage = () => {
 
-    const savingsData: savingSliceType = useSelector((state) => state.savings)
+    const addSavingModalBoolean: boolean = useSelector((state: RootState) => state.global.addSavingModal);
+    const savingsData: savingSliceType = useSelector((state: RootState) => state.savings)
+
+    //Pruebas redux
+
+    //const dispatch = useDispatch()
+
+    //const rewardsData: rewardsSliceType = useSelector((state) => state.rewards)
+
+    //Pruebas redux
 
     const chartData: Array<savingItemType> = []
     const savingsGoalsData: Array<SavingGoalItemProps> = []
@@ -39,54 +52,93 @@ export const SavingsPage = () => {
         }
     })
 
+    if (addSavingModalBoolean) {
 
-    return <>
-        <main className='page'>
+        return <>
+            <main className='page' id='savingPage'>
 
-            <AddSavingGoalModal></AddSavingGoalModal>
+                <AddSavingGoalModal></AddSavingGoalModal>
 
-            <div id='marginPage'>
-                <div id='TitleTextContainer'>
-                    <h1
-                    // onClick={() => {
-                    //     dispatch(addSaving({
-                    //         name: "prueba",
-                    //         color: "#F9F9F9",
-                    //         image: fireIconWhite,
-                    //         monthlySaving: 10,
-                    //         savingTotalFee: 100,
+                <div id='marginPageSavingPage'>
+                    <div id='TitleTextContainer'>
+                        <h1
+                            onClick={() => {
+                                //dispatch()
+                            }}
+                        >Savings</h1>
+                    </div>
 
-                    //     }))
-                    // }}
-                    >Savings</h1>
-                </div>
+                    <div id='ContentContainerSavings'>
+                        <GlobalAppNav></GlobalAppNav>
 
-                <div id='ContentContainerSavings'>
-                    <GlobalAppNav></GlobalAppNav>
+                        <div id='SavingsCardsContainer'>
+                            <div id='leftCardsContainer'>
+                                <div id='summarySavingsContainer'>
+                                    <GeneralSavings valueIncome={70} valueSavings={30} incomePercentage={'70%'} savingsPercentage={'30%'}></GeneralSavings>
 
-                    <div id='SavingsCardsContainer'>
-                        <div id='leftCardsContainer'>
-                            <div id='summarySavingsContainer'>
-                                <GeneralSavings valueIncome={70} valueSavings={30} incomePercentage={'70%'} savingsPercentage={'30%'}></GeneralSavings>
+                                    <CategorySavings chartData={chartData}></CategorySavings>
 
-                                <CategorySavings chartData={chartData}></CategorySavings>
+                                </div>
+
+                                <SavingsGoals savingsGoalsItemsArray={savingsGoalsData}></SavingsGoals>
 
                             </div>
 
-                            <SavingsGoals savingsGoalsItemsArray={savingsGoalsData}></SavingsGoals>
+                            <SavingsHistory savingsData={savingsData.savingsData}></SavingsHistory>
 
                         </div>
-
-                        <SavingsHistory savingsData={savingsData.savingsData}></SavingsHistory>
-
                     </div>
                 </div>
-            </div>
 
-            <div id='backgroundSavings'>
+                <div id='backgroundSavings'>
 
-            </div>
-        </main>
+                </div>
+            </main>
 
-    </>
+        </>
+    } else {
+        return <>
+            <main className='page' id='savingPage'>
+
+                <GlobalAppNav></GlobalAppNav>
+
+                <div id='marginPageSavingPage'>
+                    <div id='TitleTextContainer'>
+                        <h1
+                            onClick={() => {
+                                console.log("Prueba")
+                            }}
+                        >Savings</h1>
+                    </div>
+
+                    <div id='ContentContainerSavings'>
+
+                        <div id='SavingsCardsContainer'>
+                            <div id='leftCardsContainer'>
+                                <div id='summarySavingsContainer'>
+                                    <GeneralSavings valueIncome={70} valueSavings={30} incomePercentage={'70%'} savingsPercentage={'30%'}></GeneralSavings>
+
+                                    <CategorySavings chartData={chartData}></CategorySavings>
+
+                                </div>
+
+                                <SavingsGoals savingsGoalsItemsArray={savingsGoalsData}></SavingsGoals>
+
+                            </div>
+
+                            <SavingsHistory savingsData={savingsData.savingsData}></SavingsHistory>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id='backgroundSavings'>
+
+                </div>
+            </main>
+
+        </>
+    }
+
+
 }

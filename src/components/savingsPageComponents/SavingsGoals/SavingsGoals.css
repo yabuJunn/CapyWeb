@@ -37,6 +37,9 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+
+    background-color: #CCFC56;
+    border-radius: 0.5vw;
 }
 
 #savingsGoalsListContainer {

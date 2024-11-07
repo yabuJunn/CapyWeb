@@ -7,11 +7,16 @@ button {
     margin: 0;
 }
 
-.page {
+#savingPage {
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#marginPageSavingPage {
+    display: flex;
+    flex-direction: column;
 }
 
 #ContentContainerSavings {
@@ -19,14 +24,15 @@ button {
     width: 100%;
 }
 
-#TitleTextContainer {
+#marginPageSavingPage #TitleTextContainer {
     width: 100%;
     display: flex;
     flex-direction: column-reverse;
     margin-bottom: 2%;
+    margin-left: 0;
 }
 
-#TitleTextContainer h1 {
+#marginPageSavingPage #TitleTextContainer h1 {
     color: #F9F9F9;
     font-family: "Plus Jakarta Sans";
     font-size: 40px;
@@ -35,7 +41,6 @@ button {
     line-height: normal;
 
     width: 18.5%;
-    text-align: end;
 }
 
 #SavingsCardsContainer {

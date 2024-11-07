@@ -26,6 +26,25 @@
     justify-content: center;
 }
 
+#AddSavingGoalCloseModalButton {
+    position: relative;
+    left: 47%;
+    top: 3%;
+    border: 1px solid rgba(217, 217, 217, 0.36);
+    background: rgba(217, 217, 217, 0.36);
+    border-radius: 1vw;
+    width: 2.5%;
+    aspect-ratio: 1/1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#AddSavingGoalCloseModalButton img {
+    width: 100%;
+}
+
 #AddSavingGoalModalContainer h3 {
     color: var(--Primary-Base-White, #FFF);
 

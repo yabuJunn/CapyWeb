@@ -39,7 +39,7 @@ import nathalyMoon from '../../assets/png/nathalyMoon.png'
 export const LandingPage = () => {
 
     return <>
-        <main className='page'>
+        <main className='page' id='landingPage'>
             <section id='firstSection'>
                 <NavLanding></NavLanding>
                 <h1>Take Control of Your Finances with Capy</h1>
