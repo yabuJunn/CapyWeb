@@ -6,12 +6,12 @@ import { SaverLevelTitleDisplay } from '../SaverLevelTitleDisplay/SaverLevelTitl
 import { SaverLevelProgressBar } from '../SaverLevelProgressBar/SaverLevelProgressBar';
 
 export const SaverLevel = () => {
-  const { accumulatedCapypoints } = useSelector((state: RootState) => state.rewards.summary);
+  const accumulatedExp = useSelector((state: RootState) => state.rewards.userExpGained);
   const { saverLevels } = useSelector((state: RootState) => state.rewards);
 
   let currentLevelIndex = 0;
   for (let i = 0; i < saverLevels.length; i++) {
-    if (accumulatedCapypoints < saverLevels[i].expNecesary) {
+    if (accumulatedExp < saverLevels[i].expNecesary) {
       currentLevelIndex = i - 1;
       break;
     }
@@ -22,7 +22,7 @@ export const SaverLevel = () => {
   const currentLevel = saverLevels[currentLevelIndex];
   const nextLevel = saverLevels[currentLevelIndex + 1];
 
-  const experienceInCurrentLevel = accumulatedCapypoints - currentLevel.expNecesary;
+  const experienceInCurrentLevel = accumulatedExp - currentLevel.expNecesary;
   const experienceToNextLevel = nextLevel.expNecesary - currentLevel.expNecesary;
   const progressPercentage = (experienceInCurrentLevel / experienceToNextLevel) * 100;
 

@@ -1,5 +1,8 @@
 import React from 'react';
 import './RewardCard.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeUserAccumulatedCapypoints, redeemedExchange } from '../../../store/rewards/slice';
+import { RootState } from '../../../store/store';
 
 interface RewardCardProps {
     service: string;
@@ -11,8 +14,19 @@ interface RewardCardProps {
 }
 
 const RewardCard: React.FC<RewardCardProps> = ({ service, price, points, backgroundColor, imageSrc, id }) => {
+    const dispatch = useDispatch()
+    const userCapypoints = useSelector((state: RootState) => state.rewards.summary.accumulatedCapypoints);
+
     return <>
-        <div className="reward-card" style={{ backgroundColor }}>
+        <div className="reward-card" style={{ backgroundColor }} onClick={() => {
+            if (userCapypoints - points < points) {
+                console.log("Menor")
+            } else {
+                dispatch(redeemedExchange(id))
+                dispatch(changeUserAccumulatedCapypoints(-points));
+                //Agregar la accion que suma el dinero al balance general
+            }
+        }}>
 
             <img
                 src={imageSrc}

@@ -1,31 +1,31 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../store"; // Asegúrate de importar el tipo del estado raíz
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+//import { RootState } from "../store"; // Asegúrate de importar el tipo del estado raíz
 import { REWARDS_SLICE_NAME, DEFAULT_STATE_REWARDS } from "./constants";
-import { exchangeType, missionType, rewardsSliceType, saverLevelsNames } from "./types";
+import { rewardsSliceType, saverLevelsNames } from "./types";
 
-export const completeMissionThunk = createAsyncThunk(
-    `${REWARDS_SLICE_NAME}/completeMission`,
-    (missionId: number, { dispatch, getState }) => {
-        const state = getState() as RootState
-        const mission = state.rewards.missions.find((mission: missionType) => mission.missionId === missionId);
-        if (mission && !mission.completed) {
-            dispatch(changeUserExpGained(mission.missionCapypoints));
-            dispatch(completeMission(missionId));
-        }
-    }
-);
+// export const completeMissionThunk = createAsyncThunk(
+//     `${REWARDS_SLICE_NAME}/completeMission`,
+//     (missionId: number, { dispatch, getState }) => {
+//         const state = getState() as RootState
+//         const mission = state.rewards.missions.find((mission: missionType) => mission.missionId === missionId);
+//         if (mission && !mission.completed) {
+//             dispatch(changeUserExpGained(mission.missionCapypoints));
+//             dispatch(completeMission(missionId));
+//         }
+//     }
+// );
 
-export const redeemedExchangeThunk = createAsyncThunk(
-    `${REWARDS_SLICE_NAME}/redeemedExchange`,
-    (exchangeId: number, { dispatch, getState }) => {
-        const state = getState() as RootState; // Tipar 'state' como 'RootState'
-        const exchange = state.rewards.exchangeData.find((exchange: exchangeType) => exchange.exchangeId === exchangeId);
-        if (exchange && !exchange.isRedeemed) {
-            dispatch(changeUserExpGained(-exchange.redemptionCost));
-            dispatch(redeemedExchange(exchangeId));
-        }
-    }
-);
+// export const redeemedExchangeThunk = createAsyncThunk(
+//     `${REWARDS_SLICE_NAME}/redeemedExchange`,
+//     (exchangeId: number, { dispatch, getState }) => {
+//         const state = getState() as RootState; // Tipar 'state' como 'RootState'
+//         const exchange = state.rewards.exchangeData.find((exchange: exchangeType) => exchange.exchangeId === exchangeId);
+//         if (exchange && !exchange.isRedeemed) {
+//             dispatch(changeUserAccumulatedCapypoints(-exchange.redemptionCost));
+//             dispatch(redeemedExchange(exchangeId));
+//         }
+//     }
+// );
 
 export const rewardsSlice = createSlice({
     name: REWARDS_SLICE_NAME,
