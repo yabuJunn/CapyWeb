@@ -190,5 +190,9 @@
 
 #savingsHistoryContainer{
     width: 95%;
+
+}
+#savingsHistoryItemsContainer{
+    overflow-y: scroll;
 }
 }
