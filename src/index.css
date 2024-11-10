@@ -31,7 +31,6 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-height: 100vh;
 }
 
 /* Ocultar scrollbar */
@@ -51,7 +50,6 @@ a {
 
 .page {
   width: 100vw;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -59,6 +57,7 @@ a {
 /* Para que al cargar los fondos, no aparezca blanco atras */
 .backgroundPage {
   background-color: #030018;
+  height: 100vh;
 }
 
 @layer base {

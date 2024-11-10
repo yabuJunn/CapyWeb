@@ -1,26 +1,14 @@
 #registePageContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
     overflow: hidden;
 }
 
-.no-scroll {
-    overflow: hidden;
-}
-
-#Register {
-    position: absolute;
-    margin-top: 200px;
-    margin-left: 90px;
-    width: 40%;
-    overflow: hidden;
-}
-
-#Logo {
-    width: 51px;
-    height: 51px;
-    position: absolute;
-    top: 80px;
-    margin-left: 90px;
-    overflow: hidden;
+#RegisterImage {
+    margin-top: 9%;
 }
 
 #backgroundRegister {
@@ -34,6 +22,7 @@
     background-position: center;
     background-repeat: no-repeat;
     z-index: -1;
+    overflow: hidden;
 }
 
 @media only screen and (max-width: 500px) {

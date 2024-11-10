@@ -21,26 +21,19 @@ export const Register: React.FC = memo(() => {
     return () => window.removeEventListener('resize', handleResize);
   }, [handleResize]);
 
-  //useEffect para desactivar el scroll
-  useEffect(() => {
-    // Desactivar scroll cuando el componente esté montado
-    document.body.classList.add('no-scroll');
-
-    return () => {
-      // Restaurar el scroll cuando el componente se desmonte
-      document.body.classList.remove('no-scroll');
-    };
-  }, []);
-
-
   return (
     <main className='page' id='registePageContainer'>
-      <img id="Logo" src={Logo} alt="Logo de la aplicación" />
-      <img id="Register" src={vectorSrc} alt="Imagen de registro" loading="lazy" />
+      <div id='logoAndImageContainer'>
+        <div id='logoAndTextContainer'>
+          <img id="LogoImage" src={Logo} alt="Logo de la aplicación" />
+          <p>Capy</p>
+        </div>
+        <img id="RegisterImage" src={vectorSrc} alt="Imagen de registro" loading="lazy" />
+      </div>
 
       <CardRegister />
 
-      <div id='backgroundRegister'></div>
+      <div id='backgroundRegister' className='backgroundPage'></div>
     </main>
   );
 });
