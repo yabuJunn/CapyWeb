@@ -39,8 +39,8 @@ import nathalyMoon from '../../assets/desktop/png/nathalyMoon.png'
 export const LandingPage = () => {
   return (
     <>
-      <main className="page">
-        <section className="section-landing" id="firstSection">
+      <main className="page" id="landingPageContainer">
+        <section id="firstSection">
           <NavLanding></NavLanding>
           <h1>Take Control of Your Finances with Capy</h1>
           <p>
@@ -53,11 +53,11 @@ export const LandingPage = () => {
           <img src={arrowDownWhite} alt="" id="arrowDownWhite" />
         </section>
 
-        <section className="section-landing-mockup" id="secondSection">
+        <section id="secondSection">
           <img src={landingSecondSectionMockups} alt="" />
         </section>
 
-        <section className="section-landing" id="thirdSection">
+        <section id="thirdSection">
           <h2>Endless connections</h2>
           <div className="wrapper">
             <div className="itemLeft item1" id="bancolombia">
@@ -130,7 +130,7 @@ export const LandingPage = () => {
           </div>
         </section>
 
-        <section className="section-landing" id="fourthSection">
+        <section id="fourthSection">
           <h2>Unique features</h2>
           <p id="subTitle">
             Discover a range of innovative tools designed to simplify financial
@@ -179,7 +179,7 @@ export const LandingPage = () => {
           </div>
         </section>
 
-        <section className="section-landing" id="fifthSection">
+        <section id="fifthSection">
           <h2>What Our Customers Say</h2>
           <p id="subTitle">
             See how Capy has empowered users to take control of their finances.
@@ -218,10 +218,10 @@ export const LandingPage = () => {
           </div>
         </section>
 
-            <div id='background2'>
+        <div id='backgroundLandingPage' className="backgroundPage">
 
-            </div>
-        </main>
+        </div>
+      </main>
     </>
   );
 };

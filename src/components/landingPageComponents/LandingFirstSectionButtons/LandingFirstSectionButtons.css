@@ -1,10 +1,10 @@
-@font-face {
+/* @font-face {
   font-family: "Plus Jakarta";
   src: url("../../../assets/TempFonts/PlusJakartaSans-VariableFont_wght.ttf")
     format("truetype");
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 #LoginRegisterButtonsContainer {
   display: flex;
@@ -33,6 +33,13 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#createAccountButton:hover {
+  color: #2d18bf;
+  background-color: #f9f9f9;
 }
 
 #logInButton {
@@ -55,6 +62,13 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#logInButton:hover {
+  color: #f9f9f9;
+  background-color: #2d18bf;
 }
 
 @media only screen and (max-width: 640px) {
@@ -70,6 +84,7 @@
     font-size: 15px;
     padding: 0 15px 0 15px;
   }
+
   #createAccountButton {
     height: 40px;
     font-size: 15px;

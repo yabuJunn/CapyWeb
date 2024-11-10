@@ -1,38 +1,17 @@
-@font-face {
-  font-family: "Space Grotesk";
-  src: url("../../assets/TempFonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+#landingPageContainer {
+  /* Toca colocarle esta margen por ahora para que baje el contenido y se muestre */
+  margin-top: 410vh;
 }
 
-@font-face {
-  font-family: "Plus Jakarta";
-  src: url("../../assets/TempFonts/PlusJakartaSans-VariableFont_wght.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+/* First Section  */
 
-.page {
-  width: 100vw;
-  height: 100vh;
-}
-
-.section-landing {
+#landingPageContainer section {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 50px;
-}
-
-#landingPage section-landing-mockup {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 90px;
+  justify-content: center;
+  margin-bottom: 10vh;
 }
 
 #firstSection h1 {
@@ -66,13 +45,25 @@
   border-radius: 100px;
 }
 
+/* End of First Section  */
+
+/* Second Section  */
+
 #secondSection {
   margin-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 90px;
 }
 
 #secondSection img {
   width: 80%;
 }
+
+/* End of Second Section  */
 
 /* Third Section  */
 
@@ -199,23 +190,10 @@
 
 /* Fourth Section ends */
 
-#background2 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('../../assets/desktop/svg/landingBackground.svg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -1;
-}
-
 /* Fifth Section */
 
 #fifthSection {
-  margin-top: 200px;
+  height: 100vh;
 }
 
 #fifthSection h2 {
@@ -239,6 +217,7 @@
 
 #customersOpinionCardsContainer {
   width: 90%;
+  height: 45%;
   gap: 20px;
   display: flex;
   flex-direction: row;
@@ -246,7 +225,6 @@
   align-items: center;
 }
 
-/* End of Fifth section */
 #customersOpinionCardsContainer {
   width: 90%;
 
@@ -256,18 +234,23 @@
   align-items: center;
 }
 
-#background {
+/* End of Fifth section */
+
+#backgroundLandingPage {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('../../assets/desktop/svg/DashboardScreen.svg');
+  background-image: url('../../assets/desktop/svg/landingBackground.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   z-index: -1;
+
 }
+
+/* Responsive */
 
 
 @media only screen and (max-width: 1200px) {
