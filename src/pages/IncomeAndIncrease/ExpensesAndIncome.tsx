@@ -154,7 +154,7 @@ export const ExpensesAndIncomePage = () => {
 
 
   return (
-    <main className="page">
+    <main className="page" id="expensesAndIncomePage">
       <h1>Expenses & Income</h1>
 
       <GlobalAppNav></GlobalAppNav>
