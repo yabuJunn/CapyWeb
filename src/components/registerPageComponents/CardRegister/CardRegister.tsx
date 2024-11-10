@@ -104,7 +104,7 @@ function CardRegister() {
           checked={acceptTerms}
           onChange={() => setAcceptTerms(!acceptTerms)}
         />
-        <h3 id="Check">I accept the <a href="">terms</a> and <a href="">conditions</a></h3>
+        <p id="CheckText">I accept the <span >terms</span> and <span>conditions</span></p>
       </div>
 
       <button onClick={handleRegister}>Sign Up</button>
@@ -115,7 +115,7 @@ function CardRegister() {
           <p>Sign Up with Google</p>
         </div>
       </div>
-      <h3 id="CrearCuenta">Already have an account? <a onClick={() => { handleNavigation.navigateToLogin() }}>Sign In</a></h3>
+      <h3 id="CrearCuenta">Already have an account? <span onClick={() => { handleNavigation.navigateToLogin() }}>Sign In</span></h3>
     </div>
   );
 }

@@ -12,21 +12,13 @@
   font-style: normal;
 }
 
-body,
-html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Space Grotesk', sans-serif;
-  height: 100%;
-}
-
 .Register {
-  justify-content: end;
+  justify-content: start;
   display: flex;
   flex-direction: column;
   align-items: baselineç;
   width: 25%;
-  height: 47.83%;
+  height: 90vh;
   padding: 2% 2%;
   color: white;
   background-color: #2D18BF;
@@ -43,38 +35,22 @@ html {
 }
 
 .Register h1 {
-  font-size: 3vw;
+  font-size: 2.5vw;
   font-weight: bold;
   line-height: 1.2;
-  font-size: 56px;
   text-align: center;
 }
 
-.Register-left .highlight {
-  background-color: #d2ff00;
-  color: #1f1f1f;
-  padding: 2px 8px;
-  border-radius: 5px;
-}
-
-/* Contenedor del formulario de inicio de sesión */
-.Register-container {
-  width: 35%;
-  background-color: #2a2d54;
-  border-radius: 20px;
-  padding: 5% 8%;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-}
-
-.Register-container h1 {
-  font-size: 2vw;
-  margin-bottom: 10%;
-  text-align: center;
+.Register h3 {
+  margin: 2% 0 0.5% 0;
+  color: #d2d2d2;
+  text-align: left;
+  font-size: 18px;
 }
 
 .Register input {
   width: 94%;
-  padding: 2.5%;
+  padding: 2%;
   margin-bottom: 2%;
   border-radius: 5px;
   border: none;
@@ -102,17 +78,13 @@ html {
   font-size: 20px;
   font-style: normal;
   font-weight: 900;
+
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.Register-container button:hover {
-  background-color: #A8F25D;
-}
-
-.Register h3 {
-  margin: 3% 0;
-  color: #d2d2d2;
-  text-align: left;
-  font-size: 18px;
+.Register button:hover {
+  color: #2d18bf;
+  background-color: #f9f9f9;
 }
 
 .Register-container a {
@@ -149,27 +121,32 @@ html {
   font-weight: 400;
 }
 
-#Check {
+#terminos {
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  align-items: center;
+  margin-left: 2%;
+}
+
+#CheckText {
   margin-top: 10px;
   text-align: left;
   font-size: 16.5px;
   font-weight: 400;
 }
 
-#terminos {
-  display: flex;
-  justify-content: flex-start; 
-    text-align: left;
-    margin-left: 2%; 
+#CheckText span {
+  font-weight: 700;
 }
 
 #terminos input[type="checkbox"] {
-  width: 6%; 
-  height: 6%;
+  width: 1vw;
+  height: 1vw;
   margin: 0;
-  margin-top: 4%;
+  margin-top: 2%;
+  margin-right: 0.5vw;
 }
-
 
 #signUpGoogleContainer {
   width: 100%;
@@ -187,10 +164,10 @@ html {
 
 #signUpGoogleContainer p {
   font-size: 16px;
-} 
+}
 
 #signUpGoogleContainer p {
-  margin-top: 10px;
+  margin: 10px;
 }
 
 #googleIconContainer {
@@ -200,6 +177,9 @@ html {
   width: 100%;
 
   cursor: pointer;
+  background-color: #f9f9f9e6;
+  border-radius: 10px;
+  padding: 0.5vh;
 }
 
 #googleIconContainer img {
@@ -209,6 +189,16 @@ html {
 
 #googleIconContainer p {
   margin: 0;
+  color: #2d18bf;
+}
+
+#CrearCuenta span {
+  color: var(--Primary-Base-White, #FFF);
+  font-family: "Space Grotesk";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 
@@ -233,7 +223,7 @@ html {
     text-align: center;
   }
 
-  
+
   .Register h3 {
     margin: 3% 0% 2% 2%;
     color: #F9F9F9;
@@ -277,7 +267,7 @@ html {
     color: rgba(212, 212, 212, 0.986);
   }
 
- 
+
   button {
     margin: 5% auto 0;
     margin-top: 10px;
@@ -293,20 +283,21 @@ html {
     font-weight: 900;
   }
 
-  .Register-container a, .Register-container p {
+  .Register-container a,
+  .Register-container p {
     font-size: 0.875rem;
     color: #A8F25D;
     text-align: center;
   }
 
   #terminos {
-    justify-content: flex-start; 
+    justify-content: flex-start;
     text-align: left;
-    margin-left: 2%; 
-}
+    margin-left: 2%;
+  }
 
   #terminos input[type="checkbox"] {
-    width: 6%; 
+    width: 6%;
     height: 6%;
     margin: 0;
     margin-top: 4%;
@@ -322,6 +313,6 @@ html {
 
   #signUpGoogleContainer p {
     font-size: 12px;
-  } 
+  }
 
 }

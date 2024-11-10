@@ -1,15 +1,26 @@
-#Register{
+#registePageContainer {
+    overflow: hidden;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+#Register {
     position: absolute;
     margin-top: 200px;
     margin-left: 90px;
     width: 40%;
+    overflow: hidden;
 }
-#Logo{
+
+#Logo {
     width: 51px;
     height: 51px;
     position: absolute;
     top: 80px;
     margin-left: 90px;
+    overflow: hidden;
 }
 
 #backgroundRegister {
@@ -33,11 +44,11 @@
         padding: 10px;
         width: auto;
     }
-    
+
     #Logo {
-        display: none; 
+        display: none;
     }
-    
+
     #backgroundRegister {
         background-image: url('../../assets/mobile/svg/SignUp.svg');
         background-size: cover;
