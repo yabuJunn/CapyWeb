@@ -1,15 +1,41 @@
-#LogIn {
-    position: absolute;
-    margin-top: 200px;
-    margin-left: 90px;
+#logInPageContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
 }
 
-#Logo {
-    width: 90px;
-    height: 90px;
-    position: fixed;
-    top: 80px;
-    margin-left: 90px;
+#logoAndImageContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    margin-left: 5%;
+}
+
+#logoAndTextContainer {
+    display: flex;
+    align-items: center;
+    height: 10%;
+}
+
+#logoAndTextContainer p {
+    color: var(--Primary-Base-White, #FFF);
+    font-family: "Space Grotesk";
+    font-size: 39.887px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#LogoImage {
+    height: 100%;
+    margin-right: 3%;
+}
+
+#LogInImage {
+    margin-top: 9%;
 }
 
 #backgroundLogIn {
@@ -33,11 +59,11 @@
         padding: 10px;
         width: auto;
     }
-    
+
     #Logo {
-        display: none; 
+        display: none;
     }
-    
+
     #backgroundLogIn {
         background-image: url('../../assets/mobile/svg/SignUp.svg');
         background-size: cover;

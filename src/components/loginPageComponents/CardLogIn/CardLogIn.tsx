@@ -63,8 +63,8 @@ function CardLogIn() {
     }
   };
 
-  return (
-    <div className='LogIn'>
+  return <>
+    <div className='LogIn' id='cardLogin'>
       <h1>Sign In</h1>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
@@ -75,6 +75,7 @@ function CardLogIn() {
         placeholder='Enter your email'
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        className='inputLogInData'
       />
 
       <h3>Password</h3>
@@ -83,10 +84,11 @@ function CardLogIn() {
         placeholder='Enter your password'
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        className='inputLogInData'
       />
 
-      <a>I don't remember my password</a>
-      <button id='ButtonLogin' onClick={handleLoginEmail}>Accept</button>
+      <p id='forgotPasswordText'>Forgot your password?</p>
+      <button id='ButtonLogin' onClick={handleLoginEmail}>Log In</button>
       <div id="signUpGoogleContainer">
         <p>Or</p>
         <div id="googleIconContainer" onClick={handleGoogleLogin}>
@@ -95,9 +97,9 @@ function CardLogIn() {
         </div>
       </div>
 
-      <h3 id="Cuenta">Don't have an account? <a onClick={handleNavigation.navigateToRegister}>Register now</a></h3>
+      <p id="Cuenta">Don't have an account? <span onClick={handleNavigation.navigateToRegister}>Register now</span></p>
     </div>
-  );
+  </>
 }
 
 export default CardLogIn;
