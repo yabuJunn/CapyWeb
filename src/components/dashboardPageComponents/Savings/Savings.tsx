@@ -29,11 +29,21 @@ export const Savings = () => {
               textSize: '14px',
             })}
             strokeWidth={15}
-
           />
-          <p>Incomes:   78%</p>
-          <p>Savings:  22%</p>
+        </div>
 
+        <div id='savingsCircularProgressHints'>
+          <div className='hintContainer'>
+            <div className='colorHint' style={{ backgroundColor: '#2D18BF' }}></div>
+            <p>Income</p>
+            <p>{70}%</p>
+          </div>
+
+          <div className='hintContainer'>
+            <div className='colorHint' style={{ backgroundColor: '#A8F25D' }}></div>
+            <p>Savings</p>
+            <p>{30}%</p>
+          </div>
         </div>
       </div>
     </>

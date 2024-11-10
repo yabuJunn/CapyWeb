@@ -12,7 +12,8 @@ import { Expenses } from "../Expenses/Expenses";
 import { ComparationGraphic } from "../ComparationGraphic/ComparationGraphic";
 import { Savings } from "../Savings/Savings";
 import { SaverLevel } from "../../RewardsPageComponents/SaverLevel/SaverLevel";
-import { Missions } from "../Missions/Missions";
+// import { Missions } from "../Missions/Missions";
+import { Missions } from "../../RewardsPageComponents/Missions/Missions";
 import { Capy } from "../Capy/Capy";
 
 export const InteractiveGrid = () => {
@@ -23,31 +24,49 @@ export const InteractiveGrid = () => {
   return <>
     <div id="gridContainer" className="grid-stack">
       <div className="grid-stack-item" gs-h="2" gs-w="4">
-        <TotalBalance></TotalBalance>
+        <div className="grid-item-content">
+          <TotalBalance></TotalBalance>
+        </div>
       </div>
       <div className="grid-stack-item" gs-h="1" gs-w="3">
-        <Income></Income>
+        <div className="grid-item-content">
+          <Income></Income>
+        </div>
       </div>
       <div className="grid-stack-item" gs-h="2" gs-w="2">
-        <Capy></Capy>
+        <div className="grid-item-content">
+          <Capy></Capy>
+        </div>
       </div>
       <div className="grid-stack-item" gs-h="8" gs-w="3">
-        <CardsSpace></CardsSpace>
+        {/* <div className="grid-item-content"> */}
+          <CardsSpace></CardsSpace>
+        {/* </div> */}
       </div>
       <div className="grid-stack-item" gs-h="1" gs-w="3">
-        <Expenses></Expenses>
+        <div className="grid-item-content">
+          <Expenses></Expenses>
+        </div>
       </div>
       <div className="grid-stack-item" gs-h="3" gs-w="6">
-        <ComparationGraphic></ComparationGraphic>
+        <div className="grid-item-content">
+          <ComparationGraphic></ComparationGraphic>
+        </div>
       </div>
       <div className="grid-stack-item" gs-h="3" gs-w="3">
-        <Savings></Savings>
+        <div className="grid-item-content">
+          <Savings></Savings>
+        </div>
       </div>
       <div className="grid-stack-item" gs-h="3" gs-w="5">
-        <SaverLevel></SaverLevel>
+        <div className="grid-item-content">
+          <SaverLevel></SaverLevel>
+        </div>
       </div>
       <div className="grid-stack-item" gs-h="3" gs-w="4">
-        <Missions></Missions>
+        <div className="grid-item-content">
+          <Missions></Missions>
+        </div>
       </div>
     </div>
   </>

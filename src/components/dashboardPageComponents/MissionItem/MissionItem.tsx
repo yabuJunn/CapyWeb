@@ -12,6 +12,8 @@ interface MissionItemProps {
 }
 
 export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark, isCompleted }: MissionItemProps) => {
+    console.log('Prueba')
+
     if (isCompleted) {
         if (!capyPointsDark) {
             return <>
@@ -21,8 +23,8 @@ export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark,
                     <div className='MissionCapyPoints ligth' style={{ backgroundColor: backgroundColor }}>
                         <img src={logoWhite} alt="" />
                         <div className='CapyPointsAmount' >
-                            <p className='Capypoints'>Completed</p>
-                            <p className='Gain'>+{gainAmount}</p>
+                            <p className='Capypoints lightTex'>Completed</p>
+                            <p className='Gain lightTex'>+{gainAmount}</p>
                         </div>
                     </div>
                 </div>
@@ -36,8 +38,8 @@ export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark,
                 <div className='MissionCapyPoints' style={{ backgroundColor: backgroundColor }}>
                     <img src={logoBlack} alt="" />
                     <div className='CapyPointsAmount dark' >
-                        <p className='Capypoints'>Completed</p>
-                        <p className='Gain'>+{gainAmount}</p>
+                        <p className='Capypoints darkText'>Completed</p>
+                        <p className='Gain darkText'>+{gainAmount}</p>
                     </div>
                 </div>
             </div>
@@ -52,8 +54,8 @@ export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark,
                     <div className='MissionCapyPoints ligth' style={{ backgroundColor: backgroundColor }}>
                         <img src={logoWhite} alt="" />
                         <div className='CapyPointsAmount' >
-                            <p className='Capypoints'>Capypoints</p>
-                            <p className='Gain'>+{gainAmount}</p>
+                            <p className='Capypoints lightTex'>Capypoints</p>
+                            <p className='Gain lightText'>+{gainAmount}</p>
                         </div>
                     </div>
                 </div>
@@ -67,8 +69,8 @@ export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark,
                 <div className='MissionCapyPoints' style={{ backgroundColor: backgroundColor }}>
                     <img src={logoBlack} alt="" />
                     <div className='CapyPointsAmount dark' >
-                        <p className='Capypoints'>Capypoints</p>
-                        <p className='Gain'>+{gainAmount}</p>
+                        <p className='Capypoints darkText'>Capypoints</p>
+                        <p className='Gain darkText'>+{gainAmount}</p>
                     </div>
                 </div>
             </div>
