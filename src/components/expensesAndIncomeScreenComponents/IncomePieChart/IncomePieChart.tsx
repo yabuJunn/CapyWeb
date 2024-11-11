@@ -1,19 +1,56 @@
 import * as React from "react";
-/*import { TrendingUp } from "lucide-react";*/
 import { Label, Pie, PieChart } from "recharts";
-import { ExpenseData } from "../ExpensesGraphic/ExpensesGraphic";
+import { useState } from "react";
 
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "../../../ui/chart";
-import "./PieChart2.css";
+} from "../../ui/chart";
 
-interface PieChart2Props {
-  data: ExpenseData[];
+import "./IncomePieChart.css";
+
+export interface incomePieType {
+  incomePieName: string;
+  incomePieValue: number;
+  pieFill: string;
+  piePercentage: string;
 }
+
+const chartData = [
+  { browser: "NU", visitors: 533000, fill: "#2d18bf" },
+  { browser: "MasterCard", visitors: 102000, fill: "#a8f25d" },
+  { browser: "Visa", visitors: 26500, fill: "#f2622e" },
+  { browser: "Other", visitors: 12500, fill: "#c4c4c4" },
+];
+
+const chartData2 = [
+  { browser: "NU", visitors: 45446, fill: "#2d18bf" },
+  { browser: "MasterCard", visitors: 100570, fill: "#a8f25d" },
+  { browser: "Visa", visitors: 127544, fill: "#f2622e" },
+  { browser: "Other", visitors: 2577, fill: "#c4c4c4" },
+];
+
+const totalVisitors1 = chartData.reduce(
+  (total, data) => total + data.visitors,
+  0
+);
+
+const totalVisitors2 = chartData2.reduce(
+  (total, data) => total + data.visitors,
+  0
+);
+
+const chartDataWithPercentage = chartData.map((data) => ({
+  ...data,
+  percentage: Math.round((data.visitors / totalVisitors1) * 100),
+}));
+
+const chartDataWithPercentage2 = chartData2.map((data) => ({
+  ...data,
+  percentage: Math.round((data.visitors / totalVisitors2) * 100),
+}));
 
 const chartConfig = {
   visitors: {
@@ -37,20 +74,22 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export const PieChart2: React.FC<PieChart2Props> = ({ data }) => {
-  /*
+export function IncomePieChart() {
   const [selectedOption, setSelectedOption] = useState("July");
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(event.target.value);
   };
 
-  const chartDataOptions = selectedOption === "July" ? chartData : chartData2;
-  */
+  
+  const chartDataOptions =
+    selectedOption === "July"
+      ? chartDataWithPercentage
+      : chartDataWithPercentage2;
 
   const totalVisitors = React.useMemo(() => {
-    return data.reduce((acc, curr) => acc + curr.totalAmount, 0);
-  }, [data]);
+    return chartDataOptions.reduce((acc, curr) => acc + curr.visitors, 0);
+  }, [chartDataOptions]);
 
   return (
     <div className="pie-card-container">
@@ -64,9 +103,9 @@ export const PieChart2: React.FC<PieChart2Props> = ({ data }) => {
             content={<ChartTooltipContent hideLabel />}
           />
           <Pie
-            data={data}
-            dataKey="percentage"
-            nameKey="category"
+            data={chartDataOptions}
+            dataKey="incomePieValue"
+            nameKey="incomePieName"
             innerRadius={60}
             strokeWidth={5}
           >
@@ -93,7 +132,7 @@ export const PieChart2: React.FC<PieChart2Props> = ({ data }) => {
                         y={(viewBox.cy || 0) + 24}
                         className="fill-white"
                       >
-                        Expenses
+                        Income
                       </tspan>
                     </text>
                   );
@@ -104,21 +143,26 @@ export const PieChart2: React.FC<PieChart2Props> = ({ data }) => {
         </PieChart>
       </ChartContainer>
       <div className="pie-card-right">
-        <select className="select-expenses-pie" name="" id="">
+        <select
+          className="select-expenses-pie"
+          name=""
+          id=""
+          onChange={handleSelectChange}
+        >
           <option value="July">July</option>
-          <option value="Igresos">August</option>
+          <option value="Agosto">August</option>
         </select>
         <ul className="container-info-pie-chart">
-          {/*   {chartDataOptions.map((data, index) => (
+          {chartDataOptions.map((data, index) => (
             <li key={index} className="info-pie-chart-color">
               <div>
                 <div
                   className={`ball-name-chart ${
-                    data.browser === "Home"
+                    data.browser === "NU"
                       ? "ball-name-chart-color1"
-                      : data.browser === "Market"
+                      : data.browser === "Visa"
                       ? "ball-name-chart-color2"
-                      : data.browser === "Clothes"
+                      : data.browser === "MasterCard"
                       ? "ball-name-chart-color3"
                       : data.browser === "Other"
                       ? "ball-name-chart-color4"
@@ -129,9 +173,9 @@ export const PieChart2: React.FC<PieChart2Props> = ({ data }) => {
               </div>
               {data.percentage}%
             </li>
-          ))} */}
+          ))}
         </ul>
       </div>
     </div>
   );
-};
+}

@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import PlannerIcon from "../../../../../src/assets/desktop/svg/PlannerIcon.svg";
-import NuCardIcon from "../../../../../src/assets/desktop/svg/nu.svg";
-import VisaCardIcon from "../../../../../src/assets/desktop/svg/visa.svg";
-import FalabellaCardIcon from "../../../../../src/assets/desktop/svg/falabella.svg";
-import NequiCardIcon from "../../../../../src/assets/desktop/svg/nequi.svg";
-import HomeIcon from "../../../../../src/assets/desktop/svg/home.svg";
-import MarketIcon from "../../../../../src/assets/desktop/svg/shopping-cart.svg";
-import ClothesIcon from "../../../../../src/assets/desktop/svg/shopping-bag.svg";
+import PlannerIcon from "../../../../src/assets/desktop/svg/PlannerIcon.svg";
+import NuCardIcon from "../../../../src/assets/desktop/svg/nu.svg";
+import VisaCardIcon from "../../../../src/assets/desktop/svg/visa.svg";
+import FalabellaCardIcon from "../../../../src/assets/desktop/svg/falabella.svg";
+import NequiCardIcon from "../../../../src/assets/desktop/svg/nequi.svg";
+import HomeIcon from "../../../../src/assets/desktop/svg/home.svg";
+import MarketIcon from "../../../../src/assets/desktop/svg/shopping-cart.svg";
+import ClothesIcon from "../../../../src/assets/desktop/svg/shopping-bag.svg";
 
 import './ExpensePlanner.css';
 

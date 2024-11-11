@@ -7,7 +7,7 @@ import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "../../../ui/chart";
+} from "../../ui/chart";
 
 export const description = "A simple area chart";
 

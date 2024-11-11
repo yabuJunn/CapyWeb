@@ -1,10 +1,10 @@
-import { ExpensesGraphic } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/ExpensesGraphic/ExpensesGraphic";
-import { IncomesGraphic } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/IncomesGraphic/IncomesGraphic";
-import { ExpensePlanner } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/ExpensePlanner/ExpensePlanner";
-import { History } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/History/History";
-import { PieChart2 } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/PieChart2/PieChart2";
-import { IncomePieChart } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/IncomePieChart/IncomePieChart";
-import { IncomeHistory } from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/IncomeHistory/IncomeHistory";
+import { ExpensesGraphic } from "../../components/expensesAndIncomeScreenComponents/ExpensesGraphic/ExpensesGraphic";
+import { IncomesGraphic } from "../../components/expensesAndIncomeScreenComponents/IncomesGraphic/IncomesGraphic";
+import { ExpensePlanner } from "../../components/expensesAndIncomeScreenComponents/ExpensePlanner/ExpensePlanner";
+import { History } from "../../components/expensesAndIncomeScreenComponents/History/History";
+import { PieChart2 } from "../../components/expensesAndIncomeScreenComponents/PieChart2/PieChart2";
+import { IncomePieChart } from "../../components/expensesAndIncomeScreenComponents/IncomePieChart/IncomePieChart";
+import { IncomeHistory } from "../../components/expensesAndIncomeScreenComponents/IncomeHistory/IncomeHistory";
 import {
   realExpenseType,
   realIncomeType,
@@ -14,7 +14,7 @@ import {
 import {
   ExpenseData,
   CategoryPercentage,
-} from "../../components/dashboardPageComponents/expensesAndIncomeScreenComponents/ExpensesGraphic/ExpensesGraphic";
+} from "../../components/expensesAndIncomeScreenComponents/ExpensesGraphic/ExpensesGraphic";
 import "./ExpensesAndIncome.css";
 import { useState, useEffect } from "react";
 import { GlobalAppNav } from "../../components/Nav/Nav";
