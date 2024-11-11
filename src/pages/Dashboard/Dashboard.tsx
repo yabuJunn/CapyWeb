@@ -50,7 +50,7 @@ export const Dashboard = () => {
                 </div>
             </div>
 
-            <div id='backgroundDashboard'>
+            <div id='backgroundDashboard' className='backgroundPage'>
 
             </div>
         </main>

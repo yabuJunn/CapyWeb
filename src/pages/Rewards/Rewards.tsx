@@ -33,7 +33,7 @@ export const Rewards: React.FC = () => {
         <RewardGrid></RewardGrid>
       </div>
 
-      <div id='backgroundReward'>
+      <div id='backgroundReward' className='backgroundPage'>
 
       </div>
     </main>

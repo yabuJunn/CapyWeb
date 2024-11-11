@@ -146,7 +146,7 @@ export const SavingsPage = () => {
                     </div>
                 </div>
 
-                <div id='backgroundSavings'>
+                <div id='backgroundSavings' className='backgroundPage'>
 
                 </div>
             </main>

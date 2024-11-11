@@ -15,7 +15,7 @@ export const LogIn = () => {
       </div>
       <CardLogIn />
 
-      <div id='backgroundLogIn'>
+      <div id='backgroundLogIn' className='backgroundPage'>
 
       </div>
     </div>
