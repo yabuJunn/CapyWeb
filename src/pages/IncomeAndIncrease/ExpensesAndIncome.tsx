@@ -10,6 +10,8 @@ import {
   realIncomeType,
   expensesData,
   incomesData,
+  expensesSliceType,
+  expenseNameCategories,
 } from "./dataIncomeAndExpense";
 import {
   ExpenseData,
@@ -113,28 +115,76 @@ function calculateIncomesData(incomes: Array<realIncomeType>) {
   return result;
 }
 
+export interface expenseCategoryType {
+  totalCategoryExpenses: number,
+  categoryMappedData: Array<{
+    expenseCategoryName: expenseNameCategories,
+    expenseCategoryValue: number,
+    fill: string,
+    expensePercentage: number
+  }>
+}
+
+const calculateExpensesCategorty = (realExpensesData: Array<realExpenseType>) => {
+  const categoryExpensesData: expenseCategoryType = {
+    totalCategoryExpenses: 0,
+    categoryMappedData: []
+  }
+
+  //Calculate totalCategoryExpenses
+  realExpensesData.forEach((expenseItem) => {
+    categoryExpensesData.totalCategoryExpenses += expenseItem.expenseAmount
+  })
+
+  //Calculate each category expenses amount
+  realExpensesData.forEach((expenseItem) => {
+    const foundCategoryExpensed = categoryExpensesData.categoryMappedData.find(categoryMapped => categoryMapped.expenseCategoryName === expenseItem.expenseCategory)
+    if (!foundCategoryExpensed) {
+      categoryExpensesData.categoryMappedData.push({
+        expenseCategoryName: expenseItem.expenseCategory,
+        expenseCategoryValue: expenseItem.expenseAmount,
+        fill: expenseItem.expenseColor,
+        expensePercentage: 0
+      })
+    } else {
+      categoryExpensesData.categoryMappedData[categoryExpensesData.categoryMappedData.indexOf(foundCategoryExpensed)].expenseCategoryValue += expenseItem.expenseAmount
+    }
+  });
+
+  //Calculates each category expenses percetage of the total
+  categoryExpensesData.categoryMappedData.forEach((categoryMappedExpense) => {
+    categoryMappedExpense.expensePercentage = (100 * categoryMappedExpense.expenseCategoryValue) / categoryExpensesData.totalCategoryExpenses
+  })
+
+  return categoryExpensesData
+}
+
 export const ExpensesAndIncomePage = () => {
   const [selectedOption, setSelectedOption] = useState("Gastos");
   const [expenseResults, setExpenseResults] = useState<ExpenseData[]>([]);
   const [incomeResults] = useState<ExpenseData[]>([]);
+  const [expenseCategory, setExpenseCategoryType] = useState<expenseCategoryType>({ totalCategoryExpenses: 0, categoryMappedData: [] })
+
 
   useEffect(() => {
     const expenseResults = calculateExpensesData(expensesData.realExpenses);
-    console.log("Gastos por mes:", expenseResults);
+    // console.log("Gastos por mes:", expenseResults);
     setExpenseResults(expenseResults);
-    console.log(expenseResults);
+    // console.log(expenseResults);
 
     const incomeResults = calculateIncomesData(incomesData.realIncomes);
     //setIncomeResults(incomeResults);
-    console.log(incomeResults);
+    // console.log(incomeResults);
 
+    const expensesCategoryResult = calculateExpensesCategorty(expensesData.realExpenses)
+    setExpenseCategoryType(expensesCategoryResult)
   }, []);
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(event.target.value);
   };
 
-  const mappedExpenseResults = expenseResults.map((result) => ({
+  const mappedExpensesGraphicData = expenseResults.map((result) => ({
     month: result.month,
     totalAmount: result.totalAmount,
     categoryPercentages: result.categoryPercentages.map(
@@ -145,14 +195,16 @@ export const ExpensesAndIncomePage = () => {
     ),
   }));
 
-  console.log(mappedExpenseResults);
+  // const mappedExpensesPieChart = 
+
+  // console.log("mappedExpenseResults", mappedExpenseResults);
 
   const mappedIncomeResults = incomeResults.map((result) => ({
     month: result.month,
     totalAmount: result.totalAmount,
   }));
 
-
+  console.log(expenseCategory)
   return (
     <main className="page" id="expensesAndIncomePage">
       <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
@@ -178,14 +230,14 @@ export const ExpensesAndIncomePage = () => {
                 }`}
             >
               {selectedOption === "Gastos" ? (
-                <ExpensesGraphic data={mappedExpenseResults} />
+                <ExpensesGraphic data={mappedExpensesGraphicData} />
               ) : (
                 <IncomesGraphic data={mappedIncomeResults} />
               )}
             </div>
             <div className="piechart-graphic">
               {selectedOption === "Gastos" ? (
-                <PieChart2 data={mappedExpenseResults} />
+                <PieChart2 data={expenseCategory} />
               ) : (
                 <IncomePieChart />
               )}

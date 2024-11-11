@@ -5,7 +5,7 @@ export interface expensesSliceType {
   plannedExpenses: Array<plannedExpenseType>;
 }
 
-enum expenseNameCategories {
+export enum expenseNameCategories {
   hogar = "Hogar",
   mercado = "Mercado",
   ropa = "Ropa",
@@ -21,6 +21,7 @@ export interface realExpenseType {
   expenseSite: string;
   expenseDate: Timestamp;
   expenseAmount: number;
+  expenseColor: string
 }
 
 export interface plannedExpenseType {
@@ -37,33 +38,37 @@ export const expensesData: expensesSliceType = {
       expenseSite: "Cine local",
       expenseDate: Timestamp.fromDate(new Date("2024-09-20")),
       expenseAmount: 50,
+      expenseColor: "#2D18BF"
     },
     {
       expenseCategory: expenseNameCategories.hogar,
       expenseSite: "Alquiler",
       expenseDate: Timestamp.fromDate(new Date("2024-10-05")),
       expenseAmount: 1200,
+      expenseColor: "#A8F25D"
     },
     {
       expenseCategory: expenseNameCategories.mercado,
       expenseSite: "Supermercado Ara",
       expenseDate: Timestamp.fromDate(new Date("2024-10-12")),
       expenseAmount: 300,
+      expenseColor: "#F9F9F9"
     },
     {
       expenseCategory: expenseNameCategories.salidas,
       expenseSite: "Cine local",
       expenseDate: Timestamp.fromDate(new Date("2024-10-20")),
       expenseAmount: 50,
+      expenseColor: "#2D18BF"
     },
     {
       expenseCategory: expenseNameCategories.ropa,
       expenseSite: "Tienda de ropa Zara",
       expenseDate: Timestamp.fromDate(new Date("2024-12-15")),
       expenseAmount: 150,
+      expenseColor: "#F2622E"
     },
-    
-    
+
   ],
   plannedExpenses: [
     {
@@ -92,8 +97,6 @@ export const expensesData: expensesSliceType = {
     },
   ],
 };
-
-///
 
 export interface incomesSliceType {
   realIncomes: Array<realIncomeType>;
@@ -154,10 +157,10 @@ export const incomesData: incomesSliceType = {
       incomeDate: Timestamp.fromDate(new Date("2024-12-20")),
       incomeAmount: 2000,
     },
-    
+
   ],
   plannedIncomes: [
-    
+
     {
       incomeCategory: incomeNameCategories.work,
       incomeEntrie: incomeNameEntries.debito,

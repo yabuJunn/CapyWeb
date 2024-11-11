@@ -10,9 +10,10 @@ import {
   ChartTooltipContent,
 } from "../../ui/chart";
 import "./PieChart2.css";
+import { expenseCategoryType } from "../../../pages/IncomeAndIncrease/ExpensesAndIncome";
 
 interface PieChart2Props {
-  data: ExpenseData[];
+  data: expenseCategoryType;
 }
 
 const chartConfig = {
@@ -48,9 +49,9 @@ export const PieChart2: React.FC<PieChart2Props> = ({ data }) => {
   const chartDataOptions = selectedOption === "July" ? chartData : chartData2;
   */
 
-  const totalVisitors = React.useMemo(() => {
-    return data.reduce((acc, curr) => acc + curr.totalAmount, 0);
-  }, [data]);
+  // const totalVisitors = React.useMemo(() => {
+  //   return data.reduce((acc, curr) => acc + curr.totalAmount, 0);
+  // }, [data]);
 
   return (
     <div className="pie-card-container">
@@ -64,10 +65,10 @@ export const PieChart2: React.FC<PieChart2Props> = ({ data }) => {
             content={<ChartTooltipContent hideLabel />}
           />
           <Pie
-            data={data}
-            dataKey="percentage"
-            nameKey="category"
-            innerRadius={60}
+            data={data.categoryMappedData}
+            dataKey="expenseCategoryValue"
+            nameKey="expenseCategoryName"
+            innerRadius={70}
             strokeWidth={5}
           >
             <Label
@@ -86,7 +87,7 @@ export const PieChart2: React.FC<PieChart2Props> = ({ data }) => {
                         y={viewBox.cy}
                         className="text-3xl font-bold fill-white"
                       >
-                        {totalVisitors.toLocaleString()}
+                        ${data.totalCategoryExpenses}
                       </tspan>
                       <tspan
                         x={viewBox.cx}
@@ -109,7 +110,7 @@ export const PieChart2: React.FC<PieChart2Props> = ({ data }) => {
           <option value="Igresos">August</option>
         </select>
         <ul className="container-info-pie-chart">
-          {/*   {chartDataOptions.map((data, index) => (
+            {/* {chartDataOptions.map((data, index) => (
             <li key={index} className="info-pie-chart-color">
               <div>
                 <div
