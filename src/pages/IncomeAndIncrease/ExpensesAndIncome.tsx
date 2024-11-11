@@ -19,11 +19,11 @@ import "./ExpensesAndIncome.css";
 import { useState, useEffect } from "react";
 import { GlobalAppNav } from "../../components/Nav/Nav";
 
-export function getMonthName(date: Date): string {
+function getMonthName(date: Date): string {
   return date.toLocaleString("en-US", { month: "long" });
 }
 
-export function calculateExpensesData(expenses: Array<realExpenseType>) {
+function calculateExpensesData(expenses: Array<realExpenseType>) {
   const monthlyExpenseData: {
     [month: string]: {
       totalAmount: number;
@@ -68,7 +68,7 @@ export function calculateExpensesData(expenses: Array<realExpenseType>) {
   return result;
 }
 
-export function calculateIncomesData(incomes: Array<realIncomeType>) {
+function calculateIncomesData(incomes: Array<realIncomeType>) {
   const monthlyIncomeData: {
     [month: string]: {
       totalAmount: number;
@@ -155,7 +155,7 @@ export const ExpensesAndIncomePage = () => {
 
   return (
     <main className="page" id="expensesAndIncomePage">
-      <h1>Expenses & Income</h1>
+      <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
 
       <GlobalAppNav></GlobalAppNav>
 
@@ -173,8 +173,8 @@ export const ExpensesAndIncomePage = () => {
           <div className="expense-graphic-top">
             <div
               className={`expense-graphic ${selectedOption === "Gastos"
-                  ? "expense-graphic-color1"
-                  : "expense-graphic-color-2"
+                ? "expense-graphic-color1"
+                : "expense-graphic-color-2"
                 }`}
             >
               {selectedOption === "Gastos" ? (
@@ -206,7 +206,10 @@ export const ExpensesAndIncomePage = () => {
           </div>
         </div>
       </div>
-      <div id="background"></div>
+
+      <div id="backgroundExpensesAndIncomes" className="backgroundPage">
+
+      </div>
     </main>
   );
 };

@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import PlannerIcon from "../../../../../src/assets/desktop/svg/PlannerIcon.svg";
 import NuCardIcon from "../../../../../src/assets/desktop/svg/nu.svg";
 import VisaCardIcon from "../../../../../src/assets/desktop/svg/visa.svg";
@@ -67,17 +67,17 @@ export const ExpensePlanner = () => {
         </>
       ) : (
         <div className="expense-list">
-         {expenses.map((expense, index) => (
-    <div key={index} className="expense-item">
-        <img src={cardIcons[expense.selectedCard]} alt={expense.selectedCard} className="card-icon" />
-        <div className="expense-info">
-            <p>Budget: ${expense.budget}</p>
-            <div className="category-info">
-                <img src={categoryIcons[expense.category]} alt={expense.category} className="category-icon" />
-                <p>{expense.category}</p>
+          {expenses.map((expense, index) => (
+            <div key={index} className="expense-item">
+              <img src={cardIcons[expense.selectedCard]} alt={expense.selectedCard} className="card-icon" />
+              <div className="expense-info">
+                <p>Budget: ${expense.budget}</p>
+                <div className="category-info">
+                  <img src={categoryIcons[expense.category]} alt={expense.category} className="category-icon" />
+                  <p>{expense.category}</p>
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
           ))}
         </div>
       )}
