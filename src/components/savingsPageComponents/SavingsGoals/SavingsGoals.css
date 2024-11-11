@@ -14,8 +14,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
-    margin: 2%;
+    width: 95%;
+    margin-top: 1%;
 }
 
 #savingsGoalsHeader h3 {
@@ -45,6 +45,7 @@
 #savingsGoalsListContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     height: 100%;
     margin: 1% 0 0 0;

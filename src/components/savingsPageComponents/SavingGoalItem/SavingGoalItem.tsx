@@ -13,7 +13,7 @@ export interface SavingGoalItemProps {
 
 export const SavingGoalItem = ({ goalImage, goalImageColor, goalTitle, goalMonthlySaving, goalActualFee, goalTotalFee }: SavingGoalItemProps) => {
     return <>
-        <div className='savingGoalItem'>
+        <div className='savingGoalItemContainer'>
             <div className='savingGoalHeader'>
                 <div className='savingGoalTitle'>
                     <img src={goalImage} alt="" style={{ backgroundColor: goalImageColor }} />
@@ -30,10 +30,10 @@ export const SavingGoalItem = ({ goalImage, goalImageColor, goalTitle, goalMonth
 
             <div className='savingGoalGraphContainer'>
                 <div className='savingGoalGraphLabels'>
-                    <p>{goalActualFee} cop</p>
-                    <p>Goal: {goalTotalFee} cop</p>
+                    <p>Actual: ${goalActualFee} cop</p>
+                    <p>Goal: ${goalTotalFee} cop</p>
                 </div>
-                <Progress value={(100 * goalActualFee) / goalTotalFee} className="w-[90%] h-[4vh]" style={{ border: '3px white solid' }}></Progress>
+                <Progress value={(100 * goalActualFee) / goalTotalFee} className="w-[100%] h-[4vh]" style={{ border: '3px white solid' }}></Progress>
             </div>
         </div>
     </>

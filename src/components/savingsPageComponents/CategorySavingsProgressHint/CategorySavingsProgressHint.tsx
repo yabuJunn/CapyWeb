@@ -12,7 +12,7 @@ export const CategorySavingsProgressHint = ({ hintBubbleColor, hintName, hintPer
         <div className='hint'>
             <div className='color' style={{ backgroundColor: hintBubbleColor }}></div>
             <p>{hintName}</p>
-            <p>{hintPercentage}</p>
+            <p>{hintPercentage.toFixed(2)}%</p>
         </div>
     </>
 }
