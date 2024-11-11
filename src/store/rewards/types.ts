@@ -53,7 +53,8 @@ export interface exchangeType {
     isRedeemed: boolean,
     exchangeId: number,
     imageSrc: string,
-    backgroundColor: string
+    backgroundColor: string,
+    darkText: boolean
 }
 
 export enum exchangeNameEnum {

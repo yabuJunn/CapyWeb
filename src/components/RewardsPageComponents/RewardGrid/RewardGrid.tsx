@@ -10,7 +10,7 @@ const RewardGrid: React.FC = () => {
     return <>
         <div className="reward-grid">
             <div id='Canjear'>
-                <h1>Exchange</h1>
+                <h2>Exchange</h2>
             </div>
             <div id='rewardCard'>
                 {exchangeData
@@ -24,7 +24,7 @@ const RewardGrid: React.FC = () => {
                             backgroundColor={reward.backgroundColor}
                             imageSrc={reward.imageSrc}
                             id={reward.exchangeId}
-                        />
+                            darkText={reward.darkText} />
                     ))}
             </div>
         </div>

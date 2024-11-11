@@ -133,7 +133,8 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             isRedeemed: false,
             exchangeId: 0,
             imageSrc: '../../src/assets/desktop/png/Amazon.png',
-            backgroundColor: '#4A00E0'
+            backgroundColor: '#4A00E0',
+            darkText: false
         },
         {
             name: exchangeNameEnum.netflix,
@@ -142,7 +143,8 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             isRedeemed: false,
             exchangeId: 1,
             imageSrc: '../../src/assets/desktop/png/Netflix.png',
-            backgroundColor: '#F2622E'
+            backgroundColor: '#F2622E',
+            darkText: false
         },
         {
             name: exchangeNameEnum.farmatodo,
@@ -151,7 +153,8 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             isRedeemed: false,
             exchangeId: 2,
             imageSrc: '../../src/assets/desktop/png/Farmatodo.png',
-            backgroundColor: '#A8F25D'
+            backgroundColor: '#A8F25D',
+            darkText: true
         },
         {
             name: exchangeNameEnum.farmatodo,
@@ -160,7 +163,8 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             isRedeemed: false,
             exchangeId: 3,
             imageSrc: '../../src/assets/desktop/png/Farmatodo.png',
-            backgroundColor: '#A8F25D'
+            backgroundColor: '#A8F25D',
+            darkText: true
         }
     ],
     userExpGained: 0

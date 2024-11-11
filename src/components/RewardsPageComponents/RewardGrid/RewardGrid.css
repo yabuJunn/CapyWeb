@@ -17,15 +17,18 @@
 }
 
 
-.reward-grid h1 {
+#Canjear h2 {
     color: #F9F9F9;
-    font-family: "Plus Jakarta";
-    font-size: 40px;
+    font-family: "Space Grotesk";
+    font-size: 34px;
     font-style: normal;
     font-weight: 700;
-    line-height: 100px;
-    text-align: left;
-    position: relative;
+    line-height: normal;
+
+    height: 10vh;
+
+    display: flex;
+    align-items: center;
 }
 
 #rewardCard {
@@ -36,7 +39,7 @@
 }
 
 @media only screen and (max-width: 500px) {
-    .reward-grid h1 {
+    #Canjear h2 {
         font-size: 24px;
         line-height: 40px;
         margin-left: 5%;

@@ -23,9 +23,9 @@ const Summary: React.FC = () => {
   return (
     <div className="Summary">
       <h2 id="summary">Summary</h2>
-      <SummaryCard icon="../../src/assets/desktop/svg/Trofeo.svg" title="Saver level" content={currentLevel.name} backgroundColor="#F2622E" />
-      <SummaryCard icon="../../src/assets/desktop/svg/Bandera.svg" title="Goals completed" content={goalsCompleted} backgroundColor="#A8F25D" />
-      <SummaryCard icon="../../src/assets/desktop/svg/Logo.svg" title="Capypoints" content={accumulatedCapypoints} backgroundColor="#3c4cff" />
+      <SummaryCard icon="../../src/assets/desktop/svg/Trofeo.svg" title="Saver level" content={currentLevel.name} backgroundColor="#F2622E" textDark={false} />
+      <SummaryCard icon="../../src/assets/desktop/svg/Bandera.svg" title="Goals completed" content={goalsCompleted} backgroundColor="#A8F25D" textDark={true} />
+      <SummaryCard icon="../../src/assets/desktop/svg/Logo.svg" title="Capypoints" content={accumulatedCapypoints} backgroundColor="#3c4cff" textDark={false} />
     </div>
   );
 };

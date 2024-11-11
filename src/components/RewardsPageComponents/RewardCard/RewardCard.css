@@ -26,8 +26,7 @@
 .reward-card-image {
     top: 0;
     left: 0;
-    width: 193.078px;
-    height: 48.118px;
+    width: 55%;
     font-family: "Space Grotesk";
     line-height: 70px;
 }
@@ -53,7 +52,7 @@
 }
 
 .reward-card-content .text-with-image img {
-    margin-right: 3%; 
+    margin-right: 3%;
 }
 
 .reward-card h3 {
@@ -74,6 +73,10 @@
     display: flex;
     align-items: center;
     margin-left: 40%; 
+}
+
+.reward-card .darkText {
+    color: #141414;
 }
 
 @media only screen and (max-width: 500px) {
