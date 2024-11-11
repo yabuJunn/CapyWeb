@@ -1,42 +1,30 @@
-"use client";
-
 /*import { TrendingUp } from "lucide-react";*/
 import { CartesianGrid, XAxis, LineChart, Line } from "recharts";
-import "./IncomesGraphic.css"
-
-
+import "./ExpenseGraphic.css";
 
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "../../ui/chart";
-
+} from "../../../ui/chart";
 
 export const description = "A simple area chart";
 
-export interface IncomeData {
+export interface CategoryPercentage {
+  category: string;
+  percentage: number;
+}
+
+export interface ExpenseData {
   month: string;
   totalAmount: number;
+  categoryPercentages: CategoryPercentage[];
 }
 
 export interface AreaChartComponentProps {
-  data: IncomeData[];
+  data: ExpenseData[];
 }
-
-/*const chartData = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 73 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 214 },
-  { month: "July", desktop: 210 },
-  { month: "August", desktop: 200 },
-  { month: "September", desktop: 180 },
-  { month: "October", desktop: 190 },
-];*/
 
 const chartConfig = {
   desktop: {
@@ -45,9 +33,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-
-
-export const IncomesGraphic: React.FC<AreaChartComponentProps> = ({
+export const ExpensesGraphic: React.FC<AreaChartComponentProps> = ({
   data,
 }) => {
   return (

@@ -133,6 +133,7 @@
   accent-color: #A8F25D;
 }
 
+
 #signUpGoogleContainer {
   width: 100%;
 
@@ -318,5 +319,120 @@
   #signUpGoogleContainer p {
     font-size: 12px;
   }
+
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 500px) {
+  .Register {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 380px;
+    padding: 2% 2%;
+    color: white;
+    background-color: #2D18BF;
+    border-radius: 24px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  
+  .Register h3 {
+    margin: 3% 0% 2% 2%;
+    color: #F9F9F9;
+    font-family: "Space Grotesk";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .LogIn-left .highlight {
+    background-color: #d2ff00;
+    color: #1f1f1f;
+    padding: 2px 8px;
+    border-radius: 5px;
+  }
+
+  .LogIn-container {
+    width: 100%;
+    background-color: #2a2d54;
+    border-radius: 20px;
+    padding: 5% 8%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .LogIn-container h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10%;
+    text-align: center;
+  }
+
+  input {
+    width: 95%;
+    padding: 8px;
+    margin: 0 auto 2%;
+    margin-bottom: 2%;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    background: rgba(217, 217, 217, 0.36);
+    color: rgba(212, 212, 212, 0.986);
+  }
+
+ 
+  button {
+    margin: 5% auto 0;
+    margin-top: 10px;
+    width: 48%;
+    height: 40px;
+    padding: 8px;
+    background-color: #A8F25D;
+    color: #121212;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 900;
+  }
+
+  .Register-container a, .Register-container p {
+    font-size: 0.875rem;
+    color: #A8F25D;
+    text-align: center;
+  }
+
+  #terminos {
+    justify-content: flex-start; 
+    text-align: left;
+    margin-left: 2%; 
+}
+
+  #terminos input[type="checkbox"] {
+    width: 6%; 
+    height: 6%;
+    margin: 0;
+    margin-top: 4%;
+  }
+
+  #Check {
+    font-family: "Plus Jakarta";
+    margin-top: 10px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  #signUpGoogleContainer p {
+    font-size: 12px;
+  } 
 
 }

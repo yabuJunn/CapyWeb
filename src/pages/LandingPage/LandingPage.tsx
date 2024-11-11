@@ -1,4 +1,5 @@
 import "./LandingPage.css";
+import "./LandingPage.css";
 
 //Import components
 
@@ -8,7 +9,6 @@ import { UniqueFeatureCard } from '../../components/landingPageComponents/unique
 import { CustomerOpinion } from '../../components/landingPageComponents/CustomerOpinion/CustomerOpinion'
 
 //Import images
-
 import arrowDownWhite from '../../assets/desktop/svg/arrowDownWhite.svg'
 import landingSecondSectionMockups from '../../assets/desktop/png/mockupsCapyPc.jpg'
 
@@ -221,7 +221,7 @@ export const LandingPage = () => {
         <div id='backgroundLandingPage' className="backgroundPage">
 
         </div>
-      </main>
+      </main >
     </>
   );
 };

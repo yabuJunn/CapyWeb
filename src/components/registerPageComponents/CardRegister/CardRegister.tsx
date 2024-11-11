@@ -9,6 +9,7 @@ import logoGoogle from '../../../assets/desktop/svg/logo/logoGoogle.svg'
 
 import { createUser } from "../../../services/Firebase/FirestoreUsers";
 import { doGoogleSignIn } from "../../../services/Firebase/auth";
+
 import { NavigationHook } from "../../../hooks/navigationHook";
 
 function CardRegister() {
@@ -41,6 +42,7 @@ function CardRegister() {
 
       sessionStorage.setItem('userData', JSON.stringify({ auth: userCredential, data: userData }))
       handleNavigation.navigateToDashboard()
+      handleNavigation.navigateToDashboard()
     }
     catch (err) {
       console.log(err);
@@ -54,6 +56,7 @@ function CardRegister() {
       const userData = await createUser(result.user.uid, username, email)
 
       sessionStorage.setItem('userData', JSON.stringify({ auth: result.user, data: userData }))
+      handleNavigation.navigateToDashboard()
       handleNavigation.navigateToDashboard()
     } catch (err) {
       console.log(err)

@@ -6,10 +6,20 @@
 
   padding: 20px;
   margin: 10px;
+  padding: 20px;
+  margin: 10px;
 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.uniqueFeatureCardContainer h3 {
+  font-size: 38px;
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .uniqueFeatureCardContainer h3 {
@@ -25,13 +35,36 @@
   font-family: "Plus Jakarta Sans";
 
   width: 80%;
+  width: 80%;
 
+  margin-top: 30px;
+  margin-bottom: 20px;
   margin-top: 30px;
   margin-bottom: 20px;
 
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+@media only screen and (max-width: 1200px) {
+  .uniqueFeatureCardContainer h3 {
+    font-size: 30px;
+  }
+
+  .uniqueFeatureCardContainer p {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .uniqueFeatureCardContainer h3 {
+    font-size: 25px;
+  }
+
+  .uniqueFeatureCardContainer p {
+    font-size: 12px;
+  }
 }
 
 @media only screen and (max-width: 1200px) {

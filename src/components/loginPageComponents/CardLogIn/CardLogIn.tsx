@@ -34,6 +34,21 @@ function CardLogIn() {
         dispatch(changeUserName(userData.name))
         dispatch(changeUserEmail(userData.email))
         dispatch(changeUserUID(userData.userUID))
+        sessionStorage.setItem('userUID', userCredential.user.uid)
+
+        if (userData) {
+          dispatch(changeUserName(userData.name))
+          dispatch(changeUserEmail(userData.email))
+          dispatch(changeUserUID(userData.userUID))
+
+          handleNavigation.navigateToDashboard()
+
+        } else {
+          alert("userData is undefined")
+        }
+
+
+
 
         handleNavigation.navigateToDashboard()
 
@@ -57,6 +72,7 @@ function CardLogIn() {
       console.log("Usuario logueado con Google:", result.user);
       const userData = await getUser(result.user.uid)
       sessionStorage.setItem('userData', JSON.stringify({ auth: result.user, data: userData }))
+      handleNavigation.navigateToDashboard()
       handleNavigation.navigateToDashboard()
     } catch (err) {
       console.log(err)

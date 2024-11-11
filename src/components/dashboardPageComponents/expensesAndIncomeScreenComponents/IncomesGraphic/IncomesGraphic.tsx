@@ -1,17 +1,17 @@
 "use client";
 
 /*import { TrendingUp } from "lucide-react";*/
-import { CartesianGrid, XAxis, LineChart, Line } from "recharts";
+import {   CartesianGrid, XAxis, LineChart, Line } from "recharts";
 import "./IncomesGraphic.css"
 
-
+  
 
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "../../ui/chart";
+} from "../../../ui/chart"; 
 
 
 export const description = "A simple area chart";

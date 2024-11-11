@@ -16,7 +16,9 @@
     top: 0;
     left: 0;
     width: 100vw;
+    width: 100vw;
     height: 100vh;
+    background-image: url('../../assets/desktop/svg/fondoLogin.svg');
     background-image: url('../../assets/desktop/svg/fondoLogin.svg');
     background-size: cover;
     background-position: center;
@@ -38,6 +40,26 @@
         display: none;
     }
 
+    #backgroundRegister {
+        background-image: url('../../assets/mobile/svg/SignUp.svg');
+        background-size: cover;
+        background-position: top;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #Register {
+        position: relative;
+        margin: 50% auto 0;
+        max-width: 90%;
+        padding: 10px;
+        width: auto;
+    }
+    
+    #Logo {
+        display: none; 
+    }
+    
     #backgroundRegister {
         background-image: url('../../assets/mobile/svg/SignUp.svg');
         background-size: cover;

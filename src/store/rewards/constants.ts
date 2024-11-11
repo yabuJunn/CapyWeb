@@ -2,6 +2,10 @@ import { exchangeNameEnum, rewardsSliceType, saverLevelsImages, saverLevelsNames
 
 export const REWARDS_SLICE_NAME = "rewards"
 
+import amazonImage from '../../assets/desktop/png/Amazon.png'
+import netflixImage from '../../assets/desktop/png/Netflix.png'
+import farmatodoImage from '../../assets/desktop/png/Farmatodo.png'
+
 export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
     summary: {
         saverLevel: saverLevelsNames.level1,
@@ -132,9 +136,8 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             redemptionCost: 10000,
             isRedeemed: false,
             exchangeId: 0,
-            imageSrc: '../../src/assets/desktop/png/Amazon.png',
-            backgroundColor: '#4A00E0',
-            darkText: false
+            imageSrc: amazonImage,
+            backgroundColor: '#4A00E0'
         },
         {
             name: exchangeNameEnum.netflix,
@@ -142,9 +145,8 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             redemptionCost: 25000,
             isRedeemed: false,
             exchangeId: 1,
-            imageSrc: '../../src/assets/desktop/png/Netflix.png',
-            backgroundColor: '#F2622E',
-            darkText: false
+            imageSrc: netflixImage,
+            backgroundColor: '#F2622E'
         },
         {
             name: exchangeNameEnum.farmatodo,
@@ -152,9 +154,8 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             redemptionCost: 20000,
             isRedeemed: false,
             exchangeId: 2,
-            imageSrc: '../../src/assets/desktop/png/Farmatodo.png',
-            backgroundColor: '#A8F25D',
-            darkText: true
+            imageSrc: farmatodoImage,
+            backgroundColor: '#A8F25D'
         },
         {
             name: exchangeNameEnum.farmatodo,
@@ -162,9 +163,8 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             redemptionCost: 13000,
             isRedeemed: false,
             exchangeId: 3,
-            imageSrc: '../../src/assets/desktop/png/Farmatodo.png',
-            backgroundColor: '#A8F25D',
-            darkText: true
+            imageSrc: farmatodoImage,
+            backgroundColor: '#A8F25D'
         }
     ],
     userExpGained: 0
