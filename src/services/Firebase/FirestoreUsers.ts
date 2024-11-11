@@ -8,14 +8,10 @@ import { app } from "./Firebase";
 const db = getFirestore(app);
 
 export const getUser = async (userUID: string) => {
-    console.log("Prueba getUser")
     const docRef = doc(db, "users", userUID);
     const docSnap = await getDoc(docRef);
 
-    console.log(docSnap)
-
     if (docSnap.exists()) {
-        //console.log("Document data:", docSnap.data());
         return docSnap.data()
     } else {
         console.log("No such document!");

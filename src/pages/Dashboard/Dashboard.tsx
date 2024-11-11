@@ -7,6 +7,8 @@ import { RootState } from '../../store/store'
 import { getUser } from '../../services/Firebase/FirestoreUsers'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeUserEmail, changeUserName, changeUserUID } from '../../store/userData/slice'
+import { useEffect } from 'react'
+import { DocumentData } from 'firebase/firestore'
 
 export const Dashboard = () => {
     const sessionStorageUserUID = sessionStorage.getItem('userUID')
@@ -14,31 +16,31 @@ export const Dashboard = () => {
     const userDataRedux = useSelector((state: RootState) => state.userData)
     const dispatch = useDispatch()
 
-    const fetchUserData = async (sessionStorageUserUID: string) => {
 
-        const userData = await getUser(sessionStorageUserUID)
-        console.log(userData)
 
-        sessionStorage.setItem('userUID', sessionStorageUserUID)
+    useEffect(() => {
+        if (userDataRedux.userName === "" && sessionStorageUserUID !== null) {
+            const fetchUserData = async (sessionStorageUserUID: string) => {
+                const userData = await getUser(sessionStorageUserUID);
+                return userData;
+            };
 
-        if (userData) {
-            dispatch(changeUserName(userData.name))
-            dispatch(changeUserEmail(userData.email))
-            dispatch(changeUserUID(userData.userUID))
-            if (userData) {
-                dispatch(changeUserName(userData.name))
-                dispatch(changeUserEmail(userData.email))
-                dispatch(changeUserUID(userData.userUID))
+            const fetchDataAndDispatch = async () => {
+                const userDataFirebase: DocumentData | undefined = await fetchUserData(sessionStorageUserUID);
+                sessionStorage.setItem('userUID', sessionStorageUserUID);
 
-            } else {
-                alert("userData is undefined")
-            }
+                if (userDataFirebase) {
+                    dispatch(changeUserName(userDataFirebase.name));
+                    dispatch(changeUserEmail(userDataFirebase.email));
+                    dispatch(changeUserUID(userDataFirebase.userUID));
+                } else {
+                    alert("userData is undefined");
+                }
+            };
+
+            fetchDataAndDispatch();
         }
-    }
-
-    if (userDataRedux.userName === "" && sessionStorageUserUID !== null) {
-        fetchUserData(sessionStorageUserUID)
-    }
+    }, [dispatch, sessionStorageUserUID, userDataRedux.userName]);
 
     return <>
         <main className='page' id='dashboardPage'>

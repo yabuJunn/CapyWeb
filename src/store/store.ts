@@ -42,20 +42,3 @@ export enum storeReducerNames {
     incomes = "incomes",
     userData = "userData"
 }
-
-import { saveUserDataToFirebase } from "./userData/slice";
-
-// Mantener el estado anterior para detectar cambios
-let prevState = store.getState();
-
-store.subscribe(() => {
-    const currentState = store.getState();
-
-    // Compara el estado anterior con el estado actual para detectar cambios
-    if (prevState.userData !== currentState.userData) {
-        store.dispatch(saveUserDataToFirebase(currentState.userData));
-    }
-
-    // Actualiza prevState para la próxima comparación
-    prevState = currentState;
-});

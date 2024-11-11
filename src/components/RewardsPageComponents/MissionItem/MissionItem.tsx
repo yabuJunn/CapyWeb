@@ -18,7 +18,6 @@ interface MissionItemProps {
 }
 
 export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark, isCompleted, expToGrant, missionId, missionTitle }: MissionItemProps) => {
-    console.log('Mission Item')
     
     const dispatch = useDispatch();
 
@@ -35,8 +34,6 @@ export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark,
         const logo = capyPointsDark || backgroundColor === '#CCFC56' ? logoBlack : logoWhite;
         const statusText = isCompleted ? 'Completed' : 'Capypoints';
         const className = isCompleted ? 'CapyPointsAmount' : `CapyPointsAmount ${capyPointsDark || backgroundColor === '#CCFC56' ? 'dark' : ''}`;
-
-        console.log(className)
 
         return (
             <div className={`MissionCapyPoints ${!capyPointsDark ? 'light' : ''}`} style={{ backgroundColor }}>
