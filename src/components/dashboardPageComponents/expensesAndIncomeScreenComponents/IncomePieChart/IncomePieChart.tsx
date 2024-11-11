@@ -52,9 +52,6 @@ const chartDataWithPercentage2 = chartData2.map((data) => ({
   percentage: Math.round((data.visitors / totalVisitors2) * 100),
 }));
 
-console.log(chartDataWithPercentage);
-console.log(chartDataWithPercentage2);
-
 const chartConfig = {
   visitors: {
     label: "July",

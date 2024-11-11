@@ -1,11 +1,3 @@
-/* @font-face {
-  font-family: "Plus Jakarta";
-  src: url("../../../assets/TempFonts/PlusJakartaSans-VariableFont_wght.ttf")
-    format("truetype");
-  font-weight: normal;
-  font-style: normal;
-} */
-
 #LoginRegisterButtonsContainer {
   display: flex;
   justify-content: space-between;
@@ -17,7 +9,7 @@
 
 #createAccountButton {
   height: 45px;
-  font-family: "Plus Jakarta";
+  font-family: "Plus Jakarta Sans";
   border: none;
   color: #121212;
   background-color: #ccfc56;
@@ -44,7 +36,7 @@
 
 #logInButton {
   height: 45px;
-  font-family: "Plus Jakarta";
+  font-family: "Plus Jakarta Sans";
   border: none;
   color: #2d18bf;
   background-color: #f9f9f9;

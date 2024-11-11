@@ -58,7 +58,7 @@ export const ExpensePlanner = () => {
 
   return (
     <div className='planner'>
-      <h1>Monthly Expense Planner</h1>
+      <h2>Monthly Expense Planner</h2>
 
       {expenses.length === 0 ? (
         <>

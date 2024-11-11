@@ -1,10 +1,10 @@
 import './MissionItem.css';
 
 import { useDispatch } from 'react-redux';
+import { changeUserAccumulatedCapypoints, changeUserExpGained, changeUserGoalsCompleted, completeMission } from '../../../store/rewards/slice';
 
 import logoWhite from '../../../assets/desktop/svg/logo/logoCapyMoneyWhite.svg';
 import logoBlack from '../../../assets/desktop/svg/logo/logoCapyMoneyBlack.svg';
-import { changeUserAccumulatedCapypoints, changeUserExpGained, changeUserGoalsCompleted, completeMission } from '../../../store/rewards/slice';
 
 interface MissionItemProps {
     text: string;

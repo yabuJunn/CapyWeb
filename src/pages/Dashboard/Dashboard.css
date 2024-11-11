@@ -1,17 +1,3 @@
-@font-face {
-    font-family: 'Space Grotesk';
-    src: url('../../assets/TempFonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Plus Jakarta';
-    src: url('../../assets/TempFonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
 
     #dashboardPage {
@@ -57,7 +43,7 @@
     #dashboardPage #TitleTextContainer p {
         font-size: 22px;
         color: #F9F9F9;
-        font-family: 'Plus Jakarta';
+        font-family: "Plus Jakarta Sans";
         font-weight: bold;
 
         margin: -1% 0 0 0;

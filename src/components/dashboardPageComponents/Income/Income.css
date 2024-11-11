@@ -1,17 +1,3 @@
-@font-face {
-    font-family: 'Space Grotesk';
-    src: url('../../assets/TempFonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Plus Jakarta';
-    src: url('../../assets/TempFonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 .income {
     background-image: url(../../../assets/desktop/svg/ingresosfon.svg);
     height: 100%;
