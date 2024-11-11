@@ -2,7 +2,7 @@ import { ExpensesGraphic } from "../../components/expensesAndIncomeScreenCompone
 import { IncomesGraphic } from "../../components/expensesAndIncomeScreenComponents/IncomesGraphic/IncomesGraphic";
 import { ExpensePlanner } from "../../components/expensesAndIncomeScreenComponents/ExpensePlanner/ExpensePlanner";
 import { History } from "../../components/expensesAndIncomeScreenComponents/History/History";
-import { PieChart2 } from "../../components/expensesAndIncomeScreenComponents/PieChart2/PieChart2";
+import { ExpensesPieChart } from "../../components/expensesAndIncomeScreenComponents/PieChart2/PieChart2";
 import { IncomePieChart } from "../../components/expensesAndIncomeScreenComponents/IncomePieChart/IncomePieChart";
 import { IncomeHistory } from "../../components/expensesAndIncomeScreenComponents/IncomeHistory/IncomeHistory";
 import {
@@ -20,6 +20,7 @@ import {
 import "./ExpensesAndIncome.css";
 import { useState, useEffect } from "react";
 import { GlobalAppNav } from "../../components/Nav/Nav";
+import { PieCardMonthSelect } from "../../components/expensesAndIncomeScreenComponents/PieCardMonthSelect/PieCardMonthSelect";
 
 function getMonthName(date: Date): string {
   return date.toLocaleString("en-US", { month: "long" });
@@ -29,7 +30,8 @@ function calculateExpensesData(expenses: Array<realExpenseType>) {
   const monthlyExpenseData: {
     [month: string]: {
       totalAmount: number;
-      categoryAmounts: { [key: string]: number };
+      categoryAmounts: { [key: string]: { amount: number; fill: string } };
+      value: number;
     };
   } = {};
 
@@ -37,17 +39,28 @@ function calculateExpensesData(expenses: Array<realExpenseType>) {
     // Convertir expenseDate de Timestamp a Date
     const month = getMonthName(expense.expenseDate.toDate());
 
+    // Inicializar el objeto del mes si no existe
     if (!monthlyExpenseData[month]) {
-      monthlyExpenseData[month] = { totalAmount: 0, categoryAmounts: {} };
+      monthlyExpenseData[month] = { totalAmount: 0, categoryAmounts: {}, value: 0 };
     }
 
+    // Actualizar el totalAmount del mes
     monthlyExpenseData[month].totalAmount += expense.expenseAmount;
 
+    // Verificar si la categoría específica ya existe en categoryAmounts
     if (!monthlyExpenseData[month].categoryAmounts[expense.expenseCategory]) {
-      monthlyExpenseData[month].categoryAmounts[expense.expenseCategory] = 0;
+      monthlyExpenseData[month].categoryAmounts[expense.expenseCategory] = {
+        amount: 0,
+        fill: expense.expenseColor
+      };
     }
-    monthlyExpenseData[month].categoryAmounts[expense.expenseCategory] +=
+
+    // Sumar el monto a la categoría correspondiente
+    monthlyExpenseData[month].categoryAmounts[expense.expenseCategory].amount +=
       expense.expenseAmount;
+
+    // Actualizar el valor total del mes si es necesario
+    monthlyExpenseData[month].value += expense.expenseAmount;
   });
 
   const result = Object.keys(monthlyExpenseData).map((month) => {
@@ -55,8 +68,9 @@ function calculateExpensesData(expenses: Array<realExpenseType>) {
     const categoryPercentages = Object.keys(monthData.categoryAmounts).map(
       (category) => {
         const categoryAmount = monthData.categoryAmounts[category];
-        const percentage = (categoryAmount / monthData.totalAmount) * 100;
-        return { category, percentage: parseFloat(percentage.toFixed(2)) };
+        const percentage = (categoryAmount.amount / monthData.totalAmount) * 100;
+        const fill = categoryAmount.fill
+        return { category, percentage: parseFloat(percentage.toFixed(2)), fill: fill, value: categoryAmount };
       }
     );
 
@@ -125,7 +139,23 @@ export interface expenseCategoryType {
   }>
 }
 
-const calculateExpensesCategorty = (realExpensesData: Array<realExpenseType>) => {
+enum monthsSelectorNames {
+  total = "Total",
+  january = "January",
+  february = "February",
+  march = "March",
+  april = "April",
+  may = "May",
+  june = "June",
+  july = "July",
+  august = "August",
+  september = "September",
+  october = "October",
+  november = "November",
+  december = "December"
+}
+
+const calculateTotalExpensesCategorty = (realExpensesData: Array<realExpenseType>) => {
   const categoryExpensesData: expenseCategoryType = {
     totalCategoryExpenses: 0,
     categoryMappedData: []
@@ -159,12 +189,14 @@ const calculateExpensesCategorty = (realExpensesData: Array<realExpenseType>) =>
   return categoryExpensesData
 }
 
+export type expenseDataResultsType = Array<ExpenseData>
+
 export const ExpensesAndIncomePage = () => {
   const [selectedOption, setSelectedOption] = useState("Gastos");
-  const [expenseResults, setExpenseResults] = useState<ExpenseData[]>([]);
+  const [expenseResults, setExpenseResults] = useState<expenseDataResultsType>([]);
   const [incomeResults] = useState<ExpenseData[]>([]);
-  const [expenseCategory, setExpenseCategoryType] = useState<expenseCategoryType>({ totalCategoryExpenses: 0, categoryMappedData: [] })
-
+  const [totalExpenseCategory, setTotalExpenseCategory] = useState<expenseCategoryType>({ totalCategoryExpenses: 0, categoryMappedData: [] })
+  const [monthSelector, setMonthSelector] = useState("Total")
 
   useEffect(() => {
     const expenseResults = calculateExpensesData(expensesData.realExpenses);
@@ -176,92 +208,193 @@ export const ExpensesAndIncomePage = () => {
     //setIncomeResults(incomeResults);
     // console.log(incomeResults);
 
-    const expensesCategoryResult = calculateExpensesCategorty(expensesData.realExpenses)
-    setExpenseCategoryType(expensesCategoryResult)
+    const totalExpensesCategoryResult = calculateTotalExpensesCategorty(expensesData.realExpenses)
+    setTotalExpenseCategory(totalExpensesCategoryResult)
   }, []);
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(event.target.value);
   };
 
+  const handleMonthSelectorChannge = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setMonthSelector(event.target.value);
+  };
+
   const mappedExpensesGraphicData = expenseResults.map((result) => ({
     month: result.month,
     totalAmount: result.totalAmount,
     categoryPercentages: result.categoryPercentages.map(
-      (category: CategoryPercentage) => ({
-        category: category.category,
-        percentage: category.percentage,
+      (category) => ({
+        expenseCategoryName: category.category,
+        fill: category.fill,
+        expensePercentage: category.percentage
       })
     ),
   }));
-
-  // const mappedExpensesPieChart = 
-
-  // console.log("mappedExpenseResults", mappedExpenseResults);
 
   const mappedIncomeResults = incomeResults.map((result) => ({
     month: result.month,
     totalAmount: result.totalAmount,
   }));
 
-  console.log(expenseCategory)
-  return (
-    <main className="page" id="expensesAndIncomePage">
-      <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
+  const foundMonthData = expenseResults.find(expenseMonth => expenseMonth.month === monthSelector)
 
-      <GlobalAppNav></GlobalAppNav>
+  //Expenses or Incomes Conditional
+  if (selectedOption === "Gastos") {
+    switch (monthSelector) {
+      case monthsSelectorNames.total:
+        return <>
+          <main className="page" id="expensesAndIncomePage">
+            <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
 
-      <div className="container">
-        <div className="main-div">
-          <select
-            className="select-expenses-graphic"
-            name=""
-            id=""
-            onChange={handleSelectChange}
-          >
-            <option value="Gastos">Expenses</option>
-            <option value="Ingresos">Income</option>
-          </select>
-          <div className="expense-graphic-top">
-            <div
-              className={`expense-graphic ${selectedOption === "Gastos"
-                ? "expense-graphic-color1"
-                : "expense-graphic-color-2"
-                }`}
+            <GlobalAppNav></GlobalAppNav>
+
+            <div className="container">
+              <div className="main-div">
+                <select
+                  className="select-expenses-graphic"
+                  name=""
+                  id=""
+                  onChange={handleSelectChange}
+                >
+                  <option value="Gastos">Expenses</option>
+                  <option value="Ingresos">Income</option>
+                </select>
+                <div className="expense-graphic-top">
+                  <div className="expense-graphic expense-graphic-color1" >
+                    <ExpensesGraphic data={mappedExpensesGraphicData} />
+                  </div>
+                  <div className="piechart-graphic">
+                    <div className="pie-card-right">
+                      {/* Aqui va el select y los hints */}
+                      <PieCardMonthSelect monthsArray={expenseResults.map((expense) => expense.month)} handleMonthSelectorChannge={handleMonthSelectorChannge}></PieCardMonthSelect>
+                    </div>
+                    <ExpensesPieChart data={totalExpenseCategory} isMonthData={false} monthData={{ month: "", totalAmount: 0, categoryPercentages: [] }} />
+                  </div>
+                </div>
+              </div>
+
+              <div className="chart-expense-bottom">
+                <div className="left-div">
+                  <ExpensePlanner />
+                </div>
+                <div className="right-div">
+                  <History /*chartData={chartData}*/ />
+                </div>
+              </div>
+            </div>
+
+            <div id="backgroundExpensesAndIncomes" className="backgroundPage">
+
+            </div>
+          </main >
+        </>
+        break;
+      case monthsSelectorNames.october:
+        if (foundMonthData) {
+          return <>
+            <main className="page" id="expensesAndIncomePage">
+              <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
+
+              <GlobalAppNav></GlobalAppNav>
+
+              <div className="container">
+                <div className="main-div">
+                  <select
+                    className="select-expenses-graphic"
+                    name=""
+                    id=""
+                    onChange={handleSelectChange}
+                  >
+                    <option value="Gastos">Expenses</option>
+                    <option value="Ingresos">Income</option>
+                  </select>
+                  <div className="expense-graphic-top">
+                    <div className="expense-graphic expense-graphic-color1" >
+                      <ExpensesGraphic data={mappedExpensesGraphicData} />
+                    </div>
+                    <div className="piechart-graphic">
+                      <div className="pie-card-right">
+                        {/* Aqui va el select y los hints */}
+                        <PieCardMonthSelect monthsArray={expenseResults.map((expense) => expense.month)} handleMonthSelectorChannge={handleMonthSelectorChannge}></PieCardMonthSelect>
+                      </div>
+                      <ExpensesPieChart data={totalExpenseCategory} isMonthData={true} monthData={foundMonthData} />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="chart-expense-bottom">
+                  <div className="left-div">
+                    <ExpensePlanner />
+                  </div>
+                  <div className="right-div">
+                    <History /*chartData={chartData}*/ />
+                  </div>
+                </div>
+              </div>
+
+              <div id="backgroundExpensesAndIncomes" className="backgroundPage">
+
+              </div>
+            </main >
+          </>
+        }
+        break;
+
+      default:
+        break;
+    }
+
+  } else if (selectedOption === "Ingresos") {
+    return <>
+      <main className="page" id="expensesAndIncomePage">
+        <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
+
+        <GlobalAppNav></GlobalAppNav>
+
+        <div className="container">
+          <div className="main-div">
+            <select
+              className="select-expenses-graphic"
+              name=""
+              id=""
+              onChange={handleSelectChange}
             >
-              {selectedOption === "Gastos" ? (
-                <ExpensesGraphic data={mappedExpensesGraphicData} />
-              ) : (
+              <option value="Gastos">Expenses</option>
+              <option value="Ingresos">Income</option>
+            </select>
+            <div className="expense-graphic-top">
+              <div className="expense-graphic expense-graphic-color-2">
                 <IncomesGraphic data={mappedIncomeResults} />
-              )}
-            </div>
-            <div className="piechart-graphic">
-              {selectedOption === "Gastos" ? (
-                <PieChart2 data={expenseCategory} />
-              ) : (
+              </div>
+              <div className="piechart-graphic">
+                <div className="pie-card-right">
+                  <select className="select-expenses-pie" name="" id="">
+                    <option value="July">Total</option>
+                    <option value="July">July</option>
+                    <option value="Igresos">August</option>
+                  </select>
+                </div>
                 <IncomePieChart />
-              )}
+              </div>
+            </div>
+          </div>
+
+          <div className="chart-expense-bottom">
+            <div className="left-div">
+              <ExpensePlanner />
+            </div>
+            <div className="right-div">
+              <IncomeHistory /*chartData={chartData}*/ />
             </div>
           </div>
         </div>
 
-        <div className="chart-expense-bottom">
-          <div className="left-div">
-            <ExpensePlanner />
-          </div>
-          <div className="right-div">
-            {selectedOption === "Gastos" ? (
-              <History /*chartData={chartData}*/ />
-            ) : (
-              <IncomeHistory /*chartData={chartData}*/ />
-            )}
-          </div>
+        <div id="backgroundExpensesAndIncomes" className="backgroundPage">
+
         </div>
-      </div>
+      </main>
+    </>
+  }
 
-      <div id="backgroundExpensesAndIncomes" className="backgroundPage">
-
-      </div>
-    </main>
-  );
 };

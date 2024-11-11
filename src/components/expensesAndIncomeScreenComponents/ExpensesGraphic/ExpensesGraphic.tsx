@@ -12,15 +12,21 @@ import {
 export const description = "A simple area chart";
 
 export interface CategoryPercentage {
-  category: string;
-  percentage: number;
+  expenseCategoryName: string;
+  expensePercentage: number;
+  fill: string;
 }
 
 export interface ExpenseData {
   month: string;
   totalAmount: number;
-  categoryPercentages: CategoryPercentage[];
+  categoryPercentages: {
+    expenseCategoryName: string;
+    fill: string;
+    expensePercentage: number;
+  }[];
 }
+
 
 export interface AreaChartComponentProps {
   data: ExpenseData[];
@@ -33,9 +39,9 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export const ExpensesGraphic: React.FC<AreaChartComponentProps> = ({
-  data,
-}) => {
+export const ExpensesGraphic: React.FC<AreaChartComponentProps> = ({ data }) => {
+  console.log(data)
+
   return (
     <ChartContainer config={chartConfig}>
       <LineChart

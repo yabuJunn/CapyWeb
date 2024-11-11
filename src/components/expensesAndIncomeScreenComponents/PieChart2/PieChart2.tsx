@@ -1,7 +1,6 @@
 import * as React from "react";
 /*import { TrendingUp } from "lucide-react";*/
 import { Label, Pie, PieChart } from "recharts";
-import { ExpenseData } from "../ExpensesGraphic/ExpensesGraphic";
 
 import {
   ChartConfig,
@@ -11,9 +10,12 @@ import {
 } from "../../ui/chart";
 import "./PieChart2.css";
 import { expenseCategoryType } from "../../../pages/IncomeAndIncrease/ExpensesAndIncome";
+import { ExpenseData } from "../ExpensesGraphic/ExpensesGraphic";
 
 interface PieChart2Props {
-  data: expenseCategoryType;
+  data: expenseCategoryType,
+  isMonthData: boolean,
+  monthData: ExpenseData
 }
 
 const chartConfig = {
@@ -38,7 +40,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export const PieChart2: React.FC<PieChart2Props> = ({ data }) => {
+export const ExpensesPieChart: React.FC<PieChart2Props> = ({ data, monthData, isMonthData }) => {
   /*
   const [selectedOption, setSelectedOption] = useState("July");
 
@@ -65,9 +67,9 @@ export const PieChart2: React.FC<PieChart2Props> = ({ data }) => {
             content={<ChartTooltipContent hideLabel />}
           />
           <Pie
-            data={data.categoryMappedData}
-            dataKey="expenseCategoryValue"
-            nameKey="expenseCategoryName"
+            data={isMonthData === false ? data.categoryMappedData : monthData.categoryPercentages}
+            dataKey={isMonthData === false ? "expenseCategoryValue" : "value.amount"}
+            nameKey={isMonthData === false ? "expenseCategoryName" : "category"}
             innerRadius={70}
             strokeWidth={5}
           >
@@ -87,7 +89,7 @@ export const PieChart2: React.FC<PieChart2Props> = ({ data }) => {
                         y={viewBox.cy}
                         className="text-3xl font-bold fill-white"
                       >
-                        ${data.totalCategoryExpenses}
+                        ${isMonthData === false ? data.totalCategoryExpenses : monthData.totalAmount}
                       </tspan>
                       <tspan
                         x={viewBox.cx}
@@ -104,13 +106,13 @@ export const PieChart2: React.FC<PieChart2Props> = ({ data }) => {
           </Pie>
         </PieChart>
       </ChartContainer>
-      <div className="pie-card-right">
+      {/* <div className="pie-card-right">
         <select className="select-expenses-pie" name="" id="">
           <option value="July">July</option>
           <option value="Igresos">August</option>
         </select>
         <ul className="container-info-pie-chart">
-            {/* {chartDataOptions.map((data, index) => (
+          {chartDataOptions.map((data, index) => (
             <li key={index} className="info-pie-chart-color">
               <div>
                 <div
@@ -130,9 +132,9 @@ export const PieChart2: React.FC<PieChart2Props> = ({ data }) => {
               </div>
               {data.percentage}%
             </li>
-          ))} */}
+          ))}
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 };
