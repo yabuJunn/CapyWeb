@@ -41,7 +41,6 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export const ExpensesGraphic: React.FC<AreaChartComponentProps> = ({ data }) => {
-  console.log(data)
 
   return (
     <ChartContainer config={chartConfig}>

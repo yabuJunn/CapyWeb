@@ -41,6 +41,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export const ExpensesPieChart: React.FC<PieChart2Props> = ({ data, monthData, isMonthData }) => {
+  console.log(monthData)
   /*
   const [selectedOption, setSelectedOption] = useState("July");
 
@@ -68,8 +69,8 @@ export const ExpensesPieChart: React.FC<PieChart2Props> = ({ data, monthData, is
           />
           <Pie
             data={isMonthData === false ? data.categoryMappedData : monthData.categoryPercentages}
-            dataKey={isMonthData === false ? "expenseCategoryValue" : "value.amount"}
-            nameKey={isMonthData === false ? "expenseCategoryName" : "category"}
+            dataKey={isMonthData === false ? "expenseCategoryValue" : "value"}
+            nameKey={isMonthData === false ? "expenseCategoryName" : "expenseCategoryName"}
             innerRadius={70}
             strokeWidth={5}
           >

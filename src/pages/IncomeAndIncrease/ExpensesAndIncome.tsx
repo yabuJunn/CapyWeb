@@ -64,6 +64,7 @@ function calculateExpensesData(expenses: Array<realExpenseType>) {
           expenseCategoryName: category, // Cambia "category" a "expenseCategoryName"
           fill: categoryAmount.fill,
           expensePercentage: parseFloat(percentage.toFixed(2)), // Cambia "percentage" a "expensePercentage"
+          value: categoryAmount.amount
         };
       }
     );
@@ -285,8 +286,8 @@ export const ExpensesAndIncomePage = () => {
             </div>
           </main >
         </>
-        break;
-      case monthsSelectorNames.october:
+
+      default:
         if (foundMonthData) {
           return <>
             <main className="page" id="expensesAndIncomePage">
@@ -335,9 +336,6 @@ export const ExpensesAndIncomePage = () => {
             </main >
           </>
         }
-        break;
-
-      default:
         break;
     }
 
