@@ -28,6 +28,7 @@ export interface ExpenseData {
 }
 
 
+
 export interface AreaChartComponentProps {
   data: ExpenseData[];
 }

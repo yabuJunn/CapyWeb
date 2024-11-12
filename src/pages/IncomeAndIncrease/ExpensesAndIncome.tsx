@@ -1,23 +1,14 @@
+import "./ExpensesAndIncome.css";
+
 import { ExpensesGraphic } from "../../components/expensesAndIncomeScreenComponents/ExpensesGraphic/ExpensesGraphic";
-import { IncomesGraphic } from "../../components/expensesAndIncomeScreenComponents/IncomesGraphic/IncomesGraphic";
+import { IncomeData, IncomesGraphic } from "../../components/expensesAndIncomeScreenComponents/IncomesGraphic/IncomesGraphic";
 import { ExpensePlanner } from "../../components/expensesAndIncomeScreenComponents/ExpensePlanner/ExpensePlanner";
 import { History } from "../../components/expensesAndIncomeScreenComponents/History/History";
 import { ExpensesPieChart } from "../../components/expensesAndIncomeScreenComponents/PieChart2/PieChart2";
 import { IncomePieChart } from "../../components/expensesAndIncomeScreenComponents/IncomePieChart/IncomePieChart";
 import { IncomeHistory } from "../../components/expensesAndIncomeScreenComponents/IncomeHistory/IncomeHistory";
-import {
-  realExpenseType,
-  realIncomeType,
-  expensesData,
-  incomesData,
-  expensesSliceType,
-  expenseNameCategories,
-} from "./dataIncomeAndExpense";
-import {
-  ExpenseData,
-  CategoryPercentage,
-} from "../../components/expensesAndIncomeScreenComponents/ExpensesGraphic/ExpensesGraphic";
-import "./ExpensesAndIncome.css";
+import { realExpenseType, realIncomeType, expensesData, incomesData, expenseNameCategories } from "./dataIncomeAndExpense";
+import { ExpenseData } from "../../components/expensesAndIncomeScreenComponents/ExpensesGraphic/ExpensesGraphic";
 import { useState, useEffect } from "react";
 import { GlobalAppNav } from "../../components/Nav/Nav";
 import { PieCardMonthSelect } from "../../components/expensesAndIncomeScreenComponents/PieCardMonthSelect/PieCardMonthSelect";
@@ -69,8 +60,11 @@ function calculateExpensesData(expenses: Array<realExpenseType>) {
       (category) => {
         const categoryAmount = monthData.categoryAmounts[category];
         const percentage = (categoryAmount.amount / monthData.totalAmount) * 100;
-        const fill = categoryAmount.fill
-        return { category, percentage: parseFloat(percentage.toFixed(2)), fill: fill, value: categoryAmount };
+        return {
+          expenseCategoryName: category, // Cambia "category" a "expenseCategoryName"
+          fill: categoryAmount.fill,
+          expensePercentage: parseFloat(percentage.toFixed(2)), // Cambia "percentage" a "expensePercentage"
+        };
       }
     );
 
@@ -191,10 +185,12 @@ const calculateTotalExpensesCategorty = (realExpensesData: Array<realExpenseType
 
 export type expenseDataResultsType = Array<ExpenseData>
 
+export type incomeDataResultsType = Array<IncomeData>
+
 export const ExpensesAndIncomePage = () => {
   const [selectedOption, setSelectedOption] = useState("Gastos");
   const [expenseResults, setExpenseResults] = useState<expenseDataResultsType>([]);
-  const [incomeResults] = useState<ExpenseData[]>([]);
+  const [incomeResults, setIncomeResults] = useState<incomeDataResultsType>([]);
   const [totalExpenseCategory, setTotalExpenseCategory] = useState<expenseCategoryType>({ totalCategoryExpenses: 0, categoryMappedData: [] })
   const [monthSelector, setMonthSelector] = useState("Total")
 
@@ -205,7 +201,7 @@ export const ExpensesAndIncomePage = () => {
     // console.log(expenseResults);
 
     const incomeResults = calculateIncomesData(incomesData.realIncomes);
-    //setIncomeResults(incomeResults);
+    setIncomeResults(incomeResults);
     // console.log(incomeResults);
 
     const totalExpensesCategoryResult = calculateTotalExpensesCategorty(expensesData.realExpenses)
@@ -225,9 +221,9 @@ export const ExpensesAndIncomePage = () => {
     totalAmount: result.totalAmount,
     categoryPercentages: result.categoryPercentages.map(
       (category) => ({
-        expenseCategoryName: category.category,
+        expenseCategoryName: category.expenseCategoryName,
         fill: category.fill,
-        expensePercentage: category.percentage
+        expensePercentage: category.expensePercentage
       })
     ),
   }));
