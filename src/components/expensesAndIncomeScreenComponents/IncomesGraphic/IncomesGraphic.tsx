@@ -19,6 +19,13 @@ export const description = "A simple area chart";
 export interface IncomeData {
   month: string;
   totalAmount: number;
+  categoryPercentage: Array<incomeCategoryPercentage>
+}
+
+export interface incomeCategoryPercentage {
+  expenseCategoryName: string;
+  expensePercentage: number;
+  fill: string;
 }
 
 export interface AreaChartComponentProps {

@@ -5,14 +5,15 @@ import { IncomeData, IncomesGraphic } from "../../components/expensesAndIncomeSc
 import { ExpensePlanner } from "../../components/expensesAndIncomeScreenComponents/ExpensePlanner/ExpensePlanner";
 import { History } from "../../components/expensesAndIncomeScreenComponents/History/History";
 import { ExpensesPieChart } from "../../components/expensesAndIncomeScreenComponents/PieChart2/PieChart2";
-import { IncomePieChart } from "../../components/expensesAndIncomeScreenComponents/IncomePieChart/IncomePieChart";
 import { IncomeHistory } from "../../components/expensesAndIncomeScreenComponents/IncomeHistory/IncomeHistory";
-import { realExpenseType, realIncomeType, expensesData, incomesData, expenseNameCategories } from "./dataIncomeAndExpense";
+import { realExpenseType, realIncomeType, expensesData, incomesData, expenseNameCategories, incomeNameEntries } from "./dataIncomeAndExpense";
 import { ExpenseData } from "../../components/expensesAndIncomeScreenComponents/ExpensesGraphic/ExpensesGraphic";
 import { useState, useEffect } from "react";
 import { GlobalAppNav } from "../../components/Nav/Nav";
 import { PieCardMonthSelect } from "../../components/expensesAndIncomeScreenComponents/PieCardMonthSelect/PieCardMonthSelect";
 import { PieCardHints } from "../../components/expensesAndIncomeScreenComponents/PieCardHints/PieCardHints";
+import { IncomesPieChart } from "../../components/expensesAndIncomeScreenComponents/IncomesPieChart/IncomesPieChart";
+
 
 function getMonthName(date: Date): string {
   return date.toLocaleString("en-US", { month: "long" });
@@ -135,6 +136,16 @@ export interface expenseCategoryType {
   }>
 }
 
+export interface incomesCategoryType {
+  totalCategoryIncomes: number,
+  categoryMappedData: Array<{
+    incomeCategoryName: incomeNameEntries,
+    incomeCategoryValue: number,
+    fill: string,
+    incomePercentage: number
+  }>
+}
+
 enum monthsSelectorNames {
   total = "Total",
   january = "January",
@@ -185,6 +196,40 @@ const calculateTotalExpensesCategorty = (realExpensesData: Array<realExpenseType
   return categoryExpensesData
 }
 
+const calculateTotalIncomesCategorty = (realIncomesData: Array<realIncomeType>) => {
+  const categoryExpensesData: incomesCategoryType = {
+    totalCategoryIncomes: 0,
+    categoryMappedData: []
+  }
+
+  //Calculate totalCategoryIncomes
+  realIncomesData.forEach((incomesItem) => {
+    categoryExpensesData.totalCategoryIncomes += incomesItem.incomeAmount
+  })
+
+  //Calculate each category expenses amount
+  realIncomesData.forEach((incomesItem) => {
+    const foundCategoryExpensed = categoryExpensesData.categoryMappedData.find(categoryMapped => categoryMapped.incomeCategoryName === incomesItem.incomeEntrie)
+    if (!foundCategoryExpensed) {
+      categoryExpensesData.categoryMappedData.push({
+        incomeCategoryName: incomesItem.incomeEntrie,
+        incomeCategoryValue: incomesItem.incomeAmount,
+        fill: incomesItem.incomeColor,
+        incomePercentage: 0
+      })
+    } else {
+      categoryExpensesData.categoryMappedData[categoryExpensesData.categoryMappedData.indexOf(foundCategoryExpensed)].incomeCategoryValue += incomesItem.incomeAmount
+    }
+  });
+
+  //Calculates each category expenses percetage of the total
+  categoryExpensesData.categoryMappedData.forEach((categoryMappedIncomes) => {
+    categoryMappedIncomes.incomePercentage = (100 * categoryMappedIncomes.incomeCategoryValue) / categoryExpensesData.totalCategoryIncomes
+  })
+
+  return categoryExpensesData
+}
+
 export type expenseDataResultsType = Array<ExpenseData>
 
 export type incomeDataResultsType = Array<IncomeData>
@@ -193,7 +238,10 @@ export const ExpensesAndIncomePage = () => {
   const [selectedOption, setSelectedOption] = useState("Gastos");
   const [expenseResults, setExpenseResults] = useState<expenseDataResultsType>([]);
   const [incomeResults, setIncomeResults] = useState<incomeDataResultsType>([]);
+
   const [totalExpenseCategory, setTotalExpenseCategory] = useState<expenseCategoryType>({ totalCategoryExpenses: 0, categoryMappedData: [] })
+  const [totalIncomesCategory, setTotalIncomesCategory] = useState<incomesCategoryType>({ totalCategoryIncomes: 0, categoryMappedData: [] })
+
   const [monthSelector, setMonthSelector] = useState("Total")
 
   useEffect(() => {
@@ -208,6 +256,9 @@ export const ExpensesAndIncomePage = () => {
 
     const totalExpensesCategoryResult = calculateTotalExpensesCategorty(expensesData.realExpenses)
     setTotalExpenseCategory(totalExpensesCategoryResult)
+
+    const totalIncomesCategoryResult = calculateTotalIncomesCategorty(incomesData.realIncomes)
+    setTotalIncomesCategory(totalIncomesCategoryResult)
   }, []);
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -343,6 +394,7 @@ export const ExpensesAndIncomePage = () => {
     }
 
   } else if (selectedOption === "Ingresos") {
+
     return <>
       <main className="page" id="expensesAndIncomePage">
         <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
@@ -366,13 +418,11 @@ export const ExpensesAndIncomePage = () => {
               </div>
               <div className="piechart-graphic">
                 <div className="pie-card-right">
-                  <select className="select-expenses-pie" name="" id="">
-                    <option value="July">Total</option>
-                    <option value="July">July</option>
-                    <option value="Igresos">August</option>
-                  </select>
+                  {/* Aqui va el select y los hints */}
+                  <PieCardMonthSelect monthsArray={expenseResults.map((expense) => expense.month)} handleMonthSelectorChannge={handleMonthSelectorChannge}></PieCardMonthSelect>
+                  <PieCardHints categoryArrayTotal={totalExpenseCategory.categoryMappedData} isMonthData={false} categoryArrayMonth={[]}></PieCardHints>
                 </div>
-                <IncomePieChart />
+                <IncomesPieChart data={totalIncomesCategory} isMonthData={false} monthData={{ month: "", totalAmount: 0, categoryPercentages: [] }} />
               </div>
             </div>
           </div>
@@ -382,7 +432,7 @@ export const ExpensesAndIncomePage = () => {
               <ExpensePlanner />
             </div>
             <div className="right-div">
-              <IncomeHistory /*chartData={chartData}*/ />
+              <IncomeHistory />
             </div>
           </div>
         </div>
@@ -393,5 +443,4 @@ export const ExpensesAndIncomePage = () => {
       </main>
     </>
   }
-
-};
+}

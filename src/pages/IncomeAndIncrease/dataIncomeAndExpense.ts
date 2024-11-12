@@ -108,6 +108,7 @@ export interface realIncomeType {
   incomeEntrie: incomeNameEntries;
   incomeDate: Timestamp;
   incomeAmount: number;
+  incomeColor: string
 }
 
 export interface plannedIncomeType {
@@ -138,24 +139,28 @@ export const incomesData: incomesSliceType = {
       incomeEntrie: incomeNameEntries.nu,
       incomeDate: Timestamp.fromDate(new Date("2024-10-10")),
       incomeAmount: 3500,
+      incomeColor: "#2D18BF"
     },
     {
       incomeCategory: incomeNameCategories.freelance,
       incomeEntrie: incomeNameEntries.masterCard,
       incomeDate: Timestamp.fromDate(new Date("2024-10-15")),
       incomeAmount: 1500,
+      incomeColor: "#F9F9F9"
     },
     {
       incomeCategory: incomeNameCategories.freelance,
       incomeEntrie: incomeNameEntries.visa,
       incomeDate: Timestamp.fromDate(new Date("2024-11-05")),
       incomeAmount: 1800,
+      incomeColor: "#F2622E"
     },
     {
       incomeCategory: incomeNameCategories.work,
       incomeEntrie: incomeNameEntries.efectivo,
       incomeDate: Timestamp.fromDate(new Date("2024-12-20")),
       incomeAmount: 2000,
+      incomeColor: "#A8F25D"
     },
 
   ],

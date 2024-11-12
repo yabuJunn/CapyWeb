@@ -7,12 +7,12 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "../../ui/chart";
-import "./PieChart2.css";
-import { expenseCategoryType } from "../../../pages/IncomeAndIncrease/ExpensesAndIncome";
+// import "./PieChart2.css";
+import { incomesCategoryType } from "../../../pages/IncomeAndIncrease/ExpensesAndIncome";
 import { ExpenseData } from "../ExpensesGraphic/ExpensesGraphic";
 
-interface PieChart2Props {
-  data: expenseCategoryType,
+interface IncomesPieChartProps {
+  data: incomesCategoryType,
   isMonthData: boolean,
   monthData: ExpenseData
 }
@@ -39,7 +39,8 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export const ExpensesPieChart: React.FC<PieChart2Props> = ({ data, monthData, isMonthData }) => {
+export const IncomesPieChart = ({ data, monthData, isMonthData }: IncomesPieChartProps) => {
+  console.log(data)
 
   return (
     <div className="pie-card-container">
@@ -54,8 +55,8 @@ export const ExpensesPieChart: React.FC<PieChart2Props> = ({ data, monthData, is
           />
           <Pie
             data={isMonthData === false ? data.categoryMappedData : monthData.categoryPercentages}
-            dataKey={isMonthData === false ? "expenseCategoryValue" : "value"}
-            nameKey={isMonthData === false ? "expenseCategoryName" : "expenseCategoryName"}
+            dataKey={isMonthData === false ? "incomeCategoryValue" : "value"}
+            nameKey={isMonthData === false ? "incomeCategoryName" : "expenseCategoryName"}
             innerRadius={70}
             strokeWidth={5}
           >
@@ -75,7 +76,7 @@ export const ExpensesPieChart: React.FC<PieChart2Props> = ({ data, monthData, is
                         y={viewBox.cy}
                         className="text-3xl font-bold fill-white"
                       >
-                        ${isMonthData === false ? data.totalCategoryExpenses : monthData.totalAmount}
+                        ${isMonthData === false ? data.totalCategoryIncomes : monthData.totalAmount}
                       </tspan>
                       <tspan
                         x={viewBox.cx}
