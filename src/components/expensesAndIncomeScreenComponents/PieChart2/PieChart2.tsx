@@ -1,5 +1,4 @@
 import * as React from "react";
-/*import { TrendingUp } from "lucide-react";*/
 import { Label, Pie, PieChart } from "recharts";
 
 import {
@@ -41,26 +40,12 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export const ExpensesPieChart: React.FC<PieChart2Props> = ({ data, monthData, isMonthData }) => {
-  console.log(monthData)
-  /*
-  const [selectedOption, setSelectedOption] = useState("July");
-
-  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(event.target.value);
-  };
-
-  const chartDataOptions = selectedOption === "July" ? chartData : chartData2;
-  */
-
-  // const totalVisitors = React.useMemo(() => {
-  //   return data.reduce((acc, curr) => acc + curr.totalAmount, 0);
-  // }, [data]);
 
   return (
     <div className="pie-card-container">
       <ChartContainer
         config={chartConfig}
-        className="aspect-square w-[60%] max-h-[260px]"
+        className="aspect-square w-[16vw] max-h-[260px]"
       >
         <PieChart>
           <ChartTooltip

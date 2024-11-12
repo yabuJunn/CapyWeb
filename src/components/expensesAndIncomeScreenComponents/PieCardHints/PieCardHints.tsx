@@ -2,21 +2,49 @@ import { expenseNameCategories } from '../../../store/expenses/types'
 import './PieCardHints.css'
 
 interface PieCardHintsProps {
-    categoryArray: Array<{
-        categoryColor: string,
-        categoryName: expenseNameCategories,
-        categoryPercentage: number
-    }>
+    categoryArrayTotal: Array<{
+        fill: string,
+        expenseCategoryName: expenseNameCategories,
+        expenseCategoryValue: number,
+        expensePercentage: number
+    }>,
+    isMonthData: boolean,
+    categoryArrayMonth: Array<{
+        expenseCategoryName: string;
+        fill: string;
+        expensePercentage: number;
+    }>,
 }
 
-export const PieCardHints = ({ categoryArray }: PieCardHintsProps) => {
-    return <>
-        <ul className="container-info-pie-chart">
-            {categoryArray.map((categoryItem) => (
-                <li key={categoryItem.categoryName} className="info-pie-chart-color">
-
-                </li>
-            ))}
-        </ul>
-    </>
+export const PieCardHints = ({ categoryArrayTotal, isMonthData, categoryArrayMonth }: PieCardHintsProps) => {
+    console.log(categoryArrayMonth)
+    if (isMonthData) {
+        return <>
+            <ul className="container-info-pie-chart">
+                {categoryArrayMonth.map((categoryItem) => (
+                    <li key={categoryItem.expenseCategoryName} className="info-pie-chart-color">
+                        <div className='hint'>
+                            <div className='color' style={{ backgroundColor: categoryItem.fill }}></div>
+                            <p>{categoryItem.expenseCategoryName}</p>
+                            <p>{categoryItem.expensePercentage.toFixed(2)}%</p>
+                        </div>
+                    </li>
+                ))}
+            </ul>
+        </>
+    } else {
+        return <>
+            <ul className="container-info-pie-chart">
+                {categoryArrayTotal.map((categoryItem) => (
+                    <li key={categoryItem.expenseCategoryName} className="info-pie-chart-color">
+                        <div className='hint'>
+                            <div className='color' style={{ backgroundColor: categoryItem.fill }}></div>
+                            <p>{categoryItem.expenseCategoryName}</p>
+                            <p>{categoryItem.expensePercentage.toFixed(2)}%</p>
+                        </div>
+                    </li>
+                ))}
+            </ul>
+        </>
+    }
 }

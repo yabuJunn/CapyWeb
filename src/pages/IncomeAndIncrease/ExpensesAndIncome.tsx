@@ -12,6 +12,7 @@ import { ExpenseData } from "../../components/expensesAndIncomeScreenComponents/
 import { useState, useEffect } from "react";
 import { GlobalAppNav } from "../../components/Nav/Nav";
 import { PieCardMonthSelect } from "../../components/expensesAndIncomeScreenComponents/PieCardMonthSelect/PieCardMonthSelect";
+import { PieCardHints } from "../../components/expensesAndIncomeScreenComponents/PieCardHints/PieCardHints";
 
 function getMonthName(date: Date): string {
   return date.toLocaleString("en-US", { month: "long" });
@@ -265,6 +266,7 @@ export const ExpensesAndIncomePage = () => {
                     <div className="pie-card-right">
                       {/* Aqui va el select y los hints */}
                       <PieCardMonthSelect monthsArray={expenseResults.map((expense) => expense.month)} handleMonthSelectorChannge={handleMonthSelectorChannge}></PieCardMonthSelect>
+                      <PieCardHints categoryArrayTotal={totalExpenseCategory.categoryMappedData} isMonthData={false} categoryArrayMonth={[]}></PieCardHints>
                     </div>
                     <ExpensesPieChart data={totalExpenseCategory} isMonthData={false} monthData={{ month: "", totalAmount: 0, categoryPercentages: [] }} />
                   </div>
@@ -314,6 +316,7 @@ export const ExpensesAndIncomePage = () => {
                       <div className="pie-card-right">
                         {/* Aqui va el select y los hints */}
                         <PieCardMonthSelect monthsArray={expenseResults.map((expense) => expense.month)} handleMonthSelectorChannge={handleMonthSelectorChannge}></PieCardMonthSelect>
+                        <PieCardHints categoryArrayTotal={totalExpenseCategory.categoryMappedData} isMonthData={true} categoryArrayMonth={foundMonthData.categoryPercentages}></PieCardHints>
                       </div>
                       <ExpensesPieChart data={totalExpenseCategory} isMonthData={true} monthData={foundMonthData} />
                     </div>
