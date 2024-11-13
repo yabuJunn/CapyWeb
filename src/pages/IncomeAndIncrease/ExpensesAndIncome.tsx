@@ -263,13 +263,10 @@ export const ExpensesAndIncomePage = () => {
 
   useEffect(() => {
     const expenseResults = calculateExpensesData(expensesData.realExpenses);
-    // console.log("Gastos por mes:", expenseResults);
     setExpenseResults(expenseResults);
-    // console.log(expenseResults);
 
     const incomeResults = calculateIncomesData(incomesData.realIncomes);
     setIncomeResults(incomeResults);
-    // console.log(incomeResults);
 
     const totalExpensesCategoryResult = calculateTotalExpensesCategorty(expensesData.realExpenses)
     setTotalExpenseCategory(totalExpensesCategoryResult)
@@ -309,10 +306,8 @@ export const ExpensesAndIncomePage = () => {
 
   //Expenses or Incomes Conditional
   if (selectedOption === "Gastos") {
-    console.log("monthSelector: ", monthSelector)
     switch (monthSelector) {
       case monthsSelectorNames.total:
-        console.log("totalExpenseCategory: ", totalExpenseCategory)
         return <>
           <main className="page" id="expensesAndIncomePage">
             <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>

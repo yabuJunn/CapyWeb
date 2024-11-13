@@ -1,19 +1,26 @@
-import { useState } from "react";
-import { expenses, Category } from "./data";
+import { useEffect, useState } from "react";
+import { expenses, expensesCategory, Expense } from "./data";
 import "./History.css";
 
 export const History = () => {
-  const [selectedCategory, setSelectedCategory] = useState<Category | "">(""); // State for selected category
+  const [selectedCategory, setSelectedCategory] = useState<expensesCategory>(expensesCategory.category); // State for selected category
+  const [filteredExpenses, setFilteredExpenses] = useState<Expense[]>(expenses);
 
-  // Select handler
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCategory(e.target.value as Category);
+    setSelectedCategory(e.target.value as expensesCategory);
   };
 
-  // Filter
-  const filteredExpenses = selectedCategory
-    ? expenses.filter((expense) => expense.category === selectedCategory)
-    : expenses;
+
+  useEffect(() => {
+    if (selectedCategory === expensesCategory.category) {
+      setFilteredExpenses(expenses)
+    } else {
+      const filteredExpenses = expenses.filter((expense) => expense.category === selectedCategory)
+      setFilteredExpenses(filteredExpenses)
+    }
+  }, [selectedCategory])
+
+  console.log(selectedCategory)
 
   return (
     <div className="generalHistoryExpenses">
@@ -26,12 +33,10 @@ export const History = () => {
           value={selectedCategory}
           required
         >
-          <option value="" disabled>
-            Category
-          </option>
-          <option value="home">Home</option>
-          <option value="market">Market</option>
-          <option value="clothes">Clothes</option>
+          <option value={expensesCategory.category}>Category</option>
+          <option value={expensesCategory.home}>Home</option>
+          <option value={expensesCategory.market}>Market</option>
+          <option value={expensesCategory.clothes}>Clothes</option>
         </select>
       </div>
 
@@ -55,8 +60,8 @@ export const History = () => {
               <div className="card-container-expense-details">
                 <div className="expense-details">
                   <h2>{expense.place}</h2>
-                  <p>{expense.category}</p>
-                  <p>{expense.date}</p>
+                  <p>Category: {expense.category}</p>
+                  <p>Date: {expense.date}</p>
                 </div>
                 <p className="history-expense-amount">${expense.amount}</p>
               </div>
