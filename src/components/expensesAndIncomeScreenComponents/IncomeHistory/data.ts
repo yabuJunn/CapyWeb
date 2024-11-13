@@ -3,8 +3,14 @@ export type Category = "visa" | "nu";
 import nuSvg from '../../../assets/desktop/svg/nu.svg'
 import visaSvg from '../../../assets/desktop/svg/visa.svg'
 
-export interface Expense {
-  category: Category;
+export enum incomeCategory {
+  cards = "Cards",
+  visa = "Visa",
+  nu = "Nu"
+}
+
+export interface incomeHistoryType {
+  category: incomeCategory;
   date: string;
   amount: number;
   img?: string;
@@ -12,27 +18,27 @@ export interface Expense {
 
 //Esta data hay que pasarla hay que pasarla al redux
 
-export const expenses: Expense[] = [
+export const incomesHistory: incomeHistoryType[] = [
   {
-    category: "nu",
+    category: incomeCategory.nu,
     date: "Miércoles 04 de Septiembre ",
     amount: 150000,
     img: nuSvg,
   },
   {
-    category: "nu",
+    category: incomeCategory.nu,
     date: "Miércoles 04 de Septiembre ",
     amount: 120000,
     img: nuSvg,
   },
   {
-    category: "visa",
+    category: incomeCategory.visa,
     date: "Martes 19 de Septiembre",
     amount: 500000,
     img: visaSvg,
   },
   {
-    category: "visa",
+    category: incomeCategory.visa,
     date: "Domingo 27 de Septiembre",
     amount: 200000,
     img: visaSvg,
