@@ -2,3 +2,8 @@
     max-height: 230px;
     width: 100%;
 }
+
+.custom-tick-text-expenses .recharts-cartesian-axis-tick text {
+    fill: white !important;
+    /* Usa !important para sobreescribir el estilo */
+}

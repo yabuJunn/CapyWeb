@@ -34,10 +34,17 @@ export interface plannedExpenseType {
 export const expensesData: expensesSliceType = {
   realExpenses: [
     {
+      expenseCategory: expenseNameCategories.Amigos,
+      expenseSite: "Cine local",
+      expenseDate: Timestamp.fromDate(new Date("2024-08-20")),
+      expenseAmount: 500,
+      expenseColor: "#FFFFFF"
+    },
+    {
       expenseCategory: expenseNameCategories.salidas,
       expenseSite: "Cine local",
       expenseDate: Timestamp.fromDate(new Date("2024-09-20")),
-      expenseAmount: 50,
+      expenseAmount: 200,
       expenseColor: "#2D18BF"
     },
     {
@@ -137,7 +144,7 @@ export const incomesData: incomesSliceType = {
     {
       incomeCategory: incomeNameCategories.work,
       incomeEntrie: incomeNameEntries.nu,
-      incomeDate: Timestamp.fromDate(new Date("2024-10-10")),
+      incomeDate: Timestamp.fromDate(new Date("2024-9-10")),
       incomeAmount: 3500,
       incomeColor: "#2D18BF"
     },
@@ -152,7 +159,7 @@ export const incomesData: incomesSliceType = {
       incomeCategory: incomeNameCategories.freelance,
       incomeEntrie: incomeNameEntries.visa,
       incomeDate: Timestamp.fromDate(new Date("2024-11-05")),
-      incomeAmount: 1800,
+      incomeAmount: 3000,
       incomeColor: "#F2622E"
     },
     {

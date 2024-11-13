@@ -81,11 +81,57 @@ function calculateExpensesData(expenses: Array<realExpenseType>) {
   return result;
 }
 
+// function calculateIncomesData(incomes: Array<realIncomeType>) {
+//   const monthlyIncomeData: {
+//     [month: string]: {
+//       totalAmount: number;
+//       entryAmounts: { [key: string]: number };
+//     };
+//   } = {};
+
+//   incomes.forEach((income) => {
+//     // Convertir incomeDate de Timestamp a Date
+//     const month = getMonthName(income.incomeDate.toDate());
+
+//     if (!monthlyIncomeData[month]) {
+//       monthlyIncomeData[month] = { totalAmount: 0, entryAmounts: {} };
+//     }
+
+//     monthlyIncomeData[month].totalAmount += income.incomeAmount;
+
+//     if (!monthlyIncomeData[month].entryAmounts[income.incomeEntrie]) {
+//       monthlyIncomeData[month].entryAmounts[income.incomeEntrie] = 0;
+//     }
+//     monthlyIncomeData[month].entryAmounts[income.incomeEntrie] +=
+//       income.incomeAmount;
+//   });
+
+//   const result = Object.keys(monthlyIncomeData).map((month) => {
+//     const monthData = monthlyIncomeData[month];
+//     const entryPercentages = Object.keys(monthData.entryAmounts).map(
+//       (entry) => {
+//         const entryAmount = monthData.entryAmounts[entry];
+//         const percentage = (entryAmount / monthData.totalAmount) * 100;
+//         return { entry, percentage: parseFloat(percentage.toFixed(2)) };
+//       }
+//     );
+
+//     return {
+//       month,
+//       totalAmount: monthData.totalAmount,
+//       entryPercentages,
+//     };
+//   });
+
+//   return result;
+// }
+
 function calculateIncomesData(incomes: Array<realIncomeType>) {
   const monthlyIncomeData: {
     [month: string]: {
       totalAmount: number;
-      entryAmounts: { [key: string]: number };
+      entryAmounts: { [key: string]: { amount: number; fill: string } };
+      value: number;
     };
   } = {};
 
@@ -93,17 +139,28 @@ function calculateIncomesData(incomes: Array<realIncomeType>) {
     // Convertir incomeDate de Timestamp a Date
     const month = getMonthName(income.incomeDate.toDate());
 
+    // Inicializar el objeto del mes si no existe
     if (!monthlyIncomeData[month]) {
-      monthlyIncomeData[month] = { totalAmount: 0, entryAmounts: {} };
+      monthlyIncomeData[month] = { totalAmount: 0, entryAmounts: {}, value: 0 };
     }
 
+    // Actualizar el totalAmount del mes
     monthlyIncomeData[month].totalAmount += income.incomeAmount;
 
+    // Verificar si la entrada específica ya existe en entryAmounts
     if (!monthlyIncomeData[month].entryAmounts[income.incomeEntrie]) {
-      monthlyIncomeData[month].entryAmounts[income.incomeEntrie] = 0;
+      monthlyIncomeData[month].entryAmounts[income.incomeEntrie] = {
+        amount: 0,
+        fill: income.incomeColor,
+      };
     }
-    monthlyIncomeData[month].entryAmounts[income.incomeEntrie] +=
+
+    // Sumar el monto a la entrada correspondiente
+    monthlyIncomeData[month].entryAmounts[income.incomeEntrie].amount +=
       income.incomeAmount;
+
+    // Actualizar el valor total del mes si es necesario
+    monthlyIncomeData[month].value += income.incomeAmount;
   });
 
   const result = Object.keys(monthlyIncomeData).map((month) => {
@@ -111,8 +168,13 @@ function calculateIncomesData(incomes: Array<realIncomeType>) {
     const entryPercentages = Object.keys(monthData.entryAmounts).map(
       (entry) => {
         const entryAmount = monthData.entryAmounts[entry];
-        const percentage = (entryAmount / monthData.totalAmount) * 100;
-        return { entry, percentage: parseFloat(percentage.toFixed(2)) };
+        const percentage = (entryAmount.amount / monthData.totalAmount) * 100;
+        return {
+          incomeEntryName: entry, // Cambia "entry" a "incomeEntryName"
+          fill: entryAmount.fill,
+          incomePercentage: parseFloat(percentage.toFixed(2)), // Cambia "percentage" a "incomePercentage"
+          value: entryAmount.amount,
+        };
       }
     );
 
@@ -259,9 +321,10 @@ export const ExpensesAndIncomePage = () => {
 
     const totalIncomesCategoryResult = calculateTotalIncomesCategorty(incomesData.realIncomes)
     setTotalIncomesCategory(totalIncomesCategoryResult)
-  }, []);
+  }, [monthSelector]);
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setMonthSelector("Total")
     setSelectedOption(event.target.value);
   };
 
@@ -287,11 +350,16 @@ export const ExpensesAndIncomePage = () => {
   }));
 
   const foundMonthData = expenseResults.find(expenseMonth => expenseMonth.month === monthSelector)
+  const foundIncomeMonthData = incomeResults.find(incomeMonth => incomeMonth.month === monthSelector)
+
+  // console.log("selectedOption: ", selectedOption)
 
   //Expenses or Incomes Conditional
   if (selectedOption === "Gastos") {
+    console.log("monthSelector: ", monthSelector)
     switch (monthSelector) {
       case monthsSelectorNames.total:
+        console.log("totalExpenseCategory: ", totalExpenseCategory)
         return <>
           <main className="page" id="expensesAndIncomePage">
             <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
@@ -394,53 +462,105 @@ export const ExpensesAndIncomePage = () => {
     }
 
   } else if (selectedOption === "Ingresos") {
+    switch (monthSelector) {
+      case monthsSelectorNames.total:
+        return <>
+          <main className="page" id="expensesAndIncomePage">
+            <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
 
-    return <>
-      <main className="page" id="expensesAndIncomePage">
-        <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
+            <GlobalAppNav></GlobalAppNav>
 
-        <GlobalAppNav></GlobalAppNav>
-
-        <div className="container">
-          <div className="main-div">
-            <select
-              className="select-expenses-graphic"
-              name=""
-              id=""
-              onChange={handleSelectChange}
-            >
-              <option value="Gastos">Expenses</option>
-              <option value="Ingresos">Income</option>
-            </select>
-            <div className="expense-graphic-top">
-              <div className="expense-graphic expense-graphic-color-2">
-                <IncomesGraphic data={mappedIncomeResults} />
-              </div>
-              <div className="piechart-graphic">
-                <div className="pie-card-right">
-                  {/* Aqui va el select y los hints */}
-                  <PieCardMonthSelect monthsArray={expenseResults.map((expense) => expense.month)} handleMonthSelectorChannge={handleMonthSelectorChannge}></PieCardMonthSelect>
-                  <PieCardHints categoryArrayTotal={totalExpenseCategory.categoryMappedData} isMonthData={false} categoryArrayMonth={[]}></PieCardHints>
+            <div className="container">
+              <div className="main-div">
+                <select
+                  className="select-expenses-graphic"
+                  name=""
+                  id=""
+                  onChange={handleSelectChange}
+                >
+                  <option value="Gastos">Expenses</option>
+                  <option value="Ingresos">Income</option>
+                </select>
+                <div className="expense-graphic-top">
+                  <div className="expense-graphic expense-graphic-color-2">
+                    <IncomesGraphic data={mappedIncomeResults} />
+                  </div>
+                  <div className="piechart-graphic">
+                    <div className="pie-card-right">
+                      {/* Aqui va el select y los hints */}
+                      <PieCardMonthSelect monthsArray={incomeResults.map((income) => income.month)} handleMonthSelectorChannge={handleMonthSelectorChannge}></PieCardMonthSelect>
+                      <PieCardHints categoryArrayTotal={totalIncomesCategory.categoryMappedData} isMonthData={false} categoryArrayMonth={[]}></PieCardHints>
+                    </div>
+                    <IncomesPieChart data={totalIncomesCategory} isMonthData={false} monthData={{ month: "", totalAmount: 0, entryPercentages: [] }} />
+                  </div>
                 </div>
-                <IncomesPieChart data={totalIncomesCategory} isMonthData={false} monthData={{ month: "", totalAmount: 0, categoryPercentages: [] }} />
+              </div>
+
+              <div className="chart-expense-bottom">
+                <div className="left-div">
+                  <ExpensePlanner />
+                </div>
+                <div className="right-div">
+                  <IncomeHistory />
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="chart-expense-bottom">
-            <div className="left-div">
-              <ExpensePlanner />
+            <div id="backgroundExpensesAndIncomes" className="backgroundPage">
+
             </div>
-            <div className="right-div">
-              <IncomeHistory />
-            </div>
-          </div>
-        </div>
+          </main>
+        </>
+      default:
+        if (foundIncomeMonthData) {
+          return <>
+            <main className="page" id="expensesAndIncomePage">
+              <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
 
-        <div id="backgroundExpensesAndIncomes" className="backgroundPage">
+              <GlobalAppNav></GlobalAppNav>
 
-        </div>
-      </main>
-    </>
+              <div className="container">
+                <div className="main-div">
+                  <select
+                    className="select-expenses-graphic"
+                    name=""
+                    id=""
+                    onChange={handleSelectChange}
+                  >
+                    <option value="Gastos">Expenses</option>
+                    <option value="Ingresos">Income</option>
+                  </select>
+                  <div className="expense-graphic-top">
+                    <div className="expense-graphic expense-graphic-color-2">
+                      <IncomesGraphic data={mappedIncomeResults} />
+                    </div>
+                    <div className="piechart-graphic">
+                      <div className="pie-card-right">
+                        {/* Aqui va el select y los hints */}
+                        <PieCardMonthSelect monthsArray={incomeResults.map((income) => income.month)} handleMonthSelectorChannge={handleMonthSelectorChannge}></PieCardMonthSelect>
+                        <PieCardHints categoryArrayTotal={totalIncomesCategory.categoryMappedData} isMonthData={true} categoryArrayMonth={foundIncomeMonthData.entryPercentages}></PieCardHints>
+                      </div>
+                      <IncomesPieChart data={totalIncomesCategory} isMonthData={true} monthData={foundIncomeMonthData} />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="chart-expense-bottom">
+                  <div className="left-div">
+                    <ExpensePlanner />
+                  </div>
+                  <div className="right-div">
+                    <IncomeHistory />
+                  </div>
+                </div>
+              </div>
+
+              <div id="backgroundExpensesAndIncomes" className="backgroundPage">
+
+              </div>
+            </main>
+          </>
+        }
+    }
   }
 }

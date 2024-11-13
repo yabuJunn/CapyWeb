@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Label, Pie, PieChart } from "recharts";
 
 import {
@@ -9,12 +8,19 @@ import {
 } from "../../ui/chart";
 // import "./PieChart2.css";
 import { incomesCategoryType } from "../../../pages/IncomeAndIncrease/ExpensesAndIncome";
-import { ExpenseData } from "../ExpensesGraphic/ExpensesGraphic";
+
+export interface IncomeData {
+  month: string;
+  totalAmount: number;
+  entryPercentages: Array<{
+    value: number
+  }>
+}
 
 interface IncomesPieChartProps {
   data: incomesCategoryType,
   isMonthData: boolean,
-  monthData: ExpenseData
+  monthData: IncomeData
 }
 
 const chartConfig = {
@@ -40,7 +46,6 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export const IncomesPieChart = ({ data, monthData, isMonthData }: IncomesPieChartProps) => {
-  console.log(data)
 
   return (
     <div className="pie-card-container">
@@ -54,7 +59,7 @@ export const IncomesPieChart = ({ data, monthData, isMonthData }: IncomesPieChar
             content={<ChartTooltipContent hideLabel />}
           />
           <Pie
-            data={isMonthData === false ? data.categoryMappedData : monthData.categoryPercentages}
+            data={isMonthData === false ? data.categoryMappedData : monthData.entryPercentages}
             dataKey={isMonthData === false ? "incomeCategoryValue" : "value"}
             nameKey={isMonthData === false ? "incomeCategoryName" : "expenseCategoryName"}
             innerRadius={70}

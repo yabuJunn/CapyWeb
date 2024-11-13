@@ -7,29 +7,35 @@ import "./IncomesGraphic.css"
 
 
 import {
-  ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
+    ChartConfig,
+    ChartContainer,
+    ChartTooltip,
+    ChartTooltipContent,
 } from "../../ui/chart";
 
 
 export const description = "A simple area chart";
 
 export interface IncomeData {
-  month: string;
-  totalAmount: number;
-  categoryPercentage: Array<incomeCategoryPercentage>
+    month: string;
+    totalAmount: number;
+    entryPercentages: Array<incomeCategoryPercentage>
 }
 
 export interface incomeCategoryPercentage {
-  expenseCategoryName: string;
-  expensePercentage: number;
-  fill: string;
+    incomeEntryName: string;
+    fill: string;
+    incomePercentage: number;
+    value: number;
+}
+
+export interface incomeMonthDataType {
+    month: string;
+    totalAmount: number;
 }
 
 export interface AreaChartComponentProps {
-  data: IncomeData[];
+    data: incomeMonthDataType[];
 }
 
 /*const chartData = [
@@ -46,48 +52,48 @@ export interface AreaChartComponentProps {
 ];*/
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "hsl(0, 0%, 100%)",
-  },
+    desktop: {
+        label: "Desktop",
+        color: "hsl(0, 0%, 100%)",
+    },
 } satisfies ChartConfig;
 
 
 
 export const IncomesGraphic: React.FC<AreaChartComponentProps> = ({
-  data,
+    data,
 }) => {
-  return (
-    <ChartContainer config={chartConfig}>
-      <LineChart
-        accessibilityLayer
-        data={data}
-        margin={{
-          left: 12,
-          right: 12,
-        }}
-      >
-        <CartesianGrid vertical={false} />
-        <XAxis
-          dataKey="month"
-          tickLine={false}
-          axisLine={false}
-          tickMargin={8}
-          tick={{ fill: "white" }}
-          tickFormatter={(value) => value.slice(0, 3)}
-        />
-        <ChartTooltip
-          cursor={false}
-          content={<ChartTooltipContent hideLabel />}
-        />
-        <Line
-          dataKey="totalAmount"
-          type="natural"
-          stroke="var(--color-desktop)"
-          strokeWidth={2}
-          dot={false}
-        />
-      </LineChart>
-    </ChartContainer>
-  );
+    return (
+        <ChartContainer config={chartConfig} className="custom-tick-text-incomes">
+            <LineChart
+                accessibilityLayer
+                data={data}
+                margin={{
+                    left: 12,
+                    right: 12,
+                }}
+            >
+                <CartesianGrid vertical={false} />
+                <XAxis
+                    dataKey="month"
+                    tickLine={false}
+                    axisLine={false}
+                    tickMargin={8}
+                    tick={{ fill: "white" }}
+                    tickFormatter={(value) => value.slice(0, 3)}
+                />
+                <ChartTooltip
+                    cursor={false}
+                    content={<ChartTooltipContent hideLabel />}
+                />
+                <Line
+                    dataKey="totalAmount"
+                    type="natural"
+                    stroke="var(--color-desktop)"
+                    strokeWidth={2}
+                    dot={false}
+                />
+            </LineChart>
+        </ChartContainer>
+    );
 };
