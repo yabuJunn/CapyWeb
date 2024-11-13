@@ -10,6 +10,8 @@ export interface Expense {
   img?: string;
 }
 
+//Esta data hay que pasarla hay que pasarla al redux
+
 export const expenses: Expense[] = [
   {
     category: "nu",

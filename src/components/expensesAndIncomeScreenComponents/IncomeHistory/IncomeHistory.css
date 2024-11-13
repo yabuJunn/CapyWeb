@@ -1,4 +1,4 @@
-.generalHistory {
+.generalHistoryIncomes {
   max-width: 600px;
   max-height: 450px;
   margin: 0 auto;
@@ -7,23 +7,25 @@
   background-color: #181818;
   border-radius: 8px;
   margin-top: 0;
+
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
-.generalHistory h1 {
+.generalHistoryIncomes h1 {
   text-align: center;
   color: white;
   font-size: 20px;
   font-family: "Space Grotesk";
 }
 
-.topHistory {
+.topHistoryIncomes {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30px;
 }
 
-.select-history-expenses {
+.select-history-incomes {
   display: block;
   width: 139px;
   border-radius: 4px;
@@ -34,50 +36,58 @@
   background-color: #f2622e;
 }
 
-.generalHistory select option {
+.generalHistoryIncomes select option {
   color: black;
   background-color: white;
 }
 
-.cards-expenses-info {
+.cards-incomes-info {
   padding: 10px;
   background-color: #181818;
   border-bottom: 1px solid white;
 }
 
-.expense-content {
+.incomes-content {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.card-container-expense-details {
+.card-container-incomes-details {
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: space-between;
 }
 
-.expense-details {
+.incomes-details {
   display: flex;
   flex-direction: column;
 }
 
-.image-card-expenses {
+.image-card-incomes {
   display: block;
   border-radius: 8px;
   width: 70px;
   height: 70px;
 }
 
-.cards-expenses-info h2 {
-  font-size: 18px;
-  margin-bottom: 1px;
+.incomes-details p {
   color: white;
+
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
-.cards-expenses-info p {
-  margin: 1px 0;
-  font-size: 14px;
-  color: white;
+.history-incomes-amount {
+  color: #F9F9F9;
+
+  font-family: "Plus Jakarta Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }

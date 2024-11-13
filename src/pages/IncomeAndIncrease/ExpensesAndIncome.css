@@ -50,12 +50,14 @@
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
+  height: 50vh;
 }
 
 .expense-graphic-top {
   display: flex;
   gap: 20px;
   justify-content: space-between;
+  height: 80%;
 }
 
 .expense-graphic {
@@ -70,6 +72,7 @@
 
 .piechart-graphic {
   width: 40%;
+  height: 100%;
   border-radius: 10px;
   background-image: url("../../assets/desktop/svg/FondoAhorro.svg");
   background-size: cover;
@@ -167,6 +170,7 @@
 
   .expense-graphic-top {
     flex-direction: column;
+    height: 100%;
   }
 
   .expense-graphic,

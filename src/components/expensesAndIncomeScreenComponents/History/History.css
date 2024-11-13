@@ -1,4 +1,4 @@
-.generalHistory {
+.generalHistoryExpenses {
   max-width: 600px;
   max-height: 450px;
   margin: 0 auto;
@@ -7,20 +7,22 @@
   background-color: #181818;
   border-radius: 8px;
   margin-top: 0;
+
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
-.generalHistory h1 {
+.generalHistoryExpenses h1 {
   text-align: center;
   color: white;
   font-size: 20px;
   font-family: "Space Grotesk";
 }
 
-.topHistory {
+.topHistoryExpenses {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30px;
 }
 
 .select-history-expenses {
@@ -34,7 +36,7 @@
   background-color: #f2622e;
 }
 
-.generalHistory select option {
+.generalHistoryExpenses select option {
   color: black;
   background-color: white;
 }
@@ -71,13 +73,31 @@
 }
 
 .cards-expenses-info h2 {
-  font-size: 18px;
-  margin-bottom: 1px;
   color: white;
+
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 18px;
 }
 
-.cards-expenses-info p {
-  margin: 1px 0;
-  font-size: 14px;
+.expense-details p {
   color: white;
+
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.history-expense-amount {
+  color: var(--Primary-Base-White, #FFF);
+
+  font-family: "Plus Jakarta Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }

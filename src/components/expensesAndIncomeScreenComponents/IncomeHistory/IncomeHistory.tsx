@@ -16,11 +16,11 @@ export const IncomeHistory = () => {
     : expenses;
 
   return (
-    <div className="generalHistory">
-      <div className="topHistory">
+    <div className="generalHistoryIncomes">
+      <div className="topHistoryIncomes">
         <h1>History</h1>
         <select
-          className="select-history-expenses"
+          className="select-history-incomes"
           name="categories"
           onChange={handleChange}
           value={selectedCategory}
@@ -37,25 +37,25 @@ export const IncomeHistory = () => {
       <div>
         {filteredExpenses.map((expense, index) => (
           <li
-            className="cards-expenses-info"
+            className="cards-incomes-info"
             key={index}
             style={{ marginBottom: "20px", listStyleType: "none" }}
           >
-            <div className="expense-content">
+            <div className="incomes-content">
               {expense.img && (
                 <img
-                  className="image-card-expenses"
+                  className="image-card-incomes"
                   src={expense.img}
                   alt={`Image of`}
                   width={50}
                   height={50}
                 />
               )}
-              <div className="card-container-expense-details">
-                <div className="expense-details">
+              <div className="card-container-incomes-details">
+                <div className="incomes-details">
                   <p>{expense.date}</p>
                 </div>
-                <p>${expense.amount}</p>
+                <p className="history-incomes-amount">${expense.amount}</p>
               </div>
             </div>
           </li>

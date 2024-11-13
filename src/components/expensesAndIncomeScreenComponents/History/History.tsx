@@ -16,8 +16,8 @@ export const History = () => {
     : expenses;
 
   return (
-    <div className="generalHistory">
-      <div className="topHistory">
+    <div className="generalHistoryExpenses">
+      <div className="topHistoryExpenses">
         <h1>History</h1>
         <select
           className="select-history-expenses"
@@ -58,7 +58,7 @@ export const History = () => {
                   <p>{expense.category}</p>
                   <p>{expense.date}</p>
                 </div>
-                <p>${expense.amount}</p>
+                <p className="history-expense-amount">${expense.amount}</p>
               </div>
             </div>
           </li>

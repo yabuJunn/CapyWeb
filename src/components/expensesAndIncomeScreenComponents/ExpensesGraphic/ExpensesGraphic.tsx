@@ -43,7 +43,7 @@ const chartConfig = {
 export const ExpensesGraphic: React.FC<AreaChartComponentProps> = ({ data }) => {
 
   return (
-    <ChartContainer config={chartConfig} className="custom-tick-text-expenses">
+    <ChartContainer config={chartConfig} className="chart-container-size-expenses custom-tick-text-expenses">
       <LineChart
         accessibilityLayer
         data={data}

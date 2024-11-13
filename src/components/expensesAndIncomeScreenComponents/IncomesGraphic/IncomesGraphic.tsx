@@ -64,7 +64,7 @@ export const IncomesGraphic: React.FC<AreaChartComponentProps> = ({
     data,
 }) => {
     return (
-        <ChartContainer config={chartConfig} className="custom-tick-text-incomes">
+        <ChartContainer config={chartConfig} className="chart-container-size-incomes custom-tick-text-incomes">
             <LineChart
                 accessibilityLayer
                 data={data}

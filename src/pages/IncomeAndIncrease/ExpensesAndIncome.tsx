@@ -81,51 +81,6 @@ function calculateExpensesData(expenses: Array<realExpenseType>) {
   return result;
 }
 
-// function calculateIncomesData(incomes: Array<realIncomeType>) {
-//   const monthlyIncomeData: {
-//     [month: string]: {
-//       totalAmount: number;
-//       entryAmounts: { [key: string]: number };
-//     };
-//   } = {};
-
-//   incomes.forEach((income) => {
-//     // Convertir incomeDate de Timestamp a Date
-//     const month = getMonthName(income.incomeDate.toDate());
-
-//     if (!monthlyIncomeData[month]) {
-//       monthlyIncomeData[month] = { totalAmount: 0, entryAmounts: {} };
-//     }
-
-//     monthlyIncomeData[month].totalAmount += income.incomeAmount;
-
-//     if (!monthlyIncomeData[month].entryAmounts[income.incomeEntrie]) {
-//       monthlyIncomeData[month].entryAmounts[income.incomeEntrie] = 0;
-//     }
-//     monthlyIncomeData[month].entryAmounts[income.incomeEntrie] +=
-//       income.incomeAmount;
-//   });
-
-//   const result = Object.keys(monthlyIncomeData).map((month) => {
-//     const monthData = monthlyIncomeData[month];
-//     const entryPercentages = Object.keys(monthData.entryAmounts).map(
-//       (entry) => {
-//         const entryAmount = monthData.entryAmounts[entry];
-//         const percentage = (entryAmount / monthData.totalAmount) * 100;
-//         return { entry, percentage: parseFloat(percentage.toFixed(2)) };
-//       }
-//     );
-
-//     return {
-//       month,
-//       totalAmount: monthData.totalAmount,
-//       entryPercentages,
-//     };
-//   });
-
-//   return result;
-// }
-
 function calculateIncomesData(incomes: Array<realIncomeType>) {
   const monthlyIncomeData: {
     [month: string]: {
@@ -351,8 +306,6 @@ export const ExpensesAndIncomePage = () => {
 
   const foundMonthData = expenseResults.find(expenseMonth => expenseMonth.month === monthSelector)
   const foundIncomeMonthData = incomeResults.find(incomeMonth => incomeMonth.month === monthSelector)
-
-  // console.log("selectedOption: ", selectedOption)
 
   //Expenses or Incomes Conditional
   if (selectedOption === "Gastos") {
