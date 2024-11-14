@@ -1,26 +1,71 @@
 import { useEffect, useState } from "react";
-import { incomesHistory, incomeHistoryType, incomeCategory } from "./data";
 import "./IncomeHistory.css";
+import { incomeNameEntries, realIncomeType } from "../../../store/incomes/types";
 
-export const IncomeHistory = () => {
-  const [selectedCategory, setSelectedCategory] = useState<incomeCategory>(incomeCategory.cards); // State for selected category
-  const [filteredIncomes, setFilteredIncomes] = useState<incomeHistoryType[]>(incomesHistory);
+// Importa las imágenes
+import nuSvg from '../../../assets/desktop/svg/nuSvg.svg';
+import masterCardSvg from '../../../assets/desktop/svg/mastercardSvg.svg';
+import visaSvg from '../../../assets/desktop/svg/visaSvg.svg';
+import efectivoSvg from '../../../assets/desktop/svg/efectivoSvg.svg';
+import debitoSvg from '../../../assets/desktop/svg/debitoSvg.svg';
+import otroSvg from '../../../assets/desktop/svg/otroSvg.svg';
 
-  // Select handler
+
+interface IncomeHistoryProps {
+  IncomeHistoryData: realIncomeType[];
+}
+
+export const IncomeHistory = ({ IncomeHistoryData }: IncomeHistoryProps) => {
+  const [selectedCategory, setSelectedCategory] = useState<incomeNameEntries>(incomeNameEntries.cards); // Estado para la categoría seleccionada
+  const [filteredIncomes, setFilteredIncomes] = useState<realIncomeType[]>([]);
+
+  // Manejador del cambio en el select
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCategory(e.target.value as incomeCategory);
+    setSelectedCategory(e.target.value as incomeNameEntries);
   };
 
   useEffect(() => {
-    if (selectedCategory === incomeCategory.cards) {
-      setFilteredIncomes(incomesHistory)
-    } else {
-      const filteredIncomes = incomesHistory.filter((incomes) => incomes.category === selectedCategory)
-      setFilteredIncomes(filteredIncomes)
-    }
-  }, [selectedCategory])
+    const updateFilteredIncomes = () => {
+      let incomesToFilter = IncomeHistoryData;
 
-  console.log(filteredIncomes)
+      if (selectedCategory !== incomeNameEntries.cards) {
+        incomesToFilter = IncomeHistoryData.filter(
+          (income) => income.incomeEntrie === selectedCategory
+        );
+      }
+
+      const newFilterIncomes = incomesToFilter.map((income) => {
+        const updatedIncome = { ...income };
+        switch (income.incomeEntrie) {
+          case incomeNameEntries.nu:
+            updatedIncome.incomeImage = nuSvg;
+            break;
+          case incomeNameEntries.masterCard:
+            updatedIncome.incomeImage = masterCardSvg;
+            break;
+          case incomeNameEntries.visa:
+            updatedIncome.incomeImage = visaSvg;
+            break;
+          case incomeNameEntries.efectivo:
+            updatedIncome.incomeImage = efectivoSvg;
+            break;
+          case incomeNameEntries.debito:
+            updatedIncome.incomeImage = debitoSvg;
+            break;
+          case incomeNameEntries.otro:
+            updatedIncome.incomeImage = otroSvg;
+            break;
+          default:
+            break;
+        }
+        return updatedIncome;
+      });
+
+      setFilteredIncomes(newFilterIncomes);
+    };
+
+    updateFilteredIncomes();
+  }, [IncomeHistoryData, selectedCategory]);
 
   return (
     <div className="generalHistoryIncomes">
@@ -33,38 +78,43 @@ export const IncomeHistory = () => {
           value={selectedCategory}
           required
         >
-          <option value={incomeCategory.cards}>{incomeCategory.cards}</option>
-          <option value={incomeCategory.visa}>{incomeCategory.visa}</option>
-          <option value={incomeCategory.nu}>{incomeCategory.nu}</option>
+          <option value={incomeNameEntries.cards}>{incomeNameEntries.cards}</option>
+          <option value={incomeNameEntries.visa}>{incomeNameEntries.visa}</option>
+          <option value={incomeNameEntries.nu}>{incomeNameEntries.nu}</option>
         </select>
       </div>
 
       <div>
-        {filteredIncomes.map((incomes, index) => (
-          <li
-            className="cards-incomes-info"
-            key={index}
-            style={{ marginBottom: "20px", listStyleType: "none" }}
-          >
-            <div className="incomes-content">
-              {incomes.img && (
+        {filteredIncomes.length > 0 ? (
+          filteredIncomes.map((incomes, index) => (
+            <li
+              className="cards-incomes-info"
+              key={index}
+              style={{ marginBottom: "20px", listStyleType: "none" }}
+            >
+              <div className="incomes-content">
                 <img
                   className="image-card-incomes"
-                  src={incomes.img}
-                  alt={`Image of`}
+                  src={incomes.incomeImage || ""}
+                  alt={incomes.incomeEntrie}
                   width={50}
                   height={50}
                 />
-              )}
-              <div className="card-container-incomes-details">
-                <div className="incomes-details">
-                  <p>{incomes.date}</p>
+                <div className="card-container-incomes-details">
+                  <div className="incomes-details">
+                    <p>
+                      {incomes.incomeDate.toDate().toLocaleDateString()}
+                    </p>
+                    <p>{incomes.incomeEntrie}</p>
+                  </div>
+                  <p className="history-incomes-amount">${incomes.incomeAmount}</p>
                 </div>
-                <p className="history-incomes-amount">${incomes.amount}</p>
               </div>
-            </div>
-          </li>
-        ))}
+            </li>
+          ))
+        ) : (
+          <p>No hay ingresos para la categoría seleccionada.</p>
+        )}
       </div>
     </div>
   );

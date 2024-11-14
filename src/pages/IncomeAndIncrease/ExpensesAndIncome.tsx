@@ -3,16 +3,19 @@ import "./ExpensesAndIncome.css";
 import { ExpensesGraphic } from "../../components/expensesAndIncomeScreenComponents/ExpensesGraphic/ExpensesGraphic";
 import { IncomeData, IncomesGraphic } from "../../components/expensesAndIncomeScreenComponents/IncomesGraphic/IncomesGraphic";
 import { ExpensePlanner } from "../../components/expensesAndIncomeScreenComponents/ExpensePlanner/ExpensePlanner";
-import { History } from "../../components/expensesAndIncomeScreenComponents/History/History";
+import { ExpensesHistory } from "../../components/expensesAndIncomeScreenComponents/History/History";
 import { ExpensesPieChart } from "../../components/expensesAndIncomeScreenComponents/PieChart2/PieChart2";
 import { IncomeHistory } from "../../components/expensesAndIncomeScreenComponents/IncomeHistory/IncomeHistory";
-import { realExpenseType, realIncomeType, expensesData, incomesData, expenseNameCategories, incomeNameEntries } from "./dataIncomeAndExpense";
+import { realExpenseType, expensesData, incomesData, expenseNameCategories } from "./dataIncomeAndExpense";
 import { ExpenseData } from "../../components/expensesAndIncomeScreenComponents/ExpensesGraphic/ExpensesGraphic";
 import { useState, useEffect } from "react";
 import { GlobalAppNav } from "../../components/Nav/Nav";
 import { PieCardMonthSelect } from "../../components/expensesAndIncomeScreenComponents/PieCardMonthSelect/PieCardMonthSelect";
 import { PieCardHints } from "../../components/expensesAndIncomeScreenComponents/PieCardHints/PieCardHints";
 import { IncomesPieChart } from "../../components/expensesAndIncomeScreenComponents/IncomesPieChart/IncomesPieChart";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { incomeNameEntries, realIncomeType } from "../../store/incomes/types";
 
 
 function getMonthName(date: Date): string {
@@ -261,11 +264,17 @@ export const ExpensesAndIncomePage = () => {
 
   const [monthSelector, setMonthSelector] = useState("Total")
 
+  //redux
+  const incomesReduxData = useSelector((state: RootState) => state.incomes)
+
+
+  //redux
+
   useEffect(() => {
     const expenseResults = calculateExpensesData(expensesData.realExpenses);
     setExpenseResults(expenseResults);
 
-    const incomeResults = calculateIncomesData(incomesData.realIncomes);
+    const incomeResults = calculateIncomesData(incomesReduxData.realIncomes);
     setIncomeResults(incomeResults);
 
     const totalExpensesCategoryResult = calculateTotalExpensesCategorty(expensesData.realExpenses)
@@ -273,7 +282,7 @@ export const ExpensesAndIncomePage = () => {
 
     const totalIncomesCategoryResult = calculateTotalIncomesCategorty(incomesData.realIncomes)
     setTotalIncomesCategory(totalIncomesCategoryResult)
-  }, [monthSelector]);
+  }, [incomesReduxData.realIncomes, monthSelector]);
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setMonthSelector("Total")
@@ -345,7 +354,7 @@ export const ExpensesAndIncomePage = () => {
                   <ExpensePlanner />
                 </div>
                 <div className="right-div">
-                  <History /*chartData={chartData}*/ />
+                  <ExpensesHistory />
                 </div>
               </div>
             </div>
@@ -395,7 +404,7 @@ export const ExpensesAndIncomePage = () => {
                     <ExpensePlanner />
                   </div>
                   <div className="right-div">
-                    <History /*chartData={chartData}*/ />
+                    <ExpensesHistory />
                   </div>
                 </div>
               </div>
@@ -449,7 +458,7 @@ export const ExpensesAndIncomePage = () => {
                   <ExpensePlanner />
                 </div>
                 <div className="right-div">
-                  <IncomeHistory />
+                  <IncomeHistory IncomeHistoryData={incomesReduxData.realIncomes} />
                 </div>
               </div>
             </div>
@@ -498,7 +507,7 @@ export const ExpensesAndIncomePage = () => {
                     <ExpensePlanner />
                   </div>
                   <div className="right-div">
-                    <IncomeHistory />
+                    <IncomeHistory IncomeHistoryData={incomesReduxData.realIncomes} />
                   </div>
                 </div>
               </div>

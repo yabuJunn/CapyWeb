@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { expenses, expensesCategory, Expense } from "./data";
 import "./History.css";
 
-export const History = () => {
+export const ExpensesHistory = () => {
   const [selectedCategory, setSelectedCategory] = useState<expensesCategory>(expensesCategory.category); // State for selected category
   const [filteredExpenses, setFilteredExpenses] = useState<Expense[]>(expenses);
 
@@ -19,8 +19,6 @@ export const History = () => {
       setFilteredExpenses(filteredExpenses)
     }
   }, [selectedCategory])
-
-  console.log(selectedCategory)
 
   return (
     <div className="generalHistoryExpenses">

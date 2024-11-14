@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PlannerIcon from "../../../../src/assets/desktop/svg/PlannerIcon.svg";
-import NuCardIcon from "../../../../src/assets/desktop/svg/nu.svg";
+import NuCardIcon from "../../../../src/assets/desktop/svg/nuSvg.svg";
 import VisaCardIcon from "../../../../src/assets/desktop/svg/visa.svg";
 import FalabellaCardIcon from "../../../../src/assets/desktop/svg/falabella.svg";
 import NequiCardIcon from "../../../../src/assets/desktop/svg/nequi.svg";

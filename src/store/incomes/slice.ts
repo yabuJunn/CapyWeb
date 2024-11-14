@@ -16,7 +16,8 @@ export const incomesSlice = createSlice({
                     incomeCategory: action.payload.incomeCategory,
                     incomeEntrie: action.payload.incomeEntrie,
                     incomeDate: action.payload.incomeDate,
-                    incomeAmount: action.payload.incomeAmount
+                    incomeAmount: action.payload.incomeAmount,
+                    incomeColor: action.payload.incomeColor
                 }
             ]
         },
