@@ -351,7 +351,7 @@ export const ExpensesAndIncomePage = () => {
 
               <div className="chart-expense-bottom">
                 <div className="left-div">
-                  <ExpensePlanner />
+                  <ExpensePlanner ExpensePlannerData={expensesReduxData.plannedExpenses} />
                 </div>
                 <div className="right-div">
                   <ExpensesHistory ExpenseHistoryData={expensesReduxData.realExpenses} />
@@ -401,7 +401,7 @@ export const ExpensesAndIncomePage = () => {
 
                 <div className="chart-expense-bottom">
                   <div className="left-div">
-                    <ExpensePlanner />
+                    <ExpensePlanner ExpensePlannerData={expensesReduxData.plannedExpenses} />
                   </div>
                   <div className="right-div">
                     <ExpensesHistory ExpenseHistoryData={expensesReduxData.realExpenses} />
@@ -455,7 +455,7 @@ export const ExpensesAndIncomePage = () => {
 
               <div className="chart-expense-bottom">
                 <div className="left-div">
-                  <ExpensePlanner />
+                  <ExpensePlanner ExpensePlannerData={expensesReduxData.plannedExpenses} />
                 </div>
                 <div className="right-div">
                   <IncomeHistory IncomeHistoryData={incomesReduxData.realIncomes} />
@@ -504,7 +504,7 @@ export const ExpensesAndIncomePage = () => {
 
                 <div className="chart-expense-bottom">
                   <div className="left-div">
-                    <ExpensePlanner />
+                    <ExpensePlanner ExpensePlannerData={expensesReduxData.plannedExpenses} />
                   </div>
                   <div className="right-div">
                     <IncomeHistory IncomeHistoryData={incomesReduxData.realIncomes} />

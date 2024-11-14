@@ -1,4 +1,5 @@
 import { Timestamp } from "firebase/firestore"
+import { incomeNameEntries } from "../incomes/types"
 
 export interface expensesSliceType {
     realExpenses: Array<realExpenseType>,
@@ -30,5 +31,6 @@ export interface plannedExpenseType {
     expenseCategory: expenseNameCategories,
     expenseSite: string,
     expenseDate: Timestamp,
-    expenseAmount: number
+    expenseAmount: number,
+    expenseEntrie: incomeNameEntries
 }
