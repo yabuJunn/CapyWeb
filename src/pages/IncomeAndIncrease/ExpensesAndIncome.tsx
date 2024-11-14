@@ -3,10 +3,9 @@ import "./ExpensesAndIncome.css";
 import { ExpensesGraphic } from "../../components/expensesAndIncomeScreenComponents/ExpensesGraphic/ExpensesGraphic";
 import { IncomeData, IncomesGraphic } from "../../components/expensesAndIncomeScreenComponents/IncomesGraphic/IncomesGraphic";
 import { ExpensePlanner } from "../../components/expensesAndIncomeScreenComponents/ExpensePlanner/ExpensePlanner";
-import { ExpensesHistory } from "../../components/expensesAndIncomeScreenComponents/History/History";
-import { ExpensesPieChart } from "../../components/expensesAndIncomeScreenComponents/PieChart2/PieChart2";
+import { ExpensesHistory } from "../../components/expensesAndIncomeScreenComponents/ExpensesHistory/ExpensesHistory";
+import { ExpensesPieChart } from "../../components/expensesAndIncomeScreenComponents/ExpensesPieChart/ExpensesPieChart";
 import { IncomeHistory } from "../../components/expensesAndIncomeScreenComponents/IncomeHistory/IncomeHistory";
-import { realExpenseType, expensesData, incomesData, expenseNameCategories } from "./dataIncomeAndExpense";
 import { ExpenseData } from "../../components/expensesAndIncomeScreenComponents/ExpensesGraphic/ExpensesGraphic";
 import { useState, useEffect } from "react";
 import { GlobalAppNav } from "../../components/Nav/Nav";
@@ -16,6 +15,7 @@ import { IncomesPieChart } from "../../components/expensesAndIncomeScreenCompone
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { incomeNameEntries, realIncomeType } from "../../store/incomes/types";
+import { expenseNameCategories, realExpenseType } from "../../store/expenses/types";
 
 
 function getMonthName(date: Date): string {
@@ -271,18 +271,18 @@ export const ExpensesAndIncomePage = () => {
   //redux
 
   useEffect(() => {
-    const expenseResults = calculateExpensesData(expensesData.realExpenses);
+    const expenseResults = calculateExpensesData(expensesReduxData.realExpenses);
     setExpenseResults(expenseResults);
 
     const incomeResults = calculateIncomesData(incomesReduxData.realIncomes);
     setIncomeResults(incomeResults);
 
-    const totalExpensesCategoryResult = calculateTotalExpensesCategorty(expensesData.realExpenses)
+    const totalExpensesCategoryResult = calculateTotalExpensesCategorty(expensesReduxData.realExpenses)
     setTotalExpenseCategory(totalExpensesCategoryResult)
 
-    const totalIncomesCategoryResult = calculateTotalIncomesCategorty(incomesData.realIncomes)
+    const totalIncomesCategoryResult = calculateTotalIncomesCategorty(incomesReduxData.realIncomes)
     setTotalIncomesCategory(totalIncomesCategoryResult)
-  }, [incomesReduxData.realIncomes, monthSelector]);
+  }, [expensesReduxData.realExpenses, incomesReduxData.realIncomes, monthSelector]);
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setMonthSelector("Total")

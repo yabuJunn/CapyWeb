@@ -1,4 +1,4 @@
-import "./History.css";
+import "./ExpensesHistory.css";
 
 import { expenseNameCategories, realExpenseType } from "../../../store/expenses/types";
 import { useEffect, useState } from "react";

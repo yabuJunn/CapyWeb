@@ -1,3 +1,5 @@
+import "./ExpensesPieChart.css";
+
 import * as React from "react";
 import { Label, Pie, PieChart } from "recharts";
 
@@ -7,7 +9,6 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "../../ui/chart";
-import "./PieChart2.css";
 import { expenseCategoryType } from "../../../pages/IncomeAndIncrease/ExpensesAndIncome";
 import { ExpenseData } from "../ExpensesGraphic/ExpensesGraphic";
 
