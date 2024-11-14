@@ -78,9 +78,11 @@ export const IncomeHistory = ({ IncomeHistoryData }: IncomeHistoryProps) => {
           value={selectedCategory}
           required
         >
-          <option value={incomeNameEntries.cards}>{incomeNameEntries.cards}</option>
-          <option value={incomeNameEntries.visa}>{incomeNameEntries.visa}</option>
-          <option value={incomeNameEntries.nu}>{incomeNameEntries.nu}</option>
+          {Object.values(incomeNameEntries).map((entry) => (
+            <option key={entry} value={entry}>
+              {entry}
+            </option>
+          ))}
         </select>
       </div>
 
