@@ -6,6 +6,7 @@ export interface expensesSliceType {
 }
 
 export enum expenseNameCategories {
+    category = "Category",
     hogar = "Hogar",
     mercado = "Mercado",
     ropa = "Ropa",
@@ -20,7 +21,9 @@ export interface realExpenseType {
     expenseCategory: expenseNameCategories,
     expenseSite: string,
     expenseDate: Timestamp,
-    expenseAmount: number
+    expenseAmount: number,
+    expenseImage?: string,
+    expenseColor: string
 }
 
 export interface plannedExpenseType {

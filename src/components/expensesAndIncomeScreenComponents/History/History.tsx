@@ -1,24 +1,79 @@
-import { useEffect, useState } from "react";
-import { expenses, expensesCategory, Expense } from "./data";
 import "./History.css";
 
-export const ExpensesHistory = () => {
-  const [selectedCategory, setSelectedCategory] = useState<expensesCategory>(expensesCategory.category); // State for selected category
-  const [filteredExpenses, setFilteredExpenses] = useState<Expense[]>(expenses);
+import { expenseNameCategories, realExpenseType } from "../../../store/expenses/types";
+import { useEffect, useState } from "react";
+
+//Import images
+import cartSvg from '../../../assets/desktop/svg/cart.svg'
+import shoppingSvg from '../../../assets/desktop/svg/shopping.svg'
+import homeSvg from '../../../assets/desktop/svg/home.svg'
+import travelSvg from '../../../assets/desktop/svg/icons/globeBlackIcon.svg'
+import outingsSvg from '../../../assets/desktop/svg/outingsSvg.svg'
+import otherSvg from '../../../assets/desktop/svg/otherExpenseSvg.svg'
+import familySvg from '../../../assets/desktop/svg/familySvg.svg'
+import friendsSvg from '../../../assets/desktop/svg/friendsSvg.svg'
+
+interface ExpensesHistoryProps {
+  ExpenseHistoryData: realExpenseType[];
+}
+
+export const ExpensesHistory = ({ ExpenseHistoryData }: ExpensesHistoryProps) => {
+  const [selectedCategory, setSelectedCategory] = useState<expenseNameCategories>(expenseNameCategories.category); // State for selected category
+  const [filteredExpenses, setFilteredExpenses] = useState<realExpenseType[]>([]);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCategory(e.target.value as expensesCategory);
+    setSelectedCategory(e.target.value as expenseNameCategories);
   };
 
-
   useEffect(() => {
-    if (selectedCategory === expensesCategory.category) {
-      setFilteredExpenses(expenses)
-    } else {
-      const filteredExpenses = expenses.filter((expense) => expense.category === selectedCategory)
-      setFilteredExpenses(filteredExpenses)
-    }
-  }, [selectedCategory])
+    const updateFilteredIncomes = () => {
+      let expensesToFilter = ExpenseHistoryData;
+
+      if (selectedCategory !== expenseNameCategories.category) {
+        expensesToFilter = ExpenseHistoryData.filter(
+          (expense) => expense.expenseCategory === selectedCategory
+        );
+      }
+
+      const newFilterExpenses = expensesToFilter.map((expense) => {
+        const updatedExpense = { ...expense };
+        switch (expense.expenseCategory) {
+          case expenseNameCategories.mercado:
+            updatedExpense.expenseImage = cartSvg;
+            break;
+          case expenseNameCategories.ropa:
+            updatedExpense.expenseImage = shoppingSvg;
+            break;
+          case expenseNameCategories.hogar:
+            updatedExpense.expenseImage = homeSvg;
+            break;
+          case expenseNameCategories.viajes:
+            updatedExpense.expenseImage = travelSvg;
+            break;
+          case expenseNameCategories.Amigos:
+            updatedExpense.expenseImage = friendsSvg;
+            break;
+          case expenseNameCategories.familia:
+            updatedExpense.expenseImage = familySvg;
+            break;
+          case expenseNameCategories.salidas:
+            updatedExpense.expenseImage = outingsSvg;
+            break;
+          case expenseNameCategories.otro:
+            updatedExpense.expenseImage = otherSvg;
+            break;
+          default:
+
+            break;
+        }
+        return updatedExpense;
+      });
+
+      setFilteredExpenses(newFilterExpenses);
+    };
+
+    updateFilteredIncomes();
+  }, [ExpenseHistoryData, selectedCategory]);
 
   return (
     <div className="generalHistoryExpenses">
@@ -31,41 +86,44 @@ export const ExpensesHistory = () => {
           value={selectedCategory}
           required
         >
-          <option value={expensesCategory.category}>Category</option>
-          <option value={expensesCategory.home}>Home</option>
-          <option value={expensesCategory.market}>Market</option>
-          <option value={expensesCategory.clothes}>Clothes</option>
+          {Object.values(expenseNameCategories).map((entry) => (
+            <option key={entry} value={entry}>
+              {entry}
+            </option>
+          ))}
         </select>
       </div>
 
       <div>
-        {filteredExpenses.map((expense, index) => (
-          <li
-            className="cards-expenses-info"
-            key={index}
-            style={{ marginBottom: "20px", listStyleType: "none" }}
-          >
-            <div className="expense-content">
-              {expense.img && (
+        {filteredExpenses.length > 0 ? (
+          filteredExpenses.map((expense, index) => (
+            <li
+              className="cards-expenses-info"
+              key={index}
+              style={{ marginBottom: "20px", listStyleType: "none" }}
+            >
+              <div className="expense-content">
                 <img
                   className="image-card-expenses"
-                  src={expense.img}
-                  alt={`Image of ${expense.place}`}
+                  src={expense.expenseImage}
+                  alt={`Image of ${expense.expenseSite}`}
                   width={50}
                   height={50}
                 />
-              )}
-              <div className="card-container-expense-details">
-                <div className="expense-details">
-                  <h2>{expense.place}</h2>
-                  <p>Category: {expense.category}</p>
-                  <p>Date: {expense.date}</p>
+                <div className="card-container-expense-details">
+                  <div className="expense-details">
+                    <h2>{expense.expenseSite}</h2>
+                    <p>Category: {expense.expenseCategory}</p>
+                    <p>Date: {expense.expenseDate.toDate().toLocaleDateString()}</p>
+                  </div>
+                  <p className="history-expense-amount">${expense.expenseAmount}</p>
                 </div>
-                <p className="history-expense-amount">${expense.amount}</p>
               </div>
-            </div>
-          </li>
-        ))}
+            </li>
+          ))
+        ) : (
+          <p>No hay ingresos para la categoría seleccionada.</p>
+        )}
       </div>
     </div>
   );

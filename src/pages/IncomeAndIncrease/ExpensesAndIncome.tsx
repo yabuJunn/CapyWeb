@@ -267,7 +267,7 @@ export const ExpensesAndIncomePage = () => {
   //redux
   const incomesReduxData = useSelector((state: RootState) => state.incomes)
 
-
+  const expensesReduxData = useSelector((state: RootState) => state.expenses)
   //redux
 
   useEffect(() => {
@@ -354,7 +354,7 @@ export const ExpensesAndIncomePage = () => {
                   <ExpensePlanner />
                 </div>
                 <div className="right-div">
-                  <ExpensesHistory />
+                  <ExpensesHistory ExpenseHistoryData={expensesReduxData.realExpenses} />
                 </div>
               </div>
             </div>
@@ -404,7 +404,7 @@ export const ExpensesAndIncomePage = () => {
                     <ExpensePlanner />
                   </div>
                   <div className="right-div">
-                    <ExpensesHistory />
+                    <ExpensesHistory ExpenseHistoryData={expensesReduxData.realExpenses} />
                   </div>
                 </div>
               </div>
