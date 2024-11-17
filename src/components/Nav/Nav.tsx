@@ -1,4 +1,4 @@
-import './nav.css';
+import './Nav.css';
 
 import { useLocation } from 'react-router-dom';
 

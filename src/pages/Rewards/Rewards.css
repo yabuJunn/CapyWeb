@@ -54,11 +54,11 @@ h1#principal {
 } */
 
 @media only screen and (max-width: 500px) {
-    h1#principal {
-        font-size: 160%;
+    h1 #principal {
+        font-size: 163%;
         line-height: 36px;
         margin-left: 4%;
-        margin-top: 250%;
+        margin-top: 10%;
     }
 
     .MissionLevel {

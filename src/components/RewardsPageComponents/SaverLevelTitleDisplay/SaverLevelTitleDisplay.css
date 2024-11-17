@@ -20,12 +20,11 @@
     }
 
     #SaverLevelTitleDisplayContainer h3 {
-        font-size: 60%;
+        font-size: 90%;
         text-align: center;
     }
 
     #SaverLevelTitleDisplayContainer img {
-        height: 100px; 
-        width: 95%; 
+        height: 180px; 
     }
 }
