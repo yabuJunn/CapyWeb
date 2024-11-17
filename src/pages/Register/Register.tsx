@@ -26,7 +26,6 @@ export const Register: React.FC = memo(() => {
       <div id='logoAndImageContainer'>
         <div id='logoAndTextContainer'>
           <img id="LogoImage" src={Logo} alt="Logo de la aplicación" />
-          <p>Capy</p>
         </div>
         <img id="RegisterImage" src={vectorSrc} alt="Imagen de registro" loading="lazy" />
       </div>
