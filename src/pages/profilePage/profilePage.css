@@ -56,12 +56,18 @@ h1 {
     gap: 20px; /* Espacio entre columnas */
 }
 
+.userImageIcon{
+    height: 200px;
+    width: 200px;
+    
+}
 .generalContent{
     background-color:#181818;
     flex: 1; /* Ocupa la misma proporción de espacio que su vecino */
     border-radius: 10px;
 
 }
+
 
 .principalContent {
     background-color:#181818;

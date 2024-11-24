@@ -1,11 +1,13 @@
 import React from 'react';
 import './principalContent.css';
+import uploadIcon from '../../../assets/desktop/svg/uploadIcon.svg'
+import userImageIcon from '../../../assets/desktop/svg/userImageIcon.svg'
 
 export const PrincipalContent = () => {
   return (
     <main className="settingsPage">
       <section className="inputsSection">
-        {/* Sección de Usuario y Correo */}
+
         <div className="inputRow">
           <div className="inputGroup">
             <label htmlFor="username" className="inputLabel">User</label>
@@ -17,7 +19,6 @@ export const PrincipalContent = () => {
           </div>
         </div>
 
-        {/* Sección de Contraseña */}
         <div className="passwordSection">
           <h3 className="sectionTitle">Password</h3>
           <p className="sectionSubtitle">Modify your current password</p>
@@ -26,7 +27,6 @@ export const PrincipalContent = () => {
               <label htmlFor="currentPassword" className="inputLabel">Current password</label>
               <div className="passwordInputWrapper">
                 <input id="currentPassword" className="inputField" type="password" defaultValue="***********" />
-                <button className="visibilityToggle">👁️</button>
               </div>
             </div>
             <div className="inputGroup">
@@ -36,21 +36,22 @@ export const PrincipalContent = () => {
           </div>
         </div>
 
-        {/* Sección de Avatar */}
         <div className="avatarSection">
           <h3 className="sectionTitle">Change Avatar</h3>
           <div className="avatarUpload">
-            <img src="https://via.placeholder.com/60" alt="Current Avatar" className="avatarImage" />
-            <div className="uploadBox">
-              <p className="uploadText">
+
+          <img src={userImageIcon} alt='' className="userImageIcon" />
+          <div className="uploadBox">
+            <img src={uploadIcon} alt='' className="uploadIcon" />
+            <p className="uploadText">
                 <span className="clickHere">Click here</span> to upload your file or drag
               </p>
               <p className="uploadFormat">Supported Format: SVG, JPG, PNG</p>
             </div>
+
           </div>
         </div>
 
-        {/* Botones */}
         <div className="buttonsRow">
           <button className="discardButton">Discard</button>
           <button className="saveButton">Save changes</button>

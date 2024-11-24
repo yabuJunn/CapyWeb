@@ -9,7 +9,7 @@ export const GeneralContent = () => {
         <main >
         <div className='nameInfo'>
         <h2 className="name">Isabella Salazar </h2>
-        <img src={noviceIcon} alt='' className="card-icon" />
+        <img src={noviceIcon} alt='' className="cardIcon" />
 
         </div>
         <h3 className='email' >isasasalazar09@gmail.com </h3>
