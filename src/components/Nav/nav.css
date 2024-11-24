@@ -44,7 +44,7 @@
 
 .principal {
   background-color: #181818;
-  margin-bottom: 48px;
+  
   margin-top: 2vh;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
@@ -62,7 +62,7 @@
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  padding-bottom: 26px;
+
 }
 
 .Logo,
@@ -85,5 +85,80 @@
 }
 
 @media only screen and (max-width: 500px) {
+  .navContainer {
+    display: flex;
+    width: 100vw;
+    height: auto;
+    border-radius: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    top: auto; 
+    padding: 0 10px;
+     z-index: 1000;
+  }
+
+  .navContainer img {
+    width: 17%; 
+    height: 50px;
+    padding: 6px;
+    margin: 0 5px;
+  }
+
+  .capy {
+    width: auto;
+    height: auto;
+    background-color: transparent; 
+    aspect-ratio: unset;
+    margin-bottom: 0;
+    color: white;
+  }
+
+  .nav {
+    background-color: #181818;
+    border-radius: 50px;
+    width: 100%;
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    margin-bottom: 4%;
+  }
+
+  .principal{
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    background-color: transparent; 
+    border-radius: 0;
+    gap: none;
+  }
+
+  .last {
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    background-color: transparent; 
+    border-radius: 0;
+    gap: none;
+    margin-left: 8%;
+  }
+
   
+  .IncomeExpenses,
+  .Dashboard,
+  .Savings,
+  .Rewards,
+  .Settings,
+  .User,
+  .LogOut {
+    width: 40px;
+    height: 40px;
+    aspect-ratio: 1/1;
+  }
+
+  .Logo{
+    display: none;
+  }
 }
