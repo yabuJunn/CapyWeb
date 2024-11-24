@@ -4,8 +4,7 @@ import { GlobalAppNav } from '../../components/Nav/Nav';
 import { ProfileHeader } from '../../components/profilePageComponents/profileHeader/profileHeader';
 import { GeneralContent } from '../../components/profilePageComponents/generalContent/generalContent';
 import { PrincipalContent } from '../../components/profilePageComponents/principalContent/principalContent';
-import userImageIcon from "../../../src/assets/desktop/svg/userImageIcon.svg"
-
+import userImageIcon from "../../../src/assets/desktop/svg/avatarHeader.svg"
 
 interface UserData {
   name: string;
@@ -14,6 +13,7 @@ interface UserData {
   username: string;
   currentPassword: string;
   newPassword: string;
+  rank: string; 
 }
 
 export const ProfilePage: React.FC = () => {
@@ -23,7 +23,8 @@ export const ProfilePage: React.FC = () => {
     iconUrl: '',
     username: 'Isasalazar',
     currentPassword: '',
-    newPassword: ''
+    newPassword: '',
+    rank: 'Novice', 
   });
 
   const handleChange = (field: 'username' | 'email' | 'currentPassword' | 'newPassword', value: string) => {
@@ -49,7 +50,7 @@ export const ProfilePage: React.FC = () => {
       <GlobalAppNav />
     
       <div className="contentWrapper">
-      <img src={userImageIcon} alt="Current Avatar" className="avatarImage" />
+        <img src={userImageIcon} alt="Current Avatar" className="avatarImage" />
 
         <div className="generalProfile">
           <ProfileHeader />
@@ -59,6 +60,7 @@ export const ProfilePage: React.FC = () => {
               <GeneralContent
                 name={userData.name}
                 email={userData.email}
+                rank={userData.rank} 
               />
             </div>
 

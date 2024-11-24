@@ -19,7 +19,9 @@ export const PrincipalContent: React.FC<PrincipalContentProps> = ({
   newPassword,
   onChange,
   onImageChange,
+
 }) => {
+  
   return (
     <div className="settingsPage">
       <section className="inputsSection">
