@@ -5,16 +5,14 @@ import noviceIcon from '../../../assets/desktop/svg/noviceIcon.svg';
 interface GeneralContentProps {
   name: string;
   email: string;
-  role: string;
   iconUrl?: string; 
 }
 
 export const GeneralContent: React.FC<GeneralContentProps> = ({
   name,
   email,
-  role,
   iconUrl = noviceIcon,
-   
+
 }) => {
 
   return (
@@ -24,7 +22,7 @@ export const GeneralContent: React.FC<GeneralContentProps> = ({
         <img src={iconUrl} alt="Icon" className="cardIcon" />
       </div>
       <h3 className="email">{email}</h3>
-      <h2 className="capyOption">{role}</h2>
+      <h2 className="capyOption">Capy assistant</h2>
     </main>
   );
 };

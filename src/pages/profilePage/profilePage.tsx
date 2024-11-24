@@ -1,18 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './profilePage.css';
 import { GlobalAppNav } from '../../components/Nav/Nav';
 import { ProfileHeader } from '../../components/profilePageComponents/profileHeader/profileHeader';
 import { GeneralContent } from '../../components/profilePageComponents/generalContent/generalContent';
 import { PrincipalContent } from '../../components/profilePageComponents/principalContent/principalContent';
 
-export const ProfilePage = () => {
-  // Datos que serían obtenidos, por ejemplo, desde Firebase
-  const userData = {
+interface UserData {
+  name: string;
+  email: string;
+  iconUrl: string;
+  username: string;
+  currentPassword: string;
+  newPassword: string;
+}
+
+export const ProfilePage: React.FC = () => {
+  const [userData, setUserData] = useState<UserData>({
     name: 'Isabella Salazar',
     email: 'isasasalazar09@gmail.com',
-    role: 'Capy assistant',
-    iconUrl: '', 
-    userName: 'Isasalazar'
+    iconUrl: '',
+    username: 'Isasalazar',
+    currentPassword: '',
+    newPassword: ''
+  });
+
+  const handleChange = (field: 'username' | 'email' | 'currentPassword' | 'newPassword', value: string) => {
+    setUserData((prevData) => ({
+      ...prevData,
+      [field]: value
+    }));
+  };
+
+  const handleImageChange = (file: File | null) => {
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setUserData((prevData) => ({
+        ...prevData,
+        iconUrl: imageUrl
+      }));
+    }
   };
 
   return (
@@ -26,20 +52,22 @@ export const ProfilePage = () => {
 
           <div className="content">
             <div className="generalContent">
-              {/* Pasar las props requeridas */}
               <GeneralContent
                 name={userData.name}
                 email={userData.email}
-                role={userData.role}
                 iconUrl={userData.iconUrl}
               />
             </div>
 
             <div className="principalContent">
-              {/* Ejemplo para PrincipalContent */}
               <PrincipalContent
-                userName={userData.name}
+                username={userData.username}
                 email={userData.email}
+                avatar={userData.iconUrl}
+                currentPassword={userData.currentPassword}
+                newPassword={userData.newPassword}
+                onChange={handleChange}
+                onImageChange={handleImageChange} 
               />
             </div>
           </div>
