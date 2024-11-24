@@ -10,6 +10,8 @@ import { Dashboard } from "../pages/Dashboard/Dashboard";
 import { SavingsPage } from "../pages/savingsPage/savingsPage";
 import { Rewards } from "../pages/Rewards/Rewards";
 import { ExpensesAndIncomePage } from "../pages/IncomeAndIncrease/ExpensesAndIncome";
+import { ProfilePage } from "../pages/profilePage/profilePage";
+
 
 export const mainRoutes = [
     {
@@ -39,6 +41,10 @@ export const mainRoutes = [
     {
         path: routes.expensesAndIncome,
         element: <ExpensesAndIncomePage></ExpensesAndIncomePage>,
+    },
+    {
+        path: routes.profilePage,
+        element: <ProfilePage></ProfilePage>,
     }
 ]
 

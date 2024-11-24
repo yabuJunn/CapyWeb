@@ -8,5 +8,6 @@ export enum routes {
     rewards = '/reward',
     settings = '/settings',
     profile = '/profile',
-    mascot = '/mascot'
+    mascot = '/mascot',
+    profilePage = '/profilePage'
 }
