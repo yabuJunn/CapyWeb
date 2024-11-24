@@ -41,6 +41,11 @@
   background-color: white;
 }
 
+#expensesHistoryListContainer {
+  height: 100%;
+}
+
+
 .cards-expenses-info {
   padding: 10px;
   background-color: #181818;

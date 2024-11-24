@@ -30,7 +30,6 @@
 
 .expense-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     background-color: #181818;
     padding: 10px;
@@ -39,8 +38,17 @@
 }
 
 .card-icon {
-    margin-right: 10px;
+    margin-right: 5%;
     width: 20%;
+}
+
+.expense-info p {
+    font-size: 1.2vw;
+}
+
+.expense-info p span {
+    font-size: 1.2vw;
+    font-weight: 700;
 }
 
 .category-info {
@@ -66,7 +74,7 @@
     background-position: center;
     padding: 20px;
     border-radius: 16px;
-    z-index: 1000;
+    z-index: 5;
     color: white;
     display: flex;
     flex-direction: column;
@@ -171,6 +179,16 @@
 .popup h3 {
     color: white;
     font-size: 16px;
+}
+
+#backgroundPopUpAddExpense {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(5, 2, 3, 0.85);
+    z-index: 4;
 }
 
 @media only screen and (max-width: 500px) {

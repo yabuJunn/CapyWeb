@@ -1,6 +1,6 @@
 import './index.css'
 
-import { StrictMode } from 'react'
+// import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
 
@@ -14,9 +14,9 @@ const router = createHashRouter([
 ]);
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  // <StrictMode>
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>
-  </StrictMode>,
+  /* </StrictMode> */
 )

@@ -58,14 +58,6 @@ export const ExpensePlanner = ({ ExpensePlannerData }: ExpensePlannerProps) => {
     }
   };
 
-  // Mapeo de imágenes de tarjetas
-  // const cardIcons: { [key: string]: string } = {
-  //   nu: NuCardIcon,
-  //   visa: VisaCardIcon,
-  //   falabella: FalabellaCardIcon,
-  //   nequi: NequiCardIcon,
-  // };
-
   const iconMap: Record<string, string> = {
     [incomeNameEntries.nu]: nuSvg,
     [incomeNameEntries.visa]: visaSvg,
@@ -75,7 +67,6 @@ export const ExpensePlanner = ({ ExpensePlannerData }: ExpensePlannerProps) => {
     [incomeNameEntries.otro]: otroCardSvg,
   };
 
-  // Crear el objeto cardIcons usando los valores de incomeNameEntries como claves
   const cardIcons: Record<string, string> = Object.values(incomeNameEntries).reduce((acc, value) => {
     if (iconMap[value]) {
       acc[value] = iconMap[value];
@@ -83,15 +74,6 @@ export const ExpensePlanner = ({ ExpensePlannerData }: ExpensePlannerProps) => {
     return acc;
   }, {} as Record<string, string>);
 
-  // console.log("cardIcons: ", cardIcons);
-
-  // Mapeo de imágenes de categorías
-  // const categoryIcons: { [key: string]: string } = {
-  //   home: HomeIcon,
-  //   market: MarketIcon,
-  //   clothes: ClothesIcon,
-  // };
-  // Mapa de íconos para cada categoría en el enum expenseNameCategories
   const expenseIconMap: Partial<Record<expenseNameCategories, string>> = {
     [expenseNameCategories.hogar]: homeSvg,
     [expenseNameCategories.mercado]: cartSvg,
@@ -103,16 +85,12 @@ export const ExpensePlanner = ({ ExpensePlannerData }: ExpensePlannerProps) => {
     [expenseNameCategories.otro]: otherExpenseSvg,
   };
 
-  // Crear el objeto categoryIcons usando los valores de expenseNameCategories como claves
   const categoryIcons: Record<string, string> = Object.values(expenseNameCategories).reduce((acc, value) => {
     if (expenseIconMap[value as expenseNameCategories]) {
       acc[value] = expenseIconMap[value as expenseNameCategories]!;
     }
     return acc;
   }, {} as Record<string, string>);
-
-
-  // console.log("categoryIcons: ", categoryIcons)
 
   return (
     <div className='planner'>
@@ -132,7 +110,7 @@ export const ExpensePlanner = ({ ExpensePlannerData }: ExpensePlannerProps) => {
               <div key={index} className="expense-item">
                 <img src={cardIconSrc} alt={expense.expenseCategory} className="card-icon" />
                 <div className="expense-info">
-                  <p>Budget: ${expense.expenseAmount}</p>
+                  <p><span>Budget:</span> ${expense.expenseAmount}</p>
                   <div className="category-info">
                     <img src={categoryIconSrc} alt={expense.expenseCategory} className="category-icon" />
                     <p>{expense.expenseCategory}</p>
@@ -147,39 +125,55 @@ export const ExpensePlanner = ({ ExpensePlannerData }: ExpensePlannerProps) => {
       <button className="add" onClick={togglePopUp}>Add a new expense</button>
 
       {showPopup && (
-        <div className='popup'>
-          <p className='title'>New Expense</p>
-          <h3>Cards</h3>
-          <select name="cards" value={selectedCard} onChange={(e) => setSelectedCard(e.target.value as incomeNameEntries)} required>
-            <option value="" disabled>My cards</option>
+        <>
+          <div className='popup'>
+            <p className='title'>New Expense</p>
+            <h3>Cards</h3>
+            <select name="cards" value={selectedCard} onChange={(e) => setSelectedCard(e.target.value as incomeNameEntries)} required>
+              {/* <option value="" disabled>My cards</option>
             <option value="nu">Nu</option>
             <option value="visa">Visa</option>
             <option value="falabella">Falabella</option>
-            <option value="nequi">Nequi</option>
-          </select>
+            <option value="nequi">Nequi</option> */}
+              {Object.values(incomeNameEntries).map((entryName) => (
+                <option key={entryName} value={entryName}>
+                  {entryName}
+                </option>
+              ))}
+            </select>
 
-          <h3>Budget</h3>
-          <input
-            className='budget'
-            type='number'
-            value={budget}
-            onChange={(e) => setBudget(e.target.value)}
-            placeholder="Enter amount"
-          />
+            <h3>Budget</h3>
+            <input
+              className='budget'
+              type='number'
+              value={budget}
+              onChange={(e) => setBudget(e.target.value)}
+              placeholder="Enter amount"
+            />
 
-          <h3>Categories</h3>
-          <select name="categories" value={category} onChange={(e) => setCategory(e.target.value as expenseNameCategories)} required>
-            <option value="" disabled>Category</option>
+            <h3>Categories</h3>
+            <select name="categories" value={category} onChange={(e) => setCategory(e.target.value as expenseNameCategories)} required>
+              {/* <option value="" disabled>Category</option>
             <option value="home">Home</option>
             <option value="market">Market</option>
-            <option value="clothes">Clothes</option>
-          </select>
+            <option value="clothes">Clothes</option> */}
+              {Object.values(expenseNameCategories).map((categoryName) => (
+                <option key={categoryName} value={categoryName}>
+                  {categoryName}
+                </option>
+              ))}
+            </select>
 
-          <div className="button-container">
-            <button className="close-button" onClick={togglePopUp}>Cancel</button>
-            <button className="add-button" onClick={handleAddExpense}>Add  expense</button>
+            <div className="button-container">
+              <button className="close-button" onClick={togglePopUp}>Cancel</button>
+              <button className="add-button" onClick={handleAddExpense}>Add  expense</button>
+            </div>
           </div>
-        </div>
+
+          <div id='backgroundPopUpAddExpense'>
+
+          </div>
+        </>
       )}
     </div>
   );

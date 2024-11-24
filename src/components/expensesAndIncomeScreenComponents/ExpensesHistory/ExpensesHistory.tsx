@@ -94,7 +94,7 @@ export const ExpensesHistory = ({ ExpenseHistoryData }: ExpensesHistoryProps) =>
         </select>
       </div>
 
-      <div>
+      <div id="expensesHistoryListContainer">
         {filteredExpenses.length > 0 ? (
           filteredExpenses.map((expense, index) => (
             <li
@@ -125,6 +125,6 @@ export const ExpensesHistory = ({ ExpenseHistoryData }: ExpensesHistoryProps) =>
           <p>No hay ingresos para la categoría seleccionada.</p>
         )}
       </div>
-    </div>
+    </div >
   );
 };
