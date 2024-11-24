@@ -1,6 +1,6 @@
 import React from 'react';
 import './principalContent.css';
-
+import userImageIcon from "../../../assets/desktop/svg/userImageIcon.svg"
 interface PrincipalContentProps {
   username: string;
   email: string;
@@ -21,9 +21,9 @@ export const PrincipalContent: React.FC<PrincipalContentProps> = ({
   onImageChange,
 }) => {
   return (
-    <main className="settingsPage">
+    <div className="settingsPage">
       <section className="inputsSection">
-        {/* Sección de Usuario y Correo */}
+
         <div className="inputRow">
           <div className="inputGroup">
             <label htmlFor="username" className="inputLabel">User</label>
@@ -79,7 +79,7 @@ export const PrincipalContent: React.FC<PrincipalContentProps> = ({
         <div className="avatarSection">
           <h3 className="sectionTitle">Change Avatar</h3>
           <div className="avatarUpload">
-            <img src={avatar} alt="Current Avatar" className="avatarImage" />
+            <img src={userImageIcon} alt="Current Avatar" className="avatarImage" />
             <div className="uploadBox">
               <p className="uploadText">
                 <span className="clickHere">Click here</span> to upload your file or drag
@@ -94,6 +94,6 @@ export const PrincipalContent: React.FC<PrincipalContentProps> = ({
           <button className="saveButton">Save changes</button>
         </div>
       </section>
-    </main>
+    </div>
   );
 };

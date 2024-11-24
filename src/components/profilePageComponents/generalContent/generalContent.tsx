@@ -5,24 +5,23 @@ import noviceIcon from '../../../assets/desktop/svg/noviceIcon.svg';
 interface GeneralContentProps {
   name: string;
   email: string;
-  iconUrl?: string; 
 }
 
 export const GeneralContent: React.FC<GeneralContentProps> = ({
   name,
   email,
-  iconUrl = noviceIcon,
 
 }) => {
 
   return (
-    <main>
+    <div>
       <div className="nameInfo">
         <h2 className="name">{name}</h2>
-        <img src={iconUrl} alt="Icon" className="cardIcon" />
+        <p className='rango'>Novice</p>
+
       </div>
       <h3 className="email">{email}</h3>
       <h2 className="capyOption">Capy assistant</h2>
-    </main>
+    </div>
   );
 };

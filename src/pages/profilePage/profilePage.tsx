@@ -4,6 +4,8 @@ import { GlobalAppNav } from '../../components/Nav/Nav';
 import { ProfileHeader } from '../../components/profilePageComponents/profileHeader/profileHeader';
 import { GeneralContent } from '../../components/profilePageComponents/generalContent/generalContent';
 import { PrincipalContent } from '../../components/profilePageComponents/principalContent/principalContent';
+import userImageIcon from "../../../src/assets/desktop/svg/userImageIcon.svg"
+
 
 interface UserData {
   name: string;
@@ -45,8 +47,10 @@ export const ProfilePage: React.FC = () => {
     <main className="page" id="profilePage">
       <h1 id="principal">General settings</h1>
       <GlobalAppNav />
-
+    
       <div className="contentWrapper">
+      <img src={userImageIcon} alt="Current Avatar" className="avatarImage" />
+
         <div className="generalProfile">
           <ProfileHeader />
 
@@ -55,7 +59,6 @@ export const ProfilePage: React.FC = () => {
               <GeneralContent
                 name={userData.name}
                 email={userData.email}
-                iconUrl={userData.iconUrl}
               />
             </div>
 
