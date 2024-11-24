@@ -1,87 +1,91 @@
-.navContainer {
-  border-radius: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: start;
-
-  width: 4.5vw;
-  margin: 0 0 0 0;
-
-  position: fixed;
-  top: 6vw;
-  left: 1.5vw;
-}
-
-.navContainer img {
-  padding: 6px;
-  cursor: pointer;
-  border-radius: 20px;
-  transition: background-color 0.3s ease, border-radius 0.2s ease;
-}
-
-.navContainer img:hover {
-  background-color: #c4c4c438;
-  border-radius: 20px;
-}
-
-.nav {
-  background-color: #181818;
-  border-radius: 50px;
-  width: 100%;
-}
-.capy {
-  width: 100%;
-  background-color: #181818;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  aspect-ratio: 1/1;
-  margin-bottom: 30%;
-}
-
-.principal {
-  background-color: #181818;
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+	.navContainer {
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
   
-  margin-top: 2vh;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-.last {
-  background-color: #181818;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-
-}
-
-.Logo,
-.IncomeExpenses,
-.Dashboard,
-.Savings,
-.Rewards,
-.Settings,
-.User,
-.LogOut {
-  width: 65%;
-  aspect-ratio: 1/1;
-}
-
-.navContainer img.focus,
-.navContainer img.focus:hover {
-  background-color: #CCFC56;
-  border-radius: 20px;
-  cursor: auto;
+    width: 4.5vw;
+    margin: 0 0 0 0;
+  
+    position: fixed;
+    top: 6vw;
+    left: 1.5vw;
+  }
+  
+  .navContainer img {
+    padding: 6px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, border-radius 0.2s ease;
+  }
+  
+  .navContainer img:hover {
+    background-color: #c4c4c438;
+    border-radius: 20px;
+  }
+  
+  .nav {
+    background-color: #181818;
+    border-radius: 50px;
+    width: 100%;
+  }
+  .capy {
+    width: 100%;
+    background-color: #181818;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    aspect-ratio: 1/1;
+    margin-bottom: 30%;
+  }
+  
+  .principal {
+    background-color: #181818;
+    
+    margin-top: 2vh;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .last {
+    background-color: #181818;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 55%;
+    margin-bottom: 20%;
+  }
+  
+  .Logo,
+  .IncomeExpenses,
+  .Dashboard,
+  .Savings,
+  .Rewards,
+  .Settings,
+  .User,
+  .LogOut {
+    width: 65%;
+    aspect-ratio: 1/1;
+  }
+  
+  .navContainer img.focus,
+  .navContainer img.focus:hover {
+    background-color: #CCFC56;
+    border-radius: 20px;
+    cursor: auto;
+  }
+  
 }
 
 @media only screen and (max-width: 500px) {
@@ -127,22 +131,26 @@
   }
 
   .principal{
+    display: flex;
     flex-direction: row;
     margin: 0;
     padding: 0;
     background-color: transparent; 
     border-radius: 0;
-    gap: none;
+    gap: 10px;
   }
 
   .last {
+    display: flex;
     flex-direction: row;
     margin: 0;
     padding: 0;
     background-color: transparent; 
     border-radius: 0;
-    gap: none;
-    margin-left: 8%;
+    gap: 8px;
+    margin-left: 10%;
+    margin-right: 0;
+    
   }
 
   
@@ -155,10 +163,19 @@
   .LogOut {
     width: 40px;
     height: 40px;
-    aspect-ratio: 1/1;
+    
   }
 
   .Logo{
     display: none;
   }
+
+  .navContainer img.focus,
+  .navContainer img.focus:hover {
+    background-color: #CCFC56;
+    border-radius: 20px;
+    cursor: auto;
+  }
+
+
 }
