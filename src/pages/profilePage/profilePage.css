@@ -29,6 +29,7 @@ h1 {
     width: 80vw; 
     margin: 20px auto; 
     border-radius: 15px;
+    margin-top: 5px;
 }
 
 #profileBackground {
@@ -46,24 +47,20 @@ h1 {
 .content{
     background-color: blueviolet;
     display: flex;
-    flex-direction: row; /* Cambia a disposición en fila (columnas) */
-    justify-content: space-between; /* Espacio entre las columnas */
-    align-items: stretch; /* Asegura que las columnas tengan la misma altura */
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: stretch; 
     width: 100%;  
     height: 590px;
     border-radius: 15px;
-    padding: 15px; /* Opcional: agrega espacio interno */
-    gap: 20px; /* Espacio entre columnas */
+    padding: 15px; 
+    gap: 20px; 
 }
 
-.userImageIcon{
-    height: 200px;
-    width: 200px;
-    
-}
+
 .generalContent{
     background-color:#181818;
-    flex: 1; /* Ocupa la misma proporción de espacio que su vecino */
+    flex: 1; 
     border-radius: 10px;
 
 }

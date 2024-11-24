@@ -4,7 +4,6 @@ import { GlobalAppNav } from '../../components/Nav/Nav';
 import { ProfileHeader } from '../../components/profilePageComponents/profileHeader/profileHeader';
 import { GeneralContent } from '../../components/profilePageComponents/generalContent/generalContent';
 import { PrincipalContent } from '../../components/profilePageComponents/principalContent/principalContent';
-import userImageIcon from '../../assets/desktop/svg/userImageIcon.svg'
 
 
 
@@ -19,7 +18,6 @@ export const ProfilePage = () => {
             <div className="generalProfile">
 
                 <ProfileHeader />
-                <img src={userImageIcon} alt='' className="userImageIcon" />
 
 
                 <div className='content'>

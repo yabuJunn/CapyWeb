@@ -7,6 +7,7 @@
     max-width: auto;
     height: 560px;
     margin: 0 auto;
+
     
   }
   
@@ -86,7 +87,7 @@
   }
   
   .uploadBox {
-    border: 1px dashed #6c63ff;
+    border: 1px dashed #A8F25D;
     padding: 15px;
     flex: 1;
     display: flex; 
@@ -111,7 +112,7 @@
   }
   
   .clickHere {
-    color: #6c63ff;
+    color: #A8F25D;
     cursor: pointer;
   }
   
@@ -137,16 +138,18 @@
   }
   
   .discardButton {
-    background-color: #444;
-    color: white;
+  
+    border: 1px dashed #A8F25D;
+background-color: #2c2c2c;
+ color: white;
   }
   
   .saveButton {
-    background-color: #6c63ff;
+    background-color: #A8F25D;
     color: white;
   }
   
   .saveButton:hover {
-    background-color: #5548d9;
+    background-color: #A8F25D;
   }
   
