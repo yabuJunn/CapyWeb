@@ -1,4 +1,145 @@
-h1{
+/* Estilo general */
+.settingsPage {
+    padding: 20px;
+    background-color: #1c1c1c;
+    color: #fff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Títulos de sección */
+  .sectionTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .sectionSubtitle {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 15px;
+  }
+  
+  /* Fila de inputs */
+  .inputRow {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  /* Grupo de inputs */
+  .inputGroup {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .inputLabel {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .inputField {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #444;
+    background-color: #2c2c2c;
     color: white;
-    margin-left: 4.5%;
-}
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .inputField:focus {
+    border-color: #6c63ff;
+  }
+  
+  /* Sección de Contraseña */
+  .passwordInputWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .visibilityToggle {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+  }
+  
+  /* Avatar */
+  .avatarSection {
+    margin-top: 20px;
+  }
+  
+  .avatarUpload {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .avatarImage {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .uploadBox {
+    border: 1px dashed #6c63ff;
+    padding: 15px;
+    flex: 1;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  .uploadText {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .clickHere {
+    color: #6c63ff;
+    cursor: pointer;
+  }
+  
+  .uploadFormat {
+    font-size: 12px;
+    color: #aaa;
+  }
+  
+  /* Botones */
+  .buttonsRow {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .discardButton,
+  .saveButton {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .discardButton {
+    background-color: #444;
+    color: white;
+  }
+  
+  .saveButton {
+    background-color: #6c63ff;
+    color: white;
+  }
+  
+  .saveButton:hover {
+    background-color: #5548d9;
+  }
+  
