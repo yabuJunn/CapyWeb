@@ -159,3 +159,19 @@ background-color: #181818;
     background-color: #A8F25D;
   }
   
+  @media only screen and (max-width: 500px) {
+    .inputRow{
+      flex-direction: column;
+
+    }
+    .inputField{
+      width: 300px;
+    }
+    .settingsPage{
+      border: none;
+      height: auto;
+    }
+    .uploadBox{
+      height: 130px;
+    }
+  }
