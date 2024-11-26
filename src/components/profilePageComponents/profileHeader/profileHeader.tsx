@@ -1,4 +1,3 @@
-import React from 'react';
 import './profileHeader.css';
 import backgroundHeader from "../../../assets/desktop/svg/backgroundHeader.svg"
 

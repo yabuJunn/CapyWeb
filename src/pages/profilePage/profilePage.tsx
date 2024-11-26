@@ -34,20 +34,12 @@ export const ProfilePage: React.FC = () => {
     }));
   };
 
-  const handleImageChange = (file: File | null) => {
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setUserData((prevData) => ({
-        ...prevData,
-        iconUrl: imageUrl
-      }));
-    }
-  };
+  
 
   return (
     <main className="page" id="profilePage">
-      <h1 id="principal">General settings</h1>
-      <GlobalAppNav />
+      <h1 id="titleProfile">General settings</h1>
+      {/*<GlobalAppNav />*/}
     
       <div className="contentWrapper">
         <img src={userImageIcon} alt="Current Avatar" className="avatarImage" />
@@ -72,7 +64,6 @@ export const ProfilePage: React.FC = () => {
                 currentPassword={userData.currentPassword}
                 newPassword={userData.newPassword}
                 onChange={handleChange}
-                onImageChange={handleImageChange} 
               />
             </div>
           </div>
@@ -82,4 +73,4 @@ export const ProfilePage: React.FC = () => {
       <div id="profileBackground" className="backgroundPage"></div>
     </main>
   );
-};
+}; 

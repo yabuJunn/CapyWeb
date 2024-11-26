@@ -9,7 +9,6 @@ interface PrincipalContentProps {
   currentPassword: string;
   newPassword: string;
   onChange: (field: 'username' | 'email' | 'currentPassword' | 'newPassword', value: string) => void;
-  onImageChange: (file: File | null) => void;
 }
 
 export const PrincipalContent: React.FC<PrincipalContentProps> = ({
@@ -19,7 +18,6 @@ export const PrincipalContent: React.FC<PrincipalContentProps> = ({
   currentPassword,
   newPassword,
   onChange,
-  onImageChange,
 
 }) => {
   

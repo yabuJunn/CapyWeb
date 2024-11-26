@@ -60,3 +60,20 @@
         font-size: 18px; 
 
 }
+
+@media only screen and (max-width: 500px) {
+.name{
+    margin: 0px;
+    width: 60%;
+    
+
+}
+.rango{
+    margin: 0px ;
+}
+.nameInfo{
+    padding: 20px 10px;
+    margin: 0;
+    justify-content:initial;
+}
+}

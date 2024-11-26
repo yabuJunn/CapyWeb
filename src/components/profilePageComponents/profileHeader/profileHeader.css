@@ -31,3 +31,22 @@
     border-radius: 50%; 
     z-index: 1; 
 }
+
+@media only screen and (max-width: 500px) {
+    .profileHeader{
+        margin-top: 60px;
+        height: 70px;
+
+    }
+    .backgroundHeader{
+        height: 300px;
+        margin-top: -110px;
+
+
+       
+    }
+    .backgorundHeader{
+    }
+
+
+}

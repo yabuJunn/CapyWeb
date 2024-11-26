@@ -8,7 +8,7 @@
     position: relative; 
 }
 
-h1 {
+#titleProfile {
     color: white;
     font-family: "Plus Jakarta Sans";
     font-size: 40px;
@@ -16,7 +16,9 @@ h1 {
     font-weight: 700;
     line-height: normal;
     width: 100%;
-    margin: 20px 0;
+    margin: 20px ;
+    margin-left: 70px;
+    margin-bottom: 50px;
 }
 
 .contentWrapper {
@@ -60,7 +62,7 @@ h1 {
 .avatarImage {
     width: 180px !important;
     height: 180px !important;
-    margin-top: 120px;
+    margin-top: 100px;
     margin-left: 220px;
 }
 
@@ -78,3 +80,33 @@ h1 {
     width: 890px;
     border-radius: 10px;
 }
+
+@media only screen and (max-width: 500px) {
+    .page{
+        padding: 0px;
+    }
+    .avatarImage {
+        margin-left: 125px;
+        margin-top: 105px;
+        width: 120px !important;
+    height: 120px !important;
+    }
+
+    #titleProfile{
+        margin-top: 70px;
+        margin-left: -15px;
+    }
+    .generalProfile{
+        margin-top: 40px;
+        height: 60px;
+          }
+ .content{
+    flex-direction: column;
+    gap: 250px;
+    height: 100px;
+    background-color: aquamarine;
+ }
+ .principalContent{
+
+ }
+        }
