@@ -62,5 +62,9 @@
   #savingsGoalsListContainer{
     width: 100%;
   }
+
+  #savingsGoalsContainer {
+    height: 530px;
+   }
     
   }

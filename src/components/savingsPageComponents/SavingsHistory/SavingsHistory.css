@@ -22,11 +22,11 @@
 
 @media only screen and (max-width: 500px) {
 
-#savingsHistoryContainer{
-    width: 95%;
+    #savingsHistoryContainer{
+        width: 95%;
 
-}
-#savingsHistoryItemsContainer{
-    overflow-y: scroll;
-}
+    }
+    #savingsHistoryItemsContainer{
+        overflow-y: scroll;
+    }
 }
