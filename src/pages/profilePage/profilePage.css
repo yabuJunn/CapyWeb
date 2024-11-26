@@ -79,6 +79,13 @@
     width: 890px;
     border-radius: 10px;
 }
+.logOutButton{
+    margin-left: 102.8px;
+    margin-top: -34px;
+    cursor: pointer;
+  padding: 0;
+}
+
 
 @media only screen and (max-width: 500px) {
     .page{
@@ -101,7 +108,7 @@
           }
  .content{
     flex-direction: column;
-    gap: 70px;
+    gap: 60px;
     height: 210px;
     padding: 15px 0;
  }
@@ -109,4 +116,23 @@
      width: auto;
      border: none;
  }
+ .logOutButton{
+    margin-left: 42px;
+    margin-top: 880px;
+    background-color: #181818;
+    width: 335px;
+    border-radius: 8px;
+    padding: 8px;
+    height: 70px;
+    
+
+}
+.logOutIcon{
+    
+margin-top: -3px;
+
+
+}
+
+
         }

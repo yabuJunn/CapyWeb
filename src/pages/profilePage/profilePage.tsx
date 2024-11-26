@@ -5,6 +5,7 @@ import { ProfileHeader } from '../../components/profilePageComponents/profileHea
 import { GeneralContent } from '../../components/profilePageComponents/generalContent/generalContent';
 import { PrincipalContent } from '../../components/profilePageComponents/principalContent/principalContent';
 import userImageIcon from "../../../src/assets/desktop/svg/avatarHeader.svg"
+import logOutButton from "../../../src/assets/desktop/svg/logOutButton.svg"
 
 interface UserData {
   name: string;
@@ -68,6 +69,10 @@ export const ProfilePage: React.FC = () => {
             </div>
           </div>
         </div>
+        <button className="logOutButton" /*onClick={handleLogOut}*/ >
+
+          <img src={logOutButton} alt="Log Out Icon" className="logOutIcon" />
+        </button>
       </div>
 
       <div id="profileBackground" className="backgroundPage"></div>
