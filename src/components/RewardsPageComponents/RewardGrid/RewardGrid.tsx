@@ -22,7 +22,6 @@ const RewardGrid: React.FC = () => {
                             price={reward.redemptionCost}
                             points={reward.redemptionCapypointsAmount}
                             backgroundColor={reward.backgroundColor}
-                            imageSrc={reward.imageSrc}
                             id={reward.exchangeId}
                             darkText={reward.darkText} />
                     ))}
