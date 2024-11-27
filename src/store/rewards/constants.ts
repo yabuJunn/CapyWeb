@@ -136,7 +136,7 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             redemptionCost: 10000,
             isRedeemed: false,
             exchangeId: 0,
-            imageSrc: amazonImage,
+            // imageSrc: amazonImage,
             backgroundColor: '#4A00E0',
             darkText: false
         },
@@ -146,7 +146,7 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             redemptionCost: 25000,
             isRedeemed: false,
             exchangeId: 1,
-            imageSrc: netflixImage,
+            // imageSrc: netflixImage,
             backgroundColor: '#F2622E',
             darkText: false
         },
@@ -156,7 +156,7 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             redemptionCost: 20000,
             isRedeemed: false,
             exchangeId: 2,
-            imageSrc: farmatodoImage,
+            // imageSrc: farmatodoImage,
             backgroundColor: '#A8F25D',
             darkText: true
         },
@@ -166,7 +166,7 @@ export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
             redemptionCost: 13000,
             isRedeemed: false,
             exchangeId: 3,
-            imageSrc: farmatodoImage,
+            // imageSrc: farmatodoImage,
             backgroundColor: '#A8F25D',
             darkText: true
         }

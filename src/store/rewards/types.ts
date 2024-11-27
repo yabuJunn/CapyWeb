@@ -52,7 +52,7 @@ export interface exchangeType {
     redemptionCost: number,
     isRedeemed: boolean,
     exchangeId: number,
-    imageSrc: string,
+    // imageSrc: string,
     backgroundColor: string,
     darkText: boolean
 }

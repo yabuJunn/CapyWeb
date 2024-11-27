@@ -16,7 +16,8 @@ export const expensesSlice = createSlice({
                     expenseCategory: action.payload.expenseCategory,
                     expenseSite: action.payload.expenseSite,
                     expenseDate: action.payload.expenseDate,
-                    expenseAmount: action.payload.expenseAmount
+                    expenseAmount: action.payload.expenseAmount,
+                    expenseColor: action.payload.expenseColor
                 }
             ]
         },
@@ -27,7 +28,8 @@ export const expensesSlice = createSlice({
                     expenseCategory: action.payload.expenseCategory,
                     expenseSite: action.payload.expenseSite,
                     expenseDate: action.payload.expenseDate,
-                    expenseAmount: action.payload.expenseAmount
+                    expenseAmount: action.payload.expenseAmount,
+                    expenseEntrie: action.payload.expenseEntrie
                 }
             ]
         },

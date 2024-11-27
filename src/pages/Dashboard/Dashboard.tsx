@@ -4,30 +4,41 @@ import './Dashboard.css'
 import { GlobalAppNav } from '../../components/Nav/Nav'
 import { InteractiveGrid } from '../../components/dashboardPageComponents/InteractiveGrid/InteractiveGrid'
 import { RootState } from '../../store/store'
-import { getUser } from '../../services/Firebase/FirestoreUsers'
+import { getRealUser } from '../../services/Firebase/FirestoreUsers'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeUserEmail, changeUserName, changeUserUID } from '../../store/userData/slice'
 import { useEffect } from 'react'
-import { DocumentData } from 'firebase/firestore'
+import { NavigationHook } from '../../hooks/navigationHook'
 
 export const Dashboard = () => {
+    const { handleNavigation } = NavigationHook()
+
     const sessionStorageUserUID = sessionStorage.getItem('userUID')
+
+    if (!sessionStorageUserUID) {
+        handleNavigation.navigateToLogin()
+    }
 
     const userDataRedux = useSelector((state: RootState) => state.userData)
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        const registrarUsuarioPrueba = async () => {
+            const pruebaUserData = await getRealUser('zTOoG8Hr8fUsbxZfQb4GrZlRJu22')
 
+            if (pruebaUserData) {
+                console.log('pruebaUserData: ', pruebaUserData);
+            }
+        };
+
+        registrarUsuarioPrueba()
+    })
 
     useEffect(() => {
-        if (userDataRedux.userName === "" && sessionStorageUserUID !== null) {
-            const fetchUserData = async (sessionStorageUserUID: string) => {
-                const userData = await getUser(sessionStorageUserUID);
-                return userData;
-            };
+        if (sessionStorageUserUID !== null) {
 
             const fetchDataAndDispatch = async () => {
-                const userDataFirebase: DocumentData | undefined = await fetchUserData(sessionStorageUserUID);
-                sessionStorage.setItem('userUID', sessionStorageUserUID);
+                const userDataFirebase = await getRealUser(sessionStorageUserUID);
 
                 if (userDataFirebase) {
                     dispatch(changeUserName(userDataFirebase.name));

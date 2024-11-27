@@ -13,8 +13,6 @@ export const savingsSlice = createSlice({
                     savingName: action.payload.name,
                     savingValue: 0,
                     savingColor: action.payload.color,
-                    savingPercentage: "NaN",
-                    savingImage: action.payload.image,
                     monthlySaving: action.payload.monthlySaving,
                     savingActualFee: 0,
                     savingTotalFee: action.payload.savingTotalFee,

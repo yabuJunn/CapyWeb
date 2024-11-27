@@ -2,7 +2,7 @@ import './CardLogIn.css';
 
 import { useState } from "react";
 import { doGoogleSignIn, doSignInWithEmailAndPassword } from "../../../services/Firebase/auth";
-import { getUser } from "../../../services/Firebase/FirestoreUsers";
+import { getRealUser, getUser } from "../../../services/Firebase/FirestoreUsers";
 import { NavigationHook } from '../../../hooks/navigationHook';
 
 import logoGoogle from '../../../assets/desktop/svg/logo/logoGoogle.svg'
@@ -25,7 +25,8 @@ function CardLogIn() {
       const userCredential = await doSignInWithEmailAndPassword(email, password);
       console.log("Usuario logueado:", userCredential.user);
 
-      const userData = await getUser(userCredential.user.uid)
+      // const userData = await getUser(userCredential.user.uid)
+      const userData = await getRealUser(userCredential.user.uid)
       console.log(userData)
 
       sessionStorage.setItem('userUID', userCredential.user.uid)

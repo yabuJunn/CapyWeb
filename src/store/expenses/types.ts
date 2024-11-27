@@ -8,14 +8,14 @@ export interface expensesSliceType {
 
 export enum expenseNameCategories {
     category = "Category",
-    hogar = "Hogar",
-    mercado = "Mercado",
-    ropa = "Ropa",
-    salidas = "Salidas",
-    viajes = "Viajes",
-    familia = "Familia",
-    Amigos = "Amigos",
-    otro = "Otro"
+    hogar = "Home",
+    mercado = "Groceries",
+    ropa = "Clothes",
+    salidas = "Hang outs",
+    viajes = "Trips",
+    familia = "Family",
+    Amigos = "Friends",
+    otro = "Others"
 }
 
 export interface realExpenseType {
