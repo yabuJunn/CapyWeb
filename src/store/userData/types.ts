@@ -14,7 +14,7 @@ export interface cardType {
     cardMoney: number
 }
 
-enum cardNamesEnum {
+export enum cardNamesEnum {
     nu = "Nu",
     visa = "Visa",
     falabella = "Falabella",
