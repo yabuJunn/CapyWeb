@@ -2,15 +2,17 @@ import './CardsSpace.css';
 import AddCard from "../AddCard/AddCard";
 import { DebitCard } from '../DebitCard/DebitCard';
 
+//Import Hooks
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
+import { cardNamesEnum } from '../../../store/userData/types';
+
 //Imagenes importadas
 import MoveButton from '../../../assets/desktop/svg/MoveButton.svg'
 import logoNu from '../../../assets/desktop/svg/logo/logoNuWhite.svg'
 import logoVisa from '../../../assets/desktop/svg/logo/logoVisaWhite.svg'
 import logoFalabella from '../../../assets/desktop/svg/logo/logoFalabellaWhite.svg'
 import logoNequi from '../../../assets/desktop/svg/logo/logoNequiPurple.svg'
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../store/store';
-import { cardNamesEnum } from '../../../store/userData/types';
 
 export const CardsSpace = () => {
   const cardsData = useSelector((state: RootState) => state.userData.cards)

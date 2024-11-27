@@ -4,10 +4,21 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 import MoveButton from '../../../assets/desktop/svg/MoveButton.svg';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 
 export const Savings = () => {
-  const ingresos = 78;
-  const ahorroAmount = 30203
+  const totalIncome = useSelector((state: RootState) => state.userData.totalIncome)
+  const savingsData = useSelector((state: RootState) => state.savings)
+
+  let totalSavings = 0
+
+  savingsData.savingsData.forEach((saving) => {
+    totalSavings += saving.savingActualFee
+  });
+
+  const savingsPercentage = totalSavings / totalIncome
+  const incomePercentage = 1 - savingsPercentage
 
   return (
     <>
@@ -17,8 +28,8 @@ export const Savings = () => {
 
         <div className="progress-wrapper">
           <CircularProgressbar
-            value={ingresos}
-            text={`$${ahorroAmount}`}
+            value={savingsPercentage * 100}
+            text={`$${totalSavings}`}
             styles={buildStyles({
               rotation: 0.25,
               strokeLinecap: 'butt',
@@ -36,13 +47,13 @@ export const Savings = () => {
           <div className='hintContainer'>
             <div className='colorHint' style={{ backgroundColor: '#2D18BF' }}></div>
             <p>Income</p>
-            <p>{70}%</p>
+            <p>{incomePercentage.toFixed(2)}%</p>
           </div>
 
           <div className='hintContainer'>
             <div className='colorHint' style={{ backgroundColor: '#A8F25D' }}></div>
             <p>Savings</p>
-            <p>{30}%</p>
+            <p>{savingsPercentage.toFixed(2)}%</p>
           </div>
         </div>
       </div>
