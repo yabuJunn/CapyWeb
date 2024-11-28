@@ -38,13 +38,13 @@ export const GeneralSavings = ({ valueIncome, incomePercentage, savingsPercentag
                     <div id='hin1' className='hint'>
                         <div className='color' style={{ backgroundColor: '#2D18BF' }}></div>
                         <p>Income</p>
-                        <p>{incomePercentage}%</p>
+                        <p>{incomePercentage.toFixed(2)}%</p>
                     </div>
 
                     <div id='hin2' className='hint'>
                         <div className='color' style={{ backgroundColor: '#A8F25D' }}></div>
                         <p>Savings</p>
-                        <p>{savingsPercentage}%</p>
+                        <p>{savingsPercentage.toFixed(2)}%</p>
                     </div>
                 </div>
             </div>

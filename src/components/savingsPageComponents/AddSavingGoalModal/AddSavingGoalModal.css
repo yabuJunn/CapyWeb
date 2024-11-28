@@ -54,6 +54,8 @@
     font-weight: 700;
     line-height: normal;
 
+    margin-top: -3%;
+
 }
 
 #AddSavingGoalModalContainerForm {
@@ -63,19 +65,24 @@
     justify-content: center;
     width: 70%;
     height: 100%;
-
-}
-
-#AddSavingGoalModalContainerForm h3 {
-    margin-bottom: 3%;
-
 }
 
 .inputTextContainer {
     width: 60%;
     display: flex;
     flex-direction: column;
-    height: 10%;
+    height: 11%;
+    margin-bottom: 1%;
+}
+
+.inputTextContainer label {
+    color: var(--Primary-Base-White, #FFF);
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 2% 0 1% 0;
 }
 
 .inputTextContainer input {
@@ -91,12 +98,12 @@
     font-size: 16px;
     font-style: normal;
     width: 100%;
-    height: 80%;
+    height: 60%;
 }
 
-#AddSavingGoalModalContainerForm select {
-    width: 60%;
-    height: 8%;
+.inputTextContainer #selectColor {
+    width: 100%;
+    height: 60%;
     border-radius: 5px;
     border: none;
     font-size: 1vw;
@@ -106,15 +113,13 @@
     font-family: "Space Grotesk";
     font-size: 16px;
     font-style: normal;
-
 }
 
-#AddSavingGoalModalContainerForm select option {
-    background-color: #181818;
+.inputTextContainer #selectColor option {
+    background-color: #3D1F40;
     /* Fondo de cada opción */
-    color: rgba(212, 212, 212, 0.986);
+    color: rgba(255, 255, 255, 0.8);
     /* Color de texto */
-
 }
 
 
@@ -130,7 +135,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin: 2% 0 1% 0;
+    margin-top: 1%;
 }
 
 #AddSavingGoalRadioInputContainer {
@@ -138,7 +143,6 @@
     justify-content: center;
     align-items: center;
     height: 10%;
-    margin: 0 0 2% 0;
 }
 
 .AddSavingGoalRadioInputItem {

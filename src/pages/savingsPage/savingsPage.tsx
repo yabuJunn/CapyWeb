@@ -8,14 +8,33 @@ import { SavingsGoals } from '../../components/savingsPageComponents/SavingsGoal
 import { SavingsHistory } from '../../components/savingsPageComponents/SavingsHistory/SavingsHistory'
 import { SavingGoalItemProps } from '../../components/savingsPageComponents/SavingGoalItem/SavingGoalItem'
 
+//Impot hooks
 import { useSelector } from 'react-redux'
 import { AddSavingGoalModal } from '../../components/savingsPageComponents/AddSavingGoalModal/AddSavingGoalModal'
 import { RootState } from '../../store/store'
-// import { changeUserExpGained } from '../../store/rewards/slice'
-// import { rewardsSliceType } from '../../store/rewards/types'
-// import { addIncome } from '../../store/incomes/slice'
+import { useEffect, useState } from 'react'
+import { useUserFirebaseData } from '../../hooks/useUserFirebaseData'
+import { NavigationHook } from '../../hooks/navigationHook'
+import { ChangeFirebaseContext } from '../../Contexts/changeFirebaseContext'
 
 export const SavingsPage = () => {
+
+    const [isInitialized, setIsInitialized] = useState(false);
+    const [sessionStorageUserUID] = useState(() => sessionStorage.getItem('userUID'));
+    const { fetchAndSetUserData } = useUserFirebaseData(sessionStorageUserUID);
+    const { handleNavigation } = NavigationHook();
+
+
+    useEffect(() => {
+        if (!isInitialized) {
+            if (!sessionStorageUserUID) {
+                handleNavigation.navigateToLogin();
+            } else {
+                fetchAndSetUserData();
+            }
+            setIsInitialized(true);
+        }
+    }, [isInitialized, handleNavigation, sessionStorageUserUID, fetchAndSetUserData]);
 
     const addSavingModalBoolean: boolean = useSelector((state: RootState) => state.global.addSavingModal);
     const savingsData = useSelector((state: RootState) => state.savings)
@@ -53,89 +72,95 @@ export const SavingsPage = () => {
         }
     })
 
-    if (addSavingModalBoolean) {
+    if (sessionStorageUserUID) {
+        if (addSavingModalBoolean) {
+            return <>
+                <ChangeFirebaseContext.Provider value={{
+                    setIsInitialized: setIsInitialized,
+                    fetchAndSetUserData: fetchAndSetUserData,
+                    logedUserUID: sessionStorageUserUID
+                }}>
 
-        return <>
-            <main className='page' id='savingPage'>
+                    <main className='page' id='savingPage'>
 
-                <AddSavingGoalModal></AddSavingGoalModal>
+                        <AddSavingGoalModal></AddSavingGoalModal>
 
-                <div id='marginPageSavingPage'>
-                    <div id='TitleTextContainer'>
-                        <h1
-                            onClick={() => {
-                                //dispatch()
-                            }}
-                        >Savings</h1>
-                    </div>
+                        <div id='marginPageSavingPage'>
+                            <div id='TitleTextContainer'>
+                                <h1>Savings</h1>
+                            </div>
 
-                    <div id='ContentContainerSavings'>
+                            <div id='ContentContainerSavings'>
+                                <GlobalAppNav></GlobalAppNav>
+
+                                <div id='SavingsCardsContainer'>
+                                    <div id='leftCardsContainer'>
+                                        <div id='summarySavingsContainer'>
+                                            <GeneralSavings valueIncome={100 - valueSavingsPercentage} valueSavings={valueSavingsPercentage} incomePercentage={100 - valueSavingsPercentage} savingsPercentage={valueSavingsPercentage} realIncomeValue={userDataData.totalIncome} realSavingsValue={savingDataTotalValue}></GeneralSavings>
+
+                                            <CategorySavings chartData={chartData}></CategorySavings>
+
+                                        </div>
+
+                                        <SavingsGoals savingsGoalsItemsArray={savingsGoalsData}></SavingsGoals>
+
+                                    </div>
+
+                                    <SavingsHistory savingsData={savingsData.savingsData}></SavingsHistory>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id='backgroundSavings'>
+
+                        </div>
+                    </main>
+                </ChangeFirebaseContext.Provider>
+            </>
+        } else {
+            return <>
+                <ChangeFirebaseContext.Provider value={{
+                    setIsInitialized: setIsInitialized,
+                    fetchAndSetUserData: fetchAndSetUserData,
+                    logedUserUID: sessionStorageUserUID
+                }}>
+                    <main className='page' id='savingPage'>
+
                         <GlobalAppNav></GlobalAppNav>
 
-                        <div id='SavingsCardsContainer'>
-                            <div id='leftCardsContainer'>
-                                <div id='summarySavingsContainer'>
-                                    <GeneralSavings valueIncome={100 - valueSavingsPercentage} valueSavings={valueSavingsPercentage} incomePercentage={100 - valueSavingsPercentage} savingsPercentage={valueSavingsPercentage} realIncomeValue={userDataData.totalIncome} realSavingsValue={savingDataTotalValue}></GeneralSavings>
-
-                                    <CategorySavings chartData={chartData}></CategorySavings>
-
-                                </div>
-
-                                <SavingsGoals savingsGoalsItemsArray={savingsGoalsData}></SavingsGoals>
-
+                        <div id='marginPageSavingPage'>
+                            <div id='TitleTextContainer'>
+                                <h1>Savings</h1>
                             </div>
 
-                            <SavingsHistory savingsData={savingsData.savingsData}></SavingsHistory>
+                            <div id='ContentContainerSavings'>
 
-                        </div>
-                    </div>
-                </div>
+                                <div id='SavingsCardsContainer'>
+                                    <div id='leftCardsContainer'>
+                                        <div id='summarySavingsContainer'>
+                                            <GeneralSavings valueIncome={100 - valueSavingsPercentage} valueSavings={valueSavingsPercentage} incomePercentage={100 - valueSavingsPercentage} savingsPercentage={valueSavingsPercentage} realIncomeValue={userDataData.totalIncome} realSavingsValue={savingDataTotalValue}></GeneralSavings>
 
-                <div id='backgroundSavings'>
+                                            <CategorySavings chartData={chartData}></CategorySavings>
 
-                </div>
-            </main>
+                                        </div>
 
-        </>
-    } else {
-        return <>
-            <main className='page' id='savingPage'>
+                                        <SavingsGoals savingsGoalsItemsArray={savingsGoalsData}></SavingsGoals>
 
-                <GlobalAppNav></GlobalAppNav>
+                                    </div>
 
-                <div id='marginPageSavingPage'>
-                    <div id='TitleTextContainer'>
-                        <h1>Savings</h1>
-                    </div>
-
-                    <div id='ContentContainerSavings'>
-
-                        <div id='SavingsCardsContainer'>
-                            <div id='leftCardsContainer'>
-                                <div id='summarySavingsContainer'>
-                                    <GeneralSavings valueIncome={100 - valueSavingsPercentage} valueSavings={valueSavingsPercentage} incomePercentage={100 - valueSavingsPercentage} savingsPercentage={valueSavingsPercentage} realIncomeValue={userDataData.totalIncome} realSavingsValue={savingDataTotalValue}></GeneralSavings>
-
-                                    <CategorySavings chartData={chartData}></CategorySavings>
+                                    <SavingsHistory savingsData={savingsData.savingsData}></SavingsHistory>
 
                                 </div>
-
-                                <SavingsGoals savingsGoalsItemsArray={savingsGoalsData}></SavingsGoals>
-
                             </div>
+                        </div>
 
-                            <SavingsHistory savingsData={savingsData.savingsData}></SavingsHistory>
+                        <div id='backgroundSavings' className='backgroundPage'>
 
                         </div>
-                    </div>
-                </div>
-
-                <div id='backgroundSavings' className='backgroundPage'>
-
-                </div>
-            </main>
-
-        </>
+                    </main>
+                </ChangeFirebaseContext.Provider>
+            </>
+        }
     }
-
-
 }

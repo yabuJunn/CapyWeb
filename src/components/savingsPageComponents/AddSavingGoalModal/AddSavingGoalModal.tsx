@@ -3,20 +3,23 @@ import fireIconWhite from '../../../assets/desktop/svg/fireIconWhite.svg'
 import globeIconWhite from '../../../assets/desktop/svg/globeIconWhite.svg'
 import keyIconWhite from '../../../assets/desktop/svg/KeyIconWhite.svg'
 
-import { useDispatch } from 'react-redux'
-import { changeAddSavingModal } from '../../../store/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { changeAddSavingModal, RootState } from '../../../store/store'
 
 import xIconWhite from '../../../assets/desktop/svg/icons/xIconWhite.svg'
-import { addSaving } from '../../../store/savings/slice'
-import { useRef } from 'react'
+import { useContext, useRef } from 'react'
+import { savingEnum } from '../../../store/savings/types'
+import { CreatedNewSaving } from '../../../services/Firebase/FirestoreUsers'
+import { ChangeFirebaseContext } from '../../../Contexts/changeFirebaseContext'
+import { convertISOStringToTimestamp } from '../../../utils/timestampConvertion'
 
 export const AddSavingGoalModal = () => {
     const dispatch = useDispatch()
+    const OnChangeFirebase = useContext(ChangeFirebaseContext)
+    const savingsArray = useSelector((state: RootState) => state.savings.savingsData);
 
     const savingNameInputRef = useRef<HTMLInputElement>(null)
     const savingColorInputRef = useRef<HTMLSelectElement>(null)
-
-    //const savingImageInputRef = useRef(null)
 
     const savingMonthlyInputRef = useRef<HTMLInputElement>(null)
     const savingTotalFeeInputRef = useRef<HTMLInputElement>(null)
@@ -47,17 +50,20 @@ export const AddSavingGoalModal = () => {
                     <form action="" id="AddSavingGoalModalContainerForm">
                         <h3>New savings</h3>
                         <div className="inputTextContainer">
-                            <label htmlFor=""></label>
+                            <label htmlFor="">Saving name</label>
                             <input type="text" placeholder="Enter saving name" ref={savingNameInputRef} />
                         </div>
 
-                        <select name="" id="" ref={savingColorInputRef}>
-                            <option value="">Choose saving color</option>
-                            <option value="blue">Blue</option>
-                            <option value="green">Green</option>
-                            <option value="orange">Orange</option>
-                        </select>
-
+                        <div className="inputTextContainer">
+                            <label htmlFor="">Saving Color</label>
+                            <select ref={savingColorInputRef} id='selectColor'>
+                                <option value="">Choose saving color</option>
+                                <option value="blue">Blue</option>
+                                <option value="green">Green</option>
+                                <option value="orange">Orange</option>
+                            </select>
+                        </div>
+                        
                         <label htmlFor="AddSavingGoalRadioInputContainer" id="selectSavingPicture">
                             Select saving picture
                         </label>
@@ -86,13 +92,13 @@ export const AddSavingGoalModal = () => {
                         </div>
 
                         <div className="inputTextContainer">
-                            <label htmlFor=""></label>
-                            <input type="number" placeholder="Enter the monthly savings amount" ref={savingMonthlyInputRef} />
+                            <label htmlFor="">Total Amount</label>
+                            <input type="number" placeholder="Enter the total amount of the saving" ref={savingTotalFeeInputRef} />
                         </div>
 
                         <div className="inputTextContainer">
-                            <label htmlFor=""></label>
-                            <input type="number" placeholder="Enter the total amount of the monthly" ref={savingTotalFeeInputRef} />
+                            <label htmlFor="">Monthly Amount</label>
+                            <input type="number" placeholder="Enter the monthly savings amount" ref={savingMonthlyInputRef} />
                         </div>
 
                         <button id="AddSavingGoalRadioInputButton" onClick={(e) => {
@@ -101,15 +107,35 @@ export const AddSavingGoalModal = () => {
                             const selectedImage = getSelectedImage();
 
                             if (savingNameInputRef.current && selectedImage) {
-                                dispatch(addSaving({
-                                    name: savingNameInputRef.current.value,
-                                    color: savingColorInputRef.current ? savingColorInputRef.current.value : "#F9F9F9",
-                                    image: selectedImage,
-                                    monthlySaving: savingMonthlyInputRef.current ? Number(savingMonthlyInputRef.current.value) : 10,
-                                    savingTotalFee: savingTotalFeeInputRef.current ? Number(savingTotalFeeInputRef.current.value) : 100,
-                                }));
+                                let actualSelectedImageName: savingEnum = savingEnum.other
+                                switch (selectedImage) {
+                                    case "AddSavingGoalRadioInputFire":
+                                        actualSelectedImageName = savingEnum.fire
+                                        break;
+                                    case "AddSavingGoalRadioInputPlanet":
+                                        actualSelectedImageName = savingEnum.globe
+                                        break;
+                                    case "AddSavingGoalRadioInputKey":
+                                        actualSelectedImageName = savingEnum.key
+                                        break;
+                                    default:
+                                        break;
+                                }
 
-                                dispatch(changeAddSavingModal(false))
+                                const convertionOfSavingsArrayToTimestamp = savingsArray.map((storeSaving) => ({
+                                    ...storeSaving,
+                                    savingHistory: storeSaving.savingHistory.map((storeSavingHistory) => ({
+                                        ...storeSavingHistory,
+                                        date: convertISOStringToTimestamp(storeSavingHistory.date),
+                                    })),
+                                }))
+
+                                if (savingColorInputRef.current && savingTotalFeeInputRef.current && savingMonthlyInputRef.current) {
+                                    CreatedNewSaving(OnChangeFirebase.logedUserUID, savingColorInputRef.current.value, actualSelectedImageName, savingNameInputRef.current.value, parseInt(savingTotalFeeInputRef.current.value), parseInt(savingMonthlyInputRef.current.value), convertionOfSavingsArrayToTimestamp, OnChangeFirebase.fetchAndSetUserData)
+                                    dispatch(changeAddSavingModal(false))
+                                } else {
+                                    console.log("Some addSaving modal ref is null")
+                                }
                             }
                         }}>Create new saving</button>
                     </form>

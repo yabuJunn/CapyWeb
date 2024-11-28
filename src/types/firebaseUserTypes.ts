@@ -53,7 +53,7 @@ interface plannedExpenseFirebaseType {
     expenseEntrie: incomeNameEntries
 }
 
-interface savingFirebaseType {
+export interface savingFirebaseType {
     savingName: string,
     savingValue: number,
     savingColor: string,

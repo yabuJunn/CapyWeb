@@ -36,7 +36,6 @@ export const Rewards: React.FC = () => {
         logedUserUID: sessionStorageUserUID
       }}>
 
-
         <main className="reward-container">
           <h1 id='principal'>Reward</h1>
           <div className='MissionLevel'>

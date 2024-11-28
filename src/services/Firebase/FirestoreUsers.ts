@@ -7,7 +7,7 @@ import { exchangeNameEnum, exchangeType, missionType, saverLevelsNames, summaryT
 import { expenseNameCategories } from "../../store/expenses/types";
 import { incomeNameCategories, incomeNameEntries } from "../../store/incomes/types";
 import { cardNamesEnum } from "../../store/userData/types";
-import { userDataFromFirebaseType } from "../../types/firebaseUserTypes";
+import { savingFirebaseType, userDataFromFirebaseType } from "../../types/firebaseUserTypes";
 import { savingEnum } from "../../store/savings/types";
 
 
@@ -317,5 +317,49 @@ export const ReedemRewardFirebase = async (userUID: string, rewardToReedemId: nu
         fetchAndSetUserData();
     } catch (error) {
         console.error("Error al actualizar el exchange:", error);
+    }
+}
+
+export const CreatedNewSaving = async (userUID: string, newSavingColor: string, newSavingImage: savingEnum, newSavingName: string, newSavingTotalFee: number, newSavingMonthlySaving: number, actualSavingsArray: Array<savingFirebaseType>, fetchAndSetUserData: () => void) => {
+    const docRef = doc(db, "realUsers", userUID);
+
+    let newSavingHexColor = ""
+
+    switch (newSavingColor) {
+        case "blue":
+            newSavingHexColor = "#2D18BF"
+            break;
+        case "green":
+            newSavingHexColor = "#A8F25D"
+            break;
+        case "orange":
+            newSavingHexColor = "#F2622E"
+            break;
+        default:
+            break;
+    }
+
+    const newItemSaving: savingFirebaseType = {
+        savingName: newSavingName,
+        savingValue: 0,
+        savingColor: newSavingHexColor,
+        savingImage: newSavingImage,
+        monthlySaving: newSavingMonthlySaving,
+        savingActualFee: 0,
+        savingTotalFee: newSavingTotalFee,
+        savingHistory: []
+    }
+
+    const newSavings = [...actualSavingsArray, newItemSaving]
+
+    try {
+        await updateDoc(docRef, {
+            savingsData: newSavings
+        });
+
+        console.log("Se agrego el saving exitosamente");
+        fetchAndSetUserData();
+    } catch (error) {
+        console.error("Error al agregar el saving:", error);
     }
 }

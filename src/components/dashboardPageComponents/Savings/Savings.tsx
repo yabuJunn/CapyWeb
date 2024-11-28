@@ -17,8 +17,8 @@ export const Savings = () => {
     totalSavings += saving.savingActualFee
   });
 
-  const savingsPercentage = totalSavings / totalIncome
-  const incomePercentage = 1 - savingsPercentage
+  const savingsPercentage = (totalSavings / totalIncome) * 100
+  const incomePercentage = 100 - savingsPercentage
 
   return (
     <>
@@ -28,7 +28,7 @@ export const Savings = () => {
 
         <div className="progress-wrapper">
           <CircularProgressbar
-            value={savingsPercentage * 100}
+            value={savingsPercentage}
             text={`$${totalSavings}`}
             styles={buildStyles({
               rotation: 0.25,
