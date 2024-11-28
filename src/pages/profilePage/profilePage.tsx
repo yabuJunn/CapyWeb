@@ -6,6 +6,9 @@ import { GeneralContent } from '../../components/profilePageComponents/generalCo
 import { PrincipalContent } from '../../components/profilePageComponents/principalContent/principalContent';
 import userImageIcon from "../../../src/assets/desktop/svg/avatarHeader.svg"
 import logOutButton from "../../../src/assets/desktop/svg/logOutButton.svg"
+import { RootState } from '../../store/store';
+import { useSelector } from 'react-redux';
+import { NavigationHook } from '../../hooks/navigationHook';
 
 interface UserData {
   name: string;
@@ -18,15 +21,22 @@ interface UserData {
 }
 
 export const ProfilePage: React.FC = () => {
+  const userDataRedux = useSelector((state: RootState) => state.userData);
+  const userDataRewards = useSelector((state: RootState) => state.rewards.summary.saverLevel);
+
+  const { handleLogOut } = NavigationHook();
+
   const [userData, setUserData] = useState<UserData>({
-    name: 'Isabella Salazar',
-    email: 'isasasalazar09@gmail.com',
+    name: userDataRedux.userName,
+    email: userDataRedux.userEmail,
     iconUrl: '',
-    username: 'Isasalazar',
+    username: userDataRedux.userName,
     currentPassword: '',
     newPassword: '',
-    rank: 'Novice',
+    rank: userDataRewards,
   });
+
+
 
   const handleChange = (field: 'username' | 'email' | 'currentPassword' | 'newPassword', value: string) => {
     setUserData((prevData) => ({
@@ -59,7 +69,6 @@ export const ProfilePage: React.FC = () => {
               <PrincipalContent
                 username={userData.username}
                 email={userData.email}
-                avatar={userData.iconUrl}
                 currentPassword={userData.currentPassword}
                 newPassword={userData.newPassword}
                 onChange={handleChange}
@@ -69,7 +78,7 @@ export const ProfilePage: React.FC = () => {
         </div>
         <button className="logOutButton" /*onClick={handleLogOut}*/ >
 
-          <img src={logOutButton} alt="Log Out Icon" className="logOutIcon" />
+          <img src={logOutButton} alt="Log Out Icon" className="logOutIcon" onClick={() => { handleLogOut() }} />
         </button>
       </div>
 

@@ -5,7 +5,6 @@ import userIcon from "../../../assets/desktop/svg/userIcon.svg"
 interface PrincipalContentProps {
   username: string;
   email: string;
-  avatar: string;
   currentPassword: string;
   newPassword: string;
   onChange: (field: 'username' | 'email' | 'currentPassword' | 'newPassword', value: string) => void;
@@ -14,13 +13,12 @@ interface PrincipalContentProps {
 export const PrincipalContent: React.FC<PrincipalContentProps> = ({
   username,
   email,
-  avatar,
   currentPassword,
   newPassword,
   onChange,
 
 }) => {
-  
+
   return (
     <div className="settingsPage">
       <section className="inputsSection">
@@ -33,7 +31,7 @@ export const PrincipalContent: React.FC<PrincipalContentProps> = ({
               className="inputField"
               type="text"
               value={username}
-              onChange={(e) => onChange('username', e.target.value)} 
+              onChange={(e) => onChange('username', e.target.value)}
             />
           </div>
           <div className="inputGroup">
@@ -43,7 +41,7 @@ export const PrincipalContent: React.FC<PrincipalContentProps> = ({
               className="inputField"
               type="email"
               value={email}
-              onChange={(e) => onChange('email', e.target.value)} 
+              onChange={(e) => onChange('email', e.target.value)}
             />
           </div>
         </div>
@@ -60,7 +58,7 @@ export const PrincipalContent: React.FC<PrincipalContentProps> = ({
                   className="inputField"
                   type="password"
                   value={currentPassword}
-                  onChange={(e) => onChange('currentPassword', e.target.value)} 
+                  onChange={(e) => onChange('currentPassword', e.target.value)}
                 />
               </div>
             </div>
@@ -71,7 +69,7 @@ export const PrincipalContent: React.FC<PrincipalContentProps> = ({
                 className="inputField"
                 type="password"
                 value={newPassword}
-                onChange={(e) => onChange('newPassword', e.target.value)} 
+                onChange={(e) => onChange('newPassword', e.target.value)}
               />
             </div>
           </div>
