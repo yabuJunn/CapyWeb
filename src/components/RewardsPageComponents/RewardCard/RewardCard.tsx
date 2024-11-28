@@ -1,16 +1,19 @@
-import React from 'react';
 import './RewardCard.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { changeUserAccumulatedCapypoints, redeemedExchange } from '../../../store/rewards/slice';
-import { RootState } from '../../../store/store';
 
+import React, { useContext } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
+import { exchangeNameEnum } from '../../../store/rewards/types';
+import { ChangeFirebaseContext } from '../../../Contexts/changeFirebaseContext';
+import { ReedemRewardFirebase } from '../../../services/Firebase/FirestoreUsers';
+
+//Import images
 import logoMoneyWhite from '../../../assets/desktop/svg/logo/logoCapyMoneyWhite.svg'
 import logoMoneyBlack from '../../../assets/desktop/svg/logo/logoCapyMoneyBlack.svg'
 
 import amazonImage from '../../../assets/desktop/png/Amazon.png'
 import netflixImage from '../../../assets/desktop/png/Netflix.png'
 import farmatodoImage from '../../../assets/desktop/png/Farmatodo.png'
-import { exchangeNameEnum } from '../../../store/rewards/types';
 
 interface RewardCardProps {
     service: string;
@@ -22,18 +25,21 @@ interface RewardCardProps {
 }
 
 const RewardCard: React.FC<RewardCardProps> = ({ service, price, points, backgroundColor, id, darkText }) => {
-    const dispatch = useDispatch()
     const userCapypoints = useSelector((state: RootState) => state.rewards.summary.accumulatedCapypoints);
+    const allExchanges = useSelector((state: RootState) => state.rewards.exchangeData);
+    const totalIncome = useSelector((state: RootState) => state.userData.totalIncome);
+    const summaryLevel = useSelector((state: RootState) => state.rewards.summary);
+
+    const OnChangeFirebase = useContext(ChangeFirebaseContext)
 
     if (!darkText) {
         switch (service) {
             case exchangeNameEnum.amazon:
                 return <>
                     <div className="reward-card" style={{ backgroundColor }} onClick={() => {
-                        if (userCapypoints - points > points) {
-                            dispatch(redeemedExchange(id))
-                            dispatch(changeUserAccumulatedCapypoints(-points));
-                            //Agregar la accion que suma el dinero al balance general
+                        if (userCapypoints - points >= 0) {
+                            ReedemRewardFirebase(OnChangeFirebase.logedUserUID, id, allExchanges, totalIncome, OnChangeFirebase.fetchAndSetUserData, summaryLevel)
+                            OnChangeFirebase.setIsInitialized(false)
                         }
                     }}>
 
@@ -57,10 +63,9 @@ const RewardCard: React.FC<RewardCardProps> = ({ service, price, points, backgro
             case exchangeNameEnum.farmatodo:
                 return <>
                     <div className="reward-card" style={{ backgroundColor }} onClick={() => {
-                        if (userCapypoints - points > points) {
-                            dispatch(redeemedExchange(id))
-                            dispatch(changeUserAccumulatedCapypoints(-points));
-                            //Agregar la accion que suma el dinero al balance general
+                        if (userCapypoints - points >= 0) {
+                            ReedemRewardFirebase(OnChangeFirebase.logedUserUID, id, allExchanges, totalIncome, OnChangeFirebase.fetchAndSetUserData, summaryLevel)
+                            OnChangeFirebase.setIsInitialized(false)
                         }
                     }}>
 
@@ -84,10 +89,13 @@ const RewardCard: React.FC<RewardCardProps> = ({ service, price, points, backgro
             case exchangeNameEnum.netflix:
                 return <>
                     <div className="reward-card" style={{ backgroundColor }} onClick={() => {
-                        if (userCapypoints - points > points) {
-                            dispatch(redeemedExchange(id))
-                            dispatch(changeUserAccumulatedCapypoints(-points));
-                            //Agregar la accion que suma el dinero al balance general
+                        console.log("Reward card: " + id);
+                        console.log("userCapypoints: " + userCapypoints);
+
+                        if (userCapypoints - points >= 0) {
+                            console.log("Reward card: " + id);
+                            ReedemRewardFirebase(OnChangeFirebase.logedUserUID, id, allExchanges, totalIncome, OnChangeFirebase.fetchAndSetUserData, summaryLevel)
+                            OnChangeFirebase.setIsInitialized(false)
                         }
                     }}>
 
@@ -117,10 +125,9 @@ const RewardCard: React.FC<RewardCardProps> = ({ service, price, points, backgro
             case exchangeNameEnum.amazon:
                 return <>
                     <div className="reward-card" style={{ backgroundColor }} onClick={() => {
-                        if (userCapypoints - points > points) {
-                            dispatch(redeemedExchange(id))
-                            dispatch(changeUserAccumulatedCapypoints(-points));
-                            //Agregar la accion que suma el dinero al balance general
+                        if (userCapypoints - points >= 0) {
+                            ReedemRewardFirebase(OnChangeFirebase.logedUserUID, id, allExchanges, totalIncome, OnChangeFirebase.fetchAndSetUserData, summaryLevel)
+                            OnChangeFirebase.setIsInitialized(false)
                         }
                     }}>
 
@@ -144,10 +151,9 @@ const RewardCard: React.FC<RewardCardProps> = ({ service, price, points, backgro
             case exchangeNameEnum.farmatodo:
                 return <>
                     <div className="reward-card" style={{ backgroundColor }} onClick={() => {
-                        if (userCapypoints - points > points) {
-                            dispatch(redeemedExchange(id))
-                            dispatch(changeUserAccumulatedCapypoints(-points));
-                            //Agregar la accion que suma el dinero al balance general
+                        if (userCapypoints - points >= 0) {
+                            ReedemRewardFirebase(OnChangeFirebase.logedUserUID, id, allExchanges, totalIncome, OnChangeFirebase.fetchAndSetUserData, summaryLevel)
+                            OnChangeFirebase.setIsInitialized(false)
                         }
                     }}>
 
@@ -171,10 +177,9 @@ const RewardCard: React.FC<RewardCardProps> = ({ service, price, points, backgro
             case exchangeNameEnum.netflix:
                 return <>
                     <div className="reward-card" style={{ backgroundColor }} onClick={() => {
-                        if (userCapypoints - points > points) {
-                            dispatch(redeemedExchange(id))
-                            dispatch(changeUserAccumulatedCapypoints(-points));
-                            //Agregar la accion que suma el dinero al balance general
+                        if (userCapypoints - points >= 0) {
+                            ReedemRewardFirebase(OnChangeFirebase.logedUserUID, id, allExchanges, totalIncome, OnChangeFirebase.fetchAndSetUserData, summaryLevel)
+                            OnChangeFirebase.setIsInitialized(false)
                         }
                     }}>
 

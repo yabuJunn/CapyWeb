@@ -5,14 +5,7 @@ import { missionType } from '../../../store/rewards/types';
 import { RootState } from '../../../store/store';
 import { useSelector } from 'react-redux';
 
-interface MissionsProps {
-  switchFetchFirebase: {
-    setIsInitialized: React.Dispatch<React.SetStateAction<boolean>>;
-    fetchAndSetUserData: () => Promise<void>;
-  }
-}
-
-export const Missions = ({ switchFetchFirebase }: MissionsProps) => {
+export const Missions = () => {
   const missionsData: missionType[] = useSelector((state: RootState) => state.rewards.missions);
 
   // Filtra las misiones incompletas, ordénalas y toma solo los primeros tres elementos
@@ -36,8 +29,7 @@ export const Missions = ({ switchFetchFirebase }: MissionsProps) => {
               isCompleted={mission.completed}
               expToGrant={mission.missionExp}
               missionId={mission.missionId}
-              missionTitle={mission.missionName}
-              switchFetchFirebase={switchFetchFirebase} />
+              missionTitle={mission.missionName} />
           ))}
         </div>
       </div>

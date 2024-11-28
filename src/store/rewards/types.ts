@@ -1,13 +1,15 @@
 export interface rewardsSliceType {
-    summary: {
-        saverLevel: saverLevelsNames,
-        goalsCompleted: number,
-        accumulatedCapypoints: number
-    },
+    summary: summaryType,
     saverLevels: Array<saverLevelType>,
     missions: Array<missionType>
     exchangeData: Array<exchangeType>,
     userExpGained: number
+}
+
+export interface summaryType {
+    saverLevel: saverLevelsNames,
+    goalsCompleted: number,
+    accumulatedCapypoints: number
 }
 
 export interface saverLevelType {

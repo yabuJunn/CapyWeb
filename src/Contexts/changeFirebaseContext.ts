@@ -3,6 +3,7 @@ import { createContext } from "react";
 interface ChangeFirebaseContextType {
     setIsInitialized: React.Dispatch<React.SetStateAction<boolean>>;
     fetchAndSetUserData: () => Promise<void>;
+    logedUserUID: string
 }
 
 export const ChangeFirebaseContext = createContext<ChangeFirebaseContextType>({
@@ -11,5 +12,6 @@ export const ChangeFirebaseContext = createContext<ChangeFirebaseContextType>({
     },
     fetchAndSetUserData: function (): Promise<void> {
         throw new Error('Function not implemented.');
-    }
+    },
+    logedUserUID: ""
 })

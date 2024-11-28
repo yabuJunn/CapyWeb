@@ -3,7 +3,7 @@ import "firebase/firestore";
 
 import { doc, getDoc, getFirestore, setDoc, Timestamp, updateDoc } from "firebase/firestore";
 import { app } from "./Firebase";
-import { exchangeNameEnum, missionType, saverLevelsNames } from "../../store/rewards/types";
+import { exchangeNameEnum, exchangeType, missionType, saverLevelsNames, summaryType } from "../../store/rewards/types";
 import { expenseNameCategories } from "../../store/expenses/types";
 import { incomeNameCategories, incomeNameEntries } from "../../store/incomes/types";
 import { cardNamesEnum } from "../../store/userData/types";
@@ -242,7 +242,7 @@ export const createPruebaUser = async (userUIDForm: string, nameForm: string, em
 //Update and create new data of the aplicattion
 
 export const updateCompletedMission = async (
-    userUIDForm: string,
+    userUID: string,
     missionToUpdateId: number,
     allMissions: Array<missionType>,
     currentExp: number,
@@ -250,7 +250,7 @@ export const updateCompletedMission = async (
     currentAccumulatedCapypoints: number,
     fetchAndSetUserData: () => void
 ) => {
-    const docRef = doc(db, "realUsers", userUIDForm);
+    const docRef = doc(db, "realUsers", userUID);
 
     let completedMissionExp = 0
     let grantMissionCapypoints = 0
@@ -263,8 +263,7 @@ export const updateCompletedMission = async (
             return { ...mission, completed: true }
         }
         return mission
-    }
-    );
+    });
 
     try {
         // Actualiza el documento en Firebase
@@ -284,3 +283,39 @@ export const updateCompletedMission = async (
         console.error("Error al actualizar la misión:", error);
     }
 };
+
+export const ReedemRewardFirebase = async (userUID: string, rewardToReedemId: number, allExchangeArray: Array<exchangeType>, currentTotalIncomes: number, fetchAndSetUserData: () => void, currentSaverLevel: summaryType) => {
+    const docRef = doc(db, "realUsers", userUID);
+
+    let exchangeCapypointsCost = 0
+    let exchangeMoneyPrice = 0
+
+    const updatedExchangeData = allExchangeArray.map((exchange) => {
+        if (exchange.exchangeId === rewardToReedemId) {
+            exchangeCapypointsCost = exchange.redemptionCapypointsAmount
+            exchangeMoneyPrice = exchange.redemptionCost
+
+            return { ...exchange, isRedeemed: true }
+        }
+        return exchange
+    });
+
+    //Tal vez aqui lo mejor sea crear un nuevo elemento en income y asi sume despues todo, pero pues, por ahora asi funciona xd
+
+    try {
+        await updateDoc(docRef, {
+            exchangeData: updatedExchangeData,
+            saverLevel: {
+                accumulatedCapypoints: currentSaverLevel.accumulatedCapypoints - exchangeCapypointsCost,
+                goalsCompleted: currentSaverLevel.goalsCompleted,
+                saverLevelName: currentSaverLevel.saverLevel
+            },
+            totalIncome: currentTotalIncomes + exchangeMoneyPrice
+        });
+
+        console.log("Exchange actualizada exitosamente");
+        fetchAndSetUserData();
+    } catch (error) {
+        console.error("Error al actualizar el exchange:", error);
+    }
+}

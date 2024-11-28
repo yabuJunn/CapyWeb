@@ -10,8 +10,6 @@ import { NavigationHook } from '../../hooks/navigationHook';
 import { useUserFirebaseData } from '../../hooks/useUserFirebaseData';
 import { ChangeFirebaseContext } from '../../Contexts/changeFirebaseContext';
 
-
-
 export const Rewards: React.FC = () => {
 
   const [isInitialized, setIsInitialized] = useState(false);
@@ -30,45 +28,46 @@ export const Rewards: React.FC = () => {
     }
   }, [isInitialized, handleNavigation, sessionStorageUserUID, fetchAndSetUserData]);
 
-  const switchFetchFirebase = { setIsInitialized, fetchAndSetUserData }
-
-  return (
-    <ChangeFirebaseContext.Provider value={{
-      setIsInitialized: setIsInitialized,
-      fetchAndSetUserData: fetchAndSetUserData
-    }}>
-
-
-      <main className="reward-container">
-        <h1 id='principal'>Reward</h1>
-        <div className='MissionLevel'>
+  if (sessionStorageUserUID) {
+    return (
+      <ChangeFirebaseContext.Provider value={{
+        setIsInitialized: setIsInitialized,
+        fetchAndSetUserData: fetchAndSetUserData,
+        logedUserUID: sessionStorageUserUID
+      }}>
 
 
-          <GlobalAppNav></GlobalAppNav>
+        <main className="reward-container">
+          <h1 id='principal'>Reward</h1>
+          <div className='MissionLevel'>
 
-          <div className='iqual'>
-            <Missions switchFetchFirebase={switchFetchFirebase}></Missions>
+
+            <GlobalAppNav></GlobalAppNav>
+
+            <div className='iqual'>
+              <Missions></Missions>
+            </div>
+
+            <div className='iqual'>
+              <SaverLevel></SaverLevel>
+            </div>
+
+            <div className='iqual'>
+              <Summary></Summary>
+            </div>
+
           </div>
 
-          <div className='iqual'>
-            <SaverLevel></SaverLevel>
+          <div className='canjeo'>
+            <RewardGrid></RewardGrid>
           </div>
 
-          <div className='iqual'>
-            <Summary></Summary>
+          <div id='backgroundReward' className='backgroundPage'>
+
           </div>
-
-        </div>
-
-        <div className='canjeo'>
-          <RewardGrid></RewardGrid>
-        </div>
-
-        <div id='backgroundReward' className='backgroundPage'>
-
-        </div>
-      </main>
-    </ChangeFirebaseContext.Provider>
-  );
+        </main>
+      </ChangeFirebaseContext.Provider>
+    );
+  }
 }
 

@@ -17,14 +17,10 @@ interface MissionItemProps {
     isCompleted: boolean;
     expToGrant: number,
     missionId: number,
-    missionTitle: string,
-    switchFetchFirebase: {
-        setIsInitialized: React.Dispatch<React.SetStateAction<boolean>>;
-        fetchAndSetUserData: () => Promise<void>;
-    }
+    missionTitle: string
 }
 
-export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark, isCompleted, missionId, missionTitle, switchFetchFirebase }: MissionItemProps) => {
+export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark, isCompleted, missionId, missionTitle }: MissionItemProps) => {
     const userUID = useSelector((state: RootState) => state.userData.userUID);
     const { missions, userExpGained, summary, } = useSelector((state: RootState) => state.rewards);
     const OnChangeFirebase = useContext(ChangeFirebaseContext)
@@ -32,7 +28,6 @@ export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark,
     const handleCompleteMission = () => {
         if (!isCompleted) {
             updateCompletedMission(userUID, missionId, missions, userExpGained, summary.goalsCompleted, summary.accumulatedCapypoints, OnChangeFirebase.fetchAndSetUserData)
-            // switchFetchFirebase.setIsInitialized(false)
             OnChangeFirebase.setIsInitialized(false)
         }
     };
