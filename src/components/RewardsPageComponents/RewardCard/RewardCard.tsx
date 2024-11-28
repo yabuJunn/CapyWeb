@@ -89,8 +89,6 @@ const RewardCard: React.FC<RewardCardProps> = ({ service, price, points, backgro
             case exchangeNameEnum.netflix:
                 return <>
                     <div className="reward-card" style={{ backgroundColor }} onClick={() => {
-                        console.log("Reward card: " + id);
-                        console.log("userCapypoints: " + userCapypoints);
 
                         if (userCapypoints - points >= 0) {
                             console.log("Reward card: " + id);

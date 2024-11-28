@@ -21,7 +21,6 @@ import { useUserFirebaseData } from "../../hooks/useUserFirebaseData";
 import { NavigationHook } from "../../hooks/navigationHook";
 import { ChangeFirebaseContext } from "../../Contexts/changeFirebaseContext";
 
-
 function getMonthName(date: Date): string {
   return date.toLocaleString("en-US", { month: "long" });
 }

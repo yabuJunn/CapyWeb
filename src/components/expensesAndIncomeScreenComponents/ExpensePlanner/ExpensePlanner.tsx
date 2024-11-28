@@ -26,6 +26,9 @@ import { incomeNameEntries } from '../../../store/incomes/types';
 import { expenseNameCategories, plannedExpenseType } from '../../../store/expenses/types';
 import { ChangeFirebaseContext } from '../../../Contexts/changeFirebaseContext';
 import { CreatePlannedExpense } from '../../../services/Firebase/FirestoreUsers';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
+import { convertISOStringToTimestamp } from '../../../utils/timestampConvertion';
 
 interface ExpensePlannerProps {
   ExpensePlannerData: plannedExpenseType[]
@@ -36,7 +39,11 @@ export const ExpensePlanner = ({ ExpensePlannerData }: ExpensePlannerProps) => {
   const [selectedCard, setSelectedCard] = useState<incomeNameEntries>(incomeNameEntries.cards);
   const [budget, setBudget] = useState("");
   const [category, setCategory] = useState<expenseNameCategories>(expenseNameCategories.category);
+  const [site, setSite] = useState<string>("");
+  // const [entrie, setEntrie] = useState<incomeNameEntries>(incomeNameEntries.otro);
   const [plannedExpenses, setPlannedExpenses] = useState<plannedExpenseType[]>(ExpensePlannerData);
+
+  const allPlannedExpenses = useSelector((state: RootState) => state.expenses.plannedExpenses);
 
   const OnChangeFirebase = useContext(ChangeFirebaseContext)
 
@@ -55,7 +62,13 @@ export const ExpensePlanner = ({ ExpensePlannerData }: ExpensePlannerProps) => {
 
   const handleAddExpense = () => {
     if (selectedCard && budget && category) {
-      CreatePlannedExpense()
+
+      const convertionOfPlannedExpensesToTimestamp = allPlannedExpenses.map((plannedExpense) => ({
+        ...plannedExpense,
+        expenseDate: convertISOStringToTimestamp(plannedExpense.expenseDate)
+      }))
+
+      CreatePlannedExpense(OnChangeFirebase.logedUserUID, category, site, parseInt(budget), selectedCard, convertionOfPlannedExpensesToTimestamp, OnChangeFirebase.fetchAndSetUserData)
       setShowPopup(false);
     } else {
       alert("Please fill in all fields");
@@ -149,6 +162,29 @@ export const ExpensePlanner = ({ ExpensePlannerData }: ExpensePlannerProps) => {
               onChange={(e) => setBudget(e.target.value)}
               placeholder="Enter amount"
             />
+
+            <h3>Expense Site</h3>
+            <input
+              className='budget'
+              type='text'
+              value={site}
+              onChange={(e) => setSite(e.target.value)}
+              placeholder="Enter expense site"
+            />
+
+            {/* <h3>Expense Entrie</h3>
+            <select
+              className='budget'
+              name="categories"
+              onChange={() => { setEntrie(entrie) }}
+              required
+            >
+              {Object.values(incomeNameEntries).map((entry) => (
+                <option key={entry} value={entry}>
+                  {entry}
+                </option>
+              ))}
+            </select> */}
 
             <h3>Categories</h3>
             <select name="categories" value={category} onChange={(e) => setCategory(e.target.value as expenseNameCategories)} required>
