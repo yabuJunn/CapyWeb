@@ -14,7 +14,7 @@ interface UserData {
   username: string;
   currentPassword: string;
   newPassword: string;
-  rank: string; 
+  rank: string;
 }
 
 export const ProfilePage: React.FC = () => {
@@ -25,7 +25,7 @@ export const ProfilePage: React.FC = () => {
     username: 'Isasalazar',
     currentPassword: '',
     newPassword: '',
-    rank: 'Novice', 
+    rank: 'Novice',
   });
 
   const handleChange = (field: 'username' | 'email' | 'currentPassword' | 'newPassword', value: string) => {
@@ -35,13 +35,11 @@ export const ProfilePage: React.FC = () => {
     }));
   };
 
-  
-
   return (
     <main className="page" id="profilePage">
       <h1 id="titleProfile">General settings</h1>
-      {/*<GlobalAppNav />*/}
-    
+      <GlobalAppNav />
+
       <div className="contentWrapper">
         <img src={userImageIcon} alt="Current Avatar" className="avatarImage" />
 
@@ -53,7 +51,7 @@ export const ProfilePage: React.FC = () => {
               <GeneralContent
                 name={userData.name}
                 email={userData.email}
-                rank={userData.rank} 
+                rank={userData.rank}
               />
             </div>
 

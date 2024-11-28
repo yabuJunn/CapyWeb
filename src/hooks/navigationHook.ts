@@ -13,7 +13,7 @@ export const NavigationHook = () => {
     const navigateToRegister = useCallback(() => navigate(routes.register), [navigate]);
     const navigateToLanding = useCallback(() => navigate(routes.landingPage), [navigate]);
     const navigateToSettings = useCallback(() => navigate(routes.settings), [navigate]);
-    const navigateToProfile = useCallback(() => navigate(routes.profile), [navigate]);
+    const navigateToProfile = useCallback(() => navigate(routes.profilePage), [navigate]);
     const navigateToMascot = useCallback(() => navigate(routes.mascot), [navigate]);
 
     const handleLogOut = useCallback(() => {

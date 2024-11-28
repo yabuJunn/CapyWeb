@@ -9,9 +9,10 @@ import dashboardIconWhite from '../../assets/desktop/svg/icons/navIcons/Dashboar
 import expensesAndIncomeIconWhite from '../../assets/desktop/svg/icons/navIcons/ExpensesAndIncomeNavIconWhite.svg'
 import savingsIconWhite from '../../assets/desktop/svg/icons/navIcons/SavingsNavIconWhite.svg'
 import rewardsIconWhite from '../../assets/desktop/svg/icons/navIcons/RewardsNavIconWhite.svg'
-import configurationIconWhite from '../../assets/desktop/svg/icons/navIcons/ConfigurationNavIconWhite.svg'
+// import configurationIconWhite from '../../assets/desktop/svg/icons/navIcons/ConfigurationNavIconWhite.svg'
 import profileIconWhite from '../../assets/desktop/svg/icons/navIcons/ProfileNavIconWhite.svg'
 import logOutIconWhite from '../../assets/desktop/svg/icons/navIcons/LogOutNavIconWhite.svg'
+import profileIconBlack from "../../../src/assets/desktop/svg/icons/profileIconBlack.svg"
 
 //Nav icons green
 import dashboardIconBlack from '../../assets/desktop/svg/icons/navIcons/DashboardNavIconBlack.svg'
@@ -42,11 +43,11 @@ export const GlobalAppNav = () => {
               <img className="IncomeExpenses" src={expensesAndIncomeIconWhite} alt="IncomeExpenses" onClick={handleNavigation.navigateToExpensesAndIncomes} />
               <img className="Savings" src={savingsIconWhite} alt="Savings" onClick={handleNavigation.navigateToSavings} />
               <img className="Rewards" src={rewardsIconWhite} alt="Rewards" onClick={handleNavigation.navigateToRewards} />
-              <img className="Settings" src={configurationIconWhite} alt="Settings" />
+              {/* <img className="Settings" src={configurationIconWhite} alt="Settings" onClick={handleNavigation.navigateToProfile} /> */}
             </div>
 
             <div className='last'>
-              <img className="User" src={profileIconWhite} alt="User" />
+              <img className="User" src={profileIconWhite} alt="User" onClick={handleNavigation.navigateToProfile} />
               <img className="LogOut" src={logOutIconWhite} alt="LogOut" onClick={() => { handleLogOut() }} />
             </div>
           </div>
@@ -68,11 +69,11 @@ export const GlobalAppNav = () => {
               <img className="IncomeExpenses focus" src={expensesAndIncomeIconBlack} alt="IncomeExpenses" />
               <img className="Savings" src={savingsIconWhite} alt="Savings" onClick={handleNavigation.navigateToSavings} />
               <img className="Rewards" src={rewardsIconWhite} alt="Rewards" onClick={handleNavigation.navigateToRewards} />
-              <img className="Settings" src={configurationIconWhite} alt="Settings" />
+              {/* <img className="Settings" src={configurationIconWhite} alt="Settings" /> */}
             </div>
 
             <div className='last'>
-              <img className="User" src={profileIconWhite} alt="User" />
+              <img className="User" src={profileIconWhite} alt="User" onClick={handleNavigation.navigateToProfile} />
               <img className="LogOut" src={logOutIconWhite} alt="LogOut" onClick={() => { handleLogOut() }} />
             </div>
           </div>
@@ -94,11 +95,11 @@ export const GlobalAppNav = () => {
               <img className="IncomeExpenses" src={expensesAndIncomeIconWhite} alt="IncomeExpenses" onClick={handleNavigation.navigateToExpensesAndIncomes} />
               <img className="Savings focus" src={savingsIconBlack} alt="Savings" />
               <img className="Rewards" src={rewardsIconWhite} alt="Rewards" onClick={handleNavigation.navigateToRewards} />
-              <img className="Settings" src={configurationIconWhite} alt="Settings" />
+              {/* <img className="Settings" src={configurationIconWhite} alt="Settings" /> */}
             </div>
 
             <div className='last'>
-              <img className="User" src={profileIconWhite} alt="User" />
+              <img className="User" src={profileIconWhite} alt="User" onClick={handleNavigation.navigateToProfile} />
               <img className="LogOut" src={logOutIconWhite} alt="LogOut" onClick={() => { handleLogOut() }} />
             </div>
           </div>
@@ -106,7 +107,7 @@ export const GlobalAppNav = () => {
         </nav>
       </>
 
-        case routes.rewards:
+    case routes.rewards:
       return < >
         <nav className='navContainer'>
 
@@ -120,42 +121,42 @@ export const GlobalAppNav = () => {
               <img className="IncomeExpenses" src={expensesAndIncomeIconWhite} alt="IncomeExpenses" onClick={handleNavigation.navigateToExpensesAndIncomes} />
               <img className="Savings" src={savingsIconWhite} alt="Savings" onClick={handleNavigation.navigateToSavings} />
               <img className="Rewards focus" src={rewardsIconBlack} alt="Rewards" />
-              <img className="Settings" src={configurationIconWhite} alt="Settings" />
+              {/* <img className="Settings" src={configurationIconWhite} alt="Settings" /> */}
             </div>
 
             <div className='last'>
-              <img className="User" src={profileIconWhite} alt="User" />
+              <img className="User" src={profileIconWhite} alt="User" onClick={handleNavigation.navigateToProfile} />
               <img className="LogOut" src={logOutIconWhite} alt="LogOut" onClick={() => { handleLogOut() }} />
             </div>
           </div>
 
         </nav>
       </>
-      case routes.profilePage:
-        return < >
-          <nav className='navContainer'>
-  
-            <div className='capy'>
-              <img className="Logo" src={LogoCapy} alt="Logo" />
+    case routes.profilePage:
+      return < >
+        <nav className='navContainer'>
+
+          <div className='capy'>
+            <img className="Logo" src={LogoCapy} alt="Logo" />
+          </div>
+
+          <div className='nav'>
+            <div className='principal'>
+              <img className="Dashboard" src={dashboardIconWhite} alt="Dashboard" onClick={handleNavigation.navigateToDashboard} />
+              <img className="IncomeExpenses" src={expensesAndIncomeIconWhite} alt="IncomeExpenses" onClick={handleNavigation.navigateToExpensesAndIncomes} />
+              <img className="Savings" src={savingsIconWhite} alt="Savings" onClick={handleNavigation.navigateToSavings} />
+              <img className="Rewards" src={rewardsIconWhite} alt="Rewards" onClick={handleNavigation.navigateToRewards} />
+              {/* <img className="Settings" src={configurationIconWhite} alt="Settings" /> */}
             </div>
-  
-            <div className='nav'>
-              <div className='principal'>
-                <img className="Dashboard" src={dashboardIconWhite} alt="Dashboard" onClick={handleNavigation.navigateToDashboard} />
-                <img className="IncomeExpenses" src={expensesAndIncomeIconWhite} alt="IncomeExpenses" onClick={handleNavigation.navigateToExpensesAndIncomes} />
-                <img className="Savings" src={savingsIconWhite} alt="Savings" onClick={handleNavigation.navigateToSavings} />
-                <img className="Rewards focus" src={rewardsIconBlack} alt="Rewards" />
-                <img className="Settings" src={configurationIconWhite} alt="Settings" />
-              </div>
-  
-              <div className='last'>
-                <img className="User" src={profileIconWhite} alt="User" />
-                <img className="LogOut" src={logOutIconWhite} alt="LogOut" onClick={() => { handleLogOut() }} />
-              </div>
+
+            <div className='last'>
+              <img className="User focus" src={profileIconBlack} alt="User" />
+              <img className="LogOut" src={logOutIconWhite} alt="LogOut" onClick={() => { handleLogOut() }} />
             </div>
-  
-          </nav>
-          </>
+          </div>
+
+        </nav>
+      </>
 
     default:
       break;
