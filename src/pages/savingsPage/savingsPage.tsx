@@ -7,6 +7,7 @@ import { CategorySavings, savingItemType } from '../../components/savingsPageCom
 import { SavingsGoals } from '../../components/savingsPageComponents/SavingsGoals/SavingsGoals'
 import { SavingsHistory } from '../../components/savingsPageComponents/SavingsHistory/SavingsHistory'
 import { SavingGoalItemProps } from '../../components/savingsPageComponents/SavingGoalItem/SavingGoalItem'
+import { CapyAssistant } from '../../components/capyAssistantComponent/capyAssistantComponent'
 
 import { useSelector } from 'react-redux'
 import { savingSliceType } from '../../store/savings/types'
@@ -149,6 +150,7 @@ export const SavingsPage = () => {
                 <div id='backgroundSavings' className='backgroundPage'>
 
                 </div>
+                <CapyAssistant />
             </main>
 
         </>
