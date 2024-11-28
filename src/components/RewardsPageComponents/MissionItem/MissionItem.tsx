@@ -1,12 +1,13 @@
 import './MissionItem.css';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { changeUserAccumulatedCapypoints, changeUserExpGained, changeUserGoalsCompleted, completeMission } from '../../../store/rewards/slice';
+import { useSelector } from 'react-redux';
 
 import logoWhite from '../../../assets/desktop/svg/logo/logoCapyMoneyWhite.svg';
 import logoBlack from '../../../assets/desktop/svg/logo/logoCapyMoneyBlack.svg';
 import { updateCompletedMission } from '../../../services/Firebase/FirestoreUsers';
 import { RootState } from '../../../store/store';
+import { useContext } from 'react';
+import { ChangeFirebaseContext } from '../../../Contexts/changeFirebaseContext';
 
 interface MissionItemProps {
     text: string;
@@ -26,17 +27,13 @@ interface MissionItemProps {
 export const MissionItem = ({ text, gainAmount, backgroundColor, capyPointsDark, isCompleted, missionId, missionTitle, switchFetchFirebase }: MissionItemProps) => {
     const userUID = useSelector((state: RootState) => state.userData.userUID);
     const { missions, userExpGained, summary, } = useSelector((state: RootState) => state.rewards);
-
-    // const dispatch = useDispatch();
+    const OnChangeFirebase = useContext(ChangeFirebaseContext)
 
     const handleCompleteMission = () => {
         if (!isCompleted) {
-            // dispatch(changeUserGoalsCompleted(1))
-            // dispatch(changeUserAccumulatedCapypoints(parseInt(gainAmount)))
-            // dispatch(completeMission(missionId))
-            // dispatch(changeUserExpGained(expToGrant))
-            updateCompletedMission(userUID, missionId, missions, userExpGained, summary.goalsCompleted, summary.accumulatedCapypoints, switchFetchFirebase.fetchAndSetUserData)
-            switchFetchFirebase.setIsInitialized(false)
+            updateCompletedMission(userUID, missionId, missions, userExpGained, summary.goalsCompleted, summary.accumulatedCapypoints, OnChangeFirebase.fetchAndSetUserData)
+            // switchFetchFirebase.setIsInitialized(false)
+            OnChangeFirebase.setIsInitialized(false)
         }
     };
 

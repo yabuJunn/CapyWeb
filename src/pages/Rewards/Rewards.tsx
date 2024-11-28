@@ -8,6 +8,9 @@ import { GlobalAppNav } from '../../components/Nav/Nav';
 import Summary from '../../components/RewardsPageComponents/Summary/Summary';
 import { NavigationHook } from '../../hooks/navigationHook';
 import { useUserFirebaseData } from '../../hooks/useUserFirebaseData';
+import { ChangeFirebaseContext } from '../../Contexts/changeFirebaseContext';
+
+
 
 export const Rewards: React.FC = () => {
 
@@ -30,36 +33,42 @@ export const Rewards: React.FC = () => {
   const switchFetchFirebase = { setIsInitialized, fetchAndSetUserData }
 
   return (
-    <main className="reward-container">
-      <h1 id='principal'>Reward</h1>
-      <div className='MissionLevel'>
+    <ChangeFirebaseContext.Provider value={{
+      setIsInitialized: setIsInitialized,
+      fetchAndSetUserData: fetchAndSetUserData
+    }}>
 
 
-        <GlobalAppNav></GlobalAppNav>
+      <main className="reward-container">
+        <h1 id='principal'>Reward</h1>
+        <div className='MissionLevel'>
 
-        <div className='iqual'>
-          <Missions switchFetchFirebase={switchFetchFirebase}></Missions>
+
+          <GlobalAppNav></GlobalAppNav>
+
+          <div className='iqual'>
+            <Missions switchFetchFirebase={switchFetchFirebase}></Missions>
+          </div>
+
+          <div className='iqual'>
+            <SaverLevel></SaverLevel>
+          </div>
+
+          <div className='iqual'>
+            <Summary></Summary>
+          </div>
+
         </div>
 
-        <div className='iqual'>
-          <SaverLevel></SaverLevel>
+        <div className='canjeo'>
+          <RewardGrid></RewardGrid>
         </div>
 
-        <div className='iqual'>
-          <Summary></Summary>
+        <div id='backgroundReward' className='backgroundPage'>
+
         </div>
-
-      </div>
-
-      <div className='canjeo'>
-        <RewardGrid></RewardGrid>
-      </div>
-
-      <div id='backgroundReward' className='backgroundPage'>
-
-      </div>
-    </main>
-
+      </main>
+    </ChangeFirebaseContext.Provider>
   );
 }
 
