@@ -39,33 +39,31 @@
         width: 90%; 
         height: auto; 
         margin-top: 20px; 
-        padding: 10px 0; 
+        padding: 15px; 
         display: flex;
-        flex-direction: column; 
-        align-items: center;
+        align-items: center; 
+        justify-content: space-between; 
         border-radius: 20px; 
+        background-color: #2B2B2B; 
     }
 
     #navLandingContainer img {
-        height: 50px; 
-        margin-bottom: 10px; 
+        height: 40px; 
+        margin-right: 10px;
     }
 
     #navLandingSections {
         display: flex;
-        flex-direction: column; 
+        gap: 15px; 
         justify-content: center;
         align-items: center; 
         font-family: "Plus Jakarta Sans";
         color: white;
-        gap: 10px; 
-        text-align: center; 
     }
 
     #navLandingSections p {
         margin: 0; 
-        font-size: 18px; 
+        font-size: 14px; 
         cursor: pointer;
-        text-align: center; 
     }
 }
