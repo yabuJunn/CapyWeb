@@ -6,6 +6,9 @@ export const CapyPopup = () => {
   const [showOkButton, setShowOkButton] = useState(false);     
   const [showButtons, setShowButtons] = useState(true);         
 
+console.log(showOkButton);
+
+
   const randomMessages = [
     "Track your expenses to avoid unnecessary debt.",
     "Metrics are key to making better financial decisions.",
