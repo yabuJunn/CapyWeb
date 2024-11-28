@@ -86,7 +86,7 @@ export const createFinalUser = async (userUIDForm: string, nameForm: string, ema
 
     await setDoc(doc(db, "realUsers", userUIDForm), newUserObject);
 
-    const docRef = doc(db, "users", userUIDForm);
+    const docRef = doc(db, "realUsers", userUIDForm);
     const data = await getDoc(docRef);
     return data.data()
 }
