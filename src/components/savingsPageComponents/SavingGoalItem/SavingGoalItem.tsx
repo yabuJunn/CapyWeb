@@ -4,7 +4,7 @@ import { Progress } from '../../../components/ui/progress'
 import { useContext, useState } from 'react'
 
 import xIconWhite from '../../../assets/desktop/svg/icons/xIconWhite.svg'
-import { EditSavingAddMonthlySaving } from '../../../services/Firebase/FirestoreUsers'
+import { DeleteSaving, EditSavingAddMonthlySaving } from '../../../services/Firebase/FirestoreUsers'
 import { ChangeFirebaseContext } from '../../../Contexts/changeFirebaseContext'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
@@ -54,9 +54,20 @@ export const SavingGoalItem = ({ goalImage, goalImageColor, goalTitle, goalMonth
                                 }))
                                 EditSavingAddMonthlySaving(OnChangeFirebase.logedUserUID, goalTitle, convertionOfSavingsArrayToTimestamp, OnChangeFirebase.fetchAndSetUserData)
                                 setEditSavingModal(false)
-                                
+
                             }}>Add Monthly Saving</button>
-                            <button id='deleteSavingButton'>Delete Saving</button>
+                            <button id='deleteSavingButton' onClick={() => {
+                                const convertionOfSavingsArrayToTimestamp = savingsArray.map((storeSaving) => ({
+                                    ...storeSaving,
+                                    savingHistory: storeSaving.savingHistory.map((storeSavingHistory) => ({
+                                        ...storeSavingHistory,
+                                        date: convertISOStringToTimestamp(storeSavingHistory.date),
+                                    })),
+                                }))
+
+                                DeleteSaving(OnChangeFirebase.logedUserUID, goalTitle, convertionOfSavingsArrayToTimestamp, OnChangeFirebase.fetchAndSetUserData)
+                                setEditSavingModal(false)
+                            }}>Delete Saving</button>
                         </div>
                     </form>
 

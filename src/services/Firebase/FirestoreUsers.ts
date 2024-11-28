@@ -8,7 +8,7 @@ import { expenseNameCategories } from "../../store/expenses/types";
 import { incomeNameCategories, incomeNameEntries } from "../../store/incomes/types";
 import { cardNamesEnum } from "../../store/userData/types";
 import { savingFirebaseType, userDataFromFirebaseType } from "../../types/firebaseUserTypes";
-import { savingEnum, savingHistoryType } from "../../store/savings/types";
+import { savingEnum } from "../../store/savings/types";
 import { getCurrentTimestamp } from "../../utils/timestampConvertion";
 
 
@@ -394,5 +394,24 @@ export const EditSavingAddMonthlySaving = async function name(userUID: string, s
         fetchAndSetUserData();
     } catch (error) {
         console.error("Error al agregar actualizar el saving:", error);
+    }
+}
+
+export const DeleteSaving = async (userUID: string, savingNameToDelete: string, actualSavingsArray: Array<savingFirebaseType>, fetchAndSetUserData: () => void) => {
+    const docRef = doc(db, "realUsers", userUID);
+
+    const updatedSavingsArray = actualSavingsArray.filter(
+        (saving) => saving.savingName !== savingNameToDelete
+    );
+
+    try {
+        await updateDoc(docRef, {
+            savingsData: updatedSavingsArray,
+        });
+
+        console.log(`El ahorro "${savingNameToDelete}" ha sido eliminado exitosamente`);
+        fetchAndSetUserData();
+    } catch (error) {
+        console.error("Error al eliminar el ahorro:", error);
     }
 }
