@@ -75,7 +75,7 @@ export const SavingsPage = () => {
                         <div id='SavingsCardsContainer'>
                             <div id='leftCardsContainer'>
                                 <div id='summarySavingsContainer'>
-                                    <GeneralSavings valueIncome={100 - valueSavingsPercentage} valueSavings={valueSavingsPercentage} incomePercentage={100 - valueSavingsPercentage} savingsPercentage={valueSavingsPercentage}></GeneralSavings>
+                                    <GeneralSavings valueIncome={100 - valueSavingsPercentage} valueSavings={valueSavingsPercentage} incomePercentage={100 - valueSavingsPercentage} savingsPercentage={valueSavingsPercentage} realIncomeValue={userDataData.totalIncome} realSavingsValue={savingDataTotalValue}></GeneralSavings>
 
                                     <CategorySavings chartData={chartData}></CategorySavings>
 
@@ -105,11 +105,7 @@ export const SavingsPage = () => {
 
                 <div id='marginPageSavingPage'>
                     <div id='TitleTextContainer'>
-                        <h1
-                            onClick={() => {
-                                console.log("Prueba")
-                            }}
-                        >Savings</h1>
+                        <h1>Savings</h1>
                     </div>
 
                     <div id='ContentContainerSavings'>
@@ -117,7 +113,7 @@ export const SavingsPage = () => {
                         <div id='SavingsCardsContainer'>
                             <div id='leftCardsContainer'>
                                 <div id='summarySavingsContainer'>
-                                    <GeneralSavings valueIncome={100 - valueSavingsPercentage} valueSavings={valueSavingsPercentage} incomePercentage={100 - valueSavingsPercentage} savingsPercentage={valueSavingsPercentage}></GeneralSavings>
+                                    <GeneralSavings valueIncome={100 - valueSavingsPercentage} valueSavings={valueSavingsPercentage} incomePercentage={100 - valueSavingsPercentage} savingsPercentage={valueSavingsPercentage} realIncomeValue={userDataData.totalIncome} realSavingsValue={savingDataTotalValue}></GeneralSavings>
 
                                     <CategorySavings chartData={chartData}></CategorySavings>
 

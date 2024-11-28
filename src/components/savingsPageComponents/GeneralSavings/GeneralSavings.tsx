@@ -6,13 +6,12 @@ interface GeneralSavingsProps {
     valueIncome: number,
     valueSavings: number,
     incomePercentage: number,
-    savingsPercentage: number
+    savingsPercentage: number,
+    realIncomeValue: number,
+    realSavingsValue: number
 }
 
-export const GeneralSavings = ({ valueIncome, valueSavings, incomePercentage, savingsPercentage }: GeneralSavingsProps) => {
-
-    console.log(valueSavings);
-
+export const GeneralSavings = ({ valueIncome, incomePercentage, savingsPercentage, realSavingsValue }: GeneralSavingsProps) => {
     return <>
         <div id='generalSavings'>
             <h3>General Savings</h3>
@@ -20,7 +19,7 @@ export const GeneralSavings = ({ valueIncome, valueSavings, incomePercentage, sa
                 <div id='generalSavingsCircularProgressbarWrapper'>
                     <CircularProgressbar
                         value={valueIncome}
-                        text={"Savings"}
+                        text={"$" + realSavingsValue}
                         styles={buildStyles({
                             rotation: 0.25,
                             strokeLinecap: 'butt',
