@@ -1,12 +1,34 @@
-import React from 'react';
 import './Rewards.css';
+
+import React, { useEffect, useState } from 'react';
 import RewardGrid from '../../components/RewardsPageComponents/RewardGrid/RewardGrid';
 import { Missions } from '../../components/RewardsPageComponents/Missions/Missions';
 import { SaverLevel } from '../../components/RewardsPageComponents/SaverLevel/SaverLevel';
 import { GlobalAppNav } from '../../components/Nav/Nav';
 import Summary from '../../components/RewardsPageComponents/Summary/Summary';
+import { NavigationHook } from '../../hooks/navigationHook';
+import { useUserFirebaseData } from '../../hooks/useUserFirebaseData';
 
 export const Rewards: React.FC = () => {
+
+  const [isInitialized, setIsInitialized] = useState(false);
+  const [sessionStorageUserUID] = useState(() => sessionStorage.getItem('userUID'));
+  const { handleNavigation } = NavigationHook();
+  const { fetchAndSetUserData } = useUserFirebaseData(sessionStorageUserUID);
+
+  useEffect(() => {
+    if (!isInitialized) {
+      if (!sessionStorageUserUID) {
+        handleNavigation.navigateToLogin();
+      } else {
+        fetchAndSetUserData();
+      }
+      setIsInitialized(true);
+    }
+  }, [isInitialized, handleNavigation, sessionStorageUserUID, fetchAndSetUserData]);
+
+  const switchFetchFirebase = { setIsInitialized, fetchAndSetUserData }
+
   return (
     <main className="reward-container">
       <h1 id='principal'>Reward</h1>
@@ -16,7 +38,7 @@ export const Rewards: React.FC = () => {
         <GlobalAppNav></GlobalAppNav>
 
         <div className='iqual'>
-          <Missions></Missions>
+          <Missions switchFetchFirebase={switchFetchFirebase}></Missions>
         </div>
 
         <div className='iqual'>

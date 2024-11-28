@@ -18,7 +18,7 @@ interface RewardCardProps {
     points: number;
     backgroundColor: string;
     id: number;
-    darkText: boolean
+    darkText: boolean,
 }
 
 const RewardCard: React.FC<RewardCardProps> = ({ service, price, points, backgroundColor, id, darkText }) => {

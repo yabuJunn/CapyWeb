@@ -1,9 +1,9 @@
 // Required for side-effects
 import "firebase/firestore";
 
-import { doc, getDoc, getFirestore, setDoc, Timestamp } from "firebase/firestore";
+import { doc, getDoc, getFirestore, setDoc, Timestamp, updateDoc } from "firebase/firestore";
 import { app } from "./Firebase";
-import { exchangeNameEnum, saverLevelsNames } from "../../store/rewards/types";
+import { exchangeNameEnum, missionType, saverLevelsNames } from "../../store/rewards/types";
 import { expenseNameCategories } from "../../store/expenses/types";
 import { incomeNameCategories, incomeNameEntries } from "../../store/incomes/types";
 import { cardNamesEnum } from "../../store/userData/types";
@@ -239,3 +239,48 @@ export const createPruebaUser = async (userUIDForm: string, nameForm: string, em
     return dataJson;
 }
 
+//Update and create new data of the aplicattion
+
+export const updateCompletedMission = async (
+    userUIDForm: string,
+    missionToUpdateId: number,
+    allMissions: Array<missionType>,
+    currentExp: number,
+    currentGoalsCompleted: number,
+    currentAccumulatedCapypoints: number,
+    fetchAndSetUserData: () => void
+) => {
+    const docRef = doc(db, "realUsers", userUIDForm);
+
+    let completedMissionExp = 0
+    let grantMissionCapypoints = 0
+
+    // Crear un nuevo arreglo con el estado actualizado para la misión específica
+    const updatedMissions = allMissions.map((mission) => {
+        if (mission.missionId === missionToUpdateId) {
+            completedMissionExp = mission.missionExp
+            grantMissionCapypoints = mission.missionCapypoints
+            return { ...mission, completed: true }
+        }
+        return mission
+    }
+    );
+
+    try {
+        // Actualiza el documento en Firebase
+        await updateDoc(docRef, {
+            missionsData: updatedMissions,
+            userExpGained: currentExp + completedMissionExp,
+            saverLevel: {
+                accumulatedCapypoints: currentAccumulatedCapypoints + grantMissionCapypoints,
+                goalsCompleted: currentGoalsCompleted + 1,
+                saverLevelName: ""
+            }
+        });
+
+        console.log("Misión actualizada exitosamente");
+        fetchAndSetUserData();
+    } catch (error) {
+        console.error("Error al actualizar la misión:", error);
+    }
+};

@@ -7,7 +7,7 @@ import './CardRegister.css';
 import logoGoogle from '../../../assets/desktop/svg/logo/logoGoogle.svg'
 
 
-import { createUser } from "../../../services/Firebase/FirestoreUsers";
+import { createPruebaUser, createUser } from "../../../services/Firebase/FirestoreUsers";
 import { doGoogleSignIn } from "../../../services/Firebase/auth";
 
 import { NavigationHook } from "../../../hooks/navigationHook";
@@ -38,10 +38,9 @@ function CardRegister() {
 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const userData = await createUser(userCredential.user.uid, username, email)
+      createPruebaUser(userCredential.user.uid, username, email)
 
-      sessionStorage.setItem('userData', JSON.stringify({ auth: userCredential, data: userData }))
-      handleNavigation.navigateToDashboard()
+      sessionStorage.setItem('userUID', userCredential.user.uid)
       handleNavigation.navigateToDashboard()
     }
     catch (err) {
@@ -51,6 +50,7 @@ function CardRegister() {
 
   //Registro con Google
   const handleGoogleRegister = async () => {
+    //Este aun no funciona
     try {
       const result = await doGoogleSignIn();
       const userData = await createUser(result.user.uid, username, email)

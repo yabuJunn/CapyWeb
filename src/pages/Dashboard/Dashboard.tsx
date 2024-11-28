@@ -16,9 +16,6 @@ export const Dashboard = () => {
     const { fetchAndSetUserData } = useUserFirebaseData(sessionStorageUserUID);
 
     const userDataRedux = useSelector((state: RootState) => state.userData);
-    const dataRedux = useSelector((state: RootState) => state);
-    console.log('dataRedux: ', dataRedux);
-
 
     useEffect(() => {
         if (!isInitialized) {
