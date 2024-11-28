@@ -49,6 +49,13 @@
 }
 
 @media only screen and (max-width: 500px) {
+
+    #generalSavings {
+        width: 100%;
+        height: 380px;
+        background-color: #181818;
+        border-radius: 15px;
+    }
     
     .generalSavingsCircularProgressbar {
         width: 60%;

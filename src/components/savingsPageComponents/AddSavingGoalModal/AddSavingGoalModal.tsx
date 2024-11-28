@@ -24,7 +24,7 @@ export const AddSavingGoalModal = () => {
     const savingMonthlyInputRef = useRef<HTMLInputElement>(null)
     const savingTotalFeeInputRef = useRef<HTMLInputElement>(null)
 
-    // Función para obtener el valor seleccionado del radio button
+    
     const getSelectedImage = () => {
         const selectedRadio = document.querySelector('input[name="AddSavingGoalRadioInputImage"]:checked') as HTMLInputElement;
         return selectedRadio ? selectedRadio.id : null;
