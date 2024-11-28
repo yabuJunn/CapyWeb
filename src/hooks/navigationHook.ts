@@ -5,7 +5,6 @@ import { routes } from "../types/routesEnum";
 export const NavigationHook = () => {
     const navigate = useNavigate();
 
-    // Memoriza todas las funciones de navegación
     const navigateToDashboard = useCallback(() => navigate(routes.dashboard), [navigate]);
     const navigateToExpensesAndIncomes = useCallback(() => navigate(routes.expensesAndIncome), [navigate]);
     const navigateToSavings = useCallback(() => navigate(routes.savings), [navigate]);
@@ -17,13 +16,11 @@ export const NavigationHook = () => {
     const navigateToProfile = useCallback(() => navigate(routes.profile), [navigate]);
     const navigateToMascot = useCallback(() => navigate(routes.mascot), [navigate]);
 
-    // Memoriza la función de cerrar sesión
     const handleLogOut = useCallback(() => {
-        sessionStorage.removeItem('userData');
+        sessionStorage.removeItem('userUID');
         navigateToLogin();
     }, [navigateToLogin]);
 
-    // Agrupa todas las funciones de navegación en un objeto
     const handleNavigation = {
         navigateToDashboard,
         navigateToExpensesAndIncomes,

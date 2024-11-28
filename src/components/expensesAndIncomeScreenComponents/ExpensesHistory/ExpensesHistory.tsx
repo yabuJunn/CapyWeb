@@ -12,6 +12,7 @@ import outingsSvg from '../../../assets/desktop/svg/outingsSvg.svg'
 import otherSvg from '../../../assets/desktop/svg/otherExpenseSvg.svg'
 import familySvg from '../../../assets/desktop/svg/familySvg.svg'
 import friendsSvg from '../../../assets/desktop/svg/friendsSvg.svg'
+import { formatDate } from "../../../utils/timestampConvertion";
 
 interface ExpensesHistoryProps {
   ExpenseHistoryData: realExpenseType[];
@@ -114,7 +115,7 @@ export const ExpensesHistory = ({ ExpenseHistoryData }: ExpensesHistoryProps) =>
                   <div className="expense-details">
                     <h2>{expense.expenseSite}</h2>
                     <p>Category: {expense.expenseCategory}</p>
-                    <p>Date: {expense.expenseDate.toDate().toLocaleDateString()}</p>
+                    <p>Date: {formatDate(expense.expenseDate).toLocaleDateString()}</p>
                   </div>
                   <p className="history-expense-amount">${expense.expenseAmount}</p>
                 </div>

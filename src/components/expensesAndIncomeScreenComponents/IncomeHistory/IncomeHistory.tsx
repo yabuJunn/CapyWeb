@@ -9,6 +9,7 @@ import visaSvg from '../../../assets/desktop/svg/visaSvg.svg';
 import efectivoSvg from '../../../assets/desktop/svg/efectivoSvg.svg';
 import debitoSvg from '../../../assets/desktop/svg/debitoSvg.svg';
 import otroSvg from '../../../assets/desktop/svg/otroSvg.svg';
+import { formatDate } from "../../../utils/timestampConvertion";
 
 interface IncomeHistoryProps {
   IncomeHistoryData: realIncomeType[];
@@ -104,7 +105,7 @@ export const IncomeHistory = ({ IncomeHistoryData }: IncomeHistoryProps) => {
                 <div className="card-container-incomes-details">
                   <div className="incomes-details">
                     <p>
-                      {incomes.incomeDate.toDate().toLocaleDateString()}
+                      {formatDate(incomes.incomeDate).toLocaleDateString()}
                     </p>
                     <p>{incomes.incomeEntrie}</p>
                   </div>

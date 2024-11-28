@@ -21,7 +21,10 @@ export const incomesSlice = createSlice({
             ]
         },
         updateAllIncomesSlice: (state, action: PayloadAction<incomesSliceType>) => {
-            state = action.payload
+            return {
+                ...state,
+                realIncomes: [...action.payload.realIncomes]
+            }
         }
     }
 })

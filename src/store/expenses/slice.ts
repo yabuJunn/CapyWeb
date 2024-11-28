@@ -38,7 +38,11 @@ export const expensesSlice = createSlice({
             );
         },
         updateAllExpensesSlice: (state, action: PayloadAction<expensesSliceType>) => {
-            state = action.payload
+            return {
+                ...state,
+                realExpenses: [...action.payload.realExpenses],
+                plannedExpenses: [...action.payload.plannedExpenses]
+            }
         }
     }
 })

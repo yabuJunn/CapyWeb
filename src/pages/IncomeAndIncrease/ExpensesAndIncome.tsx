@@ -16,6 +16,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { incomeNameEntries, realIncomeType } from "../../store/incomes/types";
 import { expenseNameCategories, realExpenseType } from "../../store/expenses/types";
+import { formatDate } from "../../utils/timestampConvertion";
 
 
 function getMonthName(date: Date): string {
@@ -33,7 +34,7 @@ function calculateExpensesData(expenses: Array<realExpenseType>) {
 
   expenses.forEach((expense) => {
     // Convertir expenseDate de Timestamp a Date
-    const month = getMonthName(expense.expenseDate.toDate());
+    const month = getMonthName(formatDate(expense.expenseDate));
 
     // Inicializar el objeto del mes si no existe
     if (!monthlyExpenseData[month]) {
@@ -95,7 +96,7 @@ function calculateIncomesData(incomes: Array<realIncomeType>) {
 
   incomes.forEach((income) => {
     // Convertir incomeDate de Timestamp a Date
-    const month = getMonthName(income.incomeDate.toDate());
+    const month = getMonthName(formatDate(income.incomeDate));
 
     // Inicializar el objeto del mes si no existe
     if (!monthlyIncomeData[month]) {
