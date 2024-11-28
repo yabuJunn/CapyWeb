@@ -83,15 +83,12 @@
     align-items: center;
   }
 
-  #logInButton {
-    height: 40px;
-    font-size: 15px;
-    padding: 0 15px 0 15px;
-  }
-
+  #logInButton,
   #createAccountButton {
     height: 40px;
     font-size: 15px;
-    padding: 0 15px 0 15px;
+    padding: 0 15px;
+    width: 100%; /* Añadimos esto para que ocupen todo el ancho */
+    max-width: 300px; /* Limita el ancho máximo para que no se vean demasiado grandes */
   }
 }
