@@ -1,5 +1,3 @@
-import { Timestamp } from "firebase/firestore"
-
 export interface savingType {
     savingName: string,
     savingValue: number,
@@ -13,7 +11,7 @@ export interface savingType {
 }
 
 export interface savingHistoryType {
-    date: Timestamp,
+    date: string,
     deposit: number
 }
 

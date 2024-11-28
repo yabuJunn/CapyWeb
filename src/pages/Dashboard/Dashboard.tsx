@@ -49,7 +49,7 @@ export const Dashboard = () => {
 
             fetchDataAndDispatch();
         }
-    }, [dispatch, sessionStorageUserUID, userDataRedux.userName]);
+    }, [dispatch, handleNavigation, sessionStorageUserUID, userDataRedux.userName]);
 
     return <>
         <main className='page' id='dashboardPage'>

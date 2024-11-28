@@ -1,7 +1,5 @@
 import { savingEnum, savingSliceType } from './types'
 
-import { Timestamp } from 'firebase/firestore'
-
 export const SAVINGS_SLICE_NAME = "savings"
 
 export const DEFAULT_STATE_SAVINGS: savingSliceType = {
@@ -10,18 +8,17 @@ export const DEFAULT_STATE_SAVINGS: savingSliceType = {
             savingName: "Party",
             savingValue: 100000,
             savingColor: "#2D18BF",
-            // savingPercentage: "40%",
             savingImage: savingEnum.fire,
             monthlySaving: 50000,
             savingActualFee: 100000,
             savingTotalFee: 600000,
             savingHistory: [
                 {
-                    date: Timestamp.fromDate(new Date("2024-9-04")),
+                    date: new Date("2024-9-04").toISOString(),
                     deposit: 50000
                 },
                 {
-                    date: Timestamp.fromDate(new Date("2024-8-04")),
+                    date: new Date("2024-8-04").toISOString(),
                     deposit: 50000
                 }
             ]
@@ -35,11 +32,11 @@ export const DEFAULT_STATE_SAVINGS: savingSliceType = {
             savingTotalFee: 480000,
             savingHistory: [
                 {
-                    date: Timestamp.fromDate(new Date("2024-9-02")),
+                    date: new Date("2024-9-02").toISOString(),
                     deposit: 20000
                 },
                 {
-                    date: Timestamp.fromDate(new Date("2024-10-03")),
+                    date: new Date("2024-10-03").toISOString(),
                     deposit: 20000
                 },
             ],
@@ -54,7 +51,7 @@ export const DEFAULT_STATE_SAVINGS: savingSliceType = {
             savingTotalFee: 1000000,
             savingHistory: [
                 {
-                    date: Timestamp.fromDate(new Date("2024-8-04")),
+                    date: new Date("2024-8-04").toISOString(),
                     deposit: 100000
                 },
             ],
