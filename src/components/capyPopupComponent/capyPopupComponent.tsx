@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "./capyPopupComponent.css";
 
-export const CapyPopup = () => {
-  const [message, setMessage] = useState<string | null>(null);  
-  const [showOkButton, setShowOkButton] = useState(false);     
-  const [showButtons, setShowButtons] = useState(true);         
+import fondoAddSavingsModal from '../../assets/desktop/jpg/fondoAddSavingsModal.jpg'
 
-console.log(showOkButton);
+export const CapyPopup = () => {
+  const [message, setMessage] = useState<string | null>(null);
+  const [showOkButton, setShowOkButton] = useState(false);
+  const [showButtons, setShowButtons] = useState(true);
+
+  console.log(showOkButton);
 
 
   const randomMessages = [
@@ -19,19 +21,19 @@ console.log(showOkButton);
   ];
 
   const handleButtonClick = (message: string) => {
-    setMessage(message);              
-    setShowOkButton(true);            
-    setShowButtons(false);            
+    setMessage(message);
+    setShowOkButton(true);
+    setShowButtons(false);
   };
 
   const handleBackClick = () => {
-    setMessage(null);                 
-    setShowOkButton(false);           
-    setShowButtons(true);             
+    setMessage(null);
+    setShowOkButton(false);
+    setShowButtons(true);
   };
 
   return (
-    <div className="capy-popup">
+    <div className="capy-popup" style={{ backgroundImage: fondoAddSavingsModal }}>
       {/* Mostrar los botones originales solo si showButtons es true */}
       {showButtons && (
         <>

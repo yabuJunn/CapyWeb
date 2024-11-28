@@ -9,6 +9,7 @@ import Summary from '../../components/RewardsPageComponents/Summary/Summary';
 import { NavigationHook } from '../../hooks/navigationHook';
 import { useUserFirebaseData } from '../../hooks/useUserFirebaseData';
 import { ChangeFirebaseContext } from '../../Contexts/changeFirebaseContext';
+import { CapyAssistant } from '../../components/capyAssistantComponent/capyAssistantComponent';
 
 export const Rewards: React.FC = () => {
 
@@ -64,6 +65,7 @@ export const Rewards: React.FC = () => {
           <div id='backgroundReward' className='backgroundPage'>
 
           </div>
+          <CapyAssistant />
         </main>
       </ChangeFirebaseContext.Provider>
     );

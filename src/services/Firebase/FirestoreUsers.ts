@@ -61,7 +61,7 @@ export const createUser = async (userUIDForm: string, nameForm: string, emailFor
 }
 
 export const createFinalUser = async (userUIDForm: string, nameForm: string, emailForm: string) => {
-    await setDoc(doc(db, "realUsers", userUIDForm), {
+    const newUserObject: userDataFromFirebaseType = {
         name: nameForm,
         email: emailForm,
         userUID: userUIDForm,
@@ -69,9 +69,10 @@ export const createFinalUser = async (userUIDForm: string, nameForm: string, ema
         totalExpenses: 0,
         totalIncome: 0,
         totalSavings: 0,
+        userExpGained: 0,
         saverLevel: {
             saverLevelName: saverLevelsNames.level1,
-            userExpGained: 0,
+            goalsCompleted: 0,
             accumulatedCapypoints: 0
         },
         realExpenses: [],
@@ -79,9 +80,11 @@ export const createFinalUser = async (userUIDForm: string, nameForm: string, ema
         plannedExpenses: [],
         cards: [],
         exchangeData: [],
-        missionsDatas: [],
+        missionsData: [],
         savingsData: []
-    });
+    }
+
+    await setDoc(doc(db, "realUsers", userUIDForm), newUserObject);
 
     const docRef = doc(db, "users", userUIDForm);
     const data = await getDoc(docRef);

@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { NavigationHook } from '../../hooks/navigationHook'
 import { useUserFirebaseData } from '../../hooks/useUserFirebaseData'
+import { CapyAssistant } from '../../components/capyAssistantComponent/capyAssistantComponent'
 
 export const Dashboard = () => {
     const [isInitialized, setIsInitialized] = useState(false);
@@ -50,6 +51,7 @@ export const Dashboard = () => {
             <div id='backgroundDashboard' className='backgroundPage'>
 
             </div>
+            <CapyAssistant />
         </main >
     </>
 }

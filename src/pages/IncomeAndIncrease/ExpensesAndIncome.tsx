@@ -20,6 +20,7 @@ import { formatDate } from "../../utils/timestampConvertion";
 import { useUserFirebaseData } from "../../hooks/useUserFirebaseData";
 import { NavigationHook } from "../../hooks/navigationHook";
 import { ChangeFirebaseContext } from "../../Contexts/changeFirebaseContext";
+import { CapyAssistant } from "../../components/capyAssistantComponent/capyAssistantComponent";
 
 function getMonthName(date: Date): string {
   return date.toLocaleString("en-US", { month: "long" });
@@ -392,6 +393,7 @@ export const ExpensesAndIncomePage = () => {
 
                 </div>
               </main >
+              <CapyAssistant />
             </ChangeFirebaseContext.Provider>
           </>
 
@@ -450,6 +452,7 @@ export const ExpensesAndIncomePage = () => {
 
                   </div>
                 </main >
+                <CapyAssistant />
               </ChangeFirebaseContext.Provider>
             </>
           }
@@ -513,6 +516,7 @@ export const ExpensesAndIncomePage = () => {
 
                 </div>
               </main>
+              <CapyAssistant />
             </ChangeFirebaseContext.Provider>
           </>
         default:
@@ -568,6 +572,7 @@ export const ExpensesAndIncomePage = () => {
 
                   </div>
                 </main>
+                <CapyAssistant />
               </ChangeFirebaseContext.Provider>
             </>
           }

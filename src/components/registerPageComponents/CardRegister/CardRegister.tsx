@@ -7,7 +7,7 @@ import './CardRegister.css';
 import logoGoogle from '../../../assets/desktop/svg/logo/logoGoogle.svg'
 
 
-import { createPruebaUser, createUser } from "../../../services/Firebase/FirestoreUsers";
+import { createFinalUser, createUser } from "../../../services/Firebase/FirestoreUsers";
 import { doGoogleSignIn } from "../../../services/Firebase/auth";
 
 import { NavigationHook } from "../../../hooks/navigationHook";
@@ -38,7 +38,7 @@ function CardRegister() {
 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      createPruebaUser(userCredential.user.uid, username, email)
+      createFinalUser(userCredential.user.uid, username, email)
 
       sessionStorage.setItem('userUID', userCredential.user.uid)
       handleNavigation.navigateToDashboard()
