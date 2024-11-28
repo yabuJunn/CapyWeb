@@ -1,4 +1,3 @@
-import { Timestamp } from "firebase/firestore"
 import { incomeNameEntries } from "../incomes/types"
 
 export interface expensesSliceType {
@@ -21,7 +20,7 @@ export enum expenseNameCategories {
 export interface realExpenseType {
     expenseCategory: expenseNameCategories,
     expenseSite: string,
-    expenseDate: Timestamp,
+    expenseDate: string,
     expenseAmount: number,
     expenseImage?: string,
     expenseColor: string
@@ -30,7 +29,7 @@ export interface realExpenseType {
 export interface plannedExpenseType {
     expenseCategory: expenseNameCategories,
     expenseSite: string,
-    expenseDate: Timestamp,
+    expenseDate: string,
     expenseAmount: number,
     expenseEntrie: incomeNameEntries
 }

@@ -56,6 +56,9 @@ export const rewardsSlice = createSlice({
             if (exchange) {
                 exchange.isRedeemed = true;
             }
+        },
+        updateAllRewardsSlice: (state, action: PayloadAction<rewardsSliceType>) => {
+            state = action.payload
         }
     }
 });
@@ -66,5 +69,6 @@ export const {
     changeUserGoalsCompleted,
     changeUserAccumulatedCapypoints,
     completeMission,
-    redeemedExchange
+    redeemedExchange,
+    updateAllRewardsSlice
 } = rewardsSlice.actions;

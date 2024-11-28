@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { DEFAULT_STATE_EXPENSES, EXPENSES_SLICE_NAME } from "./constants";
-import { plannedExpenseType, realExpenseType } from "./types";
-import { Timestamp } from "firebase/firestore";
+import { expensesSliceType, plannedExpenseType, realExpenseType } from "./types";
 
 export const expensesSlice = createSlice({
     name: EXPENSES_SLICE_NAME,
@@ -33,12 +32,15 @@ export const expensesSlice = createSlice({
                 }
             ]
         },
-        deletePlannedExpense: (store, action: PayloadAction<Timestamp>) => {
+        deletePlannedExpense: (store, action: PayloadAction<string>) => {
             store.plannedExpenses = store.plannedExpenses.filter(
                 income => income.expenseDate !== action.payload
             );
+        },
+        updateAllExpensesSlice: (state, action: PayloadAction<expensesSliceType>) => {
+            state = action.payload
         }
     }
 })
 
-export const { addPlannedExpense, addRealExpense, deletePlannedExpense } = expensesSlice.actions
+export const { addPlannedExpense, addRealExpense, deletePlannedExpense, updateAllExpensesSlice } = expensesSlice.actions

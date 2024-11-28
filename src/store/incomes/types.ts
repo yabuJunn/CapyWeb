@@ -1,24 +1,14 @@
-import { Timestamp } from "firebase/firestore"
-
 export interface incomesSliceType {
-    realIncomes: Array<realIncomeType>,
-    plannedIncomes: Array<plannedIncomeType>
+    realIncomes: Array<realIncomeType>
 }
 
 export interface realIncomeType {
     incomeCategory: incomeNameCategories,
     incomeEntrie: incomeNameEntries,
-    incomeDate: Timestamp,
+    incomeDate: string,
     incomeAmount: number,
     incomeColor: string
     incomeImage?: string
-}
-
-export interface plannedIncomeType {
-    incomeCategory: incomeNameCategories,
-    incomeEntrie: incomeNameEntries,
-    incomeDate: Timestamp,
-    incomeAmount: number
 }
 
 export enum incomeNameCategories {

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { DEFAULT_STATE_SAVINGS, SAVINGS_SLICE_NAME } from "./constants";
-import { savingType } from "./types";
+import { savingSliceType, savingType } from "./types";
 
 export const savingsSlice = createSlice({
     name: SAVINGS_SLICE_NAME,
@@ -23,7 +23,13 @@ export const savingsSlice = createSlice({
                 ...state.savingsData
             ]
         },
+        updateAllSavingsSlice: (state, action: PayloadAction<savingSliceType>) => {
+            return {
+                ...state,
+                savingsData: [...action.payload.savingsData]
+            }
+        }
     }
 })
 
-export const { addSaving } = savingsSlice.actions
+export const { addSaving, updateAllSavingsSlice } = savingsSlice.actions

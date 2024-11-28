@@ -4,52 +4,29 @@ import './Dashboard.css'
 import { GlobalAppNav } from '../../components/Nav/Nav'
 import { InteractiveGrid } from '../../components/dashboardPageComponents/InteractiveGrid/InteractiveGrid'
 import { RootState } from '../../store/store'
-import { getRealUser } from '../../services/Firebase/FirestoreUsers'
-import { useDispatch, useSelector } from 'react-redux'
-import { changeUserEmail, changeUserName, changeUserUID } from '../../store/userData/slice'
-import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
 import { NavigationHook } from '../../hooks/navigationHook'
+import { useUserFirebaseData } from '../../hooks/useUserFirebaseData'
 
 export const Dashboard = () => {
-    const { handleNavigation } = NavigationHook()
+    const [isInitialized, setIsInitialized] = useState(false);
+    const [sessionStorageUserUID] = useState(() => sessionStorage.getItem('userUID'));
+    const { handleNavigation } = NavigationHook();
+    const { fetchAndSetUserData } = useUserFirebaseData(sessionStorageUserUID);
 
-    const sessionStorageUserUID = sessionStorage.getItem('userUID')
-
-    const userDataRedux = useSelector((state: RootState) => state.userData)
-    const dispatch = useDispatch()
-
-    // useEffect(() => {
-    //     const registrarUsuarioPrueba = async () => {
-    //         const pruebaUserData = await getRealUser('zTOoG8Hr8fUsbxZfQb4GrZlRJu22')
-
-    //         if (pruebaUserData) {
-    //             console.log('pruebaUserData: ', pruebaUserData);
-    //         }
-    //     };
-
-    //     registrarUsuarioPrueba()
-    // })
+    const userDataRedux = useSelector((state: RootState) => state.userData);
 
     useEffect(() => {
-        if (!sessionStorageUserUID) {
-            handleNavigation.navigateToLogin()
-        } else if (sessionStorageUserUID !== null) {
-
-            const fetchDataAndDispatch = async () => {
-                const userDataFirebase = await getRealUser(sessionStorageUserUID);
-
-                if (userDataFirebase) {
-                    dispatch(changeUserName(userDataFirebase.name));
-                    dispatch(changeUserEmail(userDataFirebase.email));
-                    dispatch(changeUserUID(userDataFirebase.userUID));
-                } else {
-                    alert("userData is undefined");
-                }
-            };
-
-            fetchDataAndDispatch();
+        if (!isInitialized) {
+            if (!sessionStorageUserUID) {
+                handleNavigation.navigateToLogin();
+            } else {
+                fetchAndSetUserData();
+            }
+            setIsInitialized(true);
         }
-    }, [dispatch, handleNavigation, sessionStorageUserUID, userDataRedux.userName]);
+    }, [isInitialized, handleNavigation, sessionStorageUserUID, fetchAndSetUserData]);
 
     return <>
         <main className='page' id='dashboardPage'>

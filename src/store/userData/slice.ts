@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { DEFAULT_STATE_USER_DATA, USER_DATA_SLICE_NAME } from "./constants";
-import { cardType } from "./types";
+import { cardType, userDataType } from "./types";
 
 export const userDataSlice = createSlice({
     name: USER_DATA_SLICE_NAME,
@@ -40,8 +40,20 @@ export const userDataSlice = createSlice({
         },
         changeUserTotalExpenses: (state, action: PayloadAction<number>) => {
             state.totalExpenses = action.payload
+        },
+        updateAllUserSlice: (state, action: PayloadAction<userDataType>) => {
+            return {
+                ...state,
+                userEmail: action.payload.userEmail,
+                userName: action.payload.userName,
+                userUID: action.payload.userUID,
+                cards: action.payload.cards,
+                totalBalance: action.payload.totalBalance,
+                totalIncome: action.payload.totalIncome,
+                totalExpenses: action.payload.totalExpenses,
+            }
         }
     }
 });
 
-export const { changeUserEmail, changeUserName, changeUserUID, addUserCard, deleteUserCard } = userDataSlice.actions;
+export const { changeUserEmail, changeUserName, changeUserUID, addUserCard, deleteUserCard, updateAllUserSlice } = userDataSlice.actions;
