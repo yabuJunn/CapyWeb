@@ -30,6 +30,10 @@
     bottom: 30px; 
     right: 150px; 
     background-color: #3C3C3C; 
+    background-image: url("src/assets/desktop/jpg/fondoAddSavingsModal.jpg");
+    background-size: 300px 260px;    
+    background-position: center; 
+    background-repeat: no-repeat; 
     border-radius: 10px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     padding: 20px; 
