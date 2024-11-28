@@ -7,6 +7,7 @@ import { CategorySavings, savingItemType } from '../../components/savingsPageCom
 import { SavingsGoals } from '../../components/savingsPageComponents/SavingsGoals/SavingsGoals'
 import { SavingsHistory } from '../../components/savingsPageComponents/SavingsHistory/SavingsHistory'
 import { SavingGoalItemProps } from '../../components/savingsPageComponents/SavingGoalItem/SavingGoalItem'
+import { CapyAssistant } from '../../components/capyAssistantComponent/capyAssistantComponent'
 
 //Impot hooks
 import { useSelector } from 'react-redux'
@@ -158,6 +159,7 @@ export const SavingsPage = () => {
                         <div id='backgroundSavings' className='backgroundPage'>
 
                         </div>
+                        <CapyAssistant />
                     </main>
                 </ChangeFirebaseContext.Provider>
             </>
