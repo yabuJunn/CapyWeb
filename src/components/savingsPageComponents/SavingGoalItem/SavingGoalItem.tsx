@@ -1,9 +1,14 @@
 import './SavingGoalItem.css'
 
 import { Progress } from '../../../components/ui/progress'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 import xIconWhite from '../../../assets/desktop/svg/icons/xIconWhite.svg'
+import { EditSavingAddMonthlySaving } from '../../../services/Firebase/FirestoreUsers'
+import { ChangeFirebaseContext } from '../../../Contexts/changeFirebaseContext'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../store/store'
+import { convertISOStringToTimestamp } from '../../../utils/timestampConvertion'
 
 export interface SavingGoalItemProps {
     goalImage: string,
@@ -16,6 +21,8 @@ export interface SavingGoalItemProps {
 
 export const SavingGoalItem = ({ goalImage, goalImageColor, goalTitle, goalMonthlySaving, goalActualFee, goalTotalFee }: SavingGoalItemProps) => {
     const [editSavingModal, setEditSavingModal] = useState(false)
+    const OnChangeFirebase = useContext(ChangeFirebaseContext)
+    const savingsArray = useSelector((state: RootState) => state.savings.savingsData);
 
     if (editSavingModal) {
         return <>
@@ -36,14 +43,26 @@ export const SavingGoalItem = ({ goalImage, goalImageColor, goalTitle, goalMonth
                         </div>
 
                         <div id='EditModalButtonsContainer'>
-                            <button id='addMonthlySavingButton'>Add Monthly Saving</button>
+                            <button id='addMonthlySavingButton' onClick={() => {
+
+                                const convertionOfSavingsArrayToTimestamp = savingsArray.map((storeSaving) => ({
+                                    ...storeSaving,
+                                    savingHistory: storeSaving.savingHistory.map((storeSavingHistory) => ({
+                                        ...storeSavingHistory,
+                                        date: convertISOStringToTimestamp(storeSavingHistory.date),
+                                    })),
+                                }))
+                                EditSavingAddMonthlySaving(OnChangeFirebase.logedUserUID, goalTitle, convertionOfSavingsArrayToTimestamp, OnChangeFirebase.fetchAndSetUserData)
+                                setEditSavingModal(false)
+                                
+                            }}>Add Monthly Saving</button>
                             <button id='deleteSavingButton'>Delete Saving</button>
                         </div>
                     </form>
 
 
-                </div>
-            </div>
+                </div >
+            </div >
 
             <div className='savingGoalItemContainer'>
                 <div className='savingGoalHeader'>

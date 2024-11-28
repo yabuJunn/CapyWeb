@@ -8,7 +8,8 @@ import { expenseNameCategories } from "../../store/expenses/types";
 import { incomeNameCategories, incomeNameEntries } from "../../store/incomes/types";
 import { cardNamesEnum } from "../../store/userData/types";
 import { savingFirebaseType, userDataFromFirebaseType } from "../../types/firebaseUserTypes";
-import { savingEnum } from "../../store/savings/types";
+import { savingEnum, savingHistoryType } from "../../store/savings/types";
+import { getCurrentTimestamp } from "../../utils/timestampConvertion";
 
 
 const db = getFirestore(app);
@@ -361,5 +362,37 @@ export const CreatedNewSaving = async (userUID: string, newSavingColor: string, 
         fetchAndSetUserData();
     } catch (error) {
         console.error("Error al agregar el saving:", error);
+    }
+}
+
+export const EditSavingAddMonthlySaving = async function name(userUID: string, savingName: string, actualSavingsArray: Array<savingFirebaseType>, fetchAndSetUserData: () => void) {
+    const docRef = doc(db, "realUsers", userUID);
+
+    const updatedSavingsArray = actualSavingsArray.map((saving) => {
+        if (saving.savingName === savingName) {
+            return {
+                savingName: savingName,
+                savingValue: saving.savingValue + saving.monthlySaving,
+                savingColor: saving.savingColor,
+                savingImage: saving.savingImage,
+                monthlySaving: saving.monthlySaving,
+                savingActualFee: saving.savingActualFee + saving.monthlySaving,
+                savingTotalFee: saving.savingTotalFee,
+                savingHistory: [...saving.savingHistory, { date: getCurrentTimestamp(), deposit: saving.monthlySaving }]
+            }
+        }
+
+        return saving
+    })
+
+    try {
+        await updateDoc(docRef, {
+            savingsData: updatedSavingsArray
+        });
+
+        console.log("Se actualizo el saving exitosamente");
+        fetchAndSetUserData();
+    } catch (error) {
+        console.error("Error al agregar actualizar el saving:", error);
     }
 }
