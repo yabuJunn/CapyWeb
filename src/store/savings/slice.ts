@@ -1,5 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { DEFAULT_STATE_SAVINGS, SAVINGS_SLICE_NAME } from "./constants";
+import { savingType } from "./types";
 
 export const savingsSlice = createSlice({
     name: SAVINGS_SLICE_NAME,
@@ -7,16 +8,17 @@ export const savingsSlice = createSlice({
         ...DEFAULT_STATE_SAVINGS
     },
     reducers: {
-        addSaving: (state, action) => {
+        addSaving: (state, action: PayloadAction<savingType>) => {
             state.savingsData = [
                 {
-                    savingName: action.payload.name,
+                    savingName: action.payload.savingName,
                     savingValue: 0,
-                    savingColor: action.payload.color,
+                    savingColor: action.payload.savingColor,
                     monthlySaving: action.payload.monthlySaving,
                     savingActualFee: 0,
                     savingTotalFee: action.payload.savingTotalFee,
-                    savingHistory: []
+                    savingHistory: [],
+                    savingImage: action.payload.savingImage
                 },
                 ...state.savingsData
             ]

@@ -15,27 +15,25 @@ export const Dashboard = () => {
 
     const sessionStorageUserUID = sessionStorage.getItem('userUID')
 
-    if (!sessionStorageUserUID) {
-        handleNavigation.navigateToLogin()
-    }
-
     const userDataRedux = useSelector((state: RootState) => state.userData)
     const dispatch = useDispatch()
 
+    // useEffect(() => {
+    //     const registrarUsuarioPrueba = async () => {
+    //         const pruebaUserData = await getRealUser('zTOoG8Hr8fUsbxZfQb4GrZlRJu22')
+
+    //         if (pruebaUserData) {
+    //             console.log('pruebaUserData: ', pruebaUserData);
+    //         }
+    //     };
+
+    //     registrarUsuarioPrueba()
+    // })
+
     useEffect(() => {
-        const registrarUsuarioPrueba = async () => {
-            const pruebaUserData = await getRealUser('zTOoG8Hr8fUsbxZfQb4GrZlRJu22')
-
-            if (pruebaUserData) {
-                console.log('pruebaUserData: ', pruebaUserData);
-            }
-        };
-
-        registrarUsuarioPrueba()
-    })
-
-    useEffect(() => {
-        if (sessionStorageUserUID !== null) {
+        if (!sessionStorageUserUID) {
+            handleNavigation.navigateToLogin()
+        } else if (sessionStorageUserUID !== null) {
 
             const fetchDataAndDispatch = async () => {
                 const userDataFirebase = await getRealUser(sessionStorageUserUID);

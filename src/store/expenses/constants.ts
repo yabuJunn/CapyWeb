@@ -7,7 +7,7 @@ export const EXPENSES_SLICE_NAME = "expenses"
 export const DEFAULT_STATE_EXPENSES: expensesSliceType = {
     realExpenses: [
         {
-            expenseCategory: expenseNameCategories.friends,
+            expenseCategory: expenseNameCategories.Amigos,
             expenseSite: "Cine local",
             expenseDate: Timestamp.fromDate(new Date("2024-08-20")),
             expenseAmount: 500,
@@ -52,28 +52,28 @@ export const DEFAULT_STATE_EXPENSES: expensesSliceType = {
     ],
     plannedExpenses: [
         {
-            expenseCategory: expenseNameCategories.trips,
+            expenseCategory: expenseNameCategories.viajes,
             expenseSite: "Hotel Playa",
             expenseDate: Timestamp.fromDate(new Date("2024-11-05")),
             expenseAmount: 500,
             expenseEntrie: incomeNameEntries.masterCard
         },
         {
-            expenseCategory: expenseNameCategories.family,
+            expenseCategory: expenseNameCategories.familia,
             expenseSite: "Regalo familiar",
             expenseDate: Timestamp.fromDate(new Date("2024-11-10")),
             expenseAmount: 200,
             expenseEntrie: incomeNameEntries.visa
         },
         {
-            expenseCategory: expenseNameCategories.friends,
+            expenseCategory: expenseNameCategories.Amigos,
             expenseSite: "Restaurante Amigos",
             expenseDate: Timestamp.fromDate(new Date("2024-11-15")),
             expenseAmount: 100,
             expenseEntrie: incomeNameEntries.debito
         },
         {
-            expenseCategory: expenseNameCategories.others,
+            expenseCategory: expenseNameCategories.otro,
             expenseSite: "Donación",
             expenseDate: Timestamp.fromDate(new Date("2024-11-20")),
             expenseAmount: 80,

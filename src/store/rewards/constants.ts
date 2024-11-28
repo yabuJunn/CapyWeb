@@ -2,10 +2,6 @@ import { exchangeNameEnum, rewardsSliceType, saverLevelsImages, saverLevelsNames
 
 export const REWARDS_SLICE_NAME = "rewards"
 
-import amazonImage from '../../assets/desktop/png/Amazon.png'
-import netflixImage from '../../assets/desktop/png/Netflix.png'
-import farmatodoImage from '../../assets/desktop/png/Farmatodo.png'
-
 export const DEFAULT_STATE_REWARDS: rewardsSliceType = {
     summary: {
         saverLevel: saverLevelsNames.level1,

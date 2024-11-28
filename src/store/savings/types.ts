@@ -5,7 +5,7 @@ export interface savingType {
     savingValue: number,
     savingColor: string,
     // savingPercentage: string,
-    // savingImage: string,
+    savingImage: savingEnum,
     monthlySaving: number,
     savingActualFee: number,
     savingTotalFee: number,
@@ -19,4 +19,11 @@ export interface savingHistoryType {
 
 export interface savingSliceType {
     savingsData: Array<savingType>
+}
+
+export enum savingEnum {
+    globe = "globe",
+    key = "key",
+    fire = "fire",
+    other = "other"
 }

@@ -9,7 +9,6 @@ import { SavingsHistory } from '../../components/savingsPageComponents/SavingsHi
 import { SavingGoalItemProps } from '../../components/savingsPageComponents/SavingGoalItem/SavingGoalItem'
 
 import { useSelector } from 'react-redux'
-import { savingSliceType } from '../../store/savings/types'
 import { AddSavingGoalModal } from '../../components/savingsPageComponents/AddSavingGoalModal/AddSavingGoalModal'
 import { RootState } from '../../store/store'
 // import { changeUserExpGained } from '../../store/rewards/slice'
@@ -19,7 +18,7 @@ import { RootState } from '../../store/store'
 export const SavingsPage = () => {
 
     const addSavingModalBoolean: boolean = useSelector((state: RootState) => state.global.addSavingModal);
-    const savingsData: savingSliceType = useSelector((state: RootState) => state.savings)
+    const savingsData = useSelector((state: RootState) => state.savings)
     const userDataData = useSelector((state: RootState) => state.userData)
 
     let savingDataTotalValue = 0
@@ -29,19 +28,7 @@ export const SavingsPage = () => {
         })
     })
 
-    console.log(savingDataTotalValue);
-
     const valueSavingsPercentage = (100 * savingDataTotalValue / userDataData.totalIncome)
-
-    console.log(valueSavingsPercentage)
-
-    //Pruebas redux
-
-    //const dispatch = useDispatch()
-
-    //const rewardsData: rewardsSliceType = useSelector((state) => state.rewards)
-
-    //Pruebas redux
 
     const chartData: Array<savingItemType> = []
     const savingsGoalsData: Array<SavingGoalItemProps> = []

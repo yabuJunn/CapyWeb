@@ -119,7 +119,7 @@ export const CategorySavings = ({ chartData }: CategorySavingsProps) => {
 
                 <div id='categorySavingsCircularProgressHints'>
                     {chartData.map((saving) => {
-                        return <CategorySavingsProgressHint hintBubbleColor={saving.fill} hintName={saving.savingName} hintPercentage={saving.percentage}></CategorySavingsProgressHint>
+                        return <CategorySavingsProgressHint key={saving.savingName} hintBubbleColor={saving.fill} hintName={saving.savingName} hintPercentage={saving.percentage}></CategorySavingsProgressHint>
                     })}
                 </div>
             </div>

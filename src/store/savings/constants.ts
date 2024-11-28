@@ -1,8 +1,5 @@
-import { savingSliceType } from './types'
+import { savingEnum, savingSliceType } from './types'
 
-import fireIconWhite from '../../assets/desktop/svg/fireIconWhite.svg'
-import planetIconBlack from '../../assets/desktop/svg/planetIconBlack.svg'
-import KeyIconWhite from '../../assets/desktop/svg/KeyIconWhite.svg'
 import { Timestamp } from 'firebase/firestore'
 
 export const SAVINGS_SLICE_NAME = "savings"
@@ -14,7 +11,7 @@ export const DEFAULT_STATE_SAVINGS: savingSliceType = {
             savingValue: 100000,
             savingColor: "#2D18BF",
             // savingPercentage: "40%",
-            // savingImage: fireIconWhite,
+            savingImage: savingEnum.fire,
             monthlySaving: 50000,
             savingActualFee: 100000,
             savingTotalFee: 600000,
@@ -45,7 +42,8 @@ export const DEFAULT_STATE_SAVINGS: savingSliceType = {
                     date: Timestamp.fromDate(new Date("2024-10-03")),
                     deposit: 20000
                 },
-            ]
+            ],
+            savingImage: savingEnum.globe
         },
         {
             savingName: "Motorbike",
@@ -59,7 +57,8 @@ export const DEFAULT_STATE_SAVINGS: savingSliceType = {
                     date: Timestamp.fromDate(new Date("2024-8-04")),
                     deposit: 100000
                 },
-            ]
+            ],
+            savingImage: savingEnum.key
         },
         {
             savingName: "Others",
@@ -68,7 +67,8 @@ export const DEFAULT_STATE_SAVINGS: savingSliceType = {
             monthlySaving: 0,
             savingActualFee: 0,
             savingTotalFee: 0,
-            savingHistory: []
+            savingHistory: [],
+            savingImage: savingEnum.other
         }
     ]
 }
