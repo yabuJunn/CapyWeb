@@ -4,14 +4,16 @@ export interface rewardsSliceType {
         goalsCompleted: number,
         accumulatedCapypoints: number
     },
-    saverLevels: Array<{
-        name: saverLevelsNames,
-        image: saverLevelsImages,
-        expNecesary: number
-    }>,
+    saverLevels: Array<saverLevelType>,
     missions: Array<missionType>
     exchangeData: Array<exchangeType>,
     userExpGained: number
+}
+
+export interface saverLevelType {
+    name: saverLevelsNames,
+    image: saverLevelsImages,
+    expNecesary: number
 }
 
 export enum saverLevelsNames {

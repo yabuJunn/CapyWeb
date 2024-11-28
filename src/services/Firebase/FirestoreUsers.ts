@@ -8,6 +8,7 @@ import { expenseNameCategories } from "../../store/expenses/types";
 import { incomeNameCategories, incomeNameEntries } from "../../store/incomes/types";
 import { cardNamesEnum } from "../../store/userData/types";
 import { userDataFromFirebaseType } from "../../types/firebaseUserTypes";
+import { savingEnum } from "../../store/savings/types";
 
 
 const db = getFirestore(app);
@@ -87,7 +88,7 @@ export const createFinalUser = async (userUIDForm: string, nameForm: string, ema
 }
 
 export const createPruebaUser = async (userUIDForm: string, nameForm: string, emailForm: string) => {
-    await setDoc(doc(db, "realUsers", userUIDForm), {
+    const newUserObject: userDataFromFirebaseType = {
         name: nameForm,
         email: emailForm,
         userUID: userUIDForm,
@@ -95,26 +96,27 @@ export const createPruebaUser = async (userUIDForm: string, nameForm: string, em
         totalExpenses: 0,
         totalIncome: 0,
         totalSavings: 0,
+        userExpGained: 0,
         saverLevel: {
             saverLevelName: saverLevelsNames.level1,
-            userExpGained: 0,
+            goalsCompleted: 0,
             accumulatedCapypoints: 0
         },
         realExpenses: [
             {
-                expenseCategory: expenseNameCategories.viajes,
-                expenseSite: "Hotel Playa",
-                expenseDate: Timestamp.fromDate(new Date("2024-11-05")),
+                expenseCategory: expenseNameCategories.Amigos,
+                expenseSite: "Cine local",
+                expenseDate: Timestamp.fromDate(new Date("2024-08-20")),
                 expenseAmount: 500,
-                expenseEntrie: incomeNameEntries.masterCard
+                expenseColor: "#FFFFFF"
             },
             {
-                expenseCategory: expenseNameCategories.familia,
-                expenseSite: "Regalo familiar",
-                expenseDate: Timestamp.fromDate(new Date("2024-11-10")),
+                expenseCategory: expenseNameCategories.salidas,
+                expenseSite: "Cine local",
+                expenseDate: Timestamp.fromDate(new Date("2024-09-20")),
                 expenseAmount: 200,
-                expenseEntrie: incomeNameEntries.visa
-            }
+                expenseColor: "#2D18BF"
+            },
         ],
         realIncomes: [
             {
@@ -180,7 +182,7 @@ export const createPruebaUser = async (userUIDForm: string, nameForm: string, em
                 darkText: false
             }
         ],
-        missionsDatas: [
+        missionsData: [
             {
                 missionName: "Reduce costs",
                 missionDescription: "Limit spending on entertainment and non-essential purchases to 15% of the monthly budget.",
@@ -217,12 +219,15 @@ export const createPruebaUser = async (userUIDForm: string, nameForm: string, em
                         date: Timestamp.fromDate(new Date("2024-8-04")),
                         deposit: 50000
                     }
-                ]
+                ],
+                savingImage: savingEnum.fire
             }
         ]
-    });
+    }
 
-    const docRef = await doc(db, "realUsers", userUIDForm);
+    await setDoc(doc(db, "realUsers", userUIDForm), newUserObject);
+
+    const docRef = doc(db, "realUsers", userUIDForm);
     const data = await getDoc(docRef);
 
     if (!data.exists()) {

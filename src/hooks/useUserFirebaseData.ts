@@ -4,6 +4,7 @@ import { getRealUser } from '../services/Firebase/FirestoreUsers';
 import { updateAllUserSlice } from '../store/userData/slice';
 import { convertTimestampToDate } from '../utils/timestampConvertion';
 import { updateAllSavingsSlice } from '../store/savings/slice';
+import { updateAllRewardsSlice } from '../store/rewards/slice';
 
 
 export const useUserFirebaseData = (userUID: string | null) => {
@@ -39,6 +40,18 @@ export const useUserFirebaseData = (userUID: string | null) => {
                 }));
 
                 dispatch(updateAllSavingsSlice({ savingsData: newSavingsData }));
+
+                dispatch(updateAllRewardsSlice({
+                    summary: {
+                        saverLevel: userDataFirebase.saverLevel.saverLevelName,
+                        goalsCompleted: userDataFirebase.saverLevel.goalsCompleted,
+                        accumulatedCapypoints: userDataFirebase.saverLevel.accumulatedCapypoints
+                    },
+                    saverLevels: [],
+                    missions: userDataFirebase.missionsData,
+                    exchangeData: userDataFirebase.exchangeData,
+                    userExpGained: userDataFirebase.userExpGained
+                }));
             }
         } catch (error) {
             console.error('Error fetching user data:', error);

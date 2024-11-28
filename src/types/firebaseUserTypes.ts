@@ -13,9 +13,10 @@ export interface userDataFromFirebaseType {
     totalExpenses: number,
     totalIncome: number,
     totalSavings: number,
+    userExpGained: number,
     saverLevel: {
         saverLevelName: saverLevelsNames,
-        userExpGained: number,
+        goalsCompleted: number,
         accumulatedCapypoints: number
     },
     realExpenses: Array<realExpenseFirebaseType>
@@ -41,7 +42,6 @@ interface realExpenseFirebaseType {
     expenseSite: string,
     expenseDate: Timestamp,
     expenseAmount: number,
-    expenseImage?: string,
     expenseColor: string
 }
 

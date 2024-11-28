@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 //import { RootState } from "../store"; // Asegúrate de importar el tipo del estado raíz
 import { REWARDS_SLICE_NAME, DEFAULT_STATE_REWARDS } from "./constants";
 import { rewardsSliceType, saverLevelsNames } from "./types";
+import { constantsSaverLevels } from "../../utils/saverLevels";
 
 // export const completeMissionThunk = createAsyncThunk(
 //     `${REWARDS_SLICE_NAME}/completeMission`,
@@ -58,7 +59,14 @@ export const rewardsSlice = createSlice({
             }
         },
         updateAllRewardsSlice: (state, action: PayloadAction<rewardsSliceType>) => {
-            state = action.payload
+            return {
+                ...state,
+                summary: action.payload.summary,
+                saverLevels: constantsSaverLevels,
+                missions: action.payload.missions,
+                exchangeData: action.payload.exchangeData,
+                userExpGained: action.payload.userExpGained,
+            }
         }
     }
 });
