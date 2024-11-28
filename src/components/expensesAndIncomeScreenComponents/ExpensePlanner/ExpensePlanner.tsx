@@ -1,6 +1,6 @@
 import './ExpensePlanner.css';
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 //  Import Incomes Images
 import PlannerIcon from "../../../../src/assets/desktop/svg/PlannerIcon.svg";
@@ -24,6 +24,8 @@ import debitoSvg from '../../../assets/desktop/svg/debitoSvg.svg';
 import otroCardSvg from '../../../assets/desktop/svg/otroSvg.svg';
 import { incomeNameEntries } from '../../../store/incomes/types';
 import { expenseNameCategories, plannedExpenseType } from '../../../store/expenses/types';
+import { ChangeFirebaseContext } from '../../../Contexts/changeFirebaseContext';
+import { CreatePlannedExpense } from '../../../services/Firebase/FirestoreUsers';
 
 interface ExpensePlannerProps {
   ExpensePlannerData: plannedExpenseType[]
@@ -35,6 +37,8 @@ export const ExpensePlanner = ({ ExpensePlannerData }: ExpensePlannerProps) => {
   const [budget, setBudget] = useState("");
   const [category, setCategory] = useState<expenseNameCategories>(expenseNameCategories.category);
   const [plannedExpenses, setPlannedExpenses] = useState<plannedExpenseType[]>(ExpensePlannerData);
+
+  const OnChangeFirebase = useContext(ChangeFirebaseContext)
 
   useEffect(() => {
     setPlannedExpenses(ExpensePlannerData)
@@ -51,7 +55,7 @@ export const ExpensePlanner = ({ ExpensePlannerData }: ExpensePlannerProps) => {
 
   const handleAddExpense = () => {
     if (selectedCard && budget && category) {
-      // setPlannedExpenses([...plannedExpenses, { selectedCard, budget: parseFloat(budget), category }]);
+      CreatePlannedExpense()
       setShowPopup(false);
     } else {
       alert("Please fill in all fields");
@@ -130,11 +134,6 @@ export const ExpensePlanner = ({ ExpensePlannerData }: ExpensePlannerProps) => {
             <p className='title'>New Expense</p>
             <h3>Cards</h3>
             <select name="cards" value={selectedCard} onChange={(e) => setSelectedCard(e.target.value as incomeNameEntries)} required>
-              {/* <option value="" disabled>My cards</option>
-            <option value="nu">Nu</option>
-            <option value="visa">Visa</option>
-            <option value="falabella">Falabella</option>
-            <option value="nequi">Nequi</option> */}
               {Object.values(incomeNameEntries).map((entryName) => (
                 <option key={entryName} value={entryName}>
                   {entryName}
@@ -153,10 +152,6 @@ export const ExpensePlanner = ({ ExpensePlannerData }: ExpensePlannerProps) => {
 
             <h3>Categories</h3>
             <select name="categories" value={category} onChange={(e) => setCategory(e.target.value as expenseNameCategories)} required>
-              {/* <option value="" disabled>Category</option>
-            <option value="home">Home</option>
-            <option value="market">Market</option>
-            <option value="clothes">Clothes</option> */}
               {Object.values(expenseNameCategories).map((categoryName) => (
                 <option key={categoryName} value={categoryName}>
                   {categoryName}

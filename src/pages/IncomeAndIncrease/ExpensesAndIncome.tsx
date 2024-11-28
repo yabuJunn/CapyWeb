@@ -17,6 +17,9 @@ import { RootState } from "../../store/store";
 import { incomeNameEntries, realIncomeType } from "../../store/incomes/types";
 import { expenseNameCategories, realExpenseType } from "../../store/expenses/types";
 import { formatDate } from "../../utils/timestampConvertion";
+import { useUserFirebaseData } from "../../hooks/useUserFirebaseData";
+import { NavigationHook } from "../../hooks/navigationHook";
+import { ChangeFirebaseContext } from "../../Contexts/changeFirebaseContext";
 
 
 function getMonthName(date: Date): string {
@@ -265,6 +268,26 @@ export const ExpensesAndIncomePage = () => {
 
   const [monthSelector, setMonthSelector] = useState("Total")
 
+  //Custom hook getFirebaseData
+
+  const [isInitialized, setIsInitialized] = useState(false);
+  const [sessionStorageUserUID] = useState(() => sessionStorage.getItem('userUID'));
+  const { fetchAndSetUserData } = useUserFirebaseData(sessionStorageUserUID);
+  const { handleNavigation } = NavigationHook();
+
+  useEffect(() => {
+    if (!isInitialized) {
+      if (!sessionStorageUserUID) {
+        handleNavigation.navigateToLogin();
+      } else {
+        fetchAndSetUserData();
+      }
+      setIsInitialized(true);
+    }
+  }, [isInitialized, handleNavigation, sessionStorageUserUID, fetchAndSetUserData]);
+
+  //End Custom hook getFirebaseData
+
   //redux
   const incomesReduxData = useSelector((state: RootState) => state.incomes)
 
@@ -316,209 +339,240 @@ export const ExpensesAndIncomePage = () => {
 
   //Expenses or Incomes Conditional
   if (selectedOption === "Gastos") {
-    switch (monthSelector) {
-      case monthsSelectorNames.total:
-        return <>
-          <main className="page" id="expensesAndIncomePage">
-            <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
-
-            <GlobalAppNav></GlobalAppNav>
-
-            <div className="container">
-              <div className="main-div">
-                <select
-                  className="select-expenses-graphic"
-                  name=""
-                  id=""
-                  onChange={handleSelectChange}
-                >
-                  <option value="Gastos">Expenses</option>
-                  <option value="Ingresos">Income</option>
-                </select>
-                <div className="expense-graphic-top">
-                  <div className="expense-graphic expense-graphic-color1" >
-                    <ExpensesGraphic data={mappedExpensesGraphicData} />
-                  </div>
-                  <div className="piechart-graphic">
-                    <div className="pie-card-right">
-                      {/* Aqui va el select y los hints */}
-                      <PieCardMonthSelect monthsArray={expenseResults.map((expense) => expense.month)} handleMonthSelectorChannge={handleMonthSelectorChannge}></PieCardMonthSelect>
-                      <PieCardHints categoryArrayTotal={totalExpenseCategory.categoryMappedData} isMonthData={false} categoryArrayMonth={[]}></PieCardHints>
-                    </div>
-                    <ExpensesPieChart data={totalExpenseCategory} isMonthData={false} monthData={{ month: "", totalAmount: 0, categoryPercentages: [] }} />
-                  </div>
-                </div>
-              </div>
-
-              <div className="chart-expense-bottom">
-                <div className="left-div">
-                  <ExpensePlanner ExpensePlannerData={expensesReduxData.plannedExpenses} />
-                </div>
-                <div className="right-div">
-                  <ExpensesHistory ExpenseHistoryData={expensesReduxData.realExpenses} />
-                </div>
-              </div>
-            </div>
-
-            <div id="backgroundExpensesAndIncomes" className="backgroundPage">
-
-            </div>
-          </main >
-        </>
-
-      default:
-        if (foundMonthData) {
+    if (sessionStorageUserUID) {
+      switch (monthSelector) {
+        case monthsSelectorNames.total:
           return <>
-            <main className="page" id="expensesAndIncomePage">
-              <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
+            <ChangeFirebaseContext.Provider value={{
+              setIsInitialized: setIsInitialized,
+              fetchAndSetUserData: fetchAndSetUserData,
+              logedUserUID: sessionStorageUserUID
+            }}>
+              <main className="page" id="expensesAndIncomePage">
+                <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
 
-              <GlobalAppNav></GlobalAppNav>
+                <GlobalAppNav></GlobalAppNav>
 
-              <div className="container">
-                <div className="main-div">
-                  <select
-                    className="select-expenses-graphic"
-                    name=""
-                    id=""
-                    onChange={handleSelectChange}
-                  >
-                    <option value="Gastos">Expenses</option>
-                    <option value="Ingresos">Income</option>
-                  </select>
-                  <div className="expense-graphic-top">
-                    <div className="expense-graphic expense-graphic-color1" >
-                      <ExpensesGraphic data={mappedExpensesGraphicData} />
-                    </div>
-                    <div className="piechart-graphic">
-                      <div className="pie-card-right">
-                        {/* Aqui va el select y los hints */}
-                        <PieCardMonthSelect monthsArray={expenseResults.map((expense) => expense.month)} handleMonthSelectorChannge={handleMonthSelectorChannge}></PieCardMonthSelect>
-                        <PieCardHints categoryArrayTotal={totalExpenseCategory.categoryMappedData} isMonthData={true} categoryArrayMonth={foundMonthData.categoryPercentages}></PieCardHints>
+                <div className="container">
+                  <div className="main-div">
+                    <select
+                      className="select-expenses-graphic"
+                      name=""
+                      id=""
+                      onChange={handleSelectChange}
+                    >
+                      <option value="Gastos">Expenses</option>
+                      <option value="Ingresos">Income</option>
+                    </select>
+                    <div className="expense-graphic-top">
+                      <div className="expense-graphic expense-graphic-color1" >
+                        <ExpensesGraphic data={mappedExpensesGraphicData} />
                       </div>
-                      <ExpensesPieChart data={totalExpenseCategory} isMonthData={true} monthData={foundMonthData} />
+                      <div className="piechart-graphic">
+                        <div className="pie-card-right">
+                          {/* Aqui va el select y los hints */}
+                          <PieCardMonthSelect monthsArray={expenseResults.map((expense) => expense.month)} handleMonthSelectorChannge={handleMonthSelectorChannge}></PieCardMonthSelect>
+                          <PieCardHints categoryArrayTotal={totalExpenseCategory.categoryMappedData} isMonthData={false} categoryArrayMonth={[]}></PieCardHints>
+                        </div>
+                        <ExpensesPieChart data={totalExpenseCategory} isMonthData={false} monthData={{ month: "", totalAmount: 0, categoryPercentages: [] }} />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="chart-expense-bottom">
+                    <div className="left-div">
+                      <ExpensePlanner ExpensePlannerData={expensesReduxData.plannedExpenses} />
+                    </div>
+                    <div className="right-div">
+                      <ExpensesHistory ExpenseHistoryData={expensesReduxData.realExpenses} />
                     </div>
                   </div>
                 </div>
 
-                <div className="chart-expense-bottom">
-                  <div className="left-div">
-                    <ExpensePlanner ExpensePlannerData={expensesReduxData.plannedExpenses} />
-                  </div>
-                  <div className="right-div">
-                    <ExpensesHistory ExpenseHistoryData={expensesReduxData.realExpenses} />
-                  </div>
+                <div id="backgroundExpensesAndIncomes" className="backgroundPage">
+
                 </div>
-              </div>
-
-              <div id="backgroundExpensesAndIncomes" className="backgroundPage">
-
-              </div>
-            </main >
+              </main >
+            </ChangeFirebaseContext.Provider>
           </>
-        }
-        break;
+
+        default:
+          if (foundMonthData) {
+            return <>
+              <ChangeFirebaseContext.Provider value={{
+                setIsInitialized: setIsInitialized,
+                fetchAndSetUserData: fetchAndSetUserData,
+                logedUserUID: sessionStorageUserUID
+              }}>
+
+
+                <main className="page" id="expensesAndIncomePage">
+                  <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
+
+                  <GlobalAppNav></GlobalAppNav>
+
+                  <div className="container">
+                    <div className="main-div">
+                      <select
+                        className="select-expenses-graphic"
+                        name=""
+                        id=""
+                        onChange={handleSelectChange}
+                      >
+                        <option value="Gastos">Expenses</option>
+                        <option value="Ingresos">Income</option>
+                      </select>
+                      <div className="expense-graphic-top">
+                        <div className="expense-graphic expense-graphic-color1" >
+                          <ExpensesGraphic data={mappedExpensesGraphicData} />
+                        </div>
+                        <div className="piechart-graphic">
+                          <div className="pie-card-right">
+                            {/* Aqui va el select y los hints */}
+                            <PieCardMonthSelect monthsArray={expenseResults.map((expense) => expense.month)} handleMonthSelectorChannge={handleMonthSelectorChannge}></PieCardMonthSelect>
+                            <PieCardHints categoryArrayTotal={totalExpenseCategory.categoryMappedData} isMonthData={true} categoryArrayMonth={foundMonthData.categoryPercentages}></PieCardHints>
+                          </div>
+                          <ExpensesPieChart data={totalExpenseCategory} isMonthData={true} monthData={foundMonthData} />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="chart-expense-bottom">
+                      <div className="left-div">
+                        <ExpensePlanner ExpensePlannerData={expensesReduxData.plannedExpenses} />
+                      </div>
+                      <div className="right-div">
+                        <ExpensesHistory ExpenseHistoryData={expensesReduxData.realExpenses} />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="backgroundExpensesAndIncomes" className="backgroundPage">
+
+                  </div>
+                </main >
+              </ChangeFirebaseContext.Provider>
+            </>
+          }
+          break;
+      }
     }
-
   } else if (selectedOption === "Ingresos") {
-    switch (monthSelector) {
-      case monthsSelectorNames.total:
-        return <>
-          <main className="page" id="expensesAndIncomePage">
-            <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
-
-            <GlobalAppNav></GlobalAppNav>
-
-            <div className="container">
-              <div className="main-div">
-                <select
-                  className="select-expenses-graphic"
-                  name=""
-                  id=""
-                  onChange={handleSelectChange}
-                >
-                  <option value="Gastos">Expenses</option>
-                  <option value="Ingresos">Income</option>
-                </select>
-                <div className="expense-graphic-top">
-                  <div className="expense-graphic expense-graphic-color-2">
-                    <IncomesGraphic data={mappedIncomeResults} />
-                  </div>
-                  <div className="piechart-graphic">
-                    <div className="pie-card-right">
-                      {/* Aqui va el select y los hints */}
-                      <PieCardMonthSelect monthsArray={incomeResults.map((income) => income.month)} handleMonthSelectorChannge={handleMonthSelectorChannge}></PieCardMonthSelect>
-                      <PieCardHints categoryArrayTotal={totalIncomesCategory.categoryMappedData} isMonthData={false} categoryArrayMonth={[]}></PieCardHints>
-                    </div>
-                    <IncomesPieChart data={totalIncomesCategory} isMonthData={false} monthData={{ month: "", totalAmount: 0, entryPercentages: [] }} />
-                  </div>
-                </div>
-              </div>
-
-              <div className="chart-expense-bottom">
-                <div className="left-div">
-                  <ExpensePlanner ExpensePlannerData={expensesReduxData.plannedExpenses} />
-                </div>
-                <div className="right-div">
-                  <IncomeHistory IncomeHistoryData={incomesReduxData.realIncomes} />
-                </div>
-              </div>
-            </div>
-
-            <div id="backgroundExpensesAndIncomes" className="backgroundPage">
-
-            </div>
-          </main>
-        </>
-      default:
-        if (foundIncomeMonthData) {
+    if (sessionStorageUserUID) {
+      switch (monthSelector) {
+        case monthsSelectorNames.total:
           return <>
-            <main className="page" id="expensesAndIncomePage">
-              <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
+            <ChangeFirebaseContext.Provider value={{
+              setIsInitialized: setIsInitialized,
+              fetchAndSetUserData: fetchAndSetUserData,
+              logedUserUID: sessionStorageUserUID
+            }}>
 
-              <GlobalAppNav></GlobalAppNav>
 
-              <div className="container">
-                <div className="main-div">
-                  <select
-                    className="select-expenses-graphic"
-                    name=""
-                    id=""
-                    onChange={handleSelectChange}
-                  >
-                    <option value="Gastos">Expenses</option>
-                    <option value="Ingresos">Income</option>
-                  </select>
-                  <div className="expense-graphic-top">
-                    <div className="expense-graphic expense-graphic-color-2">
-                      <IncomesGraphic data={mappedIncomeResults} />
-                    </div>
-                    <div className="piechart-graphic">
-                      <div className="pie-card-right">
-                        {/* Aqui va el select y los hints */}
-                        <PieCardMonthSelect monthsArray={incomeResults.map((income) => income.month)} handleMonthSelectorChannge={handleMonthSelectorChannge}></PieCardMonthSelect>
-                        <PieCardHints categoryArrayTotal={totalIncomesCategory.categoryMappedData} isMonthData={true} categoryArrayMonth={foundIncomeMonthData.entryPercentages}></PieCardHints>
+              <main className="page" id="expensesAndIncomePage">
+                <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
+
+                <GlobalAppNav></GlobalAppNav>
+
+                <div className="container">
+                  <div className="main-div">
+                    <select
+                      className="select-expenses-graphic"
+                      name=""
+                      id=""
+                      onChange={handleSelectChange}
+                    >
+                      <option value="Gastos">Expenses</option>
+                      <option value="Ingresos">Income</option>
+                    </select>
+                    <div className="expense-graphic-top">
+                      <div className="expense-graphic expense-graphic-color-2">
+                        <IncomesGraphic data={mappedIncomeResults} />
                       </div>
-                      <IncomesPieChart data={totalIncomesCategory} isMonthData={true} monthData={foundIncomeMonthData} />
+                      <div className="piechart-graphic">
+                        <div className="pie-card-right">
+                          {/* Aqui va el select y los hints */}
+                          <PieCardMonthSelect monthsArray={incomeResults.map((income) => income.month)} handleMonthSelectorChannge={handleMonthSelectorChannge}></PieCardMonthSelect>
+                          <PieCardHints categoryArrayTotal={totalIncomesCategory.categoryMappedData} isMonthData={false} categoryArrayMonth={[]}></PieCardHints>
+                        </div>
+                        <IncomesPieChart data={totalIncomesCategory} isMonthData={false} monthData={{ month: "", totalAmount: 0, entryPercentages: [] }} />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="chart-expense-bottom">
+                    <div className="left-div">
+                      <ExpensePlanner ExpensePlannerData={expensesReduxData.plannedExpenses} />
+                    </div>
+                    <div className="right-div">
+                      <IncomeHistory IncomeHistoryData={incomesReduxData.realIncomes} />
                     </div>
                   </div>
                 </div>
 
-                <div className="chart-expense-bottom">
-                  <div className="left-div">
-                    <ExpensePlanner ExpensePlannerData={expensesReduxData.plannedExpenses} />
-                  </div>
-                  <div className="right-div">
-                    <IncomeHistory IncomeHistoryData={incomesReduxData.realIncomes} />
-                  </div>
+                <div id="backgroundExpensesAndIncomes" className="backgroundPage">
+
                 </div>
-              </div>
-
-              <div id="backgroundExpensesAndIncomes" className="backgroundPage">
-
-              </div>
-            </main>
+              </main>
+            </ChangeFirebaseContext.Provider>
           </>
-        }
+        default:
+          if (foundIncomeMonthData) {
+            return <>
+              <ChangeFirebaseContext.Provider value={{
+                setIsInitialized: setIsInitialized,
+                fetchAndSetUserData: fetchAndSetUserData,
+                logedUserUID: sessionStorageUserUID
+              }}>
+                <main className="page" id="expensesAndIncomePage">
+                  <h1 id="expensesAndIncomePageTitle">Expenses & Income</h1>
+
+                  <GlobalAppNav></GlobalAppNav>
+
+                  <div className="container">
+                    <div className="main-div">
+                      <select
+                        className="select-expenses-graphic"
+                        name=""
+                        id=""
+                        onChange={handleSelectChange}
+                      >
+                        <option value="Gastos">Expenses</option>
+                        <option value="Ingresos">Income</option>
+                      </select>
+                      <div className="expense-graphic-top">
+                        <div className="expense-graphic expense-graphic-color-2">
+                          <IncomesGraphic data={mappedIncomeResults} />
+                        </div>
+                        <div className="piechart-graphic">
+                          <div className="pie-card-right">
+                            {/* Aqui va el select y los hints */}
+                            <PieCardMonthSelect monthsArray={incomeResults.map((income) => income.month)} handleMonthSelectorChannge={handleMonthSelectorChannge}></PieCardMonthSelect>
+                            <PieCardHints categoryArrayTotal={totalIncomesCategory.categoryMappedData} isMonthData={true} categoryArrayMonth={foundIncomeMonthData.entryPercentages}></PieCardHints>
+                          </div>
+                          <IncomesPieChart data={totalIncomesCategory} isMonthData={true} monthData={foundIncomeMonthData} />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="chart-expense-bottom">
+                      <div className="left-div">
+                        <ExpensePlanner ExpensePlannerData={expensesReduxData.plannedExpenses} />
+                      </div>
+                      <div className="right-div">
+                        <IncomeHistory IncomeHistoryData={incomesReduxData.realIncomes} />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="backgroundExpensesAndIncomes" className="backgroundPage">
+
+                  </div>
+                </main>
+              </ChangeFirebaseContext.Provider>
+            </>
+          }
+      }
     }
   }
 }

@@ -45,7 +45,7 @@ interface realExpenseFirebaseType {
     expenseColor: string
 }
 
-interface plannedExpenseFirebaseType {
+export interface plannedExpenseFirebaseType {
     expenseCategory: expenseNameCategories,
     expenseSite: string,
     expenseDate: Timestamp,

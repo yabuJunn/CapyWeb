@@ -7,7 +7,7 @@ import { exchangeNameEnum, exchangeType, missionType, saverLevelsNames, summaryT
 import { expenseNameCategories } from "../../store/expenses/types";
 import { incomeNameCategories, incomeNameEntries } from "../../store/incomes/types";
 import { cardNamesEnum } from "../../store/userData/types";
-import { savingFirebaseType, userDataFromFirebaseType } from "../../types/firebaseUserTypes";
+import { plannedExpenseFirebaseType, savingFirebaseType, userDataFromFirebaseType } from "../../types/firebaseUserTypes";
 import { savingEnum } from "../../store/savings/types";
 import { getCurrentTimestamp } from "../../utils/timestampConvertion";
 
@@ -413,5 +413,30 @@ export const DeleteSaving = async (userUID: string, savingNameToDelete: string, 
         fetchAndSetUserData();
     } catch (error) {
         console.error("Error al eliminar el ahorro:", error);
+    }
+}
+
+export const CreatePlannedExpense = async (userUID: string, newExpenseCategory: expenseNameCategories, newExpenseSite: string, newExpenseAmount: number, newExpenseEntrie: incomeNameEntries, allCurrentPlannedExpenses: Array<plannedExpenseFirebaseType>, fetchAndSetUserData: () => void) => {
+    const docRef = doc(db, "realUsers", userUID);
+
+    const newPlannedExpense: plannedExpenseFirebaseType = {
+        expenseCategory: newExpenseCategory,
+        expenseSite: newExpenseSite,
+        expenseDate: getCurrentTimestamp(),
+        expenseAmount: newExpenseAmount,
+        expenseEntrie: newExpenseEntrie
+    }
+
+    const newPlannedExpensesArray: Array<plannedExpenseFirebaseType> = [...allCurrentPlannedExpenses, newPlannedExpense]
+
+    try {
+        await updateDoc(docRef, {
+            plannedExpenses: newPlannedExpensesArray
+        });
+
+        console.log("Se agrego el gasto planeado exitosamente");
+        fetchAndSetUserData();
+    } catch (error) {
+        console.error("Error al agregar el gasto planeado:", error);
     }
 }
